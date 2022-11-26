@@ -1,6 +1,6 @@
-#+TITLE:DSC 205/CSC 482 Spring 2022 Syllabus
+#+TITLE:DSC 205/CSC 482 Spring 2023 Syllabus
 #+AUTHOR: Marcus Birkenkrahe
-#+SUBTITLE: Introduction to Advanced Data Science (DSC 205/CSC 482) Spring 2022
+#+SUBTITLE: Introduction to Advanced Data Science (DSC 205/CSC 482) Spring 2023
 #+options: toc:nil
 #+startup: overview
 * General Course Information

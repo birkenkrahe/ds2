@@ -5,6 +5,8 @@
 #+startup: overview indent
 #+attr_html: :width 500px
 [[./img/cover.jpg]]
+Photo by [[https://unsplash.com/@vimarovi][Victor Rodriguez on Unsplash]]
+
 * What's in this repo?
 
   * Repository for DSC 205 - Introduction to Advanced Data Science
