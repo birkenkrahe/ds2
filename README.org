@@ -1,4 +1,4 @@
-#+TITLE:Introduction to Advanced Data Science
+#+TITLE: Data science II
 #+AUTHOR:Marcus Birkenkrahe
 #+SUBTITLE: DSC 205 @ Lyon College Spring 2022
 #+OPTIONS: toc:nil num:nil
