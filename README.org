@@ -4,7 +4,7 @@
 #+OPTIONS: toc:nil num:nil
 #+startup: overview indent
 #+attr_html: :width 500px
-[[../img/cover.jpg]]
+[[./img/cover.jpg]]
 * What's in this repo?
 
   * Repository for DSC 205 - Introduction to Advanced Data Science
