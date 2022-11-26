@@ -1,0 +1,84 @@
+#+TITLE:Introduction to Advanced Data Science
+#+AUTHOR:Marcus Birkenkrahe
+#+SUBTITLE: DSC 205 @ Lyon College Spring 2022
+#+OPTIONS: toc:nil num:nil
+#+startup: overview indent
+#+attr_html: :width 500px
+[[../img/cover.jpg]]
+* What's in this repo?
+
+  * Repository for DSC 205 - Introduction to Advanced Data Science
+  * Emacs Org-mode files are rendered as Markdown
+  * For a TOC, open the bullet point list menu
+  * If you need native Markdown, create an ~*.md~ file yourself
+
+** [[https://github.com/birkenkrahe/ds205/blob/main/schedule.org][Schedule]] of the course (up to date)
+** [[https://github.com/birkenkrahe/ds205/blob/main/agenda.org][Agenda]] for every session
+** [[https://github.com/birkenkrahe/ds205/blob/main/notes.org][Notes]] after sessions
+** [[https://github.com/birkenkrahe/ds205/blob/main/diary.org][Course diary]] for further reading
+** [[https://github.com/birkenkrahe/ds205/discussions][Discussion forums]] for sharing and discussion
+** [[https://github.com/birkenkrahe/ds205/blob/main/FAQ.org][Frequently Asked Questions (FAQ)]]
+** [[https://github.com/birkenkrahe/ds205/blob/main/syllabus.org][Syllabus]] for a course overview
+* How to use GitHub
+
+  * Register and get added as a collaborator to this repo
+  * Complete the GitHub starter course
+  * Fork this repo to your own GitHub account
+  * File access: on desktop/laptop, open ~.org~ files
+  * Mobile file access on the mobile GitHub app (you need ~.md~ files,
+    which you might have to create yourself)
+  * Check regularly (or setup notification) for changes
+  * Commit changes to your fork
+
+* History
+
+  First offered @Lyon: Spring 2022 (Undergrad). To be offered:
+  Spring 2024, 2026, 2028.
+
+* Credo
+
+  | "Getting it right is crucial when people's lives are affected." -Jonathan Steinhart |
+
+  #+begin_quote
+  "It is clear from the rising interest in statistics over calculus
+  that 'data wrangling' is a growing field. But what happens when
+  people just feed giant piles of data into fancy programs that those
+  same people don't intimately understand? One possibility is that
+  they generate interesting-looking but meaningless or incorrect
+  results. For example, a recent study [...] showed that one-fifth of
+  published genetics papers have errors due to improper spreadsheet
+  usage. Getting it right is crucial when people's lives are
+  affected."[fn:2] (Steinhart, 2019).
+  #+end_quote
+
+* References
+
+  How Many Scientists Fabricate and Falsify Research? A Systematic
+  Review and Meta-Analysis of Survey Data Daniele Fanelli PLoS
+  One. 2009; 4(5): e5738. Published online 2009
+  May 29. doi:10.1371/journal.pone.0005738
+
+  Steinhart (2019). The Secret Life of Programs. NoStarch Press. [[https://nostarch.com/foundationsofcomp][URL:
+  nostarch.com.]]
+
+  "[[https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7][Gene Name Errors Are Widespread in the Scientific Literature]]" by
+  Mark Ziemann, Yotam Eren, and Assam El-Osta, Genome Biol 17, 177
+  (2016). [[https://doi.org/10.1186/s13059-016-1044-7][doi:10.1186/s13059-016-1044-7]]
+
+* Footnotes
+
+[fn:2]A timely comment! The problem could be systemic:
+#+begin_quote
+"The image of scientists as objective seekers of truth is periodically
+jeopardized by the discovery of a major scientific fraud. [...]
+Scientific results can be distorted in several ways, which can often
+be very subtle and/or elude researchers' conscious control. Data, for
+example, can be “cooked” (a process which mathematician Charles
+Babbage in 1830 defined as “an art of various forms, the object of
+which is to give to ordinary observations the appearance and character
+of those of the highest degree of accuracy”[12]); it can be “mined” to
+find a statistically significant relationship that is then presented
+as the original target of the study; it can be selectively published
+only when it supports one's expectations; it can conceal conflicts of
+interest, etc." (Fanelli, 2009).
+#+end_quote

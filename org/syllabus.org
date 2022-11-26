@@ -1,0 +1,369 @@
+#+TITLE:DSC 205/CSC 482 Spring 2022 Syllabus
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE: Introduction to Advanced Data Science (DSC 205/CSC 482) Spring 2022
+#+options: toc:nil
+#+startup: overview
+* General Course Information
+
+  * Meeting Times: Monday/Wednesday/Friday, 15:00-15:50 hrs
+  * Meeting place: Lyon Building Computer Lab 104
+  * Professor: Marcus Birkenkrahe
+  * Office: Derby Science Building 210
+  * Phone: (870) 307-7254 (Office) / (501 422-4725 (Private)
+  * Office Hours: Mon/Wed/Fri 12:00-12:30 PM; Tue/Thu 2.30-3.00 PM
+  * Textbook: ~NA~[fn:1]
+        
+** Objectives
+
+   For those who took DSC 101 in fall 2021 (data science tools and
+   methods), this course continues the journey into data science using
+   the functional programming language R. The focus of this advanced
+   introduction is data exploration, with excursions into data
+   wrangling, programming, and modeling using R. However, this is not
+   an R course, but a course on exploring data. In contrast to DSC
+   101, we will be using both the "Tidyverse" methodology, and IDEs
+   (Rstudio, Emacs). You will practice using classroom assignments and
+   weekly programming assignments in DataCamp[fn:2]. See prerequisites
+   below.
+
+   #+Attr_Html: :Width 600px
+   [[./img/datacamp.png]]
+
+   /Image: All DataCamp assignments Jan 31-May 2, 2022 ([[https://app.datacamp.com/groups/lyon-college-data-science-spring-2022/assignments][Source]])/
+
+** Student learning outcomes
+
+   Students who complete dsc 205, "advanced introduction to data
+   science", will be able to:
+
+   * Import data into R, store them, and transform them for analysis
+   * Visualize data as part of advanced explorative data analysis
+   * Understand basic predictive modeling strategies and methods
+   * Master statistical programming in R using the "Tidyverse" package
+   * Master the infrastructure for advanced statistical computing
+   * Know how to effectively present assignment results
+
+** Course requirements
+
+   To join this course without having completed DSC 101, complete the
+   DataCamp courses "Datascience for Everyone", and "Introduction to
+   R", and pass the entry quiz in week 1 of the course (with > 50%).
+   
+   Some knowledge of, and experience with computers is useful but not
+   critical. Curiosity and discipline are essential. You will gain
+   data literacy skills by taking this course. The course will prepare
+   you for further studies in computer and data science, or in other
+   disciplines that use modern computing, i.e. every discipline, from
+   accounting to zoology).
+
+** GRADING SYSTEM
+
+   | WHEN[fn:3]    | DESCRIPTION          | IMPACT |
+   |---------------+----------------------+--------|
+   | EVERY SESSION | CLASS ASSIGNMENTS    |    10% |
+   | BI-/WEEKLY    | DATACAMP ASSIGNMENTS |    30% |
+   | MONTHLY       | TESTS                |    30% |
+   | END OF TERM   | FINAL EXAM           |    30% |
+
+   You should be able to see your current grade at any time using the
+   Schoology gradebook for the course.
+
+*** GRADING TABLE
+
+    THIS TABLE IS USED TO CONVERT COMPLETION RATES INTO LETTER
+    GRADES. FOR THE MIDTERM RESULTS, LETTER GRADES STILL CARRY SIGNS,
+    WHILE FOR THE TERM RESULTS, ONLY STRAIGHT LETTERS ARE GIVEN (BY
+    ROUNDING UP).
+
+    |--------+-----------------+---------------|
+    |    *%* | *MIDTERM GRADE* | *FINAL GRADE* |
+    |--------+-----------------+---------------|
+    | 100-98 | A+              |               |
+    |  97-96 | A               | A (PASSED -   |
+    |  95-90 | A-              | VERY GOOD)    |
+    |--------+-----------------+---------------|
+    |  89-86 | B+              |               |
+    |  85-80 | B               | B (PASSED -   |
+    |  79-76 | B-              | GOOD)         |
+    |--------+-----------------+---------------|
+    |  75-70 | C+              |               |
+    |  69-66 | C               | C (PASSED -   |
+    |  65-60 | C-              | SATISFACTORY) |
+    |--------+-----------------+---------------|
+    |  59-56 | D+              |               |
+    |  55-50 | D               | D (PASSED)    |
+    |--------+-----------------+---------------|
+    |   49-0 | F               | F (FAILED)    |
+    |--------+-----------------+---------------|
+
+*** CLASS ASSIGNMENTS (10%)
+
+    - COMPLETE SMALL ASSIGNMENTS IN CLASS (PARTICIPATION)
+    - COMPLETE ASSIGNMENTS OUTSIDE OF CLASS (HOMEWORK)
+    - BE READY TO PRESENT YOUR RESULTS AT ANY TIME
+
+*** WEEKLY DATACAMP ASSIGNMENTS (30%)
+
+    - COMPLETE WEEKLY CHAPTERS OF DATACAMP ASSIGNMENTS
+    - SPEND 30-45 MIN PER WEEK ON AN ASSIGNMENT
+    - BRING QUESTIONS AND COMMENTS TO CLASS FOR DISCUSSION
+    - Late DataCamp submissions will be accepted but you'll lose 1
+      point for every day that your submission is late.
+
+*** MONTHLY TESTS (30%)
+
+    - COMPLETE 45 MIN ONLINE TEST IN CLASS
+    - RECALL LAST MONTH OF LECTURES AND LABS
+    - READ RELEVANT TEXTBOOK CHAPTERS
+
+*** FINAL EXAM (30%)
+
+    - 120 MIN MULTIPLE CHOICE EXAM
+    - ONLINE IN SCHOOLOGY IN THE CLASSROOM
+    - SOURCED FROM THE WEEKLY QUIZ QUESTIONS
+
+* STANDARD POLICIES[fn:4]
+** HONOR CODE
+
+   ALL GRADED WORK IN THIS CLASS IS TO BE PLEDGED IN ACCORDANCE WITH
+   THE LYON COLLEGE HONOR CODE. THE USE OF A PHONE FOR ANY REASON
+   DURING THE COURSE OF AN EXAM IS CONSIDERED AN HONOR CODE
+   VIOLATION.
+
+** CLASS ATTENDANCE POLICY
+
+   STUDENTS ARE EXPECTED TO ATTEND ALL CLASS PERIODS FOR THE COURSES
+   IN WHICH THEY ARE ENROLLED. THEY ARE RESPONSIBLE FOR CONFERRING
+   WITH INDIVIDUAL PROFESSORS REGARDING ANY MISSED
+   ASSIGNMENTS. FACULTY MEMBERS ARE TO NOTIFY THE REGISTRAR WHEN A
+   STUDENT MISSES THE EQUIVALENT OF ONE, TWO, THREE, AND FOUR WEEKS
+   OF CLASS PERIODS IN A SINGLE COURSE. UNDER THIS POLICY, THERE IS
+   NO DISTINCTION BETWEEN “EXCUSED” AND “UNEXCUSED” ABSENCES, EXCEPT
+   THAT A STUDENT MAY MAKE UP WORK MISSED DURING AN EXCUSED
+   ABSENCE. A REMINDER OF THE COLLEGE’S ATTENDANCE POLICY WILL BE
+   ISSUED TO THE STUDENT AT ONE WEEK, A SECOND REMINDER AT TWO WEEKS,
+   A WARNING AT THREE WEEKS, AND NOTIFICATION OF ADMINISTRATIVE
+   WITHDRAWAL AND THE ASSIGNING OF AN “F” GRADE AT FOUR
+   WEEKS. STUDENTS WHO ARE ADMINISTRATIVELY WITHDRAWN FROM MORE THAN
+   ONE COURSE WILL BE PLACED ON PROBATION OR SUSPENDED.
+
+** DISABILITIES
+
+   STUDENTS SEEKING REASONABLE ACCOMMODATIONS BASED ON DOCUMENTED
+   LEARNING DISABILITIES MUST CONTACT INTERIM DIRECTOR OF ACADEMIC
+   SUPPORT COURTNEY BEAL IN THE MORROW ACADEMIC CENTER AT (870)
+   307-7016 OR AT COURTNEY.BEAL@LYON.EDU.
+
+** HARASSMENT, DISCRIMINATION, AND SEXUAL MISCONDUCT
+
+   TITLE IX AND LYON’S POLICY PROHIBIT HARASSMENT, DISCRIMINATION AND
+   SEXUAL MISCONDUCT. LYON ENCOURAGES ANYONE EXPERIENCING HARASSMENT,
+   DISCRIMINATION OR SEXUAL MISCONDUCT TO TALK TO DANELL HETRICK,
+   TITLE IX COORDINATOR AND INTERIM VICE-PRESIDENT FOR STUDENT LIFE,
+   OR SH’NITA MITCHELL, TITLE IX INVESTIGATOR AND ASSOCIATE DEAN FOR
+   STUDENTS, ABOUT WHAT HAPPENED SO THEY CAN GET THE SUPPORT THEY NEED
+   AND LYON CAN RESPOND APPROPRIATELY.  LYON IS LEGALLY OBLIGATED TO
+   RESPOND TO REPORTS OF SEXUAL MISCONDUCT, AND THEREFORE WE CANNOT
+   GUARANTEE THE CONFIDENTIALITY OF A REPORT, UNLESS MADE TO A
+   CONFIDENTIAL RESOURCE (CHAPLAIN, COUNSELOR, OR NURSE). AS A FACULTY
+   MEMBER, I AM REQUIRED TO REPORT POSSIBLE TITLE IX VIOLATIONS AND
+   MUST PROVIDE OUR TITLE IX COORDINATOR WITH ALL RELEVANT DETAILS.  I
+   CANNOT, THEREFORE, GUARANTEE CONFIDENTIALITY.
+
+** COLLEGE-WIDE COVID-19 POLICIES FOR SPRING, 2022
+
+   - MASKS ARE MANDATED WHEN INDOORS IN ALL CAMPUS BUILDINGS,
+     INCLUDING ACADEMIC BUILDINGS, EDWARDS COMMONS, BECKNELL GYMNASIUM
+     AND RESIDENCE HALLS. REFER TO THE FULL CAMPUS POLICY ONLINE FOR
+     MORE DETAILS.
+   - PARTICIPATION IN COMMUNITY SURVEILLANCE TESTING IS MANDATORY.
+   - VACCINES ARE STRONGLY ENCOURAGED FOR ALL FACULTY, STAFF, AND
+     STUDENTS. VACCINES ARE NOT MANDATED FOR LYON COLLEGE COMMUNITY
+     MEMBERS.
+
+     #+BEGIN_QUOTE
+   DETAILS SPECIFIC TO THIS COURSE MAY BE FOUND IN THE SUBSEQUENT
+   PAGES OF THIS SYLLABUS. THOSE DETAILS WILL INCLUDE AT LEAST THE
+   FOLLOWING:
+   - A DESCRIPTION OF THE COURSE CONSISTENT WITH THE LYON COLLEGE CATALOG.
+   - A LIST OF STUDENT LEARNING OUTCOMES FOR THE COURSE.
+   - A SUMMARY OF ALL COURSE REQUIREMENTS.
+   - AN EXPLANATION OF THE GRADING SYSTEM TO BE USED IN THE COURSE.
+   - ANY COURSE-SPECIFIC ATTENDANCE POLICIES THAT GO BEYOND THE COLLEGE POLICY.
+   - DETAILS ABOUT WHAT CONSTITUTES ACCEPTABLE AND UNACCEPTABLE
+     STUDENT COLLABORATION ON GRADED WORK.
+     #+END_QUOTE
+
+* COURSE SPECIFIC INFORMATION
+** ASSIGNMENTS AND HONOR CODE[fn:5]
+
+   THERE WILL BE NUMEROUS ASSIGNMENTS DURING THE SEMESTER - E.G.
+   PROGRAMMING, LESSONS, TESTS, AND SPRINT REVIEWS. THEY ARE DUE AT
+   THE BEGINNING OF THE CLASS PERIOD ON THE DUE DATE. ONCE CLASS
+   BEGINS, THE ASSIGMENT WILL BE CONSIDERED ONE DAY LATE IF IT HAS NOT
+   BEEN TURNED IN.  LATE PROGRAMS WILL NOT BE ACCEPTED WITHOUT AN
+   EXTENSION. EXTENSIONS WILL *NOT* BE GRANTED FOR REASONS SUCH AS:
+
+   * YOU COULD NOT GET TO A COMPUTER
+   * YOU COULD NOT GET A COMPUTER TO DO WHAT YOU WANTED IT TO DO
+   * THE NETWORK WAS DOWN
+   * THE PRINTER WAS OUT OF PAPER OR TONER
+   * YOU ERASED YOUR FILES, LOST YOUR HOMEWORK, OR MISPLACED YOUR
+     FLASH DRIVE
+   * YOU HAD OTHER COURSEWORK OR FAMILY COMMITMENTS THAT INTERFERED
+     WITH YOUR WORK IN THIS COURSE
+
+   PUT “PLEDGED” AND A NOTE OF ANY COLLABORATION IN THE COMMENTS OF
+   ANY PROGRAM YOU TURN IN. PROGRAMMING ASSIGNMENTS ARE INDIVIDUAL
+   EFFORTS, BUT YOU MAY SEEK ASSISTANCE FROM ANOTHER STUDENT OR THE
+   COURSE INSTRUCTOR.  YOU MAY NOT COPY SOMEONE ELSE’S SOLUTION. IF
+   YOU ARE HAVING TROUBLE FINISHING AN ASSIGNMENT, IT IS FAR BETTER TO
+   DO YOUR OWN WORK AND RECEIVE A LOW SCORE THAN TO GO THROUGH AN
+   HONOR TRIAL AND SUFFER THE PENALTIES THAT MAY BE INVOLVED.
+
+   WHAT IS CHEATING ON AN ASSIGNMENT? HERE ARE A FEW EXAMPLES:
+
+   * HAVING SOMEONE ELSE WRITE YOUR ASSIGNMENT, IN WHOLE OR IN PART
+   * COPYING AN ASSIGNMENT SOMEONE ELSE WROTE, IN WHOLE OR IN PART
+   * COLLABORATING WITH SOMEONE ELSE TO THE EXTENT THAT YOUR
+     SUBMISSIONS ARE IDENTIFIABLY VERY SIMILAR, IN WHOLE OR IN PART
+   * TURNING IN A SUBMISSION WITH THE WRONG NAME ON IT
+
+   WHAT IS NOT CHEATING?  HERE ARE SOME EXAMPLES:
+
+   * TALKING TO SOMEONE IN GENERAL TERMS ABOUT CONCEPTS INVOLVED IN AN
+     ASSIGNMENT
+   * ASKING SOMEONE FOR HELP WITH A SPECIFIC ERROR MESSAGE OR BUG IN
+     YOUR PROGRAM
+   * GETTING HELP WITH THE SPECIFICS OF LANGUAGE SYNTAX OR CITATION
+     STYLE
+   * UTILIZING INFORMATION GIVEN TO YOU BY THE INSTRUCTOR
+
+   ANY ASSISTANCE MUST BE CLEARLY EXPLAINED IN THE COMMENTS AT THE
+   BEGINNING OF YOUR SUBMISSION.  IF YOU HAVE ANY QUESTIONS ABOUT
+   THIS, PLEASE ASK OR REVIEW THE POLICIES RELATING TO THE HONOR CODE.
+
+   ABSENCES ON DAYS OF EXAMS:
+
+   TEST “MAKE-UPS” WILL ONLY BE ALLOWED IF ARRANGEMENTS HAVE BEEN
+   MADE PRIOR TO THE SCHEDULED TIME.  IF YOU ARE SICK THE DAY OF THE
+   TEST, PLEASE E-MAIL ME OR LEAVE A MESSAGE ON MY PHONE BEFORE THE
+   SCHEDULED TIME, AND WE CAN MAKE ARRANGEMENTS WHEN YOU RETURN.
+
+** Important dates
+
+   | DATE        | DAY              | DESCRIPTION                                  |
+   |-------------+------------------+----------------------------------------------|
+   | 4 January   | Tuesday          | Last day to deposit for 2022 spring semester |
+   | 11 January  | Tuesday          | Classes begin                                |
+   | 17 January  | Monday           | MLK Day - no classes                         |
+   | 18 January  | Tuesday          | Last day to add a class                      |
+   | 25 January  | Tuesday          | Last day to drop without record of a course  |
+   |             |                  | Last day to declare a course pass-fail       |
+   |             |                  | Deadline for removal of incompletes          |
+   | 19-27 March | Saturday-Sunday  | Spring break                                 |
+   | 15-18 April | Friday-Monday    | Easter break                                 |
+   | 4 May       | Wednesday        | Last day of classes                          |
+   | 5-10 May    | Thursday-Tuesday | Final exams                                  |
+   | 10 May      | Tuesday          | Senior grades due by noon                    |
+   | 18 May      | Wednesday        | All grades due by noon                       |
+
+** SCHEDULE AND SESSION CONTENT
+
+   Changes are possible - an [[https://github.com/birkenkrahe/ds205/blob/main/schedule.org][updated schedule is available on GitHub]].
+
+  | NO | WEEK | DATE       | LECTURE/LAB[fn:7]          | ASSIGNMENT[fn:8]                                          | TESTS[fn:9] |
+  |----+------+------------+----------------------------+-----------------------------------------------------------+-------------|
+  |  1 |    1 | Wed-12-Jan | Introduction               | GitHub Hello World                                        | Entry Quiz  |
+  |  2 |      | Fri-14-Jan |                            |                                                           | Quiz 1      |
+  |----+------+------------+----------------------------+-----------------------------------------------------------+-------------|
+  |  3 |    2 | Wed-19-Jan | Emacs IDE                  | Emacs Tutorial                                            |             |
+  |  4 |      | Fri-21-Jan |                            |                                                           | Quiz 2      |
+  |----+------+------------+----------------------------+-----------------------------------------------------------+-------------|
+  |  5 |    3 | Mon-24-Jan | Writing your own functions | Intermediate R: Conditionals and Control Flow             |             |
+  |  6 |      | Wed-26-Jan |                            |                                                           |             |
+  |  7 |      | Fri-28-Jan |                            |                                                           | Quiz 3      |
+  |----+------+------------+----------------------------+-----------------------------------------------------------+-------------|
+  |  8 |    4 | Mon-31-Jan | If, Else, Ifelse           | Intermediate R: Loops                                     |             |
+  |  9 |      | Wed-02-Feb |                            |                                                           |             |
+  | 10 |      | Fri-04-Feb |                            |                                                           | Test 1      |
+  |----+------+------------+----------------------------+-----------------------------------------------------------+-------------|
+  | 11 |    5 | Mon-07-Feb | 'For' loops                | Intermediate R: Functions                                 |             |
+  | 12 |      | Wed-09-Feb |                            |                                                           |             |
+  | 13 |      | Fri-11-Feb |                            |                                                           | Quiz 4      |
+  |----+------+------------+----------------------------+-----------------------------------------------------------+-------------|
+  | 14 |    6 | Mon-14-Feb | The ~tapply~ function      | Intermediate R: apply family                              |             |
+  | 15 |      | Wed-16-Feb |                            |                                                           |             |
+  | 16 |      | Fri-18-Feb |                            |                                                           | Quiz 5      |
+  |----+------+------------+----------------------------+-----------------------------------------------------------+-------------|
+  | 17 |    7 | Mon-21-Feb | Time and date              | Intermediate R: Utilities                                 |             |
+  | 18 |      | Wed-23-Feb |                            |                                                           |             |
+  | 19 |      | Fri-25-Feb |                            |                                                           | Quiz 6      |
+  |----+------+------------+----------------------------+-----------------------------------------------------------+-------------|
+  | 20 |    8 | Mon-28-Feb | Gapminder and ~dplyr~      | Introduction to the Tidyverse: Data Wrangling             |             |
+  | 21 |      | Wed-02-Mar |                            |                                                           |             |
+  | 22 |      | Fri-04-Mar |                            |                                                           | Test 2      |
+  |----+------+------------+----------------------------+-----------------------------------------------------------+-------------|
+  | 23 |    9 | Mon-07-Mar | Graphics with ~ggplot2~    | Introduction to the Tidyverse: Data Visualization         |             |
+  | 24 |      | Wed-09-Mar |                            |                                                           |             |
+  | 25 |      | Fri-11-Mar |                            |                                                           | Quiz 7      |
+  |----+------+------------+----------------------------+-----------------------------------------------------------+-------------|
+  | 26 |   10 | Mon-14-Mar | Row operations             | Introduction to the Tidyverse: Grouping and Summarizing   |             |
+  | 27 |      | Wed-16-Mar |                            |                                                           |             |
+  | 28 |      | Fri-18-Mar |                            |                                                           | Quiz 8      |
+  |----+------+------------+----------------------------+-----------------------------------------------------------+-------------|
+  | 29 |   11 | Mon-28-Mar | Different types of plots   | Introduction to the Tidyverse: Types of Visualizations    |             |
+  | 30 |      | Wed-30-Mar |                            |                                                           |             |
+  | 31 |      | Fri-01-Apr |                            |                                                           | Quiz 9      |
+  |----+------+------------+----------------------------+-----------------------------------------------------------+-------------|
+  | 32 |   12 | Mon-04-Apr | Text processing            | Exploratory Data Analysis in R: Categorical Data          |             |
+  | 33 |      | Wed-06-Apr |                            |                                                           |             |
+  | 34 |      | Fri-08-Apr |                            |                                                           | Test 3      |
+  |----+------+------------+----------------------------+-----------------------------------------------------------+-------------|
+  | 35 |   13 | Mon-11-Apr | Linear regression          | Exploratory Data Analysis in R: Numerical Data            |             |
+  | 36 |      | Wed-13-Apr |                            |                                                           | Quiz 10     |
+  |----+------+------------+----------------------------+-----------------------------------------------------------+-------------|
+  | 37 |   14 | Wed-20-Apr | Logistic regression        | Exploratory Data Analysis in R: Numerical Summaries       |             |
+  | 38 |      | Fri-22-Apr |                            |                                                           | Quiz 11     |
+  |----+------+------------+----------------------------+-----------------------------------------------------------+-------------|
+  | 39 |   15 | Mon-25-Apr | Functional programming     | Exploratory Data Analysis in R: Case Study Spam Detection |             |
+  | 40 |      | Wed-27-Apr |                            |                                                           |             |
+  | 41 |      | Fri-29-Apr |                            |                                                           | Quiz 12     |
+  |----+------+------------+----------------------------+-----------------------------------------------------------+-------------|
+  | 42 |   16 | Mon-02-May | Summary and Outlook        |                                                           |             |
+  | 43 |      | Wed-04-May |                            |                                                           | Test 4      |
+  |----+------+------------+----------------------------+-----------------------------------------------------------+-------------|
+   
+* FOOTNOTES
+
+[fn:1]I could not settle on any particular textbook. I considered
+several: R for Data Science by Grolemund/Wickham (2017), EDA using R
+by Pearson, and the Art of R Programming by Matloff (2011). In the
+end, I remembered the difficulties that many students had with
+splitting their attention between datacamp assignments and classroom
+lectures, and I decided to use lectures/lab to work through the
+DataCamp material with you using my own interactive notebooks and
+exercises.
+
+[fn:2]the assignments cover three complete certificate courses that
+you can readily add to your resume!
+
+[fn:3]schedule may change depending on course load and progress.
+
+[fn:4]sent by the interim provost, anthony grafton. updated jan 2022.
+
+# 
+[fn:5]Taken from David Sonnier with minor modifications.
+
+[fn:6]Academic calendar sent by the Provost, Melissa Taverner.
+
+[fn:7]Lab work includes classroom assignments in the form of
+interactive notebooks, and deepening of the advanced DataCamp
+material.
+
+[fn:8]Some of the DataCamp assignments are heavily influenced by the
+"Tidyverse" approach to data science with R as explained in "R for
+Data Science" (r4ds) by [[https://r4ds.had.co.nz/introduction.html][Grolemund/Wickham (2017)]].
+
+[fn:9]Quiz: covers the material of the past week. Usually 5 min at the
+beginning of class, multiple choice. Test: in class exercises.
