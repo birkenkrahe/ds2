@@ -12,21 +12,26 @@
 - Office Hours: Mon/Wed/Fri 16:15-16:45, Tue/Thu 16:00-16:30
 - Textbook: Book of R, Davies (2016), Part II, R Programming
 
-** Objectives
+* Standard and course policies
+
+- *Standard Lyon College Policies* are incorporated into this syllabus
+  and can be found at: [[http://www.lyon.edu/standard-course-policies][lyon.edu/standard-course-policies]].
+
+- The *Assignments and Honor Code* and the *Attendance Policy* are
+  incorporated into this syllabus also and can be found at:
+  [[https://tinyurl.com/LyonPolicy][tinyurl.com/LyonPolicy]].
+  
+* Objectives
 
 This course continues the journey into data science using the
-functional, object-oriented statistical programming language R. We
-will also explore data science using command line UNIX tools. In
-contrast to the basic introduction (DSC 105), we will explore some
-“Tidyverse” packages like dplyr (for data frame manipulation) and
-ggplot2 (for plotting), as well as the RStudio IDE and R Markdown for
-data science publishing. The course is accompanied by DataCamp
-assignments from the “Intermediate R” course and includes a
-certificate.
+functional, object-oriented statistical programming language R, begun
+in DSC 105, "Introduction to data science". It includes calling and
+writing functions, conditional and looping statements. We will also
+explore data science using command line UNIX tools.
 
-** Student learning outcomes
+* Student learning outcomes
 
-Students who complete dsc 205, "advanced introduction to data
+Students who complete dsc 205, "Advanced introduction to data
 science", will be able to:
 
 - Import data into R, store them, and transform them for analysis
@@ -40,7 +45,7 @@ science", will be able to:
   visualization (DSC 302) and machine learning (DSC 305)
 - Research and present a project as a team
 
-** Course requirements
+* Course requirements
 
 Introductory knowledge of R as taught in DSC 105 or obtained
 independently by completing the DataCamp online course “Introduction
@@ -49,7 +54,7 @@ freely available on GitHub), or Davies, The Book of R (NoStarch, 2016,
 Part I only). Basic R concepts are repeated and practiced at the start
 of the term.
 
-** GRADING SYSTEM
+* Grading system
 
 | REQUIREMENT            | UNITS | PPU | TOTAL | % of TOTAL |
 |------------------------+-------+-----+-------+------------|
@@ -66,12 +71,12 @@ of the term.
 You should be able to see your current grade at any time using the
 Canvas gradebook for the course.
 
-** GRADING TABLE
+* Grading table
 
-THIS TABLE IS USED TO CONVERT COMPLETION RATES INTO LETTER
-GRADES. FOR THE MIDTERM RESULTS, LETTER GRADES STILL CARRY SIGNS,
-WHILE FOR THE TERM RESULTS, ONLY STRAIGHT LETTERS ARE GIVEN (BY
-ROUNDING UP).
+This table is used to convert completion rates into letter
+grades. for the midterm results, letter grades still carry signs,
+while for the term results, only straight letters are given (by
+rounding up).
 
 |--------+-----------------+---------------|
 |    *%* | *MIDTERM GRADE* | *FINAL GRADE* |
@@ -94,219 +99,16 @@ ROUNDING UP).
 |   49-0 | F               | F (FAILED)    |
 |--------+-----------------+---------------|
 
-* Standard Policies
-** Honor Code
-
-All graded work in this class is to be pledged in accordance with the
-Lyon College Honor Code. The use of a phone for any reason during the
-course of an exam is considered an honor code violation.
-
-** Class Attendance Policy
-
-Students are expected to attend all class periods for the courses in
-which they are enrolled. They are responsible for conferring with
-individual professors regarding any missed assignments. Faculty
-members are to notify the Registrar when a student misses the
-equivalent of one, two, three, and four weeks of class periods in a
-single course. Under this policy, there is no distinction between
-“excused” and “unexcused” absences, except that a student may make up
-work missed during an excused absence. A reminder of the college’s
-attendance policy will be issued to the student at one week, a second
-reminder at two weeks, a warning at three weeks, and notification of
-administrative withdrawal and the assigning of an “F” grade at four
-weeks. Students who are administratively withdrawn from more than one
-course will be placed on probation or suspended.
-
-** Academic Support
-
-The Morrow Academic Center (MAC) helps students who want to improve
-grades by providing peer-led services including Supplemental
-Instruction (SI), tutoring, the Writing Center, and academic coaching
-as well providing 24-hour, online tutoring for all subjects through
-Tutor.com. A schedule of peer-led services is available at
-lyon.edu/mac and Tutor.com is accessed through courses in
-Schoology. Contact Donald Taylor, Director of Academic Support, at
-870-307-7319 or donald.taylor@lyon.edu for more information about MAC
-services.
-
-** Technology Support
-
-For general technology support, you can contact the IT department by
-emailing support@lyon.edu or by calling 870-307-7555. For assistance
-with classroom-related technologies, such as the learning management
-system (LMS), you can request support using the methods above, or you
-can contact sarah.williams@lyon.edu directly for assistance. Your
-course content will be accessible digitally using either the Schoology
-or Canvas LMS. Both LMS platforms will use your myLyon credentials for
-your student login.
-
-- For Canvas, login at lyon.instructure.com
-- For Schoology, login at lyon.schoology.com
-
-** Disabilities
-
-Students seeking reasonable accommodations based on documented
-learning disabilities must contact Interim Director of Academic
-Support Donald Taylor in the Morrow Academic Center at (870) 307-7019
-or at donald.taylor@lyon.edu.
-
-** Harassment, Discrimination, and Sexual Misconduct
-
-Lyon College seeks to provide all members of the community with a safe
-and secure learning and work environment that is free of crime and/or
-policy violations motivated by discrimination, sexual and bias-related
-harassment, and other violations of rights. The College has a
-zero-tolerance policy against gender-based misconduct, sexual assault,
-and interpersonal violence toward any member or guest of the Lyon
-College community. Any individual who has been the victim of an act of
-violence or intimidation is urged to make an official report by
-contacting a campus Title IX coordinator or by visiting
-www.lyon.edu/file-a-title-ix-report. A report of an act of violence or
-intimidation will be dealt with promptly. Confidentiality will be
-maintained to the greatest extent possible within the constraints of
-the law. For more information regarding the College’s Title IX
-policies and procedures, visit www.lyon.edu/title-ix.
-
-** Mental & Behavioral Health
-
-Lyon College is dedicated to ensuring each student has access to
-mental and behavioral health resources. The College’s Mental and
-Behavioral Health Office is located in Edwards Commons and is
-partnered with White River Health System’s Behavioral Health
-Clinic. The office is committed to helping the Lyon community achieve
-maximum mental and behavioral wellness through both preventative and
-reactive care. A full-time, licensed, professional counselor provides
-counseling, consultations, outreach, workshops, and many more mental
-and behavioral services to Lyon students, faculty, and staff at no
-cost. The Mental and Behavioral Health Office also provides access to
-White River Health System’s services and facilities, including
-medication management and in-patient and out-patient care. To make an
-appointment, contact counseling@lyon.edu.
-
-** College-Wide COVID-19 Policies
-
-The College does not require masks in instructional and meeting spaces
-inside academic buildings. However, if instructors require masks in
-their classroom, lab, or studio, then students and guests must comply
-with that requirement.  Vaccines are strongly encouraged for all
-faculty, staff, and students. Vaccines are not mandated for Lyon
-College community members, although there may be specific courses
-involving interactions with vulnerable, external populations where a
-vaccine may be required.  The College will continue to offer
-symptomatic testing for students, faculty and staff.
-
-** Details
-
-Details specific to this course may be found in the subsequent pages
-of this syllabus. Those details will include at least the following:
-- A description of the course consistent with the Lyon College
-  catalog.
-- A list of student learning outcomes for the course.
-- A summary of all course requirements.
-- An explanation of the grading system to be used in the course.
-- Any course-specific attendance policies that go beyond the College
-  policy.
-- Details about what constitutes acceptable and unacceptable student
-  collaboration on graded work.
-- A clear statement about which LMS is being used for the course.
-
-** Learning Management System (LMS)
-
-We will use Canvas in this course.
-
-** Assignments and Honor Code
-
-There will be several assignments during the summer school,
-including programming assignments and multiple-choice tests. They
-are due at the beginning of the class period on the due date. Once
-class begins, the assigment will be considered one day late if it
-has not been turned in.  Late programs will not be accepted without
-an extension. Extensions will *not* be granted for reasons such as:
-
-- You could not get to a computer
-- You could not get a computer to do what you wanted it to do
-- The network was down
-- The printer was out of paper or toner
-- You erased your files, lost your homework, or misplaced your
-  flash drive
-- You had other coursework or family commitments that interfered
-  with your work in this course
-
-Put “Pledged” and a note of any collaboration in the comments of any
-program you turn in. Programming assignments are individual efforts,
-but you may seek assistance from another student or the course
-instructor.  You may not copy someone else’s solution. If you are
-having trouble finishing an assignment, it is far better to do your
-own work and receive a low score than to go through an honor trial and
-suffer the penalties that may be involved.
-
-What is cheating on an assignment? Here are a few examples:
-
-- Having someone else write your assignment, in whole or in part
-- Copying an assignment someone else wrote, in whole or in part
-- Collaborating with someone else to the extent that your
-  submissions are identifiably very similar, in whole or in part
-- Turning in a submission with the wrong name on it
-
-What is not cheating?  Here are some examples:
-- Talking to someone in general terms about concepts involved in an
-  assignment
-- Asking someone for help with a specific error message or bug in
-  your program
-- Getting help with the specifics of language syntax or citation
-  style
-- Utilizing information given to you by the instructor
-
-Any assistance must be clearly explained in the comments at the
-beginning of your submission.  If you have any questions about this,
-please ask or review the policies relating to the Honor Code.
-
-Absences on Days of Exams: Test “make-ups” will only be allowed if
-arrangements have been made prior to the scheduled time.  If you are
-sick the day of the test, please e-mail me or leave a message on my
-phone before the scheduled time, and we can make arrangements when
-you return.
-** Attendance policy
-
-In accordance with college policy, if you miss 4 weeks of class, you
-fail the course automatically. Any missed meetings result in an [[https://catalog.lyon.edu/class-attendance]["Early
-Alert" report]].
-
-You should take care not to miss consecutive sessions if at all
-possible - otherwise you risk losing touch with the class and falling
-behind.
-
-* Important Dates
-
-| DATE           | DAY              | DESCRIPTION                                 |
-|----------------+------------------+---------------------------------------------|
-| 3 January      | Tuesday          | Last day to deposit for '22 spring semester |
-| 10 January     | Tuesday          | Classes begin                               |
-| 16 January     | Monday           | MLK Day - no classes                        |
-| 17 January     | Tuesday          | Last day to add a class                     |
-| 24 January     | Tuesday          | Last day to drop without record of course   |
-|                |                  | Last day to declare a course pass-fail      |
-|                |                  | Deadline for removal of incompletes         |
-| 25-28 February | Saturday-Tuesday | Mental-Health break (no classes)            |
-| 1 March        | Wednesday        | Mid-term grades available by noon           |
-| 8 March        | Wednesday        | Lst day to drop a course with a "W"         |
-| 18-26 March    | Saturday-Sunday  | Spring break                                |
-| 7-9 April      | Friday-Sunday    | Easter break                                |
-| 18 April       | Tuesday          | Honors Convocation                          |
-| 4 May          | Wednesday        | Last day of spring classes                  |
-| 4-7 May        | Thursday-Sunday  | Final exams for graduating seniors          |
-|                |                  | (start 6pm Thu, no exams before 1pm Sun)    |
-| 5-10 May       | Thursday-Tuesday | Final exams for non-graduating students     |
-|                |                  | (no exams before 1pm on Sunday)             |
-| 9 May          | Tuesday          | Senior grades due by noon                   |
-| 12 May         | Friday           | Baccalaureate                               |
-| 13 May         | Saturday         | Spring commencement                         |
-| 17 May         | Wednesday        | All final grades due by noon                |
-
 * Schedule and session content
 
+For *important dates*, see the 2022-2023 Academic Calendar at:
+[[https://catalog.lyon.edu/202223-academic-calendar][catalog.lyon.edu/202223-academic-calendar]]
+
+** Model A: DataCamp & "Tidyverse"
 Lectures and lab sessions are aligned with the content of the 10
-DataCamp lessons that need to be completed in the course of the term.
+DataCamp lessons that need to be completed in the course of the
+term. Depending on how fast we progress, the final weeks may include
+material on doing data science on the command line (using ~bash~). 
 
 | WEEK | DATE            | DATACAMP ASSIGNMENT                       | TESTS   |
 |------+-----------------+-------------------------------------------+---------|
@@ -342,3 +144,45 @@ DataCamp lessons that need to be completed in the course of the term.
 |------+-----------------+-------------------------------------------+---------|
 |   16 | May 1, 3        |                                           |         |
 |------+-----------------+-------------------------------------------+---------|
+
+** Model B: Book of R & Command Line
+
+Lectures and lab sessions are aligned with the content of the Book of
+R chapters. Exercises follow the book. Depending on how fast we
+proceed, the final weeks may incorporate material on the "Tidyverse"
+and/or data science on the command line using ~bash~.
+
+| WEEK | DATE            | LECTURES/LABS          | TESTS   |
+|------+-----------------+------------------------+---------|
+|    1 | Jan 11,13       | R Review               |         |
+|------+-----------------+------------------------+---------|
+|    2 | Jan 18,20       | Read/write data        | Test 1  |
+|------+-----------------+------------------------+---------|
+|    3 | Jan 23,25,27    | Calling functions      | Test 2  |
+|------+-----------------+------------------------+---------|
+|    4 | Jan 30, Feb 1,3 | Argument matching      | Test 3  |
+|------+-----------------+------------------------+---------|
+|    5 | Feb 6,8,10      | Conditional statements |         |
+|------+-----------------+------------------------+---------|
+|    6 | Feb 13,15,17    | Nesting and stacking   | Test 4  |
+|------+-----------------+------------------------+---------|
+|    7 | Feb 20,22,24    | ~for~ loops              | Test 5  |
+|------+-----------------+------------------------+---------|
+|    8 | Mar 1,3         | ~while~ loops            | Test 6  |
+|------+-----------------+------------------------+---------|
+|    9 | Mar 6,8,10      | Looping with ~apply~     |         |
+|------+-----------------+------------------------+---------|
+|   10 | Mar 13,15,17    | Writing functions      | Test 7  |
+|------+-----------------+------------------------+---------|
+|   11 | Mar 27,19,31    | Dealing with arguments | Test 8  |
+|------+-----------------+------------------------+---------|
+|   12 | Apr 3,5         | Specialized functions  | Test 9  |
+|------+-----------------+------------------------+---------|
+|   13 | Apr 10,12,14    | Exception handling     |         |
+|------+-----------------+------------------------+---------|
+|   14 | Apr 17,19,21    | Progress and Timing    | Test 10 |
+|------+-----------------+------------------------+---------|
+|   15 | Apr 24,26,28    | Masking                |         |
+|------+-----------------+------------------------+---------|
+|   16 | May 1, 3        |                        |         |
+|------+-----------------+------------------------+---------|
