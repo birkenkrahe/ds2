@@ -1,0 +1,16 @@
+#+TITLE: Agenda - Advanced introduction to data science
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE: Lyon College, Spring 2023
+#+STARTUP:overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :session *R* :results: output :exports both :noweb yes
+* Week 1 - Course overview & R review
+#+attr_html: :width 500px
+[[../img/cover.jpg]]
+
+- [ ] Course overview - assignments, grading, topics, platforms
+- [ ] Calling R functions: scoping, environment, search path
+- [ ] Argument matching: exact, partial, positional, mixed
+
+
+  
