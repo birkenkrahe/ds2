@@ -19,7 +19,7 @@
   
 - Transcend R programming (command line data science)
 
-*  What will we do in this course?
+* What will we do in this course?
 #+attr_html: :width 350px
 #+attr_latex: :width 250px
 #+caption: Source: syllabus, Canvas (lyon.instructure.com) or GitHub (github.com/birkenkrahe/ml)
