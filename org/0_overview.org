@@ -19,18 +19,16 @@
   
 - Transcend R programming (command line data science)
 
-* What will we do in this course?
+* What will you do in this course?
 #+attr_html: :width 350px
 #+attr_latex: :width 250px
-#+caption: Source: syllabus, Canvas (lyon.instructure.com) or GitHub (github.com/birkenkrahe/ml)
-[[../img/0_datacamp.png]]
+#+caption: Syllabus, Canvas (lyon.instructure.com) or GitHub (github.com/birkenkrahe/ds2)
+[[../img/0_schedule.png]]
 
-- We're going to work with text data only (no maps[fn:1])
-- You can complete the "Text mining with R" track
-- You will complete one DataCamp chapter per week
-- In class, we will prepare and review the online material
-- You will cover some of the most important AI/ML applications
-  
+- I have not decided how much DataCamp we'll do
+  1) Model A: 10 DataCamp home assignments
+  2) Model B: 10 independent assignments
+
 * How will you be evaluated?
 #+attr_html: :width 400px
 #+attr_latex: :width 400px
@@ -41,15 +39,15 @@
 - Late submissions will be penalized (loss of points)
 - Final exam will be sourced by term test questions
 - The project topic can come from any of the course sub-topics
-- The project deliverable is a presented literate program
+- The project deliverable is a working *literate* program
 
 * Which tools are you going to use?
 #+attr_html: :width 500px
 #+attr_latex: :width 300px
 #+caption: Unsplash, workshop
-[[../img/0_tools.jpg]]
+[[../img/0_tools.png]]
 
-- [[https://app.datacamp.com/learn/skill-tracks/text-mining-with-r][DataCamp courses]] (15 weekly home assignments)
+- [[https://app.datacamp.com/learn/skill-tracks/text-mining-with-r][DataCamp courses]] (10 weekly home assignments)
 - [[https://github.com/birkenkrahe/tm][GitHub repository]] (all course materials except tests)
 - [[https://github.com/birkenkrahe/org/blob/master/FAQ.org][GNU Emacs + ESS + R]] (literate programming environment)
 - [[https://lyon.instructure.com/][Canvas]] (learning management system)
@@ -60,7 +58,7 @@
 #+caption: DataCamp assignments for January
 [[../img/0_datacamp1.png]]
 
-- You find the invitation link to the group for Spring 23 [[https://lyon.instructure.com/courses/1015/pages/course-links][in Canvas]].
+- You find the invitation link to the group for Spring 23 [[https://lyon.instructure.com/courses/1041/pages/course-links][in Canvas]].
 - You will automatically be subscribed to the Digital Humanities team
 - If you are in more than one course, I will add you later manually
 - These accounts will be valid until July 8, 2023 only
