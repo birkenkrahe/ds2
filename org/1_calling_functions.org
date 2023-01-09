@@ -1,0 +1,218 @@
+#+TITLE: CALLING FUNCTIONS
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE: DSC 205 - Advanced introduction to data science
+#+STARTUP: overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
+* README
+#+attr_html: :width 500px
+[[../img/0_tm.jpg]]
+
+You will learn:
+
+- [ ] How variable names are compartmentalized in R
+- [ ] What the rules for naming arguments and objects are
+- [ ] How R searches for arguments and variables
+- [ ] How you can specify arguments when calling a function
+
+* Scoping
+
+- Scoping rules determine how R stores and retrieves objects
+
+- Applied e.g. when handling duplicate object names
+
+- Example: ~data~ as an argument, and as a function -
+  1) create a row-wise 3x3 matrix of numbers {1..9}
+  2) list all datasets in ~ToothGrowth~
+  #+begin_src R
+    matrix(data=1:9, nrow=3, byrow=TRUE)
+    data(ToothGrowth)
+  #+end_src
+
+* Environments
+
+- R enforces scoping rules with virtual /environment/
+
+- An environment is a separate compartment for data structures (like
+  vectors) and functions (like ~data~).
+
+- Environments are /dynamic/ - they can be created, manipulated and
+  removed.
+
+- Technically, an environment is a pointer to the memory location
+  where the R objects are stored.
+
+- There are three types of environments:
+  1) Global environments
+  2) Package environments and namespaces
+  3) Local or lexical environments
+
+* Global environments
+
+- Every object you've created or overwritten resides in the global
+  environment of your R session.
+
+- A call to ~ls()~ lists all objects, variables, and user-defined
+  functions in the global environment
+
+- Example: create three new objects and confirm their existence in the
+  global environment:
+  #+begin_src R
+    foo <- 4 + 5
+    bar <- "stringtastic"
+    hello <- function() print("hello")
+    ls()
+    hello()
+  #+end_src
+
+  #+RESULTS:
+  : [1] "bar"   "foo"   "hello"
+  : [1] "hello"
+  
+* Package environments and namespaces
+
+- Package environments are items made available by each package in R.
+
+- You can use ~ls~ to list the items in a package environment: for
+  example, to list the content of built-in  ~datasets~ (no functions)
+  #+begin_src R
+    ls("package:datasets")
+  #+end_src
+  Or to list the visible objects of the ~graphics~ package:
+  #+begin_src R
+    ls("package:graphics")
+  #+end_src
+  
+- A package /namespace/ allows the package writer to hide functions and
+  data that are only for internal use, and stops functions from
+  breaking when a user or another package writer uses a duplicate
+  name.
+
+- As an example, load (after installation) the ~dplyr~ package (don't
+  print the content - it has 300 functions!) and run ~dplyr::filter~. 
+  #+begin_src R
+    library(dplyr)
+    dplyr::filter
+  #+end_src
+
+- If you look at the output (the definition of ~filter~ in this package,
+  you notice an internal (~base~) function, ~UseMethod~, which is not
+  listed in the visible content of ~dplyr~, and the name of the
+  ~namespace~ environment.
+
+- When loading ~dplyr~, you were informed that ~dplyr::filter~ masks
+  another function, ~stats::filter~. This means that using ~filter~
+  without the namespace reverts to ~dplyr::filter~. If you want to use
+  the function of the same name in ~stats~, you need to call
+  ~stats::filter~.
+  
+* Local or lexical environments
+
+- Each time a function is called, a new environment called /local/ or
+  /lexical/ is created.
+
+- It contains all objects and variables created in and visible to the
+  function, including any arguments you've supplied during execution.
+
+- Example: call ~matrix~ and pass in the argument data:
+  #+begin_src R
+    youthspeak <- matrix(data = c("OMG", "LOL", "WTF", "YOLO"),
+                         nrow=2, ncol=2)
+    youthspeak
+  #+end_src
+
+- Calling ~matrix~ like this creates a local environment containing the
+  ~data~ vector 
+  
+- When you execute the function, it begins by looking for ~data~ in this
+  local environment. It is not confused by other objects named ~data~,
+  such as ~utils::data~.
+
+- If a required item is not found in the local environment, R does
+  begin to widen its search.
+
+- Once the function has completed, the local environment is
+  automatically removed. The same goes for ~nrow~ and ~ncol~.
+
+* Search Path
+
+- To access data structures and functions other than the immediate
+  global environment (of user-created objects), R follows a /search
+  path/.
+
+- You can view the search path with ~search()~:
+  #+begin_src R
+    search()
+  #+end_src
+
+- The path always begins at ~.GlobalEnv~ and ends after ~base~. It stops
+  if an object is found in any environment along the path.
+
+- If it does not find what it wanted, the /empty environment/ is
+  reached.
+
+- Example: let's see what happens when we create a vector with ~seq~:
+  #+begin_src R
+    baz <- seq(from=0, to=3, length.out=5)
+    baz
+  #+end_src
+  
+- R searches ~.GlobalEnv~ for ~seq~, goes through the list and finds it in
+  ~base~. ~seq~ is executed and ~baz~ is created in the global environment.
+
+- In the subsequent call to ~baz~, R finds it immediately in ~.GlobalEnv~.
+
+- You can look up the environment of any function using ~environment~:
+  #+begin_src R
+    environment(seq)
+    environment(abline)
+    environment(filter)
+  #+end_src
+  
+- When a package is loaded with ~library~, it is inserted in the search
+  path right after the global environment, along with all its
+  dependencies:
+  #+begin_src R
+    library('car')
+    search()
+  #+end_src
+
+- In the example, loading ~car~ lead to the inclusion of the function
+  package and its accompanying dataset package: do you remember how to
+  list the contents of ~carData~?
+  #+begin_src R
+    ls('package:carData')
+  #+end_src
+
+- An error is thrown if you request a function or object
+  + that you haven't *defined*,
+  + that doesn't *exist*,
+  + that is in a contributed package that you've forgotten to *load*
+  #+begin_src R
+    neither.here()  # undefined function
+    nor.there       # undefined object
+  #+end_src
+
+- Read Gupta (2012) for more details on R environments.  
+
+* TM Glossary
+
+| TERM                 | MEANING                                    |
+|----------------------+--------------------------------------------|
+| Scoping              | Rules of storing/retrieving objects        |
+| Environment          | Virtual compartment for data and functions |
+| Global environment   | All user-created objects                   |
+| Package environments | Objects contained in packages              |
+| Namespace            | Defines visibility of package functions    |
+|                      | E.g. in ~base::~ for the ~base~ package        |
+| ~ls()~                 | List global environment                    |
+| ~ls(package:base)~     | List functions in the ~base~ package         |
+| Local environment    | Objects created when function is called    |
+| Search path          | List of environments searched, ~search()~    |
+
+
+* Reserved and protected names
+* References
+
+- Gupta, S. (Mar 29, 2012). How R Searches and Finds Stuff. URL:
+  [[https://blog.thatbuthow.com/how-r-searches-and-finds-stuff/][blog.thatbuthow.com]].
