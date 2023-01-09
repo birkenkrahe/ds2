@@ -15,6 +15,9 @@ You will learn:
 - [ ] How R searches for arguments and variables
 - [ ] How you can specify arguments when calling a function
 
+Download the practice file from here: [[https://tinyurl.com/bp4edm7w][tinyurl.com/bp4edm7w]], save it as
+~1_scoping_practice.org~ and open it in Emacs to code alongside me.
+
 * Scoping
 
 - Scoping rules determine how R stores and retrieves objects
