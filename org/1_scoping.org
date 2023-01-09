@@ -1,4 +1,4 @@
-#+TITLE: CALLING FUNCTIONS
+#+TITLE: CALLING FUNCTIONS - SCOPING
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: DSC 205 - Advanced introduction to data science
 #+STARTUP: overview hideblocks indent
@@ -6,7 +6,7 @@
 #+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
 * README
 #+attr_html: :width 500px
-[[../img/0_tm.jpg]]
+[[../img/1_knife.jpg]]
 
 You will learn:
 
@@ -64,10 +64,6 @@ You will learn:
     ls()
     hello()
   #+end_src
-
-  #+RESULTS:
-  : [1] "bar"   "foo"   "hello"
-  : [1] "hello"
   
 * Package environments and namespaces
 
@@ -156,7 +152,7 @@ You will learn:
     baz <- seq(from=0, to=3, length.out=5)
     baz
   #+end_src
-  
+
 - R searches ~.GlobalEnv~ for ~seq~, goes through the list and finds it in
   ~base~. ~seq~ is executed and ~baz~ is created in the global environment.
 
@@ -195,23 +191,75 @@ You will learn:
 
 - Read Gupta (2012) for more details on R environments.  
 
+* Reserved and protected names
+
+- Key terms that are forbidden from being used as R object names:
+  + ~if~ and ~else~
+  + ~for~, ~while~, and ~in~
+  + ~repeat~, ~break~, and ~next~
+  + ~TRUE~, and ~FALSE~
+  + ~Inf~ and ~-Inf~
+  + ~NA~, ~NaN~, and ~NULL~
+
+- The first four line items are the core tools for programming in R,
+  followed by Boolean values and special values.
+
+- What happens when you assign a value to an ~NaN~?
+  #+begin_src R
+    NaN <- 5
+  #+end_src
+
+- Since R is case-sensitive, you can assign values to case variants of
+  these keywords, causing much confusion:
+  #+begin_src R
+    False <- "confusing"
+    nan <- "this"
+    inf <- "is"
+    Null <- "very"
+    paste(nan,inf,Null,False)
+  #+end_src
+
+- ~T~ and ~F~ can also be overwritten - don't do it since they are the
+  abbreviations for ~TRUE~ and ~FALSE~:
+  #+begin_src R
+    T <- FALSE
+    F <- TRUE
+    paste(T,"is",F)
+    paste("2+2=5 is", (2+2==5) == T)
+    (2+2==5) == TRUE
+  #+end_src
+
+- With all these confusing changes, clear the global environment now!
+  #+begin_src R
+    ls()
+    rm(list=ls())  ## remove the list of user-defined R objects
+    ls()
+  #+end_src  
+  
 * TM Glossary
 
-| TERM                 | MEANING                                    |
-|----------------------+--------------------------------------------|
-| Scoping              | Rules of storing/retrieving objects        |
-| Environment          | Virtual compartment for data and functions |
-| Global environment   | All user-created objects                   |
-| Package environments | Objects contained in packages              |
-| Namespace            | Defines visibility of package functions    |
-|                      | E.g. in ~base::~ for the ~base~ package        |
-| ~ls()~                 | List global environment                    |
-| ~ls(package:base)~     | List functions in the ~base~ package         |
-| Local environment    | Objects created when function is called    |
-| Search path          | List of environments searched, ~search()~    |
+| TERM                 | MEANING                                     |
+|----------------------+---------------------------------------------|
+| Scoping              | Rules of storing/retrieving objects         |
+| Environment          | Virtual compartment for data and functions  |
+| Global environment   | All user-created objects                    |
+| Package environments | Objects contained in packages               |
+| Namespace            | Defines visibility of package functions     |
+|                      | E.g. in ~base::~ for the ~base~ package         |
+| ~ls()~                 | List global environment                     |
+| ~ls(package:base)~     | List functions in the ~base~ package          |
+| Local environment    | Objects created when function is called     |
+| Search path          | List of environments searched, ~search()~     |
+| ~matrix~               | Create matrix                               |
+| ~seq~                  | Create numerical sequence vector            |
+| ~base::data~           | List or load dataset                        |
+| ~NaN~                  | Not a number                                |
+| ~Inf~                  | Infinite numerical value                    |
+| ~NA~                   | Missing value                               |
+| ~NULL~                 | Null object - returned when value undefined |
+| ~paste~                | Paste arguments together as string          |
+| ~rm~                   | Remove R objectts, e.g. ~rm(list=ls())~       |
 
-
-* Reserved and protected names
 * References
 
 - Gupta, S. (Mar 29, 2012). How R Searches and Finds Stuff. URL:
