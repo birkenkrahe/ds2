@@ -41,7 +41,6 @@ Glóin. Thorin and Company:
 - Transcend R programming (e.g. command line data science)
 #+end_quote
 
-
 * How will you be evaluated?
 #+attr_html: :width 400px
 #+attr_latex: :width 400px
@@ -71,7 +70,7 @@ Glóin. Thorin and Company:
 [[../img/0_datacamp.png]]
 
 - You find the invitation link to the group for Spring 23 [[https://lyon.instructure.com/courses/1041/pages/course-links][in Canvas]].
-- You will automatically be subscribed to the Digital Humanities team
+- You will automatically be subscribed to the DSC 205 team
 - If you are in more than one course, I will add you later manually
 - These accounts will be valid until July 8, 2023 only
 
@@ -104,7 +103,26 @@ Glóin. Thorin and Company:
 
 - We can only accommodate *four (4) projects* altogether (groups of 3)
 
-- Deliverables: proposal, literature review, abstract, presentation
+- Deliverables: proposal, literature review, abstract, Org-mode file
+
+* Don't be fooled by Contemporary AI
+#+attr_html: :width 400px
+#+attr_latex: :width 250px
+[[../img/0_chatgpt1.png]]
+
+#+begin_src R :results output
+  x1 <- 1:10
+  x2 <- seq(from=1,to=10)
+  x3 <- c(1,2,3,4,5,6,7,8,9,10)
+  x1; x2; x3
+  class(x1)
+#+end_src
+
+#+RESULTS:
+:  [1]  1  2  3  4  5  6  7  8  9 10
+:  [1]  1  2  3  4  5  6  7  8  9 10
+:  [1]  1  2  3  4  5  6  7  8  9 10
+: [1] "integer"
 
 * What are you looking forward to?
 #+attr_html: :width 400px
@@ -112,11 +130,17 @@ Glóin. Thorin and Company:
 [[../img/0_package.jpg]]
 
 - Developing lectures and exercises beyond the "Tidyverse"
-
 - Learning more about R packages through your projects
-
 - Having fun with R programming and real applications
-
+- Graphics compilation in a short time
+- Another tool under (better: on) your belt
+- I want the data science minor and the skills
+- Learn more about the functional aspects of R
+- Excited to use Emacs!
+- The projects!
+- I learn better when I get to work hands-on
+- Close to work environment
+- I want to see how far I can take R
 * Next
 #+attr_html: :width 400px
 #+attr_latex: :width 250px
