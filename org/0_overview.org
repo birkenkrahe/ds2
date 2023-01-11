@@ -14,7 +14,7 @@ o#+TITLE:COURSE OVERVIEW
 
 - Improve performance (e.g. ~data.table~)
 
-- Explorative Data Analysis (EDA) with the Tidyverse
+- 
 
 - Special data science topics (e.g. NLP, ML)
   
