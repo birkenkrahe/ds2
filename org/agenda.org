@@ -9,5 +9,6 @@
 [[../img/cover.jpg]]
 
 - [ ] Course overview - assignments, grading, topics, platforms
+- [ ] Data science trends 2023 by DataCamp
 - [ ] Calling R functions: scoping, environment, search path
 - [ ] Argument matching: exact, partial, positional, mixed

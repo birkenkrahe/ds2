@@ -60,8 +60,8 @@ Glóin. Thorin and Company:
 #+caption: Unsplash, workshop
 [[../img/0_tools.png]]
 
-- [[https://app.datacamp.com/learn/skill-tracks/text-mining-with-r][DataCamp courses]] (10 weekly home assignments)
-- [[https://github.com/birkenkrahe/tm][GitHub repository]] (all course materials except tests)
+- [[https://app.datacamp.com/learn/skill-tracks/R-programming][DataCamp courses]] (10 weekly home assignments)
+- [[https://github.com/birkenkrahe/ds2][GitHub repository]] (all course materials except tests)
 - [[https://github.com/birkenkrahe/org/blob/master/FAQ.org][GNU Emacs + ESS + R]] (literate programming environment)
 - [[https://lyon.instructure.com/][Canvas]] (learning management system)
 
@@ -80,10 +80,10 @@ Glóin. Thorin and Company:
 #+attr_latex: :width 300px
 [[../img/0_test.jpg]]
 
-- The first DataCamp home assignment is due on January 20. For late
-  submissions, you lose 1 point per day (out of 10 possible points)
+- The first DataCamp home assignment is due on Friday, January 20. For
+  late submissions, you lose 1 point per day (out of 10).
 
-- The first in-class assignment is due on January 20. For late
+- The first in-class assignment is due on Friday, January 20. For late
   submissions, you lose 1 point per day (out of 10 possible points)
 
 - We'll write the first weekly multiple-choice test on January 20,
@@ -95,20 +95,26 @@ Glóin. Thorin and Company:
 [[../img/0_chatgpt.png]]
 
 - For your term project, *pick an R package* to explore and explain
+
 - The exploration should include *examples and tests*
+
 - Your final deliverable should be a *literate program* (Org-mode)
+
 - The final presentation should include *exercises* for the audience
-- We can only accommodate *four (4) projects* altogether
-- You need to deliver:
-  a proposal, a literature review, an abstract
+
+- We can only accommodate *four (4) projects* altogether (groups of 3)
+
+- Deliverables: proposal, literature review, abstract, presentation
 
 * What are you looking forward to?
 #+attr_html: :width 400px
 #+attr_latex: :width 250px
 [[../img/0_package.jpg]]
 
-- Developing lectures and exercises away from DataCamp
+- Developing lectures and exercises beyond the "Tidyverse"
+
 - Learning more about R packages through your projects
+
 - Having fun with R programming and real applications
 
 * Next
