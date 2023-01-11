@@ -11,6 +11,3 @@
 - [ ] Course overview - assignments, grading, topics, platforms
 - [ ] Calling R functions: scoping, environment, search path
 - [ ] Argument matching: exact, partial, positional, mixed
-
-
-  

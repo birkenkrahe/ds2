@@ -149,7 +149,7 @@ Download the practice file from here: [[https://tinyurl.com/bp4edm7w][tinyurl.co
 
 - If it does not find what it wanted, the /empty environment/ is
   reached.
-
+  
 - Example: let's see what happens when we create a vector with ~seq~:
   #+begin_src R
     baz <- seq(from=0, to=3, length.out=5)
@@ -192,7 +192,8 @@ Download the practice file from here: [[https://tinyurl.com/bp4edm7w][tinyurl.co
     nor.there       # undefined object
   #+end_src
 
-- Read Gupta (2012) for more details on R environments.  
+- Read [[https://blog.thatbuthow.com/how-r-searches-and-finds-stuff/][Gupta (2012)]] for more details on R environments. (This would
+  also make an excellent term project topic.)
 
 * Reserved and protected names
 

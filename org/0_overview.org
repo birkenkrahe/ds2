@@ -12,11 +12,13 @@ o#+TITLE:COURSE OVERVIEW
 
 - Learn R programming (functions, conditions, loops, utilities)
 
-- Improve performance (~data.table~)
+- Improve performance (e.g. ~data.table~)
 
 - Explorative Data Analysis (EDA) with the Tidyverse
+
+- Special data science topics (e.g. NLP, ML)
   
-- Transcend R programming (command line data science)
+- Transcend R programming (e.g. command line data science)
 
 * What will you do in this course?
 #+attr_html: :width 350px
