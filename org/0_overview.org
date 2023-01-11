@@ -5,20 +5,26 @@ o#+TITLE:COURSE OVERVIEW
 #+OPTIONS: toc:nil num:nil ^:nil
 #+attr_html: :width 600px
 [[../img/cover.jpg]]
+
 * What is an "Advanced intro to data science"?
-#+attr_latex: :width 600px
-#+caption: Map of Middle Earth
-[[../img/0_middleearth.jpg]]
+#+attr_latex: :width 400px
+#+caption: Map of the Lonely Mountain (Tolkien, The Hobbit)
+[[../img/0_lonelymountain.png]]
 
-- Learn R programming (functions, conditions, loops, utilities)
+* Data science: Journey to the "Lonely Mountain"
+#+attr_latex: :width 400px
+#+caption: Map of the Lonely Mountain (Tolkien, The Hobbit)
+[[../img/0_dwarves.jpg]]
 
-- Improve performance (e.g. ~data.table~)
+Glóin. Thorin and Company:
 
-- 
-
-- Special data science topics (e.g. NLP, ML)
-  
-- Transcend R programming (e.g. command line data science)
+| THE HOBBIT            | THE COURSE                  |
+|-----------------------+-----------------------------|
+| Treasure hunters      | Big Data                    |
+| Skilled experts       | Data science training       |
+| Magic ring owners     | R + Emacs + ESS + Org-mode  |
+| Fighters against evil | Statistics for good or evil |
+| Band of brothers      | Scrum projects              |
 
 * What will you do in this course?
 #+attr_html: :width 350px
@@ -26,9 +32,16 @@ o#+TITLE:COURSE OVERVIEW
 #+caption: Syllabus, Canvas (lyon.instructure.com) or GitHub (github.com/birkenkrahe/ds2)
 [[../img/0_schedule.png]]
 
+#+begin_quote
+- Last DSC 205 course in spring'22 was too "tidy"[fn:2]
 - Mixture of DataCamp lessons and current topics
-- Last course in spring'22 was too "tidy"
-     
+- Learn R programming (functions, conditions, loops, utilities)
+- Improve performance (e.g. ~data.table~, fast reading/writing)
+- Special data science topics (e.g. NLP, ML, projects)
+- Transcend R programming (e.g. command line data science)
+#+end_quote
+
+
 * How will you be evaluated?
 #+attr_html: :width 400px
 #+attr_latex: :width 400px
@@ -72,7 +85,7 @@ o#+TITLE:COURSE OVERVIEW
 
 - The first in-class assignment is due on January 20. For late
   submissions, you lose 1 point per day (out of 10 possible points)
-  
+
 - We'll write the first weekly multiple-choice test on January 20,
   covering all of the material that was covered until then.
 
@@ -105,6 +118,8 @@ o#+TITLE:COURSE OVERVIEW
 [[../img/0_argument.jpg]]
 
 * Footnotes
+[fn:2]My view towards the "Tidyverse" is well summarized in Matloff's
+essay "[[https://github.com/matloff/TidyverseSkeptic][TidyverseSceptic]]" (Matloff, 2022).
 
 [fn:1]Maps and GIS (Geographic Information Systems) are super cool but
 deserve an introductory course on their own. The focus of my teaching
