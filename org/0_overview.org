@@ -105,7 +105,7 @@ Glóin. Thorin and Company:
 
 - Deliverables: proposal, literature review, abstract, Org-mode file
 
-* Don't be fooled by Contemporary AI
+* Don't be fooled by ChatGPT
 #+attr_html: :width 400px
 #+attr_latex: :width 250px
 [[../img/0_chatgpt1.png]]

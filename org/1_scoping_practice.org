@@ -69,11 +69,8 @@ global environment:
 
 Example: create a 2x2 ~matrix~ named ~youthspeak~ and pass as ~data~ in
 the argument: "OMG", "LOL", "WTF", "YOLO".
-
 #+begin_src R
-  youthspeak <- matrix(data = c("OMG", "LOL", "WTF", "YOLO"),
-                       nrow=2, ncol=2)
-  youthspeak
+
 #+end_src
 
 * Search Path

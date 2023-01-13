@@ -19,7 +19,9 @@ Download the practice file from here: [[https://tinyurl.com/bp4edm7w][tinyurl.co
 ~1_scoping_practice.org~ and open it in Emacs to code alongside me.
 
 If you want to test your Emacs mettle, open it on the CMD line with
-the command ~emacs -nw~ (no graphics - not needed for this exercise)
+the command ~emacs -nw~ (no graphics - not needed for this exercise):
+#+attr_latex: :width 400px
+[[../img/1_emacs.png]]
 
 * Scoping
 
@@ -31,7 +33,9 @@ the command ~emacs -nw~ (no graphics - not needed for this exercise)
   1) create a row-wise 3x3 matrix of numbers {1..9}
   2) list all datasets in ~ToothGrowth~
   #+begin_src R
+    ## create row-wise 2x2 matrics of 1...9
     matrix(data=1:9, nrow=3, byrow=TRUE)
+    ## list all datasets in ToothGrowth
     data(ToothGrowth)
   #+end_src
 
@@ -49,9 +53,9 @@ the command ~emacs -nw~ (no graphics - not needed for this exercise)
   where the R objects are stored.
 
 - There are three types of environments:
-  1) Global environments
-  2) Package environments and namespaces
-  3) Local or lexical environments
+  1) *Global* environments
+  2) *Package* environments and namespaces
+  3) *Local* or lexical environments
 
 * Global environments
 
@@ -61,8 +65,13 @@ the command ~emacs -nw~ (no graphics - not needed for this exercise)
 - A call to ~ls()~ lists all objects, variables, and user-defined
   functions in the global environment
 
-- Example: create three new objects and confirm their existence in the
+- *Example:* create three new objects and confirm their existence in the
   global environment:
+  1) a ~numeric~ variable ~foo~
+  2) a ~character~ variable ~bar~
+  3) An anonymous (non-argument) function ~hello~
+  4) check the contents of the global environment with ~ls~
+  5) run ~hello~
   #+begin_src R
     foo <- 4 + 5
     bar <- "stringtastic"
