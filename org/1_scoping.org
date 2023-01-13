@@ -4,7 +4,7 @@
 #+STARTUP: overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
-* README
+* TODO README
 #+attr_html: :width 500px
 [[../img/1_knife.jpg]]
 
@@ -17,6 +17,9 @@ You will learn:
 
 Download the practice file from here: [[https://tinyurl.com/bp4edm7w][tinyurl.com/bp4edm7w]], save it as
 ~1_scoping_practice.org~ and open it in Emacs to code alongside me.
+
+If you want to test your Emacs mettle, open it on the CMD line with
+the command ~emacs -nw~ (no graphics - not needed for this exercise)
 
 * Scoping
 

@@ -142,5 +142,5 @@ the argument: "OMG", "LOL", "WTF", "YOLO".
 
 Well done! You've reached the end of the first in-class practice file.
 
-If you've completed all steps, you can now upload the Org-mode file to
-Canvas (see ~Assignments > In-class practice~.
+If you've completed all steps, you upload the Org-mode file [[https://lyon.instructure.com/courses/1041/assignments][to Canvas]]
+(see ~Assignments > In-class practice~).
