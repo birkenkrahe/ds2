@@ -125,7 +125,8 @@ the command ~emacs -nw~ (no graphics - not needed for this exercise):
 - It contains all objects and variables created in and visible to the
   function, including any arguments you've supplied during execution.
 
-- Example: call ~matrix~ and pass in the argument data:
+- Example: create a 2x2 ~matrix~ and pass in the argument ~data~: "OMG", "LOL",
+  "WTF", "YOLO":
   #+begin_src R
     youthspeak <- matrix(data = c("OMG", "LOL", "WTF", "YOLO"),
                          nrow=2, ncol=2)
@@ -163,6 +164,8 @@ the command ~emacs -nw~ (no graphics - not needed for this exercise):
   reached.
   
 - Example: let's see what happens when we create a vector with ~seq~:
+  1) create a vector of 5 elements with ~seq~
+  2) the values should lay between the (included) values 0 and 3
   #+begin_src R
     baz <- seq(from=0, to=3, length.out=5)
     baz
