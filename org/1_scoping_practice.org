@@ -7,7 +7,7 @@
 * README
 
 This file covers the lecture "Calling Functions - Scoping" in the
-Advanced Introduction to Data Science course (DSC 205):x
+Advanced Introduction to Data Science course (DSC 205):
 - Scoping rules
 - Environments: global, local
 - Search path
