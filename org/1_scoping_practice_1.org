@@ -1,0 +1,143 @@
+#+TITLE: Calling Functions - Scoping - Practice file 1
+#+AUTHOR: [yourname]
+#+SUBTITLE: In-class practice
+#+STARTUP:overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
+* README
+
+This file covers the lecture "Calling Functions - Scoping" in the
+Advanced Introduction to Data Science course (DSC 205):
+- Scoping rules
+- Environments: global, local
+- Search path
+- Reserved names
+
+Most of this material can be found in Davies, Book of R,
+Chapter 9. Solutions can be found in GitHub (PDF).
+
+* TODO Identify and pledge yourself
+
+1) In Emacs, replace the placeholder ~[yourname]~ at the top of this
+   file by your own name and write ~(pledged)~ next to it
+2) Go with the cursor on the headline and hange the ~TODO~ label to ~DONE~
+   by entering ~S-<right>~ ("Shift + right-arrow").
+
+* Scoping
+
+Example: ~data~ as an argument, and as a function -
+1) create a row-wise 3x3 matrix of the numbers {1..9}
+2) list all datasets in the built-in dataset ~ToothGrowth~
+
+#+begin_src R
+
+#+end_src
+
+* Global environments
+
+Example: create three new objects and confirm their existence in the
+global environment:
+1) a ~numeric~ variable ~foo~
+2) a ~character~ variable ~bar~
+3) an anonymous (non-argument) function ~hello~
+4) check the global environment
+5) run ~hello~
+
+#+begin_src R
+
+#+end_src
+
+* Package environments and namespaces
+
+1) List the content of built-in ~datasets~ (no functions)
+   #+begin_src R
+
+   #+end_src
+
+2) List the visible objects of the ~graphics~ package:
+   #+begin_src R
+
+   #+end_src
+
+3) Load (after installation in the R console buffer) the ~dplyr~ package
+   and run the function ~dplyr::filter~.
+   #+begin_src R
+
+   #+end_src
+
+* Local or lexical environments
+
+Example: create a 2x2 ~matrix~ named ~youthspeak~ and pass as ~data~ in
+the argument: "OMG", "LOL", "WTF", "YOLO".
+#+begin_src R
+
+#+end_src
+
+* Search Path
+
+1) You can view the search path with ~search()~:
+   #+begin_src R
+
+   #+end_src
+
+2) Example: create a vector of 5 elements with values between 0 and 3
+   with ~seq~, and print it:
+   #+begin_src R
+  
+   #+end_src
+
+3) You can look up the environment of any function using ~environment~:
+   #+begin_src R
+
+   #+end_src
+
+4) When a package is loaded with ~library~, it is inserted in the search
+   path right after the global environment, along with all its
+   dependencies: load the package ~car~ and print the search path.
+   #+begin_src R
+
+   #+end_src
+
+5) List the contents of the dependency, the dataset ~carData~
+   #+begin_src R
+
+   #+end_src
+
+6) An error is thrown if you request a function or object
+   + that you haven't *defined*,
+   + that doesn't *exist*,
+   + that is in a contributed package that you've forgotten to *load*
+   #+begin_src R
+
+   #+end_src
+
+* Reserved and protected names
+
+1) What happens when you assign a value to an ~NaN~?
+   #+begin_src R
+
+   #+end_src
+
+2) Since R is case-sensitive, you can assign values to case variants of
+   these keywords, causing much confusion:
+   #+begin_src R
+
+   #+end_src
+
+3) ~T~ and ~F~ can also be overwritten - don't do it since they are the
+   abbreviations for ~TRUE~ and ~FALSE~:
+   #+begin_src R
+
+   #+end_src
+
+4) With all these confusing changes, clear the global environment now!
+   #+begin_src R
+
+   #+end_src
+
+* TODO Wow! Congratulations!
+
+Well done! You've reached the end of the first in-class practice file.
+
+If you've completed all steps, you upload the Org-mode file [[https://lyon.instructure.com/courses/1041/assignments][to Canvas]]
+(see ~Assignments > In-class practice~).

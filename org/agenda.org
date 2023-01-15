@@ -5,11 +5,17 @@
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:R :session *R* :results: output :exports both :noweb yes
 * Week 1 - Course overview & R review
-#+attr_html: :width 500px
+#+attr_html: :width 400px
 [[../img/cover.jpg]]
 
-- [ ] Course overview - assignments, grading, topics, platforms
-- [ ] Interesting webinar: "[[https://www.datacamp.com/webinars/2023-data-trends-and-predictions][Data Trends & Predictions 2023]]" report
+- [X] Course overview - assignments, grading, topics, platforms
+- [X] Interesting webinar: "[[https://www.datacamp.com/webinars/2023-data-trends-and-predictions][Data Trends & Predictions 2023]]" report
   ([[https://github.com/birkenkrahe/ds2/blob/main/pdf/data_trends_2023.pdf][PDF]]) (Wed Jan 18, 10AM) - register/attend/watch the recording later
-- [ ] Calling R functions: scoping, environment, search path
+- [X] Calling R functions: scoping, environment, search path
+
+* Week 2 - Scoping and argument matching
+#+attr_html: :width 400px
+[[../img/0_argument.jpg]]
+
 - [ ] Argument matching: exact, partial, positional, mixed
+- [ ] Classroom exercises and test 1: calling functions

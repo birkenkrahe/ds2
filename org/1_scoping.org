@@ -4,7 +4,7 @@
 #+STARTUP: overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
-* TODO README
+* DONE README
 #+attr_html: :width 500px
 [[../img/1_knife.jpg]]
 
@@ -16,7 +16,7 @@ You will learn:
 - [ ] How you can specify arguments when calling a function
 
 Download the practice file from here: [[https://tinyurl.com/bp4edm7w][tinyurl.com/bp4edm7w]], save it as
-~1_scoping_practice.org~ and open it in Emacs to code alongside me.
+~1_scoping_practice_1.org~ and open it in Emacs to code alongside me.
 
 If you want to test your Emacs mettle, open it on the CMD line with
 the command ~emacs -nw~ (no graphics - not needed for this exercise):
@@ -80,7 +80,7 @@ the command ~emacs -nw~ (no graphics - not needed for this exercise):
     hello()
   #+end_src
   
-* Package environments and namespaces
+* NEXT Package environments and namespaces
 
 - Package environments are items made available by each package in R.
 
