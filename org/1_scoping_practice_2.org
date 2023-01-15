@@ -19,7 +19,86 @@
 2) Go with the cursor on the headline and hange the ~TODO~ label to ~DONE~
    by entering ~S-<right>~ ("Shift + right-arrow").
 
------
+* Display package content
+
+1) Find the built-in and automatically loaded ~methods~ package.
+
+   #+begin_src R
+
+   #+end_src
+   
+2) Display only the first 20 items contained in the built-in and
+   automatically loaded ~methods~ package.
+
+   #+begin_src R
+
+   #+end_src
+
+3) How many items are there in total?
+
+   #+begin_src R
+
+   #+end_src
+
+* Functions and environments
+
+1) Which environment owns the ~read.table~ function?
+
+   #+begin_src R
+
+   #+end_src
+
+2) Which environment owns the ~data~ function?
+
+   #+begin_src R 
+
+   #+end_src
+
+3) Which environment owns the ~matrix~ function?
+
+   #+begin_src R
+
+   #+end_src
+   
+4) Which environment owns the ~jpeg~ function?
+
+   #+begin_src R
+
+   #+end_src
+   
+5) What does ~jpeg~ do? To find this out, run the ~help~ function on the
+   command inside the R console and copy the description here:
+
+   #+begin_quote
+
+   #+end_quote
+
+6) Show that ~base::matrix~ is called *after* ~utils::read.table~ by
+   comparing the indices in the ~character~ vector ~search()~.
+
+   /Tip:/ to extract indices, you can use the ~which~ function in
+   connection with logical operators.
+
+   #+begin_src R
+
+   #+end_src
+   
+* Functions and packages
+
+Use ~ls~ and a test for ~character~ string equality to confirm that the
+function ~smoothScatter~ is part of the ~graphics~ package.
+
+/Tip:/ given a set of logical vectors, the function ~any~ tests if at
+least one of the values is true. E.g.
+#+begin_src R
+  any(c("Jim","Jane","Joe") == "Jane")  # this is TRUE
+  any(c("Jim","Jane","Joe") == "Janet")  # this is FALSE
+#+end_src
+
+#+begin_src R
+
+#+end_src
+
 * TODO Upload completed Org-file to Canvas
 
 Well done! You've reached the end of this in-class practice file.
