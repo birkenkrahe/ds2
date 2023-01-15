@@ -19,3 +19,4 @@
 
 - [ ] Argument matching: exact, partial, positional, mixed
 - [ ] Classroom exercises and test 1: calling functions
+- [ ] Complete ~1_scoping_practice_2.org~: 
