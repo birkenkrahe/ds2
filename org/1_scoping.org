@@ -18,8 +18,8 @@ You will learn:
 Download the practice file from here: [[https://tinyurl.com/bp4edm7w][tinyurl.com/bp4edm7w]], save it as
 ~1_scoping_practice_1.org~ and open it in Emacs to code alongside me.
 
-If you want to test your Emacs mettle, open it on the CMD line with
-the command ~emacs -nw~ (no graphics - not needed for this exercise):
+To test your Emacs mettle, open it on the CMD line with the command
+~emacs -nw~ (no graphics - not needed for this exercise):
 #+attr_latex: :width 400px
 [[../img/1_emacs.png]]
 
@@ -80,7 +80,7 @@ the command ~emacs -nw~ (no graphics - not needed for this exercise):
     hello()
   #+end_src
   
-* NEXT Package environments and namespaces
+* IN PROGRESS Package environments and namespaces
 
 - Package environments are items made available by each package in R.
 

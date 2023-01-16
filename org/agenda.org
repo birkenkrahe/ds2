@@ -21,4 +21,21 @@
 - [ ] Classroom exercises and test 1: calling functions
 - [ ] Complete ~1_scoping_practice_2.org~: [[https://tinyurl.com/n8rc5kab][tinyurl.com/n8rc5kab]]
 - [ ] End of week: DataCamp, Test 1, 2 practice files uploaded
-  
+
+* Week 1 review
+
+- [ ] What're topic and deliverables of your final project?[fn:1]
+- [ ] Running R inside Emacs - what's the meaning of ~:session~ ?[fn:2]
+- [ ] What is in R's "Global environment"? How to show it?[fn:3]
+
+* Footnotes
+
+[fn:1] Topic: explore an R package; deliverables: proposal, literature
+review, abstract, literate program, presentation.
+
+[fn:2] ~:session~ starts an R console inside Emacs. It can be specified
+at the start as a ~#+property~, or at the start of a code block on the
+~#+begin_src~ headline.
+
+[fn:3] The Global environment contains auto-loaded and user-defined
+objects. Its contents are listed with ~ls()~ or ~ls('package:[name]')~.
