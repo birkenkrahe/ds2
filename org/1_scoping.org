@@ -4,7 +4,7 @@
 #+STARTUP: overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
-* DONE README
+* README
 #+attr_html: :width 500px
 [[../img/1_knife.jpg]]
 
@@ -255,7 +255,7 @@ To test your Emacs mettle, open it on the CMD line with the command
     ls()
   #+end_src  
   
-* TM Glossary
+* Glossary
 
 | TERM                 | MEANING                                     |
 |----------------------+---------------------------------------------|
