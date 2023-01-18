@@ -18,17 +18,18 @@
 [[../img/0_argument.jpg]]
 
 Review and preview:
-- [ ] [[https://www.thedataincubator.com/blog/events/how-git-works-webinar/][Webinar on Git @The Data Incubator, Jan 25, 12 pm]]
+- [X] [[https://www.thedataincubator.com/blog/events/how-git-works-webinar/][Webinar on how to use Git @The Data Incubator, Jan 25, 12 pm]]
 - [ ] [[https://github.com/birkenkrahe/ds2/blob/main/pdf/data_trends_2023.pdf][Data Trends and Predictions 2023]]
 - [ ] Week 1 review
+- [ ] Project sprint review 1 due February 10 - *proposal*
 
 Lecture and practice:  
 - [ ] Argument matching: exact, partial, positional, mixed
-- [ ] Classroom exercises and test 1: calling functions
+- [ ] Classroom exercises: scoping (~1_scoping_practice_1.org~)
 
 Submissions and tests:
 - [ ] Complete ~1_scoping_practice_2.org~: [[https://tinyurl.com/n8rc5kab][tinyurl.com/n8rc5kab]]
-- [ ] End of week: DataCamp, Test 1, 2 practice files uploaded
+- [ ] Next week: DataCamp, Test 1, 2 practice files uploaded
 - [ ] Test 1 will include questions on the DataCamp lesson
 
 *Not in DataCamp yet*: Pedro, Jackson, Boogie! ([[https://www.datacamp.com/groups/shared_links/7fa27084d362490de257e18893dda59b3de61b2f0dcd9463fcb96c9d1782672d][Link]])
@@ -37,7 +38,7 @@ Submissions and tests:
 #+attr_html: :width 400px
 [[../img/copilot.png]]
 
-*Familiarize yourself with ChatGPT (and CoPilot:*
+*Familiarize yourself with ChatGPT (and CoPilot):*
 1. Large language models will transform coding workflows
 2. Generative AI will transform content creation and generation
 3. AI will fuel productivity increases across a range of professions
@@ -57,9 +58,9 @@ Submissions and tests:
 
 * Week 1 review
 
-- [ ] What're topic and deliverables of your final project?[fn:1]
-- [ ] Running R inside Emacs - what's the meaning of ~:session~ ?[fn:2]
-- [ ] What is in R's "Global environment"? How to show it?[fn:3]
+- [X] What're topic and deliverables of your final project?[fn:1]
+- [X] Running R inside Emacs - what's the meaning of ~:session~ ?[fn:2]
+- [X] What is in R's "Global environment"? How to show it?[fn:3]
 
 * Footnotes
 

@@ -79,13 +79,13 @@ Glóin. Thorin and Company:
 #+attr_latex: :width 300px
 [[../img/0_test.jpg]]
 
-- The first DataCamp home assignment is due on Friday, January 20. For
+- The first DataCamp home assignment is due on Friday, January 23. For
   late submissions, you lose 1 point per day (out of 10).
 
-- The first in-class assignment is due on Friday, January 20. For late
+- The first in-class assignment is due on Friday, January 27. For late
   submissions, you lose 1 point per day (out of 10 possible points)
 
-- We'll write the first weekly multiple-choice test on January 20,
+- We'll write the first weekly multiple-choice test on January 23,
   covering all of the material that was covered until then.
 
 * What should we do as a project?
