@@ -67,8 +67,8 @@ Submissions and tests:
 [[../img/0_argument.jpg]]
 
 Review and preview:
-- [ ] Week 2 review: test 1 (online in class, Mon 1pm-1.15pm)
-- [ ] Test 1 review
+- [ ] Test 1 (online in class, Mon 1pm-1.15pm)
+- [ ] [[https://lyon.instructure.com/courses/1041/assignments/6557?display=full_width][Test 1 review]]
 - [ ] Project sprint review 1 due February 10 - *proposal*
 
 Lecture and practice:
@@ -81,6 +81,7 @@ Submissions and tests:
 - [ ] Next week: DataCamp 2, Test 2
 - [ ] Tests include questions from the DataCamp lesson
 
+ 
 * Project - first sprint review (Monday, Feb 6)
 #+attr_html: :width 400px
 [[../img/sprint.png]]

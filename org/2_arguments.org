@@ -22,8 +22,18 @@ To test your Emacs mettle, open it on the CMD line with the command
 
 * TODO Argument matching
 
+- Argument matching conditions allow you to provide arguments to
+  functions either with abbreviated names or without names at all.
+
+- *Exact* argument matching means that the argument tag is written out
+  in full.
+
 -
-  
+
+* Exact argument matching
+
+- 
+
 * TODO Glossary
 
 | TERM | MEANING |
