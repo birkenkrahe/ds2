@@ -1,0 +1,35 @@
+#+TITLE: CALLING FUNCTIONS - FUNCTION ARGUMENTS
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE: DSC 205 - Advanced introduction to data science
+#+STARTUP: overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
+* IN PROGRESS README
+#+attr_html: :width 500px
+[[../img/1_knife.jpg]]
+
+You will learn:
+
+- [ ] The meaning of function argument matching
+- [ ] Difference between exact, partial, positional arguments
+- [ ] Use of ellipses in functions
+
+Download the *raw* practice file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
+~1_argument_practice.org~.
+
+To test your Emacs mettle, open it on the CMD line with the command
+~emacs -nw~ (no graphics - not needed for this exercise).
+
+* TODO Argument matching
+
+-
+  
+* TODO Glossary
+
+| TERM | MEANING |
+|------+---------|
+|      |         |
+
+* References
+
+- Davies, T.D. (2016). The Book of R. NoStarch Press.

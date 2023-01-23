@@ -15,8 +15,11 @@ You will learn:
 - [ ] How R searches for arguments and variables
 - [ ] How you can specify arguments when calling a function
 
-Download the practice file from here: [[https://tinyurl.com/bp4edm7w][tinyurl.com/bp4edm7w]], save it as
-~1_scoping_practice_1.org~ and open it in Emacs to code alongside me.
+[[https://github.com/birkenkrahe/ds2/tree/main/org][Download the practice files from GitHub]], save them as
+~1_scoping_practice_1.org~ and ~1_scoping_practice_2.org~.
+
+The first practice file is code along while I lecture, the second
+practice file is an independent exercise. Solutions in the pdf repo.
 
 To test your Emacs mettle, open it on the CMD line with the command
 ~emacs -nw~ (no graphics - not needed for this exercise):
@@ -80,7 +83,7 @@ To test your Emacs mettle, open it on the CMD line with the command
     hello()
   #+end_src
   
-* IN PROGRESS Package environments and namespaces
+* Package environments and namespaces
 
 - Package environments are items made available by each package in R.
 

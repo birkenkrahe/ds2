@@ -13,28 +13,34 @@
   ([[https://github.com/birkenkrahe/ds2/blob/main/pdf/data_trends_2023.pdf][PDF]]) (Wed Jan 18, 10AM) - register/attend/watch the recording later
 - [X] Calling R functions: scoping, environment, search path
 
-* Week 2 - Scoping and argument matching
+** Week 1 review
+
+- [X] What're topic and deliverables of your final project?[fn:1]
+- [X] Running R inside Emacs - what's the meaning of ~:session~ ?[fn:2]
+- [X] What is in R's "Global environment"? How to show it?[fn:3]
+
+* Week 2 - Scoping
 #+attr_html: :width 400px
-[[../img/0_argument.jpg]]
+[[../img/scope.jpg]]
 
 Review and preview:
 - [X] [[https://www.thedataincubator.com/blog/events/how-git-works-webinar/][Webinar on how to use Git @The Data Incubator, Jan 25, 12 pm]]
-- [ ] [[https://github.com/birkenkrahe/ds2/blob/main/pdf/data_trends_2023.pdf][Data Trends and Predictions 2023]]
-- [ ] Week 1 review
+- [X] [[https://github.com/birkenkrahe/ds2/blob/main/pdf/data_trends_2023.pdf][Data Trends and Predictions 2023]]
+- [X] Week 1 review
 - [ ] Project sprint review 1 due February 10 - *proposal*
 
-Lecture and practice:  
+Lecture and practice:
+- [X] Classroom exercises: scoping
 - [ ] Argument matching: exact, partial, positional, mixed
-- [ ] Classroom exercises: scoping (~1_scoping_practice_1.org~)
 
 Submissions and tests:
-- [ ] Complete ~1_scoping_practice_2.org~: [[https://tinyurl.com/n8rc5kab][tinyurl.com/n8rc5kab]]
-- [ ] Next week: DataCamp, Test 1, 2 practice files uploaded
-- [ ] Test 1 will include questions on the DataCamp lesson
+- [X] Complete ~1_scoping_practice_2.org~: [[https://tinyurl.com/n8rc5kab][tinyurl.com/n8rc5kab]]
+- [X] Next week: DataCamp, Test 1, 2 practice files uploaded
+- [X] Test 1 will include questions on the DataCamp lesson
 
 *Not in DataCamp yet*: Pedro, Jackson, Boogie! ([[https://www.datacamp.com/groups/shared_links/7fa27084d362490de257e18893dda59b3de61b2f0dcd9463fcb96c9d1782672d][Link]])
 
-* Data trends and predictions 2023
+** Data trends and predictions 2023
 #+attr_html: :width 400px
 [[../img/copilot.png]]
 
@@ -43,7 +49,7 @@ Submissions and tests:
 2. Generative AI will transform content creation and generation
 3. AI will fuel productivity increases across a range of professions
 
-*Invest in Literate programming:*   
+*Invest in Literate programming:*
 1. Next generation of notebooks closer to low-code data products
 2. Increased focus on model explainability and data ethics
 
@@ -56,11 +62,67 @@ Submissions and tests:
 2. Rise of specialist new roles signals a maturing role ecosystem
 3. Organizations and institutions continue to invest in data literacy
 
-* Week 1 review
+* Week 3 - Arguments and conditions
+#+attr_html: :width 400px
+[[../img/0_argument.jpg]]
 
-- [X] What're topic and deliverables of your final project?[fn:1]
-- [X] Running R inside Emacs - what's the meaning of ~:session~ ?[fn:2]
-- [X] What is in R's "Global environment"? How to show it?[fn:3]
+Review and preview:
+- [ ] Week 2 review: test 1 (online in class, Mon 1pm-1.15pm)
+- [ ] Test 1 review
+- [ ] Project sprint review 1 due February 10 - *proposal*
+
+Lecture and practice:
+- [ ] Classroom exercises: argument matching, conditions
+- [ ] Argument matching: exact, partial, positional, mixed
+- [ ] Conditions: ~if~ and ~else~ statements
+
+Submissions and tests:
+- [ ] Complete practice files and upload them to Canvas
+- [ ] Next week: DataCamp 2, Test 2
+- [ ] Tests include questions from the DataCamp lesson
+
+* Project - first sprint review (Monday, Feb 6)
+#+attr_html: :width 400px
+[[../img/sprint.png]]
+
+- The term project purpose is the exploration of any R package or
+  (linked) group of packages.
+
+- There are many different ways to explore and/or document a package -
+  e.g. succinct, verbose, opinionated, objective, accessible or not.
+
+- Your first deliverable is a project proposal formatted as an
+  Org-mode file. Here is a template for such a file with definitions.
+
+  1) Meta data: preliminary title (~#+TITLE~), list of team members
+     (~#+AUTHOR:~), course title (~#+SUBTITLE~).
+
+  2) Headlines: ~Problem~, ~Reason~, ~Constraints~, ~Goals and Non-goals~,
+     ~Metrics~, ~References~
+
+     - *Problem*: describe the problem that you're trying to solve.
+
+     - *Reason*: why is this problem interesting (to you) right now?
+
+     - *Constraints:* which difficulties, e.g. technical or conceptual,
+       do you foresee right now?
+
+     - *Goals and non-goals*: list all goals that you might want to
+       achieve with this project. Order the goals by importance. Add a
+       list of non-goals, i.e. things that are outside the scope of
+       your project.
+
+     - *Metrics*: how would you measure the success of your project?
+
+     - *References*: list any references that you found already. Make
+       sure that they are consistent (same format) and complete
+       (author, date, title, place).
+
+- Upload your result to Canvas (*no later than Feb 6, 12 pm*). Missing
+  the deadline will cost you points.
+
+Source: Ellis, Data Science Project Proposals (2021). URL:
+[[https://crunchingthedata.com/data-science-project-proposals/][crunchingthedata.com]].
 
 * Footnotes
 
