@@ -69,7 +69,7 @@ Submissions and tests:
 Review and preview:
 - [ ] Test 1 (online in class, Mon 1pm-1.15pm)
 - [ ] [[https://lyon.instructure.com/courses/1041/assignments/6557?display=full_width][Test 1 review]]
-- [ ] Project sprint review 1 due February 10 - *proposal*
+- [ ] Project sprint review 1 due February 6 - *proposal*
 
 Lecture and practice:
 - [ ] Classroom exercises: argument matching, conditions
@@ -81,16 +81,24 @@ Submissions and tests:
 - [ ] Next week: DataCamp 2, Test 2
 - [ ] Tests include questions from the DataCamp lesson
 
- 
-* Project - first sprint review (Monday, Feb 6)
+* TODO [[https://lyon.instructure.com/courses/1041/assignments][Upload your practice files! (By Friday)]] 
+* TODO Condition for repeating tests
+#+attr_latex: :width 400px
+#+caption: Late or missed the test? Talk to me!
+[[../img/late.jpg]]
+
+- If you inform me beforehand that you cannot attend an announced
+  test, we can make arrangements for you to take the test outside of
+  class.
+
+* DONE Project - first sprint review (Monday, Feb 6)
 #+attr_html: :width 400px
 [[../img/sprint.png]]
 
 - The term project purpose is the exploration of any R package or
   (linked) group of packages.
 
-- There are many different ways to explore and/or document a package -
-  e.g. succinct, verbose, opinionated, objective, accessible or not.
+- There are many different ways to explore and/or document a package - e.g. succinct, verbose, opinionated, objective, accessible or not.
 
 - Your first deliverable is a project proposal formatted as an
   Org-mode file. Here is a template for such a file with definitions.
