@@ -62,7 +62,7 @@ Submissions and tests:
 2. Rise of specialist new roles signals a maturing role ecosystem
 3. Organizations and institutions continue to invest in data literacy
 
-* Week 3 - Arguments matching
+* Week 3 - Argument matching
 #+attr_html: :width 400px
 [[../img/0_argument.jpg]]
 

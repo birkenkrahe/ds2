@@ -5,8 +5,6 @@
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
 * README
-#+attr_html: :width 400px
-[[../img/0_argument.jpg]]
 
 You will learn:
 
