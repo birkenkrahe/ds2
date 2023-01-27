@@ -1,0 +1,145 @@
+#+TITLE: CALLING FUNCTIONS - FUNCTION ARGUMENTS
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE: DSC 205 - Advanced introduction to data science
+#+STARTUP: overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
+* README
+#+attr_html: :width 400px
+[[../img/0_argument.jpg]]
+
+You will learn:
+
+- [ ] The meaning of function argument matching
+- [ ] Difference between exact, partial, positional arguments
+- [ ] Use of ellipses in functions
+
+Download the *raw* practice file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
+~1_argument_practice.org~.
+
+To test your Emacs mettle, open it on the CMD line with the command
+~emacs -nw~ (no graphics - not needed for this exercise).
+
+* TODO Identify and pledge yourself
+
+1) In Emacs, replace the placeholder ~[yourname]~ at the top of this
+   file by your own name and write ~(pledged)~ next to it
+2) Go with the cursor on the headline and hange the ~TODO~ label to ~DONE~
+   by entering ~S-<right>~ ("Shift + right-arrow").
+
+* Exact argument matching
+
+#+begin_src R
+  foo <- matrix(
+    data=1:9,
+    nrow=3,
+    dimnames=list(LETTERS[1:3], # 'dimnames' must be a list
+                  LETTERS[4:6]))
+  foo
+#+end_src
+
+Switching around the arguments:
+#+begin_src R
+  bar <- 
+#+end_src
+
+- [ ] What is ~foo == bar~?
+  #+begin_src R
+
+  #+end_src
+
+* Partial argument matching
+
+#+begin_src R
+
+#+end_src
+
+- [ ] Change ~da~ to ~d~ - what happens and why?[fn:1]
+  #+begin_src R
+
+  #+end_src
+
+* Positional argument matching
+
+#+begin_src R
+
+#+end_src
+
+- [ ] What happens if you leave out the ~byrow~ argument value?
+  #+begin_src R
+
+  #+end_src
+
+* Mixed argument matching
+
+#+begin_src R
+x
+#+end_src
+
+* Use of ellipses in arguments
+
+- [ ] What happens when you specify NO arguments for a ~data.frame~
+  named ~df~?
+  #+begin_src R
+
+  #+end_src
+
+- ~args~ will also tell you: run ~args~ on ~data.frame~
+  #+begin_src R
+
+  #+end_src
+
+- ~plot~ is not variadic but accepts ellipsis arguments:
+  #+begin_src R
+
+  #+end_src
+
+* Exercises
+
+1) [ ] Is ~matrix~ elliptic?
+   #+begin_src R
+
+   #+end_src
+
+2) [ ] Use positional matching with ~seq~ to create a sequence of values
+   between -4 and 4 that progresses in steps of 0.2.
+   #+begin_src R
+
+   #+end_src
+
+3) [ ] Identify, which style of argument matching is being used:
+   exact, partial, positional, or mixed. If mixed, which arguments are
+   specified?
+
+   *Write your answer as a comment after the command.*
+
+   1. ~array~
+      #+begin_src R
+        array(8:1,dim=c(2,2,2))
+      #+end_src
+
+   2. ~rep~
+      #+begin_src R
+        rep(1:2,3) 
+      #+end_src
+
+   3. ~seq~
+      #+begin_src R
+        seq(from=10,to=8,length=5) 
+      #+end_src
+
+   4. ~sort~
+      #+begin_src R
+        sort(decreasing=T,x=c(2,1,1,2,0.3,3,1.3))
+      #+end_src
+
+   5. ~which~
+      #+begin_src R
+        which(matrix(c(T,F,T,T),2,2)) 
+      #+end_src
+
+   6. ~which~
+      #+begin_src R
+        which(matrix(c(T,F,T,T),2,2),a=T)
+      #+end_src
+

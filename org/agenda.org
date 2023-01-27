@@ -62,7 +62,7 @@ Submissions and tests:
 2. Rise of specialist new roles signals a maturing role ecosystem
 3. Organizations and institutions continue to invest in data literacy
 
-* Week 3 - Arguments and conditions
+* Week 3 - Arguments matching
 #+attr_html: :width 400px
 [[../img/0_argument.jpg]]
 
@@ -70,10 +70,11 @@ Review and preview:
 - [X] Test 1 (online in class, Mon 1pm-1.15pm)
 - [X] [[https://lyon.instructure.com/courses/1041/assignments/6557?display=full_width][Test 1 review]]
 - [X] Project sprint review 1 due February 6 - *proposal*
+- [ ] DataCamp lesson review questions
 
 Lecture and practice:
-- [ ] Classroom exercises: argument matching, conditions
 - [ ] Argument matching: exact, partial, positional, mixed
+- [ ] Classroom exercises: argument matching, conditions
 - [ ] Conditions: ~if~ and ~else~ statements
 
 Submissions and tests:
@@ -81,8 +82,8 @@ Submissions and tests:
 - [ ] Next week: DataCamp 2, Test 2
 - [ ] Tests include questions from the DataCamp lesson
 
-* TODO [[https://lyon.instructure.com/courses/1041/assignments][Upload your practice files! (By Friday)]] 
-* DONE Condition for repeating tests
+** TODO [[https://lyon.instructure.com/courses/1041/assignments][Upload your practice files! (By Friday)]]
+** DONE Condition for repeating tests
 #+attr_latex: :width 400px
 #+caption: Late or missed the test? Talk to me!
 [[../img/late.jpg]]
@@ -91,7 +92,7 @@ Submissions and tests:
   test, we can make arrangements for you to take the test outside of
   class.
 
-* DONE Project - first sprint review (Monday, Feb 6)
+** DONE Project - first sprint review (Monday, Feb 6)
 #+attr_html: :width 400px
 [[../img/sprint.png]]
 
@@ -133,7 +134,54 @@ Submissions and tests:
 Source: Ellis, Data Science Project Proposals (2021). URL:
 [[https://crunchingthedata.com/data-science-project-proposals/][crunchingthedata.com]].
 
-* TODO [[https://blog.rwhitedwarf.com/post/use_emacs_for_r/][Using Emacs for R]]
+* Week 4: Conditional statements
+** TODO Review: DataCamp lesson "Conditional statements"
+
+- [ ] What's the result of using a relational operator in R?
+- [ ] What's the result of using such an operator on a vector?
+- [ ] What is ~foo==0~ if ~foo <- 1:10~ ? What is ~sum(foo==0)~?
+  #+begin_src R
+    foo <- 1:10
+    foo
+    foo==0
+    sum(foo == 0)
+  #+end_src
+- [ ] What is ~foo[-10] < foo~?
+  #+begin_src R :results output
+    foo[-10] < foo
+  #+end_src
+- [ ] Can I write ~m < 4~ even if ~m~ is a ~matrix~?
+  #+begin_src R  :results output
+    matrix(1:9,nr=3,byrow=TRUE) < 4
+  #+end_src
+- [ ] Can I write ~m & 4~ even if ~m~ is a ~matrix~?
+  #+begin_src R  :results output
+    matrix(1:9,nr=3,byrow=TRUE) & 4
+    TRUE & 4
+    1 & 4
+    0 & 4
+  #+end_src
+- [ ] What's the difference between ~|~ and ~||~?
+  #+begin_src R :results output
+    TRUE | FALSE
+    c(TRUE,FALSE) | c(FALSE,FALSE)
+    c(TRUE,FALSE) || c(FALSE,FALSE)
+  #+end_src
+- [ ] What's the problem with this code? (It should print "hello".)
+  #+begin_src R
+    x <- 0
+    if (x=0) print("hello")
+  #+end_src
+- [ ] Why does this code print "ciao" but not "hello"?
+  #+begin_src R
+    x <- 1
+    if (x < 2) {
+      print ("ciao")
+    } else if (x == 1) {
+      print("hello")
+    }
+  #+end_src
+** TODO [[https://blog.rwhitedwarf.com/post/use_emacs_for_r/][Using Emacs for R]]
 #+attr_latex: :width 400px
 [[../img/learning-editors.jpg]]
 

@@ -21,6 +21,8 @@ To test your Emacs mettle, open it on the CMD line with the command
 ~emacs -nw~ (no graphics - not needed for this exercise).
 
 * Argument matching
+#+attr_latex: :width 400px
+[[../img/2_matching.jpg]]
 
 - Argument matching conditions allow you to provide arguments to
   functions either with abbreviated names or without names at all.
@@ -28,13 +30,223 @@ To test your Emacs mettle, open it on the CMD line with the command
 - *Exact* argument matching means that the argument tag is written out
   in full.
 
-- 
-
 * Exact argument matching
 
-- 
+*Def:* All argument tags are spelled out in full.
 
-* Glossary
+*PRO:*
+- Safe - less prone to wrong argument specifications
+- Order of arguments is irrelevant
+- Useful when many arguments are possible
+
+*CON:*
+- Can be cumbersome for simple operations
+- Need to know the full, case-sensitive tags
+
+*Example:*
+#+begin_src R
+  foo <- matrix(
+    data=1:9,
+    nrow=3,
+    dimnames=list(LETTERS[1:3], # 'dimnames' must be a list
+                  LETTERS[4:6]))
+  foo
+#+end_src
+
+Switching around the arguments:
+#+begin_src R
+  bar <- matrix(
+    nrow=3,
+    dimnames=list(LETTERS[1:3],
+                  LETTERS[4:6]),
+    data=1:9)
+  bar
+#+end_src
+
+- [ ] What is ~foo == bar~?
+  #+begin_src R
+    foo==bar
+  #+end_src
+
+* Partial argument matching
+
+*Def:* Argument tags are abbreviated, e.g. ~nr~ instead of ~nrow~.
+
+*PRO:*
+- Requires less code than exact matching
+- Argument tags are still visible
+- Order of arguments does not matter
+
+*CON:*
+- Must be aware of other potentially matching arguments
+- Each tag must have a unique identification
+
+*Example:*
+#+begin_src R
+  baz <- matrix(
+    da=1:9,
+    nr=3,
+    di=list(LETTERS[1:3],
+            LETTERS[4:6]))
+  baz
+#+end_src
+
+- [ ] Change ~da~ to ~d~ - what happens and why?[fn:1]
+  #+begin_src R
+    baz <- matrix(
+      d=1:9,
+      nr=3,
+      di=list(LETTERS[1:3],
+              LETTERS[4:6]))
+    baz
+  #+end_src
+
+* Positional argument matching
+
+*Def:* Arguments are inferred by their position.
+
+*PRO:*
+- Shorter, cleaner code
+- Faster for routine tasks and simple code
+- No need to remember specific argument tags
+
+*CON:*
+- Must look up and be aware of the exact defined order of arguments
+- Reading code written by others might be more difficult
+- Unfamiliar functions written by you or others will slow you down
+
+- The argument order information can be found in the ~Usage~ section of
+  the function's ~help~ file
+
+- The argument order can be shown with ~args~ or by printing the
+  function name without arguments:
+  #+begin_src R
+    args(matrix)
+  #+end_src
+
+*Example:*
+#+begin_src R
+  bar <-
+    matrix(
+      1:9,  # data
+      3,    # nrow
+      3,    # ncol
+      F,    # byrow
+      list(LETTERS[1:3],LETTERS[4:6])) #dimnames
+  bar
+#+end_src
+
+- [ ] What happens if you leave out the ~byrow~ argument value?
+  #+begin_src R
+    bar <-
+      matrix(
+        1:9,  # data
+        3,    # nrow
+        3,    # ncol
+        list(LETTERS[1:3],LETTERS[4:6])) #dimnames
+    bar
+  #+end_src
+
+* Mixed argument matching
+
+*Def:* Mixing exact, partial, and positional argument matching styles
+
+*Example:*
+#+begin_src R
+  bar <-
+    matrix(1:9,3,3,
+           dim = list(c("A","B","C"),c("C","D","E")))
+  bar
+#+end_src
+
+* Use of ellipses in arguments
+
+- Many functions exhibit /variadic/ behavior, i.e. they accept a
+  variable number of arguments, or no arguments at all
+
+- E.g. when you call ~data.frame~, you can specify any number of members
+  as arguments:
+  #+begin_example R
+  data.frame(...,
+             row.names = NULL,
+             check.rows = FALSE,
+             check.names = TRUE,
+             fix.empty.names = TRUE,
+             stringsAsFactors = FALSE)
+  #+end_example
+
+- [ ] What happens when you specify NO arguments for ~data.frame~?
+  #+begin_src R
+    df <- data.frame()
+    df
+  #+end_src
+
+- The /ellipsis/ in the ~Usage~ section of the ~help~ signifies this
+
+- ~args~ will also tell you:
+  #+begin_src R
+    args(data.frame)
+  #+end_src
+
+- R functions fall into two groups:
+  1) ellipsis is the main ingredient (like ~c~ or ~data.frame~)
+  2) ellipsis is a supplement (like ~plot~)
+
+- ~plot~ is not variadic but accepts ellipsis arguments:
+  #+begin_src R
+    args(plot)
+  #+end_src
+
+* Exercises
+
+1) [ ] Is ~matrix~ elliptic?
+   #+begin_src R
+
+   #+end_src
+
+2) [ ] Use positional matching with ~seq~ to create a sequence of values
+   between -4 and 4 that progresses in steps of 0.2.
+   #+begin_src R
+
+   #+end_src
+
+3) [ ] Identify, which style of argument matching is being used:
+   exact, partial, positional, or mixed. If mixed, which arguments are
+   specified?
+
+   *Write your answer as a comment after the command.*
+
+   1. ~array~
+      #+begin_src R
+        array(8:1,dim=c(2,2,2))
+      #+end_src
+
+   2. ~rep~
+      #+begin_src R
+        rep(1:2,3) 
+      #+end_src
+
+   3. ~seq~
+      #+begin_src R
+        seq(from=10,to=8,length=5) 
+      #+end_src
+
+   4. ~sort~
+      #+begin_src R
+        sort(decreasing=T,x=c(2,1,1,2,0.3,3,1.3))
+      #+end_src
+
+   5. ~which~
+      #+begin_src R
+        which(matrix(c(T,F,T,T),2,2)) 
+      #+end_src
+
+   6. ~which~
+      #+begin_src R
+        which(matrix(c(T,F,T,T),2,2),a=T)
+      #+end_src
+
+* TODO Glossary
 
 | TERM | MEANING |
 |------+---------|
@@ -43,3 +255,8 @@ To test your Emacs mettle, open it on the CMD line with the command
 * References
 
 - Davies, T.D. (2016). The Book of R. NoStarch Press.
+
+* Footnotes
+
+[fn:1] The argument tag ~d~ could belong to ~dimnames~ or ~data~ - R cannot
+resolve this ambiguity on it own and returns an error.
