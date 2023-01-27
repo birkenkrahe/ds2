@@ -4,9 +4,9 @@
 #+STARTUP: overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
-* IN PROGRESS README
-#+attr_html: :width 500px
-[[../img/1_knife.jpg]]
+* README
+#+attr_html: :width 400px
+[[../img/0_argument.jpg]]
 
 You will learn:
 
@@ -20,7 +20,7 @@ Download the *raw* practice file [[https://github.com/birkenkrahe/ds2/tree/main/
 To test your Emacs mettle, open it on the CMD line with the command
 ~emacs -nw~ (no graphics - not needed for this exercise).
 
-* TODO Argument matching
+* Argument matching
 
 - Argument matching conditions allow you to provide arguments to
   functions either with abbreviated names or without names at all.
@@ -28,13 +28,13 @@ To test your Emacs mettle, open it on the CMD line with the command
 - *Exact* argument matching means that the argument tag is written out
   in full.
 
--
+- 
 
 * Exact argument matching
 
 - 
 
-* TODO Glossary
+* Glossary
 
 | TERM | MEANING |
 |------+---------|
