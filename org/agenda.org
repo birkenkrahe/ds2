@@ -135,6 +135,8 @@ Source: Ellis, Data Science Project Proposals (2021). URL:
 [[https://crunchingthedata.com/data-science-project-proposals/][crunchingthedata.com]].
 
 * Week 4: Conditional statements
+** TODO Upload your practice files to GDrive
+** TODO Exercise: argument matching
 ** TODO Review: DataCamp lesson "Conditional statements"
 
 - [ ] What's the result of using a relational operator in R?
@@ -184,7 +186,6 @@ Source: Ellis, Data Science Project Proposals (2021). URL:
 ** TODO [[https://blog.rwhitedwarf.com/post/use_emacs_for_r/][Using Emacs for R]]
 #+attr_latex: :width 400px
 [[../img/learning-editors.jpg]]
-
 * Footnotes
 
 [fn:1] Topic: explore an R package; deliverables: proposal, literature

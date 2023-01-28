@@ -1,7 +1,7 @@
 #+TITLE: CALLING FUNCTIONS - FUNCTION ARGUMENTS
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: DSC 205 - Advanced introduction to data science
-#+STARTUP: overview hideblocks indent
+#+STARTUP: overview hideblocks indent inlineimages
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
 * README
@@ -10,12 +10,12 @@
 
 You will learn:
 
-- [ ] The meaning of function argument matching
-- [ ] Difference between exact, partial, positional arguments
+- [ ] The meaning of function argument matching: ~f(args)~
+- [ ] Difference between exact, partial, positional, mixed arguments
 - [ ] Use of ellipses in functions
 
 Download the *raw* practice file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
-~1_argument_practice.org~.
+~2_argument_practice.org~.
 
 To test your Emacs mettle, open it on the CMD line with the command
 ~emacs -nw~ (no graphics - not needed for this exercise).
@@ -29,6 +29,17 @@ To test your Emacs mettle, open it on the CMD line with the command
 
 - *Exact* argument matching means that the argument tag is written out
   in full.
+
+- *Partial* argument matching means that the argument tags are
+  abbreviated, e.g. ~nr~ instead of ~nrow~.
+
+- *Positional* argument matching means that the arguments are inferred
+  by their position only (no tags, e.g. ~3~ instead of ~nrow=3~).
+
+- *Mixed* argument matching means that different matching styles are
+  mixed in one function argument list.
+
+- *Elliptic* arguments stand for any type and number of argument.
 
 * Exact argument matching
 
@@ -246,11 +257,17 @@ Switching around the arguments:
         which(matrix(c(T,F,T,T),2,2),a=T)
       #+end_src
 
-* TODO Glossary
+* Glossary
 
-| TERM | MEANING |
-|------+---------|
-|      |         |
+| TERM                | MEANING                                           |
+|---------------------+---------------------------------------------------|
+| Exact arguments     | Full argument tag                                 |
+| Partial argument    | Argument tags abbreviated                         |
+| Positional argument | Arguments inferred by position alone              |
+| Mixed arguments     | Different matching styles are mixed               |
+| Ellipsis            | Variable number of arguments is accepted          |
+| ~args~                | Return exact argument tags with defaults          |
+| ~...~                 | Ellipsis in the ~args~ or ~Usage~ section of the ~help~ |
 
 * References
 

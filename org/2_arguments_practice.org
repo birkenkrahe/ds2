@@ -25,7 +25,7 @@ To test your Emacs mettle, open it on the CMD line with the command
 2) Go with the cursor on the headline and hange the ~TODO~ label to ~DONE~
    by entering ~S-<right>~ ("Shift + right-arrow").
 
-* Exact argument matching
+* TODO Exact argument matching
 
 #+begin_src R
   foo <- matrix(
@@ -46,7 +46,7 @@ Switching around the arguments:
 
   #+end_src
 
-* Partial argument matching
+* TODO Partial argument matching
 
 #+begin_src R
 
@@ -57,7 +57,7 @@ Switching around the arguments:
 
   #+end_src
 
-* Positional argument matching
+* TODO Positional argument matching
 
 #+begin_src R
 
@@ -68,13 +68,13 @@ Switching around the arguments:
 
   #+end_src
 
-* Mixed argument matching
+* TODO Mixed argument matching
 
 #+begin_src R
 x
 #+end_src
 
-* Use of ellipses in arguments
+* TODO Use of ellipses in arguments
 
 - [ ] What happens when you specify NO arguments for a ~data.frame~
   named ~df~?
@@ -92,7 +92,7 @@ x
 
   #+end_src
 
-* Exercises
+* TODO Exercises
 
 1) [ ] Is ~matrix~ elliptic?
    #+begin_src R
