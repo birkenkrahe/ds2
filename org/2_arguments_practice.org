@@ -94,7 +94,8 @@ x
 
 * TODO Exercises
 
-1) [ ] Is ~matrix~ elliptic?
+1) [ ] Is ~matrix~ elliptic? Does this function have an ellipsis (~...~)
+   in its list of arguments?
    #+begin_src R
 
    #+end_src
