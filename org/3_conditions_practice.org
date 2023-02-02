@@ -6,11 +6,12 @@
 #+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
 * README
 
-You will learn:
+This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/main/org/3_conditions.org][lecture]] on conditional
+statements. You will learn:
 
 - [ ] 
 
-Download the *raw* practice file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
+Download the *raw* practice file [[https://raw.githubusercontent.com/birkenkrahe/ds2/main/org/3_conditions_practice.org][from GitHub]] and save it as
 ~3_conditions_practice.org~.
 
 To test your Emacs mettle, open it on the CMD line with the command
