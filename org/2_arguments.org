@@ -210,6 +210,8 @@ Switching around the arguments:
 
 * Exercises
 
+Solutions to these exercises are available in the GitHub pdf repo.
+
 1) [ ] Is ~matrix~ elliptic?
    #+begin_src R
 

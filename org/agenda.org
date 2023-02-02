@@ -3,7 +3,7 @@
 #+SUBTITLE: Lyon College, Spring 2023
 #+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
-#+PROPERTY: header-args:R :session *R* :results: output :exports both :noweb yes
+#+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
 * Week 1 - Course overview & R review
 #+attr_html: :width 400px
 [[../img/cover.jpg]]
@@ -27,7 +27,7 @@ Review and preview:
 - [X] [[https://www.thedataincubator.com/blog/events/how-git-works-webinar/][Webinar on how to use Git @The Data Incubator, Jan 25, 12 pm]]
 - [X] [[https://github.com/birkenkrahe/ds2/blob/main/pdf/data_trends_2023.pdf][Data Trends and Predictions 2023]]
 - [X] Week 1 review
-- [ ] Project sprint review 1 due February 10 - *proposal*
+- [ ] Project sprint review 1 due February 6 - *proposal*
 
 Lecture and practice:
 - [X] Classroom exercises: scoping
@@ -39,7 +39,6 @@ Submissions and tests:
 - [X] Test 1 will include questions on the DataCamp lesson
 
 *Not in DataCamp yet*: Pedro, Jackson, Boogie! ([[https://www.datacamp.com/groups/shared_links/7fa27084d362490de257e18893dda59b3de61b2f0dcd9463fcb96c9d1782672d][Link]])
-
 ** Data trends and predictions 2023
 #+attr_html: :width 400px
 [[../img/copilot.png]]
@@ -73,13 +72,13 @@ Review and preview:
 - [ ] DataCamp lesson review questions
 
 Lecture and practice:
-- [ ] Argument matching: exact, partial, positional, mixed
-- [ ] Classroom exercises: argument matching, conditions
+- [X] Argument matching: exact, partial, positional, mixed
+- [X] +Classroom+ exercises: argument matching, conditions
 - [ ] Conditions: ~if~ and ~else~ statements
 
 Submissions and tests:
 - [ ] Complete practice files and upload them to Canvas
-- [ ] Next week: DataCamp 2, Test 2
+- [ ] Next week: DataCamp 2, Test 2, Sprint Review 1
 - [ ] Tests include questions from the DataCamp lesson
 
 ** TODO [[https://lyon.instructure.com/courses/1041/assignments][Upload your practice files! (By Friday)]]
@@ -96,51 +95,56 @@ Submissions and tests:
 #+attr_html: :width 400px
 [[../img/sprint.png]]
 
-- The term project purpose is the exploration of any R package or
-  (linked) group of packages.
+  - The term project purpose is the exploration of any R package or
+    (linked) group of packages.
 
-- There are many different ways to explore and/or document a package - e.g. succinct, verbose, opinionated, objective, accessible or not.
+  - There are many different ways to explore and/or document a package - e.g. succinct, verbose, opinionated, objective, accessible or not.
 
-- Your first deliverable is a project proposal formatted as an
-  Org-mode file. Here is a template for such a file with definitions.
+  - Your first deliverable is a project proposal formatted as an
+    Org-mode file. Here is a template for such a file with definitions.
 
-  1) Meta data: preliminary title (~#+TITLE~), list of team members
-     (~#+AUTHOR:~), course title (~#+SUBTITLE~).
+    1) Meta data: preliminary title (~#+TITLE~), list of team members
+       (~#+AUTHOR:~), course title (~#+SUBTITLE~).
 
-  2) Headlines: ~Problem~, ~Reason~, ~Constraints~, ~Goals and Non-goals~,
-     ~Metrics~, ~References~
+    2) Headlines: ~Problem~, ~Reason~, ~Constraints~, ~Goals and Non-goals~,
+       ~Metrics~, ~References~
 
-     - *Problem*: describe the problem that you're trying to solve.
+       - *Problem*: describe the problem that you're trying to solve.
 
-     - *Reason*: why is this problem interesting (to you) right now?
+       - *Reason*: why is this problem interesting (to you) right now?
 
-     - *Constraints:* which difficulties, e.g. technical or conceptual,
-       do you foresee right now?
+       - *Constraints:* which difficulties, e.g. technical or conceptual,
+         do you foresee right now?
 
-     - *Goals and non-goals*: list all goals that you might want to
-       achieve with this project. Order the goals by importance. Add a
-       list of non-goals, i.e. things that are outside the scope of
-       your project.
+       - *Goals and non-goals*: list all goals that you might want to
+         achieve with this project. Order the goals by importance. Add a
+         list of non-goals, i.e. things that are outside the scope of
+         your project.
 
-     - *Metrics*: how would you measure the success of your project?
+       - *Metrics*: how would you measure the success of your project?
 
-     - *References*: list any references that you found already. Make
-       sure that they are consistent (same format) and complete
-       (author, date, title, place).
+       - *References*: list any references that you found already. Make
+         sure that they are consistent (same format) and complete
+         (author, date, title, place).
 
-- Upload your result to Canvas (*no later than Feb 6, 12 pm*). Missing
-  the deadline will cost you points.
+  - Upload your result to Canvas (*no later than Feb 6, 12 pm*). Missing
+    the deadline will cost you points.
 
-Source: Ellis, Data Science Project Proposals (2021). URL:
-[[https://crunchingthedata.com/data-science-project-proposals/][crunchingthedata.com]].
+  Source: Ellis, Data Science Project Proposals (2021). URL:
+  [[https://crunchingthedata.com/data-science-project-proposals/][crunchingthedata.com]].
 
 * Week 4: Conditional statements
+** DONE Exercise: argument matching
 ** TODO Upload your practice files to GDrive
-** TODO Exercise: argument matching
 ** TODO Review: DataCamp lesson "Conditional statements"
-
 - [ ] What's the result of using a relational operator in R?
+  #+begin_src R
+    1 > 2 # relational operators lead to LOGICAL values
+  #+end_src
 - [ ] What's the result of using such an operator on a vector?
+  #+begin_src R
+    c(1,2) > c(2,1)
+  #+end_src
 - [ ] What is ~foo==0~ if ~foo <- 1:10~ ? What is ~sum(foo==0)~?
   #+begin_src R
     foo <- 1:10
@@ -186,6 +190,7 @@ Source: Ellis, Data Science Project Proposals (2021). URL:
 ** TODO [[https://blog.rwhitedwarf.com/post/use_emacs_for_r/][Using Emacs for R]]
 #+attr_latex: :width 400px
 [[../img/learning-editors.jpg]]
+** TODO [[https://github.com/birkenkrahe/ds2/blob/main/org/3_conditions.org][Lecture]] & practice: conditional statements
 * Footnotes
 
 [fn:1] Topic: explore an R package; deliverables: proposal, literature

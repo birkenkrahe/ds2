@@ -13,7 +13,7 @@ You will learn:
 - [ ] Use of ellipses in functions
 
 Download the *raw* practice file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
-~1_argument_practice.org~.
+~2_argument_practice.org~.
 
 To test your Emacs mettle, open it on the CMD line with the command
 ~emacs -nw~ (no graphics - not needed for this exercise).
