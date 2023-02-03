@@ -134,59 +134,71 @@ Submissions and tests:
   [[https://crunchingthedata.com/data-science-project-proposals/][crunchingthedata.com]].
 
 * Week 4: Conditional statements
-** DONE Exercise: argument matching
+#+attr_latex: :width 400px
+[[../img/groundhog.jpg]]
+** Summary of assignments
+#+attr_latex: :width 400px
+[[../img/winter.jpg]]
+
+- [[https://lyon.instructure.com/courses/1041/assignments/6693][DataCamp assignment 2]] is due on Friday Feb-3 at 1 pm
+- [[https://lyon.instructure.com/courses/1041/assignments/6419][Test 2 is available now]] -  complete it by Monday, Feb-6, 12 pm.
+- Submit your project proposal by February 6, 12 pm [[https://lyon.instructure.com/courses/1041/assignments/6741][here in Canvas]].
+
+** DONE Exercise: argument matching (home)
 ** TODO Upload your practice files to GDrive
 ** TODO Review: DataCamp lesson "Conditional statements"
-- [ ] What's the result of using a relational operator in R?
-  #+begin_src R
-    1 > 2 # relational operators lead to LOGICAL values
-  #+end_src
-- [ ] What's the result of using such an operator on a vector?
-  #+begin_src R
-    c(1,2) > c(2,1)
-  #+end_src
-- [ ] What is ~foo==0~ if ~foo <- 1:10~ ? What is ~sum(foo==0)~?
-  #+begin_src R
-    foo <- 1:10
-    foo
-    foo==0
-    sum(foo == 0)
-  #+end_src
-- [ ] What is ~foo[-10] < foo~?
-  #+begin_src R :results output
-    foo[-10] < foo
-  #+end_src
-- [ ] Can I write ~m < 4~ even if ~m~ is a ~matrix~?
-  #+begin_src R  :results output
-    matrix(1:9,nr=3,byrow=TRUE) < 4
-  #+end_src
-- [ ] Can I write ~m & 4~ even if ~m~ is a ~matrix~?
-  #+begin_src R  :results output
-    matrix(1:9,nr=3,byrow=TRUE) & 4
-    TRUE & 4
-    1 & 4
-    0 & 4
-  #+end_src
-- [ ] What's the difference between ~|~ and ~||~?
-  #+begin_src R :results output
-    TRUE | FALSE
-    c(TRUE,FALSE) | c(FALSE,FALSE)
-    c(TRUE,FALSE) || c(FALSE,FALSE)
-  #+end_src
-- [ ] What's the problem with this code? (It should print "hello".)
-  #+begin_src R
-    x <- 0
-    if (x=0) print("hello")
-  #+end_src
-- [ ] Why does this code print "ciao" but not "hello"?
-  #+begin_src R
-    x <- 1
-    if (x < 2) {
-      print ("ciao")
-    } else if (x == 1) {
-      print("hello")
-    }
-  #+end_src
+1) [ ] What's the result of using a relational operator in R?
+   #+begin_src R
+     1 > 2 # relational operators lead to LOGICAL values
+   #+end_src
+2) [ ] What's the result of using such an operator on a vector?
+   #+begin_src R
+     c(1,2) > c(2,1)
+   #+end_src
+3) [ ] What is ~foo==0~ if ~foo <- 1:10~ ? What is ~sum(foo==0)~?
+   #+begin_src R
+     foo <- 1:10
+     foo
+     foo==0
+     sum(foo == 0)
+   #+end_src
+4) [ ] What is ~foo[-10] < foo~ if ~foo <- 1:10~?
+   #+begin_src R :results output
+     foo[-10]
+     foo
+     foo[-10] < foo
+   #+end_src
+5) [ ] Can I write ~m < 4~ even if ~m~ is a ~matrix~?
+   #+begin_src R  :results output
+     matrix(1:9,nr=3,byrow=TRUE) < 4 
+   #+end_src
+6) [ ] Can I write ~m & 4~ even if ~m~ is a ~matrix~?
+   #+begin_src R  :results output
+     matrix(1:9,nr=3,byrow=TRUE) & 4 # values != 0 count as TRUE
+     TRUE & 4
+     1 & 4
+     0 & 4
+   #+end_src
+7) [ ] What's the difference between ~|~ and ~||~?
+   #+begin_src R :results output
+     TRUE | FALSE
+     c(TRUE,FALSE) | c(FALSE,FALSE)
+     c(TRUE,FALSE) || c(FALSE,FALSE)
+   #+end_src
+8) [ ] What's the problem with this code? (It should print "hello".)
+   #+begin_src R
+     x <- 0
+     if (x=0) print("hello")
+   #+end_src
+9) [ ] Why does this code print "ciao" but not "hello"?
+   #+begin_src R
+     x <- 1
+     if (x < 2) {
+       print ("ciao")
+     } else if (x == 1) {
+       print("hello")
+     }
+   #+end_src
 ** TODO [[https://blog.rwhitedwarf.com/post/use_emacs_for_r/][Using Emacs for R]]
 #+attr_latex: :width 400px
 [[../img/learning-editors.jpg]]

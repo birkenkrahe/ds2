@@ -1,0 +1,158 @@
+#+TITLE: CONDITIONS AND LOOPS - CONDITIONAL STATEMENTS - IF ELSE
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE: DSC 205 - Advanced introduction to data science
+#+STARTUP: overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
+* README
+
+This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/main/org/3_conditions.org][lecture]] on conditional
+statements. You will learn:
+
+- [ ] 
+
+Download the *raw* practice file [[https://raw.githubusercontent.com/birkenkrahe/ds2/main/org/3_conditions_practice.org][from GitHub]] and save it as
+~3_conditions_practice.org~.
+
+To test your Emacs mettle, open it on the CMD line with the command
+~emacs -nw~ (graphics are not needed for this exercise).
+
+* TODO Identify and pledge yourself
+
+1) In Emacs, replace the placeholder ~[yourname]~ at the top of this
+   file by your own name and write ~(pledged)~ next to it
+2) Go with the cursor on the headline and hange the ~TODO~ label to ~DONE~
+   by entering ~S-<right>~ ("Shift + right-arrow").
+
+* TODO Stand-alone ~if~ statements
+
+- Simple example: 
+  1) store two values
+  2) compare the values (condition)
+  3) do something inside the conditional statement
+  #+begin_src R :results silent
+
+  #+end_src
+
+- What value will ~a~ have afterwards?
+  #+begin_src R
+
+  #+end_src
+  
+- Run the code chunk again - what value will ~a~ have now?
+
+* TODO ~if~ statement in the R console
+
+1) Open the R console ~*R*~ (in Emacs: ~C-x b~)
+2) Clear the console ("flush output") with ~C-c C-o~
+3) Show the object listing
+4) Remove ~a~ and ~mynumber~ and check that they're gone
+5) Enter ~a <- 3~ and ~mynumber <- 4~
+6) Enter the ~if~ statement on three different lines
+7) Print ~a~
+8) Check the console continuation character ~continue~ in ~options~
+9) Change the console continuation character to ~">> "~
+10) Check the new character by running ~ls()~ over 2 lines
+      
+* TODO Extended ~if~ example
+
+- Print ~myvec~ and ~mymat~
+  #+begin_src R
+    myvec <- c(2.73, 5.40, 2.15, 5.29, 1.36, 2.16, 1.41, 6.97, 7.99, 9.52)
+    
+    mymat <- matrix(c(2,0,1,2,3,0,3,0,1,1), 5, 2)
+    
+  #+end_src
+
+- Run this statement:
+  #+begin_src R
+    if(any((myvec-1) > 9) || matrix(myvec,2,5)[2,1] <= 6) {
+      cat("Condition satisfied -- \n")
+      new.myvec <- myvec
+      new.myvec[seq(1,9,2)] <- NA
+      mylist <- list(aa = new.myvec, bb = mymat + 0.5)
+      paste("-- a list with", length(mylist), "members now exists.")
+    }
+  #+end_src  
+
+- You should have got this output:
+  #+begin_example org
+  : Condition satisfied -- 
+  : [1] "-- a list with 2 members now exists."
+  #+end_example
+
+- Examine the list ~mylist~ you just created:
+  #+begin_src R
+
+  #+end_src
+
+- Let's take the statement apart:
+  1) Subtract ~1~ from each value of ~myvec~ and compare with ~9~, then
+     check if ~any~ of the elements are ~TRUE~:
+     #+begin_src R
+
+     #+end_src
+  2) Construct a 2 x 5 matrix using ~myvec~, extract row 2, column 1,
+     and compare with ~6~:
+     #+begin_src R
+
+     #+end_src
+  3) The condition is evaluated as ~FALSE || TRUE~, hence ~TRUE~, and the
+     ~if~ statement is entered:
+     #+begin_src R
+
+     #+end_src
+  4) ~cat~ is like ~print~ or ~paste~ with fewer coercions
+     #+begin_src R
+
+     #+end_src
+  5) Copy ~myvec~ to ~new.myvec~ and replaces the odd-numbered indices of
+     ~new.myvec~ and overwrites them with ~NA~:
+     #+begin_src R
+
+     #+end_src
+  6) Create a list ~mylist~ and store ~new.myvec~ as element ~aa~. Increase
+     all elements of ~mymat~ by ~0.5~ and store them as element ~bb~.
+     #+begin_src R
+
+     #+end_src
+
+  7) Print the ~length~ of the resulting list.
+     #+begin_src R
+
+     #+end_src
+
+* TODO ~else~ statements
+
+ - Example: initialize values
+   #+begin_src R :results silent
+ 
+   #+end_src
+
+ - Run the extended statement twice:
+   #+begin_src R
+ 
+   #+end_src
+
+* TODO ~ifelse~ for element-wise checks
+
+- Example: create objects ~x~ and ~y~  
+  #+begin_src R
+
+  #+end_src
+
+- Suppose you want to compute ~x/y~ but every time the result is ~Inf~
+  (division by zero) you want it to be replaced with ~NA~. Running
+  through ~y==0~ won't work because only the first element is checked:
+  #+begin_src R
+
+  #+end_src
+
+- Instead, use ~ifelse~ - the resulting object has the length of ~test~:
+  #+begin_src R
+
+  #+end_src
+
+  
+
+
