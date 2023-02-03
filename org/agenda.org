@@ -1,7 +1,7 @@
 #+TITLE: Agenda - Introduction to advanced data science
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: Lyon College, Spring 2023
-#+STARTUP:overview hideblocks indent
+#+STARTUP:overview hideblocks indent inlineimages
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
 * Week 1 - Course overview & R review
@@ -136,7 +136,7 @@ Submissions and tests:
 * Week 4: Conditional statements
 #+attr_latex: :width 400px
 [[../img/groundhog.jpg]]
-** Summary of assignments
+* Summary of assignments
 #+attr_latex: :width 400px
 [[../img/winter.jpg]]
 
@@ -144,9 +144,9 @@ Submissions and tests:
 - [[https://lyon.instructure.com/courses/1041/assignments/6419][Test 2 is available now]] -  complete it by Monday, Feb-6, 12 pm.
 - Submit your project proposal by February 6, 12 pm [[https://lyon.instructure.com/courses/1041/assignments/6741][here in Canvas]].
 
-** DONE Exercise: argument matching (home)
-** TODO Upload your practice files to GDrive
-** TODO Review: DataCamp lesson "Conditional statements"
+* DONE Exercise: argument matching (home)
+* DONE Upload your practice files to GDrive
+* TODO Review: DataCamp lesson "Conditional statements"
 1) [ ] What's the result of using a relational operator in R?
    #+begin_src R
      1 > 2 # relational operators lead to LOGICAL values
@@ -155,6 +155,10 @@ Submissions and tests:
    #+begin_src R
      c(1,2) > c(2,1)
    #+end_src
+
+   #+RESULTS:
+   : [1] FALSE  TRUE
+
 3) [ ] What is ~foo==0~ if ~foo <- 1:10~ ? What is ~sum(foo==0)~?
    #+begin_src R
      foo <- 1:10
@@ -162,29 +166,70 @@ Submissions and tests:
      foo==0
      sum(foo == 0)
    #+end_src
+
+   #+RESULTS:
+   :  [1]  1  2  3  4  5  6  7  8  9 10
+   :  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+   : [1] 0
+
 4) [ ] What is ~foo[-10] < foo~ if ~foo <- 1:10~?
    #+begin_src R :results output
-     foo[-10]
+     foo[-10]  # remove the value of the element indexed as 10
      foo
      foo[-10] < foo
    #+end_src
-5) [ ] Can I write ~m < 4~ even if ~m~ is a ~matrix~?
+
+   #+RESULTS:
+   : [1] 1 2 3 4 5 6 7 8 9
+   :  [1]  1  2  3  4  5  6  7  8  9 10
+   :  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
+   : Warning message:
+   : In foo[-10] < foo :
+   :   longer object length is not a multiple of shorter object length
+
+5) [ ] Can I write ~m < 4~ even if ~m~ is a ~numeric~ ~matrix~?
    #+begin_src R  :results output
-     matrix(1:9,nr=3,byrow=TRUE) < 4 
+     matrix(1:9,nr=3,byrow=TRUE) < 4
+     
    #+end_src
-6) [ ] Can I write ~m & 4~ even if ~m~ is a ~matrix~?
+   #+RESULTS:
+   :       [,1]  [,2]  [,3]
+   : [1,]  TRUE  TRUE  TRUE
+   : [2,] FALSE FALSE FALSE
+   : [3,] FALSE FALSE FALSE
+
+6) [ ] Can I write ~m & 4~ even if ~m~ is a ~numeric~ ~matrix~?
    #+begin_src R  :results output
      matrix(1:9,nr=3,byrow=TRUE) & 4 # values != 0 count as TRUE
      TRUE & 4
      1 & 4
      0 & 4
    #+end_src
+
+   #+RESULTS:
+   :      [,1] [,2] [,3]
+   : [1,] TRUE TRUE TRUE
+   : [2,] TRUE TRUE TRUE
+   : [3,] TRUE TRUE TRUE
+   : [1] TRUE
+   : [1] TRUE
+   : [1] FALSE
+
 7) [ ] What's the difference between ~|~ and ~||~?
    #+begin_src R :results output
      TRUE | FALSE
      c(TRUE,FALSE) | c(FALSE,FALSE)
      c(TRUE,FALSE) || c(FALSE,FALSE)
    #+end_src
+
+   #+RESULTS:
+   : [1] TRUE
+   : [1]  TRUE FALSE
+   : [1] TRUE
+   : Warning message:
+   : In c(TRUE, FALSE) || c(FALSE, FALSE) :
+   :   'length(x) = 2 > 1' in coercion to 'logical(1)'
+
 8) [ ] What's the problem with this code? (It should print "hello".)
    #+begin_src R
      x <- 0
@@ -199,10 +244,14 @@ Submissions and tests:
        print("hello")
      }
    #+end_src
-** TODO [[https://blog.rwhitedwarf.com/post/use_emacs_for_r/][Using Emacs for R]]
+
+   #+RESULTS:
+   : [1] "ciao"
+
+* CANCELLED [[https://blog.rwhitedwarf.com/post/use_emacs_for_r/][Using Emacs for R]]
 #+attr_latex: :width 400px
 [[../img/learning-editors.jpg]]
-** TODO [[https://github.com/birkenkrahe/ds2/blob/main/org/3_conditions.org][Lecture]] & practice: conditional statements
+* TODO [[https://github.com/birkenkrahe/ds2/blob/main/org/3_conditions.org][Lecture]] & practice: conditional statements
 * Footnotes
 
 [fn:1] Topic: explore an R package; deliverables: proposal, literature

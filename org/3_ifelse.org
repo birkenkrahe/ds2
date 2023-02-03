@@ -1,24 +1,22 @@
-#+TITLE: CALLING FUNCTIONS - CONDITIONAL STATEMENTS - IF ELSE ELSEIF IFELSE
+#+TITLE: CALLING FUNCTIONS - CONDITIONAL STATEMENTS - IF ELSE IFELSE
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: DSC 205 - Advanced introduction to data science
 #+STARTUP: overview hideblocks indent inlineimages
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
-#+attr_html: :width 400px
+#+attr_html: :width 300px
 #+caption: Photo by Vladislav Babienko on Unsplash
 5[[../img/3_fork.jpg]]4
 
 * README
-#+attr_html: :width 400px
+#+attr_html: :width 300px
 #+caption: Photo by Robert Anasch on Unsplash
 [[../img/3_doors.jpg]]
 
 You will learn:
 
 - [ ] How to control the flow and execution order in R code
-- [ ] How to use ~if~, ~else~ and ~else if~ statements in R
-- [ ] How to nest and stack R statements
-- [ ] How to make multiple choices with ~switch~
+- [ ] How to use ~if~, ~else~ and ~ifelse~ statements in R
 
 Download the *raw* practice file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
 ~3_ifelse_practice.org~.
@@ -31,7 +29,7 @@ To test your Emacs mettle, open it on the CMD line with the command
 - An ~if~ statement runs a block of code only if its condition is ~TRUE~.
 
 - In R, condition and loop statements are bundled in "Control Flow":
-  #+attr_latex: :width 400px
+  #+attr_latex: :width 300px
   [[../img/3_control_flow.png]]
 
 - In this lecture, we'll discuss ~if~, ~else~, and ~ifelse~.
@@ -65,12 +63,12 @@ To test your Emacs mettle, open it on the CMD line with the command
 
 * ~if~ statement in the R console
 Solution:   
-#+attr_latex: :width 400px
+#+attr_latex: :width 300px
 [[../img/3_console.png]]
 
 1) Open the R console ~*R*~ (in Emacs: ~C-x b~)
 2) Clear the console ("flush output") with ~C-c C-o~
-3) Show the object listing
+3) Show the listing of all current R objects
 4) Remove ~a~ and ~mynumber~ and check that they're gone
 5) Enter ~a <- 3~ and ~mynumber <- 4~
 6) Enter the ~if~ statement on three different lines
@@ -88,6 +86,16 @@ Solution:
     mymat <- matrix(c(2,0,1,2,3,0,3,0,1,1), 5, 2)
     mymat
   #+end_src
+
+  #+RESULTS:
+  :  [1] 2.73 5.40 2.15 5.29 1.36 2.16 1.41 6.97 7.99 9.52
+  :      [,1] [,2]
+  : [1,]    2    0
+  : [2,]    0    3
+  : [3,]    1    0
+  : [4,]    2    1
+  : [5,]    3    1
+
 - Use ~myvec~ and ~mymat~ in this statement and run it:
   #+begin_src R
     if(any((myvec-1) > 9) || matrix(myvec,2,5)[2,1] <= 6) {
@@ -98,6 +106,11 @@ Solution:
       paste("-- a list with", length(mylist), "members now exists.")
     }
   #+end_src  
+
+  #+RESULTS:
+  : Condition satisfied -- 
+  : [1] "-- a list with 2 members now exists."
+
 - You should have got this output:
   #+begin_example org
   : Condition satisfied -- 
@@ -109,29 +122,52 @@ Solution:
     mylist
   #+end_src
 - Let's take the statement apart:
-  #+attr_latex: :width 400px
+  #+attr_latex: :width 300px
   [[../img/3_example.png]]
+
   1) Subtract ~1~ from each value of ~myvec~ and compare with ~9~, then
      check if ~any~ of the elements are ~TRUE~:
      #+begin_src R
+       myvec
        (myvec-1) > 9
        any((myvec-1) > 9)
      #+end_src
+
+     #+RESULTS:
+     :  [1] 2.73 5.40 2.15 5.29 1.36 2.16 1.41 6.97 7.99 9.52
+     :  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+     : [1] FALSE
+
   2) Construct a 2 x 5 matrix using ~myvec~, extract row 2, column 1,
      and compare with ~6~:
      #+begin_src R
        matrix(myvec, 2, 5) # nrow = 2, ncol = 5
        matrix(myvec, 2, 5)[2,1] <= 6
      #+end_src
+
+     #+RESULTS:
+     :      [,1] [,2] [,3] [,4] [,5]
+     : [1,] 2.73 2.15 1.36 1.41 7.99
+     : [2,] 5.40 5.29 2.16 6.97 9.52
+     : [1] TRUE
+
   3) The condition is evaluated as ~FALSE || TRUE~, hence ~TRUE~, and the
      ~if~ statement is entered:
      #+begin_src R
        any((myvec-1) > 9) || matrix(myvec, 2, 5)[2,1] <= 6
      #+end_src
+
+     #+RESULTS:
+     : [1] TRUE
+
   4) ~cat~ is like ~print~ or ~paste~ with fewer coercions
      #+begin_src R
       cat("Condition satisfied -- \n")
      #+end_src
+
+     #+RESULTS:
+     : Condition satisfied --
+
   5) Copy ~myvec~ to ~new.myvec~ and replaces the odd-numbered indices of
      ~new.myvec~ and overwrites them with ~NA~:
      #+begin_src R
@@ -141,6 +177,12 @@ Solution:
        foo[seq(1,9,2)] <- NA
        foo
      #+end_src
+
+     #+RESULTS:
+     :  [1] 2.73 5.40 2.15 5.29 1.36 2.16 1.41 6.97 7.99 9.52
+     : [1] 2.73 2.15 1.36 1.41 7.99
+     :  [1]   NA 5.40   NA 5.29   NA 2.16   NA 6.97   NA 9.52
+
   6) Create a list ~mylist~ and store ~new.myvec~ as element ~aa~. Increase
      all elements of ~mymat~ by ~0.5~ and store them as element ~bb~.
      #+begin_src R
@@ -165,7 +207,10 @@ Solution:
        length(mylist)
      #+end_src
 
-* ~else~ statements
+     #+RESULTS:
+     : [1] 2
+
+* NEXT ~else~ statements
 
 - If you want something to happen if the /condition/ is ~FALSE~, add ~else~:
   #+begin_example R
@@ -197,7 +242,7 @@ Solution:
 - After a few re-runs, the value of ~a~ will be smaller than ~mynumber~
   again, and the first part of the ~if~ statement will be accessed.
 
-* ~ifelse~ for element-wise checks
+* TODO ~ifelse~ for element-wise checks
 
 - An ~if~ statement can only check the condition of a single value
 
@@ -234,9 +279,8 @@ Solution:
 
   
 
-
-* NEXT Exercises
-#+attr_latex: :width 400px
+* TODO Exercises
+#+attr_latex: :width 300px
 [[../img/exercise.jpg]]
 
 Download the raw exercise file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
