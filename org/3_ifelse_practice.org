@@ -9,7 +9,9 @@
 This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/main/org/3_conditions.org][lecture]] on conditional
 statements. You will learn:
 
-- [ ] 
+- [ ] Standalone ~if~ statements
+- [ ] Using the R console on multiple lines
+- [ ] ~else~ statements and the ~ifelse~ function
 
 Download the *raw* practice file [[https://raw.githubusercontent.com/birkenkrahe/ds2/main/org/3_conditions_practice.org][from GitHub]] and save it as
 ~3_conditions_practice.org~.
