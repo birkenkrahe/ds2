@@ -278,7 +278,6 @@ Solution:
   #+end_src
 
   
-
 * TODO Exercises
 #+attr_latex: :width 300px
 [[../img/exercise.jpg]]
