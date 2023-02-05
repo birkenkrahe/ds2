@@ -6,16 +6,12 @@
 #+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
 * README
 
-This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/main/org/3_conditions.org][lecture]] on conditional
-statements. You will learn:
-
-- [ ] 
-
-Download the *raw* practice file [[https://raw.githubusercontent.com/birkenkrahe/ds2/main/org/3_conditions_practice.org][from GitHub]] and save it as
-~3_conditions_practice.org~.
-
-To test your Emacs mettle, open it on the CMD line with the command
-~emacs -nw~ (graphics are not needed for this exercise).
+- This BONUS PROBLEM file accompanies the [[https://github.com/birkenkrahe/ds2/blob/main/org/3_conditions.org][lecture]] on conditional
+  statements.
+- Complete and submit the completed Org-mode file in Canvas
+- Bonus points contribute to your final grade as "home assignments"
+- The "literate quality" of the submission will count for your final
+  points
 
 * TODO Identify and pledge yourself
 
@@ -24,44 +20,33 @@ To test your Emacs mettle, open it on the CMD line with the command
 2) Go with the cursor on the headline and hange the ~TODO~ label to ~DONE~
    by entering ~S-<right>~ ("Shift + right-arrow").
 
-* TODO Exercises
 
-1) Create two vectors:
-   #+begin_src R
-     vec1 <- c(2,1,1,3,2,1,0)
-     vec2 <- c(3,8,2,2,0,0,0)
-   #+end_src
+* Problem
 
-2) Without executing them, determine which of the following ~if~
-   statements would result in the string being printed to the
-   console. Confirm your answers in R.
+Write R code that takes a square ~character~ matrix and checks if any of
+the character strings on the diagonal (top left to bottom right)
+begin with the letter ~g~, lowercase or uppercase.
 
-   /Tip:/ the ~all~ functions checks if all of its logical argument values
-   are true.
+If satisfied, overwrite these specific entries with the string ~"HERE"~.
+Otherwise, the entire matrix should be replaced with an identity
+matrix of the same dimensions (all entries are ~"1"~).
 
-   #+begin_example R
-     if((vec1[1]+vec2[2])==10){cat("Print me!\n")}
-   #+end_example
+/Tip:/ You can use the functions ~diag~ and ~substr~ for this problem.
 
-   #+begin_example R
-     if(vec1[1]>=2&&vec2[1]>=2){cat("Print me!\n")}
-   #+end_example
+* TODO Solution
 
-   #+begin_example R
-     if(all((vec2-vec1)[c(2,6)]<7)){cat("Print me!\n")}
-   #+end_example
+#+begin_src R
 
-   #+begin_example R
-     if(!is.na(vec2[3])){cat("Print me!\n")}
-     #+end_example
+#+end_src
 
-3) Using ~vec1~ and ~vec2~, write and execute a line of code that
-   multiplies the corresponding elements of the two vectors together
-   if their sum is greater than ~3~. Otherwise, the code should simply
-   sum the two elements.
+* TODO Test your solution
 
-   Condition: do not use ~for~ or ~apply~ functions to solve this exercise
-   but only conditional functions ~if~, ~else~, ~ifelse~).
-   #+begin_src R
-
-   #+end_src
+Try your code on the following matrices, checking the result each
+time:
+#+begin_example R
+  mymat1 <- matrix(as.character(1:16),4,4)
+  mymat2 <- matrix(c("DANDELION","Hyacinthus","Gerbera","MARIGOLD",
+                     "geranium","ligularia","Pachysandra","SNAPDRAGON",
+                     "GLADIOLUS"),3,3)
+  mymat3 <- matrix(c("GREAT", "exercises", "right", "here"),2,2,byrow=T)
+#+end_example
