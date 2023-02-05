@@ -1,4 +1,4 @@
-#+TITLE: CONDITIONS AND LOOPS - CONDITIONAL STATEMENTS - IF ELSE - EXERCISES
+#+TITLE: CONDITIONS AND LOOPS - CONDITIONAL STATEMENTS - IF ELSE - BONUS
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: DSC 205 - Advanced introduction to data science
 #+STARTUP: overview hideblocks indent
@@ -6,8 +6,16 @@
 #+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
 * README
 
-This exercise file accompanies the [[https://github.com/birkenkrahe/ds2/blob/main/org/3_conditions.org][lecture]] on conditional
-statements. Upon completion, upload it to Canvas.
+This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/main/org/3_conditions.org][lecture]] on conditional
+statements. You will learn:
+
+- [ ] 
+
+Download the *raw* practice file [[https://raw.githubusercontent.com/birkenkrahe/ds2/main/org/3_conditions_practice.org][from GitHub]] and save it as
+~3_conditions_practice.org~.
+
+To test your Emacs mettle, open it on the CMD line with the command
+~emacs -nw~ (graphics are not needed for this exercise).
 
 * TODO Identify and pledge yourself
 
