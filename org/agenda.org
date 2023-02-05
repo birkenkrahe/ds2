@@ -4,7 +4,7 @@
 #+STARTUP:overview hideblocks indent inlineimages
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
-* Week 1 - Course overview & R review
+* Week 1: Course overview & R review
 #+attr_html: :width 400px
 [[../img/cover.jpg]]
 
@@ -19,7 +19,7 @@
 - [X] Running R inside Emacs - what's the meaning of ~:session~ ?[fn:2]
 - [X] What is in R's "Global environment"? How to show it?[fn:3]
 
-* Week 2 - Scoping
+* Week 2: Scoping
 #+attr_html: :width 400px
 [[../img/scope.jpg]]
 
@@ -61,7 +61,7 @@ Submissions and tests:
 2. Rise of specialist new roles signals a maturing role ecosystem
 3. Organizations and institutions continue to invest in data literacy
 
-* Week 3 - Argument matching
+* Week 3: Argument matching
 #+attr_html: :width 400px
 [[../img/0_argument.jpg]]
 
@@ -133,10 +133,10 @@ Submissions and tests:
   Source: Ellis, Data Science Project Proposals (2021). URL:
   [[https://crunchingthedata.com/data-science-project-proposals/][crunchingthedata.com]].
 
-* Week 4: Conditional statements
+* Week 4: Conditional statements I
 #+attr_latex: :width 400px
 [[../img/groundhog.jpg]]
-* Summary of assignments
+** Summary of assignments
 #+attr_latex: :width 400px
 [[../img/winter.jpg]]
 
@@ -144,9 +144,9 @@ Submissions and tests:
 - [[https://lyon.instructure.com/courses/1041/assignments/6419][Test 2 is available now]] -  complete it by Monday, Feb-6, 12 pm.
 - Submit your project proposal by February 6, 12 pm [[https://lyon.instructure.com/courses/1041/assignments/6741][here in Canvas]].
 
-* DONE Exercise: argument matching (home)
-* DONE Upload your practice files to GDrive
-* TODO Review: DataCamp lesson "Conditional statements"
+** DONE Exercise: argument matching (home)
+** DONE Upload your practice files to GDrive
+** DONE Review: DataCamp lesson "Conditional statements"
 1) [ ] What's the result of using a relational operator in R?
    #+begin_src R
      1 > 2 # relational operators lead to LOGICAL values
@@ -248,10 +248,22 @@ Submissions and tests:
    #+RESULTS:
    : [1] "ciao"
 
-* CANCELLED [[https://blog.rwhitedwarf.com/post/use_emacs_for_r/][Using Emacs for R]]
+** DONE [[https://blog.rwhitedwarf.com/post/use_emacs_for_r/][Using Emacs for R]]
 #+attr_latex: :width 400px
 [[../img/learning-editors.jpg]]
-* TODO [[https://github.com/birkenkrahe/ds2/blob/main/org/3_conditions.org][Lecture]] & practice: conditional statements
+** DONE [[https://github.com/birkenkrahe/ds2/blob/main/org/3_conditions.org][Lecture]] & practice: conditional statements
+* Week 5: Conditional statements II
+#+attr_latex: :width 400px
+#+caption: February 16, 1923, Tutankhamun's burial chamber found
+[[../img/mummy.jpg]]
+[[https://www.onthisday.com/photos/tutankhamuns-burial-chamber-found][Image: onthisday.com]]
+
+- [ ] [[https://lyon.instructure.com/courses/1041/assignments/6741][Sprint review 1 due Monday February 6, 12 pm]] (Canvas)
+- [ ] [[https://github.com/birkenkrahe/ds2/blob/main/org/3_ifelse.org][Lecture on conditional statements (continued)]] (GitHub)
+- [ ] [[https://lyon.instructure.com/courses/1041/assignments/7087][Complete practice file: 3_ifelse_practice.org]] (Canvas)
+- [ ] [[https://lyon.instructure.com/courses/1041/assignments/7090][Complete class exercise: 3_ifelse_exercise.org]] (Canvas)
+- [ ] [[https://lyon.instructure.com/courses/1041/assignments/7091][Complete bonus programming exercise: 3_ifelse_bonus.org]] (Canvas)
+
 * Footnotes
 
 [fn:1] Topic: explore an R package; deliverables: proposal, literature

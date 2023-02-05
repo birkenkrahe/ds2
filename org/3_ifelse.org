@@ -74,7 +74,7 @@ Solution:
 6) Enter the ~if~ statement on three different lines
 7) Print ~a~
 8) Check the console continuation character ~continue~ in ~options~
-9) Change the console continuation character to ~">> "~
+9) Change the console continuation character to ">> "
 10) Check the new character by running a command over 2 lines
       
 * Extended ~if~ example
