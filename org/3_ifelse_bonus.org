@@ -20,7 +20,6 @@
 2) Go with the cursor on the headline and hange the ~TODO~ label to ~DONE~
    by entering ~S-<right>~ ("Shift + right-arrow").
 
-
 * Problem
 
 Write R code that takes a square ~character~ matrix and checks if any of
@@ -29,9 +28,9 @@ begin with the letter ~g~, lowercase or uppercase.
 
 If satisfied, overwrite these specific entries with the string ~"HERE"~.
 Otherwise, the entire matrix should be replaced with an identity
-matrix of the same dimensions (all entries are ~"1"~).
+matrix of the same dimensions (all diagonal entries are ~1~).
 
-/Tip:/ You can use the functions ~diag~ and ~substr~ for this problem.
+/Tip:/ You can use the functions ~which~, ~diag~ and ~substr~.
 
 * TODO Solution
 
