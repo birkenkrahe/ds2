@@ -22,6 +22,222 @@ Download the *raw* practice file [[https://github.com/birkenkrahe/ds2/tree/main/
 To test your Emacs mettle, open it on the CMD line with the command
 ~emacs -nw~ (no graphics - not needed for this exercise).
 
+* Nesting and stacking
+
+- An ~if~ statement can be placed within the outcome of another ~if~
+  statement: by /nesting/ or /stacking/ conditional statements, you can
+  design specific decision-making patterns.
+
+* Example: nesting
+
+- In pseudocode notation:
+  #+begin_example
+  IF a <= mynumber
+     a <- a^2
+     IF mynumber > 3
+        b <- seq(1,a,length=mynumber)
+     ELSE
+        b <- a * mynumber
+  ELSE
+     a <- a-3.5
+     IF mynumber >= 4
+        b <- a^(3-mynumber)
+     ELSE
+        b <- rep(a + mynumber, times=3)
+  #+end_example
+
+- Nesting different statements for two variables ~a~ and ~mynumber~:
+  #+name: nested
+  #+begin_src R :results silent
+    if(a <= mynumber) {
+      cat("First condition was TRUE\n")
+      a <- a^2
+      if(mynumber > 3) {
+        cat("Second condition was TRUE\n")
+        b <- seq(1,a,length=mynumber)
+      } else {
+        cat("Second condition was FALSE\n")
+        b <- a * mynumber
+      }
+    } else {
+      cat("First condition was FALSE\n")
+      a <- a - 3.5
+      if(mynumber >= 4) {
+        cat("Second condition was TRUE\n")
+        b <- a^(3-mynumber)
+      } else {
+        cat("Second condition was FALSE\n")
+        b <- rep(a + mynumber, times=3)
+      }
+    }
+    a
+    b
+  #+end_src
+
+- Run this code with ~a <- 3~ and ~mynumber <- 4~:
+  #+begin_src R
+    a <- 3
+    mynumber <- 4
+    <<nested>>
+  #+end_src
+
+- Reset ~a <- 6~ and ~mynumber <- 4~ and run the nested statements
+  again. This time the first condition is not met but the second is,
+  and ~b~ is computed with the new value of ~a~[fn:1].
+  #+begin_src R
+    a <- 6
+    mynumber <- 4
+    <<nested>>
+  #+end_src
+
+* Example: stacking
+
+- You can stack ~if~ statements by placing a new ~if~ immediately after an
+  ~else~ declaration:
+
+- In pseudocode notation:
+  #+begin_example
+  IF a <= mynumber AND mynumber > 3
+     a <- a^2
+     b <- seq(1,a,length=mynumber)
+  ELSE IF a <= mynumber AND mynumber <= 3
+     a <- a^2
+     b <- a * mynumber
+  ELSE IF a > mynumber && mynumber >= 4
+     a <- a-3.5
+     b <- a^(3-mynumber)
+  ELSE
+     a <- a-3.5
+     b <- rep(a + mynumber, times=3)
+  #+end_example
+
+- In R code:
+  #+name: stacked
+  #+begin_src R :results silent
+    if (a <= mynumber && mynumber > 3) {
+      cat("First condition TRUE and second TRUE\n")
+      a <- a^2
+      b <- seq(1,a,length=mynumber)
+    } else if (a <= mynumber && mynumber <= 3) {
+      cat("First condition TRUE and second FALSE\n")
+      a <- a^2
+      b <- a^(3 - mynumber)
+    } else if (mynumber >= 4) {
+      cat("First condition FALSE and second TRUE\n")
+      a <- a - 3.5
+      b <- a^(3 - mynumber)
+    } else {
+      cat("First condition FALSE and second FALSE\n")
+      a <- a - 3.5
+      b <- rep(a + mynumber, times=3)
+    }
+    a
+    b
+  #+end_src
+
+- Let's run this twice as before to see if we get the same results:
+  #+begin_src R
+    a <- 3
+    mynumber <- 4
+    <<stacked>>
+    a <- 6
+    mynumber <- 4
+    <<stacked>>
+  #+end_src
+
+* The ~switch~ function for ~character~ strings
+
+- If you need to choose code based on the value of a single object,
+  you can use a series of stacked ~if~ statements.
+
+- Example: assign a ~numeric~ value to ~foo~ where the number depends on
+  the value of ~mystring~:
+  #+name: simpsons
+  #+begin_src R
+    if ( mystring == "Homer" ) {
+      foo <- 12
+    } else if ( mystring == "Marge" ) {
+      foo <- 34
+    } else if ( mystring == "Bart" ) {
+      foo <- 56
+    } else if ( mystring == "Lisa" ) {
+      foo <- 78
+    } else if ( mystring == "Maggie") {
+      foo <- 90
+    } else {
+      foo <- NA
+    }
+    foo
+  #+end_src
+
+- Example runs:
+  #+begin_src R
+    mystring <- "Lisa"    # matched with foo = 78
+    <<simpsons>>
+    mystring <- "Peter"   # not in the list
+    <<simpsons>>
+  #+end_src
+
+  #+RESULTS:
+  : [1] 78
+  : [1] NA
+
+- The ~switch~ function behaves like a set of stacked ~if~
+  statements. Take a look at ~help(switch)~ to see its definition.
+
+- Using the "Simpsons" example from before:
+  #+name: switch
+  #+begin_src R
+    foo <- switch(
+      EXPR = mystring,
+      Homer = 12,
+      Marge=34,
+      Bart=56,
+      Lisa=78,
+      Maggie=90,
+      NA)
+    foo
+  #+end_src
+
+- Example runs:
+    #+begin_src R
+    mystring <- "Lisa"    # matched with foo = 78
+    <<switch>>
+    mystring <- "Peter"   # not in the list
+    <<switch>>
+  #+end_src
+
+  #+RESULTS:
+  : [1] 78
+  : [1] NA
+
+- The first argument ~EXPR~ can be ~numeric~ or a ~character~ string
+
+- The remaining arguments provide the values or operations based on
+  the value of ~EXPR~. 
+
+* ~switch~ for ~integer~ expressions
+
+- If ~EXPR~ is an ~integer~, the outcome is determined purely with
+  /positional matching/:
+  #+name: iswitch
+  #+begin_src R 
+    foo <- switch(EXPR=mynum,12,34,56,78,NA)
+    foo
+  #+end_src
+
+- Examples:
+  #+begin_src R
+    mynum <- 3
+    <<iswitch>>
+    mynum <- 0
+    <<iswitch>>
+  #+end_src
+
+  #+RESULTS:
+  : [1] 56
+  : NULL
+
 * TODO Exercises
 #+attr_latex: :width 300px
 [[../img/exercise.jpg]]
@@ -38,3 +254,8 @@ Download the raw exercise file [[https://github.com/birkenkrahe/ds2/tree/main/or
 * References
 
 - Davies, T.D. (2016). The Book of R. NoStarch Press.
+
+* Footnotes
+
+[fn:1] In the code block, ~<<nested>>~ inserts the named code block
+(~#+name: nested~) and runs it.
