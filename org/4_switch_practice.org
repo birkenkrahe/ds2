@@ -16,3 +16,179 @@ statements.
 2) Go with the cursor on the headline and hange the ~TODO~ label to ~DONE~
    by entering ~S-<right>~ ("Shift + right-arrow").
 
+* TODO Example: nesting
+
+- In pseudocode notation:
+  #+begin_example
+  IF a <= mynumber
+     a <- a^2
+     IF mynumber > 3
+        b <- seq(1,a,length=mynumber)
+     ELSE
+        b <- a * mynumber
+  ELSE
+     a <- a-3.5
+     IF mynumber >= 4
+        b <- a^(3-mynumber)
+     ELSE
+        b <- rep(a + mynumber, times=3)
+  #+end_example
+
+- Nesting different statements for two variables ~a~ and ~mynumber~
+  according to the pseudocode example. Then print ~a~ and ~b~.
+  #+name: nested
+  #+begin_src R :results silent
+    if() {
+      cat("First condition was TRUE\n")
+
+      if() {
+        cat("Second condition was TRUE\n")
+
+      } else {
+        cat("Second condition was FALSE\n")
+
+      }
+    } else {
+      cat("First condition was FALSE\n")
+
+      if() {
+        cat("Second condition was TRUE\n")
+
+      } else {
+        cat("Second condition was FALSE\n")
+
+      }
+    }
+    ## print a
+    ## print b
+  #+end_src
+
+- Run this code with ~a <- 3~ and ~mynumber <- 4~:
+  #+begin_src R
+
+  #+end_src
+
+- Reset ~a <- 6~ and ~mynumber <- 4~ and run the nested statements again.
+  #+begin_src R
+
+    <<nested>>
+  #+end_src
+
+* TODO Example: stacking
+
+- In pseudocode notation:
+  #+begin_example
+  IF a <= mynumber AND mynumber > 3
+     a <- a^2
+     b <- seq(1,a,length=mynumber)
+  ELSE IF a <= mynumber AND mynumber <= 3
+     a <- a^2
+     b <- a * mynumber
+  ELSE IF a > mynumber && mynumber >= 4
+     a <- a-3.5
+     b <- a^(3-mynumber)
+  ELSE
+     a <- a-3.5
+     b <- rep(a + mynumber, times=3)
+  #+end_example
+
+- In R code:
+  #+name: stacked
+  #+begin_src R :results silent
+    if () {
+      cat("First condition TRUE and second TRUE\n")
+      a <- a^2
+      b <- seq(1,a,length=mynumber)
+    } else if () {
+      cat("First condition TRUE and second FALSE\n")
+      a <- a^2
+      b <- a^(3 - mynumber)
+    } else if () {
+      cat("First condition FALSE and second TRUE\n")
+      a <- a - 3.5
+      b <- a^(3 - mynumber)
+    } else {
+      cat("First condition FALSE and second FALSE\n")
+      a <- a - 3.5
+      b <- rep(a + mynumber, times=3)
+    }
+    a
+    b
+  #+end_src
+
+- Let's run this twice as before to see if we get the same results:
+  #+begin_src R
+
+  #+end_src
+
+* TODO The ~switch~ function for ~character~ strings
+
+- Example: assign a ~numeric~ value to ~foo~ where the number depends on
+  the value of ~mystring~ - add the names and numbers below.
+  #+name: simpsons
+  #+begin_src R
+    if ( mystring ==  ) {
+      foo <- 
+    } else if ( mystring ==  ) {
+      foo <- 
+    } else if ( mystring ==  ) {
+      foo <- 
+    } else if ( mystring ==  ) {
+      foo <- 
+    } else if ( mystring == ) {
+      foo <- 
+    } else {
+      foo <- 
+    }
+    foo
+  #+end_src
+
+- Example runs: set ~mystring~ to ~Lisa~, run the code, then to ~Peter~, and
+  run the code again.
+  #+begin_src R
+    mystring <- 
+    <<simpsons>>
+    mystring <- 
+    <<simpsons>>
+  #+end_src
+
+- Using the "Simpsons" example from before:
+  #+name: switch
+  #+begin_src R
+    foo <- switch(
+      EXPR = 
+      Homer = ... 
+      Marge= ...
+      Bart= ...
+      Lisa= ...
+      Maggie= ...
+      ...)
+    foo
+  #+end_src
+
+- Example runs:
+    #+begin_src R
+    mystring <- 
+    <<switch>>
+    mystring <- 
+    <<switch>>
+  #+end_src
+
+* TODO ~switch~ for ~integer~ expressions
+
+- Enter the numbers ~12,23,56,78,NA~ after the expression:
+  #+name: iswitch
+  #+begin_src R 
+    foo <- switch(EXPR=mynum,...)
+    foo
+  #+end_src
+
+- Examples: run the code for ~mynum <- 3~ and then for ~mynum <- 0~
+  #+begin_src R
+    ...
+    <<iswitch>>
+    ...
+    <<iswitch>>
+  #+end_src
+
+
