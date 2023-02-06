@@ -6,7 +6,7 @@
 #+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
 #+attr_html: :width 300px
 #+caption: Photo by Vladislav Babienko on Unsplash
-5[[../img/3_fork.jpg]]4
+[[../img/3_fork.jpg]]
 
 * README
 #+attr_html: :width 300px
@@ -210,7 +210,7 @@ Solution:
      #+RESULTS:
      : [1] 2
 
-* NEXT ~else~ statements
+* ~else~ statements
 
 - If you want something to happen if the /condition/ is ~FALSE~, add ~else~:
   #+begin_example R
@@ -242,7 +242,7 @@ Solution:
 - After a few re-runs, the value of ~a~ will be smaller than ~mynumber~
   again, and the first part of the ~if~ statement will be accessed.
 
-* TODO ~ifelse~ for element-wise checks
+* ~ifelse~ for element-wise checks
 
 - An ~if~ statement can only check the condition of a single value
 
@@ -252,6 +252,10 @@ Solution:
     if (c(FALSE, TRUE, FALSE, TRUE, TRUE)) {}
   #+end_src
 
+  #+RESULTS:
+  : Error in if (c(FALSE, TRUE, FALSE, TRUE, TRUE)) { : 
+  :   the condition has length > 1
+
 - The function ~ifelse~ can perform vectorized checks.
 
 - Example: create objects ~x~ and ~y~  
@@ -260,6 +264,9 @@ Solution:
     y <- -5:5
     y
   #+end_src
+
+  #+RESULTS:
+  :  [1] -5 -4 -3 -2 -1  0  1  2  3  4  5
 
 - Suppose you want to compute ~x/y~ but every time the result is ~Inf~
   (division by zero) you want it to be replaced with ~NA~. Running
@@ -277,7 +284,11 @@ Solution:
     result
   #+end_src
 
-* TODO Exercises
+  #+RESULTS:
+  :  [1] -1.000000 -1.250000 -1.666667 -2.500000 -5.000000        NA  5.000000
+  :  [8]  2.500000  1.666667  1.250000  1.000000
+
+* Exercises
 #+attr_latex: :width 300px
 [[../img/exercise.jpg]]
 
@@ -286,9 +297,12 @@ Download the raw exercise file [[https://github.com/birkenkrahe/ds2/tree/main/or
 
 * TODO Glossary
 
-| TERM | MEANING |
-|------+---------|
-|      |         |
+| TERM    | MEANING                                   |
+|---------+-------------------------------------------|
+| ~if~      | conditional (continue if condition ~TRUE~)  |
+| ~else~    | alternative (continue if condition ~FALSE~) |
+| ~ifelse~  | test logical condition on vectors         |
+| ~else if~ | stacked ~if~                                |
 
 * References
 

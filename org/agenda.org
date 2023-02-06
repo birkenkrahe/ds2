@@ -258,9 +258,9 @@ Submissions and tests:
 [[../img/mummy.jpg]]
 [[https://www.onthisday.com/photos/tutankhamuns-burial-chamber-found][Image: onthisday.com]]
 
-- [ ] *[[https://lyon.instructure.com/courses/1041/assignments/7087][You need to upload in-class practice files on time for points!]]*
-- [ ] [[https://lyon.instructure.com/courses/1041/assignments/6741][Sprint review 1 due Monday February 6, 12 pm]] (Canvas)
-- [ ] [[https://github.com/birkenkrahe/ds2/blob/main/org/3_ifelse.org][Lecture on conditional statements (continued)]] (GitHub)
+- [X] *[[https://lyon.instructure.com/courses/1041/assignments/7087][You need to upload in-class practice files on time for points!]]*
+- [X] [[https://lyon.instructure.com/courses/1041/assignments/6741][Sprint review 1 due Monday February 6, 12 pm]] (Canvas)
+- [X] [[https://github.com/birkenkrahe/ds2/blob/main/org/3_ifelse.org][Lecture on conditional statements (continued)]] (GitHub)
 - [ ] [[https://lyon.instructure.com/courses/1041/assignments/7087][Complete practice file: 3_ifelse_practice.org]] (Canvas)
 - [ ] [[https://lyon.instructure.com/courses/1041/assignments/7090][Complete class exercise: 3_ifelse_exercise.org]] (Canvas)
 - [ ] [[https://lyon.instructure.com/courses/1041/assignments/7091][Complete bonus programming exercise: 3_ifelse_bonus.org]] (Canvas)
