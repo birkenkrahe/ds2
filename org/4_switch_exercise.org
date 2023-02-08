@@ -25,4 +25,4 @@ statements. Upon completion, upload it to Canvas.
     foo <- switch(EXPR=mynum,12,34,56,78,NA)
    #+end_example
 
- 
+2) 
