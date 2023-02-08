@@ -295,7 +295,7 @@ Solution:
 Download the raw exercise file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
 ~3_ifelse_exercise.org~.
 
-* TODO Glossary
+* Glossary
 
 | TERM    | MEANING                                   |
 |---------+-------------------------------------------|

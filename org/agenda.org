@@ -261,13 +261,30 @@ Submissions and tests:
 - [X] [[https://lyon.instructure.com/courses/1041/assignments/7087][You need to upload in-class practice files on time for points!]]
 - [X] [[https://lyon.instructure.com/courses/1041/assignments/6741][Sprint review 1 due Monday February 6, 12 pm]] (Canvas)
 - [X] [[https://github.com/birkenkrahe/ds2/blob/main/org/3_ifelse.org][Lecture on conditional statements (continued)]] (GitHub)
-- [ ] [[https://lyon.instructure.com/courses/1041/assignments/7087][Complete practice file: 3_ifelse_practice.org]] (Canvas)
-- [ ] [[https://lyon.instructure.com/courses/1041/assignments/7090][Complete class exercise: 3_ifelse_exercise.org]] (Canvas)
+- [X] [[https://lyon.instructure.com/courses/1041/assignments/7087][Complete practice file: 3_ifelse_practice.org]] (Canvas)
+- [X] [[https://lyon.instructure.com/courses/1041/assignments/7090][Complete class exercise: 3_ifelse_exercise.org]] (Canvas)
 - [ ] [[https://lyon.instructure.com/courses/1041/assignments/7091][Complete bonus programming exercise: 3_ifelse_bonus.org]] (Canvas)
+- [ ] [[https://lyon.instructure.com/courses/1041/assignments/7087][Complete practice file: 4_switch_practice.org]] (Canvas)
+- [ ] [[https://lyon.instructure.com/courses/1041/assignments/7090][Complete class exercise: 4_switch_exercise.org]] (Canvas)
 
-* GNU Treats
+* NEW Get bonus points when practicing
+#+attr_latex: :width 200px
+[[../img/datacamp2.png]]
+- You can get 10 bonus points if you keep a practice streak of 10 days
+- You can do this up to 3 times for a maximum of 30 points, which will
+  be applied to your weakest final grade category
+- Submit a screenshot of your mobile (or desktop) streak in Canvas 
+- If you lose your streak between day 5 and 10, you still get 5 points
+- On the dashboard, DataCamp will suggest practice categories for you,
+  and also in the mobile app
+- This option ends on May 3rd (last day of spring term)
+- You can get this bonus only in one of my courses (if you attend > 1)
+#+attr_latex: :width 400p
+[[../img/datacamp1.png]]
 
--  An attractive alternative to ~Dired~ is the ~treemacs~ package. It
+* NEW GNU Treats: ~speed-type~, ~treemacs~ and ~gtypist~
+
+- An attractive alternative to ~Dired~ is the ~treemacs~ package. It
   looks like this on my PC (and also works for the terminal Emacs):
   #+attr_latex: :width 400px
   [[../img/t_treemacs.png]]
@@ -277,6 +294,11 @@ Submissions and tests:
   #+attr_latex: :width 400px
   [[../img/gtypist.png]]
 
+- There is also an Emacs package to practice touch/speed typing in
+  Emacs called ~speed-type~. You have to install it with ~M-x
+  package-list-packages~, then find the package in the list and install
+  with ~i~ and ~x~. [[https://github.com/dakra/speed-type][More information on GitHub.]]
+    
 * Footnotes
 
 [fn:1] Topic: explore an R package; deliverables: proposal, literature
