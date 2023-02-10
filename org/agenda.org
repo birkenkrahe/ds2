@@ -252,7 +252,7 @@ Submissions and tests:
 #+attr_latex: :width 400px
 [[../img/learning-editors.jpg]]
 ** DONE [[https://github.com/birkenkrahe/ds2/blob/main/org/3_conditions.org][Lecture]] & practice: conditional statements
-* Week 5: Conditional statements II
+* Week 5: Conditional statements II & Test 3
 #+attr_latex: :width 400px
 #+caption: February 16, 1923, Tutankhamun's burial chamber found
 [[../img/mummy.jpg]]
@@ -264,11 +264,10 @@ Submissions and tests:
 - [X] [[https://lyon.instructure.com/courses/1041/assignments/7087][Complete practice file: 3_ifelse_practice.org]] (Canvas)
 - [X] [[https://lyon.instructure.com/courses/1041/assignments/7090][Complete class exercise: 3_ifelse_exercise.org]] (Canvas)
 - [X] [[https://lyon.instructure.com/courses/1041/assignments/7091][Complete bonus programming exercise: 3_ifelse_bonus.org]] (Canvas)
-
 - [ ] [[https://lyon.instructure.com/courses/1041/assignments/7087][Complete practice file: 4_switch_practice.org]] (Canvas)
 - [ ] [[https://lyon.instructure.com/courses/1041/assignments/7090][Complete class exercise: 4_switch_exercise.org]] (Canvas)
-
-* NEW Get bonus points when practicing
+** NEW 
+** DONE Get bonus points when practicing
 #+attr_latex: :width 200px
 [[../img/datacamp2.png]]
 - You can get 10 bonus points if you keep a practice streak of 10 days
@@ -283,7 +282,7 @@ Submissions and tests:
 #+attr_latex: :width 400p
 [[../img/datacamp3.png]]
 
-* NEW GNU Treats: ~speed-type~, ~treemacs~ and ~gtypist~
+** DONE GNU Treats: ~speed-type~, ~treemacs~ and ~gtypist~
 
 - An attractive alternative to ~Dired~ is the ~treemacs~ package. It
   looks like this on my PC (and also works for the terminal Emacs):
@@ -300,6 +299,8 @@ Submissions and tests:
   package-list-packages~, then find the package in the list and install
   with ~i~ and ~x~. [[https://github.com/dakra/speed-type][More information on GitHub.]]
     
+* Week 6: Bonus review, ~while~ and ~for~ loops
+
 * Footnotes
 
 [fn:1] Topic: explore an R package; deliverables: proposal, literature

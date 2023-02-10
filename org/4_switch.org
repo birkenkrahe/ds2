@@ -242,7 +242,7 @@ To test your Emacs mettle, open it on the CMD line with the command
   /positional matching/:
   #+name: iswitch
   #+begin_src R 
-    foo <- switch(EXPR=mynum,12,34,56,78,)
+    foo <- switch(EXPR=mynum,12,34,56,78,NA)
     foo
   #+end_src
 
@@ -250,14 +250,13 @@ To test your Emacs mettle, open it on the CMD line with the command
   : NULL
 
 - In the code, every other value for ~mynum~ than 1,2,3,4 will set ~foo~
-  to ~NULL~, an empty value (you cannot
+  to ~NULL~, the "null" object (value is undefined).
   #+begin_src R
-    foo <- NULL
-    foo
+    class(NULL)
   #+end_src
 
   #+RESULTS:
-  : NULL
+  : [1] "NULL"
 
 - Examples:
   #+begin_src R
@@ -268,6 +267,11 @@ To test your Emacs mettle, open it on the CMD line with the command
     mynum <- 100
     <<iswitch>>
   #+end_src
+
+  #+RESULTS:
+  : [1] 56
+  : NULL
+  : NULL
 
 * TODO Exercises
 #+attr_latex: :width 300px

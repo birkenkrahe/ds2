@@ -16,15 +16,201 @@ statements. Upon completion, upload it to Canvas.
 2) Go with the cursor on the headline and hange the ~TODO~ label to ~DONE~
    by entering ~S-<right>~ ("Shift + right-arrow").
 
-
-
 * TODO Exercises
+** HOW TO ~switch~ TO ~if~
+Write an explicit /stacked/ set of ~if~ statements that does the same
+thing as the ~integer~ version of this ~switch~ function. Test it with
+~mynum <- 3~ and ~mynum <- 0~ (see below).
 
-1) Write an explicit /stacked/ set of ~if~ statements that does the same
-   thing as the ~integer~ version of this ~switch~ function. Test it with
-   ~mynum <- 3~ and ~mynum <- 0~.
-   #+begin_example R
-    foo <- switch(EXPR=mynum,12,34,56,78,NA)
+#+begin_example R
+ foo <- switch(EXPR=mynum,12,34,56,78,NA)
+#+end_example
+
+Estimated time: 10 minutes.
+
+Solution:
+#+name: ifswitch
+#+begin_src R
+  ...
+#+end_src
+
+Test:
+#+begin_src R
+  mynum <- 3
+  <<ifswitch>>
+  mynum <- 0
+  <<ifswitch>>
+#+end_src
+
+** HOW TO NEST COMPLEX ~if~ STATEMENTS
+
+Since the text of this exercise is quite long, you want to either open
+it [[https://github.com/birkenkrahe/ds2/blob/main/org/4_switch_exercise.org][in GitHub next to your editor]], or in a 2nd editor window (open it
+with ~C-x 5 2~). Also: please help each other!
+
+Proceed like this: (1) read the *backstory*; (2) look at the variables
+in the *test suite* below; (3) look at the *tips*; (4) implement the *rules*
+in a code block named [[adjust_dosage]] (at the very end); (5) run the
+*test suite*.
+
+*Backstory:* Suppose you are tasked with computing the precise dosage
+amounts of a certain drug in a collection of hypothetical
+experiments. These amounts depend upon some predetermined set of
+"dosage thresholds" - ~numeric~ variables ~lowdose~, ~meddose~, and
+~highdose~ - as well as a predetermined dose level ~factor~ vector called
+~doselevel~.
+
+*Look* at the items (1.-4.) below to see the indended form of these
+objects. Then *write* a set of /nested/ ~if~ statements that produce a new
+~numeric~ vector called ~dosage~, according to the following rules:
+-----
+*IF ELSE Rules:*
+
+First, /if/ there are any instances of ~"High"~ in ~doselevel~, perform the following operations:
+- Check /if/ ~lowdose~ is greater than or equal to ~10~. If so, overwrite
+  ~lowdose~ with ~10~; /otherwise/, overwrite ~lowdose~ by itself divided
+  by 2.
+- Check /if/ ~meddose~ is greater than or equal to ~26~. If so, overwrite ~meddose~ by ~26~.
+- Check /if/ ~highdose~ is less than ~60~. If so, overwrite ~highdose~ with
+  ~60~, /otherwise/ ~highdose~ by itself multiplied by ~1.5~.
+- Create a vector named ~dosage~ with the values of ~lowdose~ repeated
+  (~rep~) to match the ~length~ of ~doselevel~.
+- Overwrite the elements in ~dosage~ corresponding to the index
+  positions of instances of ~"Med"~ in ~doselevel~ by ~meddose~.
+- Overwrite the elements in ~dosage~ corresponding to the index
+  positions of instances of ~"High"~ in ~doselevel~ by ~highdose~.
+
+/Otherwise/, (i.e. if there are /no/ instances of ~"High"~ in ~doselevel~) perform the following operations:
+1. Create a new version of ~doselevel~, a ~factor~ vector with levels
+   ~"Low"~ and ~"Med"~ only, and label these with ~"Small"~ and ~"Large"~
+   respectively. Check ~args(factor)~ or ~help(factor)~ for ~labels~.
+2. Check to see /if/ ~lowdose~ is less than 15 AND ~meddose~ is less than
+   ~35~. If so, overwrite ~lowdose~ by itself multiplied by ~2~ and overwrite ~meddose~ by itself plus ~highdose~.
+3. Create a vector named ~dosage~, which is the value of ~lowdose~ repeated (~rep~) to match the ~length~ of ~doselevel~.
+4. Overwrite the elements in ~dosage~ corresponding to the index positions of instances of ~"Large"~ in ~doselevel~ by ~meddose~.
+-----
+*TIP 1:* In the code block below, ~foo~ is a ~factor~ vector with the ~levels~
+~"up"~ and ~"down~", and the ~labels~ ~"one"~ and ~"two"~. Run it to check.
+#+begin_src R
+  foo <- factor(c("down","up","up","down","up"),
+                levels=c("up","down"),
+                labels=c("one","two"))
+  foo
+#+end_src
+-----
+*TIP 2:* In the code block below, ~bar~ is a ~vector~ of numbers with the
+same ~length~ as ~foo~, and we extract the values of ~bar~ corresponding
+to the index positions of instances of ~"up"~ (labeled ~"one"~) in ~foo~
+and overwrite them with ~0~. Run it to check.
+#+begin_src R
+  bar <- rep(10,length(foo))  # define bar
+  foo=="one"  # must use the label for the levels
+  bar[foo=="one"]
+  bar[foo=="one"] <- 0
+  bar
+#+end_src
+-----
+*TESTING SUITE*
+1. Starting dose values and ~dosage~ after running [[adjust_dosage]]:
+   #+begin_src R
+     lowdose <- 12.5
+     meddose <- 25.3
+     highdose <- 58.1
+     doselevel <- factor(
+       x = c("Low","High","High","High","Low","Med","Med"),
+       levels=c("Low","Med","High"))
+     <<adjust_dosage>>
+     dosage
+   #+end_src
+
+   Expected results:
+   #+begin_example org
+   : [1] 10.0 60.0 60.0 60.0 10.0 25.3 25.3
    #+end_example
 
-2) 
+2. Starting values, ~dosage~ and ~doselevel~ after running [[adjust_dosage]]:
+   #+begin_src R
+     lowdose <- 12.5
+     meddose <- 25.3
+     highdose <- 58.1
+     doselevel <- factor(
+       x = c("Low","Low","Low","Med","Low","Med","Med"),
+       levels=c("Low","Med","High"))
+     <<adjust_dosage>>
+     dosage
+     doselevel
+   #+end_src
+
+   Expected results:
+   #+begin_example org
+   : [1] 25.0 25.0 25.0 83.4 25.0 83.4 83.4
+   : [1] Small Small Small Large Small Large Large
+   : Levels: Small Large
+   #+end_example
+
+3. Starting values, ~dosage~ and ~doselevel~ after running [[adjust_dosage]]:
+   #+begin_src R
+     lowdose <- 9
+     meddose <- 49
+     highdose <- 61
+     doselevel <- factor(
+       x = c("Low","Med","Med"),
+       levels=c("Low","Med","High"))
+     <<adjust_dosage>>
+     dosage
+     doselevel
+   #+end_src
+
+   Expected results:
+   #+begin_example org
+   : [1]  9 49 49
+   : [1] Small Large Large
+   : Levels: Small Large
+   #+end_example
+
+4. Starting values and ~dosage~ after running [[adjust_dosage]]:
+   #+begin_src R
+     lowdose <- 9
+     meddose <- 49
+     highdose <- 61
+     doselevel <- factor(
+       x = c("Low","High","High","High","Low","Med","Med"),
+       levels=c("Low","Med","High"))
+     <<adjust_dosage>>
+     dosage
+   #+end_src
+
+   Expected results:
+   #+begin_example org
+   : [1]  4.5 91.5 91.5 91.5  4.5 26.0 26.0
+   #+end_example
+-----
+*SOLUTION:*
+#+name: adjust_dosage
+#+begin_src R :results silent
+...
+#+end_src
+
+** HOW TO USE ~switch~ inside ~ifelse~
+
+Assume the object ~mynum~ will only ever be a single integer between 0
+and 9. Use ~ifelse~ and ~switch~ to produce a command that takes in
+~mynum~ and returns a matching ~character~ string for all possible
+values 0,1,...,9:
+
+- Supplied with 3, for example, it should return ~"three"~.
+- Supplied with 0, it should return ~"zero"~.
+
+Solution:
+#+name: ifelse
+#+begin_src R
+...
+#+end_src
+
+Test the solution:
+#+begin_src R
+  mynum <- 3
+  <<ifelse>>
+  mynum <- 0
+  <<ifelse>>
+#+end_src
