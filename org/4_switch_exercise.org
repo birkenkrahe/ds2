@@ -92,7 +92,7 @@ perform the following operations:
 3. Create a vector named ~dosage~, which is the value of ~lowdose~
    repeated (~rep~) to match the ~length~ of ~doselevel~.
 4. Overwrite the elements in ~dosage~ corresponding to the index
-   positions of instances of ~"Large"~ in ~doselevel~ by ~meddose~.
+   positions of instances of "Large" in ~doselevel~ by ~meddose~.
 -----
 *TIP 1:* In the code block below, ~foo~ is a ~factor~ vector with the ~levels~
 "up" and "down", and the ~labels~ "one" and "two". Run it to check.
