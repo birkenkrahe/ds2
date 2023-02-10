@@ -7,7 +7,8 @@
 * README
 
 This exercise file accompanies the [[https://github.com/birkenkrahe/ds2/blob/main/org/3_conditions.org][lecture]] on conditional
-statements. Upon completion, upload it to Canvas.
+statements. Upon completion, upload it to Canvas. Source: Davies, Book
+of R, p. 192.
 
 * TODO Identify and pledge yourself
 
