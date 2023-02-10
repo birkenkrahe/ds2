@@ -16,6 +16,8 @@ statements. Upon completion, upload it to Canvas.
 2) Go with the cursor on the headline and hange the ~TODO~ label to ~DONE~
    by entering ~S-<right>~ ("Shift + right-arrow").
 
+
+
 * TODO Exercises
 
 1) Write an explicit /stacked/ set of ~if~ statements that does the same

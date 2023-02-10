@@ -275,7 +275,6 @@ To test your Emacs mettle, open it on the CMD line with the command
 
 Download the raw exercise file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
 ~4_switch_exercise.org~.
-
 * TODO Glossary
 
 | TERM | MEANING |
