@@ -81,6 +81,12 @@ To test your Emacs mettle, open it on the CMD line with the command
     <<nested>>
   #+end_src
 
+  #+RESULTS:
+  : First condition was TRUE
+  : Second condition was TRUE
+  : [1] 9
+  : [1] 1.000000 3.666667 6.333333 9.000000
+
 - Reset ~a <- 6~ and ~mynumber <- 4~ and run the nested statements
   again. This time the first condition is not met but the second is,
   and ~b~ is computed with the new value of ~a~[fn:1].
@@ -89,6 +95,12 @@ To test your Emacs mettle, open it on the CMD line with the command
     mynumber <- 4
     <<nested>>
   #+end_src
+
+  #+RESULTS:
+  : First condition was FALSE
+  : Second condition was TRUE
+  : [1] 2.5
+  : [1] 0.4
 
 * Example: stacking
 
@@ -103,7 +115,7 @@ To test your Emacs mettle, open it on the CMD line with the command
   ELSE IF a <= mynumber AND mynumber <= 3
      a <- a^2
      b <- a * mynumber
-  ELSE IF a > mynumber && mynumber >= 4
+  ELSE IF a > mynumber AND mynumber >= 4
      a <- a-3.5
      b <- a^(3-mynumber)
   ELSE
@@ -144,6 +156,14 @@ To test your Emacs mettle, open it on the CMD line with the command
     mynumber <- 4
     <<stacked>>
   #+end_src
+
+  #+RESULTS:
+  : First condition TRUE and second TRUE
+  : [1] 9
+  : [1] 1.000000 3.666667 6.333333 9.000000
+  : First condition FALSE and second TRUE
+  : [1] 2.5
+  : [1] 0.4
 
 * The ~switch~ function for ~character~ strings
 
@@ -190,7 +210,7 @@ To test your Emacs mettle, open it on the CMD line with the command
   #+begin_src R
     foo <- switch(
       EXPR = mystring,
-      Homer = 12,
+      Homer=12,
       Marge=34,
       Bart=56,
       Lisa=78,
@@ -222,9 +242,22 @@ To test your Emacs mettle, open it on the CMD line with the command
   /positional matching/:
   #+name: iswitch
   #+begin_src R 
-    foo <- switch(EXPR=mynum,12,34,56,78,NA)
+    foo <- switch(EXPR=mynum,12,34,56,78,)
     foo
   #+end_src
+
+  #+RESULTS: iswitch
+  : NULL
+
+- In the code, every other value for ~mynum~ than 1,2,3,4 will set ~foo~
+  to ~NULL~, an empty value (you cannot
+  #+begin_src R
+    foo <- NULL
+    foo
+  #+end_src
+
+  #+RESULTS:
+  : NULL
 
 - Examples:
   #+begin_src R
@@ -232,11 +265,9 @@ To test your Emacs mettle, open it on the CMD line with the command
     <<iswitch>>
     mynum <- 0
     <<iswitch>>
+    mynum <- 100
+    <<iswitch>>
   #+end_src
-
-  #+RESULTS:
-  : [1] 56
-  : NULL
 
 * TODO Exercises
 #+attr_latex: :width 300px
