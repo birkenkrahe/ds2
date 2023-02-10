@@ -65,31 +65,37 @@ objects. Then *write* a set of /nested/ ~if~ statements that produce a new
 -----
 *IF ELSE Rules:*
 
-First, /if/ there are any instances of ~"High"~ in ~doselevel~, perform the following operations:
+First, /if/ there are ~any~ instances of "High" in ~doselevel~, perform the
+following operations:
 - Check /if/ ~lowdose~ is greater than or equal to ~10~. If so, overwrite
   ~lowdose~ with ~10~; /otherwise/, overwrite ~lowdose~ by itself divided
   by 2.
-- Check /if/ ~meddose~ is greater than or equal to ~26~. If so, overwrite ~meddose~ by ~26~.
+- Check /if/ ~meddose~ is greater than or equal to ~26~. If so, overwrite
+  ~meddose~ by ~26~.
 - Check /if/ ~highdose~ is less than ~60~. If so, overwrite ~highdose~ with
   ~60~, /otherwise/ ~highdose~ by itself multiplied by ~1.5~.
 - Create a vector named ~dosage~ with the values of ~lowdose~ repeated
   (~rep~) to match the ~length~ of ~doselevel~.
 - Overwrite the elements in ~dosage~ corresponding to the index
-  positions of instances of ~"Med"~ in ~doselevel~ by ~meddose~.
+  positions of instances of "Med" in ~doselevel~ by ~meddose~.
 - Overwrite the elements in ~dosage~ corresponding to the index
-  positions of instances of ~"High"~ in ~doselevel~ by ~highdose~.
+  positions of instances of "High" in ~doselevel~ by ~highdose~.
 
-/Otherwise/, (i.e. if there are /no/ instances of ~"High"~ in ~doselevel~) perform the following operations:
+/Otherwise/, (i.e. if there are /no/ instances of "High" in ~doselevel~)
+perform the following operations:
 1. Create a new version of ~doselevel~, a ~factor~ vector with levels
-   ~"Low"~ and ~"Med"~ only, and label these with ~"Small"~ and ~"Large"~
+   "Low" and "Med" only, and label these as "Small" and "Large"
    respectively. Check ~args(factor)~ or ~help(factor)~ for ~labels~.
 2. Check to see /if/ ~lowdose~ is less than 15 AND ~meddose~ is less than
-   ~35~. If so, overwrite ~lowdose~ by itself multiplied by ~2~ and overwrite ~meddose~ by itself plus ~highdose~.
-3. Create a vector named ~dosage~, which is the value of ~lowdose~ repeated (~rep~) to match the ~length~ of ~doselevel~.
-4. Overwrite the elements in ~dosage~ corresponding to the index positions of instances of ~"Large"~ in ~doselevel~ by ~meddose~.
+   ~35~. If so, overwrite ~lowdose~ by itself multiplied by ~2~ and
+   overwrite ~meddose~ by itself plus ~highdose~.
+3. Create a vector named ~dosage~, which is the value of ~lowdose~
+   repeated (~rep~) to match the ~length~ of ~doselevel~.
+4. Overwrite the elements in ~dosage~ corresponding to the index
+   positions of instances of ~"Large"~ in ~doselevel~ by ~meddose~.
 -----
 *TIP 1:* In the code block below, ~foo~ is a ~factor~ vector with the ~levels~
-~"up"~ and ~"down~", and the ~labels~ ~"one"~ and ~"two"~. Run it to check.
+"up" and "down", and the ~labels~ "one" and "two". Run it to check.
 #+begin_src R
   foo <- factor(c("down","up","up","down","up"),
                 levels=c("up","down"),
@@ -99,7 +105,7 @@ First, /if/ there are any instances of ~"High"~ in ~doselevel~, perform the foll
 -----
 *TIP 2:* In the code block below, ~bar~ is a ~vector~ of numbers with the
 same ~length~ as ~foo~, and we extract the values of ~bar~ corresponding
-to the index positions of instances of ~"up"~ (labeled ~"one"~) in ~foo~
+to the index positions of instances of "up" (labeled "one") in ~foo~
 and overwrite them with ~0~. Run it to check.
 #+begin_src R
   bar <- rep(10,length(foo))  # define bar
