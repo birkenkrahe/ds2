@@ -17,7 +17,7 @@ statements. Upon completion, upload it to Canvas.
    by entering ~S-<right>~ ("Shift + right-arrow").
 
 * TODO Exercises
-** HOW TO ~switch~ TO ~if~
+** HOW TO ~switch~ TO ~if~ (10 min)
 Write an explicit /stacked/ set of ~if~ statements that does the same
 thing as the ~integer~ version of this ~switch~ function. Test it with
 ~mynum <- 3~ and ~mynum <- 0~ (see below).
@@ -25,15 +25,13 @@ thing as the ~integer~ version of this ~switch~ function. Test it with
 #+begin_example R
  foo <- switch(EXPR=mynum,12,34,56,78,NA)
 #+end_example
-
-Estimated time: 10 minutes.
-
+-----
 Solution:
 #+name: ifswitch
 #+begin_src R
   ...
 #+end_src
-
+-----
 Test:
 #+begin_src R
   mynum <- 3
@@ -42,7 +40,7 @@ Test:
   <<ifswitch>>
 #+end_src
 
-** HOW TO NEST COMPLEX ~if~ STATEMENTS
+** HOW TO NEST COMPLEX ~if~ STATEMENTS (30 min)
 
 Since the text of this exercise is quite long, you want to either open
 it [[https://github.com/birkenkrahe/ds2/blob/main/org/4_switch_exercise.org][in GitHub next to your editor]], or in a 2nd editor window (open it
@@ -191,7 +189,7 @@ and overwrite them with ~0~. Run it to check.
 ...
 #+end_src
 
-** HOW TO USE ~switch~ inside ~ifelse~
+** HOW TO USE ~switch~ with ~ifelse~ (5 min)
 
 Assume the object ~mynum~ will only ever be a single integer between 0
 and 9. Use ~ifelse~ and ~switch~ to produce a command that takes in
