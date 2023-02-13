@@ -8,13 +8,232 @@
 * README
 #+attr_html: :width 300px
 #+caption: Photo by La-Rel Easter on Unsplash
-[[../img/4_stack.jpg]]
+[[../img/5_loop.jpg]]
 
 Download the *raw* practice file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
 ~5_loop_for_practice.org~.
 
 To test your Emacs mettle, open it on the CMD line with the command
 ~emacs -nw~ (no graphics - not needed for this exercise).
+
+* TODO Coding loops overview
+
+- Loops repeat a specified section of code often while incrementing an
+  index or counter variable.
+
+- R knows three ways of looping: ~for~ and ~while~ as in other C-type
+  languages, and ~apply~ to run a function over different data
+  structures.
+
+- A ~for~ loop repeates code while going through a vector until a
+  condition is no longer met:
+  #+begin_example R
+  for (loopindex in loopvector) {
+    do any code in here
+  }
+  #+end_example
+
+- A ~while~ loop repeats code until a condition evaluates as ~FALSE~:
+  #+begin_example R
+  while (loopcondition) {
+    do any code in here
+  }
+  #+end_example
+
+- The ~apply~ family of functions allows implicit looping over subsets
+  of vectors, matrices or arrays to apply a function to all elements:
+  #+begin_example R
+    apply( X = data
+           MARGIN = subset,
+           FUN = function)
+  #+end_example
+
+* TODO ~for~ loops
+
+  - A ~for~ loop repeates code while going through a vector until a
+    condition is no longer met:
+    #+begin_example R
+    for (loopindex in loopvector) {
+      do any code in here
+    }
+    #+end_example
+
+  - ~loopindex~ represents an element in ~loopvector~
+
+  - Simple example:
+    #+begin_src R
+      for (myitem in 5:7) {
+        cat("--BRACED AREA BEGINS--\n")
+        cat("the current item is", myitem, "\n")
+        cat("--BRACED AREA ENDS--\n")
+      }
+    #+end_src
+
+  - You can manipulate objects outside the loop, i.e. the braced area
+    is not a local environment:
+    #+begin_src R
+      counter <- 0
+      for (myitem in 5:7) {
+        counter <- counter + 1
+        cat("The item in run",counter,"is",myitem,"\n")
+      }
+    #+end_src
+
+* TODO Looping via index or value
+
+- There is a difference using a /loopindex/ inside a ~for~ statement
+vs. representing /indices/ of a vector.
+
+- *Loop index:* The loop below uses the /loopindex/ ~i~ to directly
+represent the elements in ~myvec~:
+#+begin_src R
+  myvec <- c(0.4, 1.1, 0.34, 0.55)
+  for (i in myvec) {
+    print(2 * i)
+  }
+#+end_src  
+
+- *Vector index:* The loop below uses ~i~ to represent ~integer~ values in
+the sequence ~1:length(myvec)~, which form all vector index positions
+of ~myvec~. The same indices are then used to extract elements from
+~myvec~.
+#+begin_src R
+  for (i in 1:length(myvec)) {
+    print(2 * myvec[i])
+  }
+#+end_src  
+
+- Vector indices take a longer form but offer more flexibility for
+more complicated ~for~ loops.
+
+* TODO Extended example: stepping through a ~list~
+
+  - You want to write code that will inspect any ~list~ object and gather
+    information about any ~matrix~ objects stored as ~list~ members.
+
+  - Sample data:
+    #+begin_src R
+      foo <- list(
+        aa=c(3,4,1),
+        bb=matrix(1:4,2,2),
+        cc=matrix(c(T,T,F,T,F,F),3,2),
+        dd="string here",
+        ee=matrix(c("red","green","blue","yellow")))
+      foo
+    #+end_src
+
+  - Problem:
+    1) Go through every member of the list
+    2) Check whether the member is matrix
+    3) If it is a matrix, retrieve number of rows and columns and the
+       data type of the matrix.
+
+  - Solution: create vectors to store ~list~ member information:
+    1) ~name~ of the ~list~ member name
+    2) ~is.mat~ ("Yes" or "No") to indicate if it is a ~matrix~
+    3) ~nc~ and ~nr~ for numbers of rows and columns for each matrix
+    4) ~data.type~ to store the data type of each matrix
+    #+begin_src R
+      name <- names(foo); name
+      is.mat <- rep(NA,length(foo)); is.mat
+      nr <- is.mat
+      nc <- is.mat
+      data.type <- is.mat
+    #+end_src
+
+  - All sought variables are initialized with "missing" values ~NA~ and
+    updated in the ~for~ loop. The results are put in a data frame ~bar~.
+    #+begin_src R
+      for (i in 1:length(foo)) {
+        member <- foo[[i]] # pick list element
+        if (is.matrix(member)) {
+          is.mat[i] <- "Yes"     # update matrix indicator
+          nr[i] <- nrow(member)  # update row counter
+          nc[i] <- ncol(member)  # update column counter
+          data.type[i] <- class(as.vector(member)) # conversion!
+        } else {
+          is.mat[i] <- "No"
+        }
+      }
+      bar <- data.frame(name,
+                        is.mat,
+                        nr,
+                        nc,
+                        data.type)
+      bar
+    #+end_src
+
+- Compare with the original list ~foo~ where the structure output
+  indirectly suggests ~matrix~ objects through the indexing:
+  #+begin_src R
+    str(foo)
+  #+end_src
+  
+* TODO Nesting ~for~ loops
+
+- ~for~ loops can be nested just like ~if~ statements.
+
+- The inner loop is executed in full before the outer loop /loopindex/
+  is incremented. Then the inner loop is executed all over again.
+
+- Example: write code that loops over rows and columns of a matrix and
+  update the matrix elements as the product of outer and inner
+  loopindex.
+
+- Solution: first, create loopindices and a base matrix:
+  1) Create a ~loopvec1~ as loopindex vector ~5 6 7~
+  2) Create a ~loopvec2~ as loopindex vector ~9 8 7 6~
+  3) Create a ~matrix~ ~foo~ of missing values whose row and column
+     numbers correspond to ~loopvec1~ and ~loopvec2~, respectively
+  #+begin_src R
+    loopvec1 <- 5:7; loopvec1
+    loopvec2 <- 9:6; loopvec2
+    foo <- matrix(NA,length(loopvec1),length(loopvec2)); foo
+    baz <- foo # make copy of foo for later
+  #+end_src
+
+- The outer ~for~ loop should run over as many elements as ~loopvec1~ has,
+  and the inner ~for~ loop should run over as many elements as ~loopvec2~
+  has. ~foo~ is then updated accordingly:
+  #+begin_src R
+    for (i in 1:length(loopvec1)) {
+      for (j in 1:length(loopvec2)) {
+        foo[i,j] <- loopvec1[i] * loopvec2[j]
+      }
+    }
+    foo
+  #+end_src
+  
+- [ ] With this code, is the matrix traversed by row or by
+  column?[fn:1]
+
+- Inner loopvectors can be defined to match the current value of the
+  loopindex of the outer loop:
+  #+begin_src R
+    for (i in 1:length(loopvec1)) {
+      for (j in 1:i) {
+        baz[i,j] <- loopvec1[i] * loopvec2[j]
+      }
+    }
+    baz
+  #+end_src
+
+- Note that inner loop indices are decided based on the outer loop
+  index: for example, when ~i=1~, the inner loopvector is ~1:1~ so it is
+  executed only once before moving on to the next row.
+
+- [ ] The code will fail if ~length(loopvec1) > length(loopvec2)~ -
+  why?[fn:2]
+  #+begin_src R
+    loopvec1 <- 1:4
+    loopvec2 <- 9:7
+    qux <- matrix(NA,length(loopvec1),length(loopvec2)); foo
+    for (i in 1:length(loopvec1)) {
+      for (j in 1:i) {
+        qux[i,j] <- loopvec1[i] * loopvec2[j]
+      }
+    }
+  #+end_src
 
 * TODO Exercises
 #+attr_latex: :width 300px
@@ -32,3 +251,10 @@ Download the raw exercise file [[https://github.com/birkenkrahe/ds2/tree/main/or
 * References
 
 - Davies, T.D. (2016). The Book of R. NoStarch Press.
+
+* Footnotes
+[fn:2] Because the inner loopvector ~1:i~ will exceed the number of
+elements of ~loopvec2~ - "subscript out of bounds".
+
+[fn:1] By column - in the example, the sequence of matrix elements
+filled is: ~foo[1,1]~, ~foo[1,2]~, ~foo[1,3]~, ~foo[2,1]~ etc.

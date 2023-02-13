@@ -6,8 +6,8 @@
 #+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
 * README
 
-This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/main/org/3_conditions.org][lecture]] on conditional
-statements.
+This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/main/org/3_conditions.org][lecture]] on ~for~ loops in
+~5_loop_for.org~.
 
 * TODO Identify and pledge yourself
 
@@ -15,4 +15,151 @@ statements.
    file by your own name and write ~(pledged)~ next to it
 2) Go with the cursor on the headline and hange the ~TODO~ label to ~DONE~
    by entering ~S-<right>~ ("Shift + right-arrow").
+
+* TODO ~for~ loops
+
+  - Complete the code:
+    1) Make the loopindex ~myitem~ run over the values ~5 6 7~
+    2) Print the current ~myitem~ between the ~cat~ statements
+    #+begin_src R
+      for (...) {
+        cat("--BRACED AREA BEGINS--\n")
+        ...
+        cat("--BRACED AREA ENDS--\n")
+      }
+    #+end_src
+
+  - Inside the ~for~ loop increase ~counter~ by 1 and print both ~counter~
+    and ~myitem~ using ~cat~:
+    #+begin_src R
+      counter <- 0
+      for (myitem in 5:7) {
+        ...        
+      }
+    #+end_src
+
+* TODO Looping via index or value
+
+- *Loop index:* make the loopindex ~i~ run over ~myvec~:
+#+begin_src R
+  myvec <- c(0.4, 1.1, 0.34, 0.55)
+  for (...) {
+    print(2 * i)
+  }
+#+end_src  
+
+- *Vector index:* make the loopindex ~i~ run from 1 to the length of
+  ~myvec~:x
+#+begin_src R
+  for (...) {
+    print(2 * myvec[i])
+  }
+#+end_src  
+
+* TODO Extended example: stepping through a ~list~
+
+  - Sample data: create a ~list~ named ~foo~ with these elements, name the
+    elements aa, bb, cc, dd and ee, and print ~foo~:
+    1) c(3,4,1)
+    2) matrix(1:4,2,2)
+    3) matrix(c(T,T,F,T,F,F),3,2)
+    4) "string here"
+    5) matrix(c("red","green","blue","yellow"))
+    #+begin_src R
+
+    #+end_src
+
+  - Problem:
+    1) Go through every member of the list
+    2) Check whether the member is matrix
+    3) If it is a matrix, retrieve number of rows and columns and the
+       data type of the matrix.
+
+  - Solution: create vectors to store ~list~ member information:
+    1) ~name~ of the ~list~ member name 
+    2) ~is.mat~ ("Yes" or "No") to indicate if it is a ~matrix~
+    3) ~nc~ and ~nr~ for numbers of rows and columns for each matrix
+    4) ~data.type~ to store the data type of each matrix
+    5) Initialize all sought after values with missing values.
+    #+begin_src R
+
+    #+end_src
+
+  - Complete the code as shown in the lecture:
+    #+begin_src R
+      for (i in ...) {
+        ... # pick list element
+        if (...)) {
+               # update matrix indicator
+               # update row counter
+               # update column counter
+               # update data type indicator
+        } else {
+               # update matrix indicator
+        }
+      }
+      bar <- # put all variables in a data frame
+      bar
+    #+end_src
+
+  - Compare with the original list ~foo~ where the structure output
+  indirectly suggests ~matrix~ objects through the indexing:
+  #+begin_src R
+    ...
+  #+end_src
+  
+* TODO Nesting ~for~ loops
+
+- Create loopindices and a base matrix:
+  1) Create a ~loopvec1~ as loopindex vector ~5 6 7~
+  2) Create a ~loopvec2~ as loopindex vector ~9 8 7 6~
+  3) Create a ~matrix~ ~foo~ of missing values whose row and column
+     numbers correspond to ~loopvec1~ and ~loopvec2~, respectively
+  4) copy ~foo~ into ~baz~ for later
+  #+begin_src R
+
+  #+end_src
+
+- The outer ~for~ loop ~i~ should run over as many elements as ~loopvec1~
+  has, and the inner ~for~ loop ~j~ should run over as many elements as
+  ~loopvec2~ has. ~foo[i,j]~ is then updated accordingly:
+  #+begin_src R
+    for (...) {
+      for (...) {
+        ... <- loopvec1[i] * loopvec2[j]
+      }
+    }
+    foo
+  #+end_src
+  
+- [ ] With this code, is the matrix traversed by row or by
+  column?
+
+- Inner loopvectors can be defined to match the current value of the
+  loopindex of the outer loop: let the inner loop ~j~ run from 1 to ~i~:
+  #+begin_src R
+    baz
+    for (i in 1:length(loopvec1)) {
+      for (...) {
+        baz[i,j] <- loopvec1[i] * loopvec2[j]
+      }
+    }
+    baz
+  #+end_src
+
+- [ ] The code will fail if ~length(loopvec1) > length(loopvec2)~ -
+  why? Check it out:
+  #+begin_src R
+    loopvec1 <- 1:4
+    loopvec2 <- 9:7
+    qux <- matrix(NA,length(loopvec1),length(loopvec2)); qux
+    for (i in 1:length(loopvec1)) {
+      for (j in 1:i) {
+        qux[i,j] <- loopvec1[i] * loopvec2[j]
+      }
+    }
+  #+end_src
+   
+
+
 

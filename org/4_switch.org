@@ -281,9 +281,12 @@ Download the raw exercise file [[https://github.com/birkenkrahe/ds2/tree/main/or
 ~4_switch_exercise.org~.
 * TODO Glossary
 
-| TERM | MEANING |
-|------+---------|
-|      |         |
+| TERM           | MEANING                                   |
+|----------------+-------------------------------------------|
+| nesting ~if~     | ~if~ statements one after the other         |
+| stacking ~if~    | ~else~ statement  followed by ~if~            |
+| string ~switch~  | string expression is checked              |
+| numeric ~switch~ | positional matching of integer expression |
 
 * References
 
