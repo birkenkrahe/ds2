@@ -300,6 +300,23 @@ Submissions and tests:
   with ~i~ and ~x~. [[https://github.com/dakra/speed-type][More information on GitHub.]]
     
 * Week 6: Bonus review, ~while~ and ~for~ loops
+* TODO Assignments with an AI "wingbot"
+#+attr_latex: :width 400px
+[[../img/3_bonus_bot.png]]
+
+- If you use AI to solve problems, you need to document that you
+  struggled with the problem yourself so that it is clear that the AI
+  was a last resort.
+- To do this, don't delete failed attempts, and demonstrate that you
+  tested the AIs answer thoroughly.
+- Also, you must cite it as a reference (complete and consistent)
+
+* TODO Projects: 2nd sprint review
+#+attr_latex: :width 400px
+[[../img/sprint.png]]
+
+- Deadline for 2nd sprint review: Friday, March 10, 1 pm
+- Feedback for each team submitted via Email (PDF from Org-modex)
 
 * Footnotes
 

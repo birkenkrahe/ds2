@@ -1,4 +1,4 @@
-#+TITLE: CONDITIONAL STATEMENTS - SWITCH
+#+TITLE: CONDITIONS AND LOOPS - CONDITIONAL STATEMENTS - SWITCH
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: DSC 205 - Advanced introduction to data science
 #+STARTUP: overview hideblocks indent

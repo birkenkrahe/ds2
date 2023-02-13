@@ -1,0 +1,35 @@
+#+TITLE: Project Proposal
+#+AUTHOR: Marlon Durand
+#+SUBTITLE: DSC 205 - Advanced introduction to data science
+#+STARTUP: overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
+
+* Problem
+Im trying to explore a machien learning R package(mlr3) and be able to teach
+a class the basics of the package. I also intend on trying to dive
+deeper and show what the package is fully capable of.
+* Reason
+Id like to get a better understanding about machine learning as
+AI and machine learning is a field I'm intrested in. Mlr3 is one of
+the most used packages for that next to caret.
+* Constaints
+the bigest constraint is time as this package is really extensive and
+may take more time then whats alotted to fully understand. More over
+my general knowlegde of machine learning may not be enough to put the
+packge to use.
+* Goals & Non-Goals
+ * Goals
+   - better understand machine learning
+   - Teach the class about the package
+   - Make a machine learning modle 
+ * Non-Goals
+   - Make a working machine learning modle
+* Metrics
+If i can make a machine learnign modle by the end of it weather it
+works or not doesnt matter tooo much then i simply win. I just want to
+expand my knowldge on machine learning and the capabilites of R.
+* References
+- “Machine Learning in R - next Generation.” Machine Learning in R -
+   Next Generation •, https://mlr3.mlr-org.com/.
+

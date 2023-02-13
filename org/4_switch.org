@@ -1,4 +1,4 @@
-#+TITLE: CALLING FUNCTIONS - CONDITIONAL STATEMENTS - NESTING STACKING SWITCHING
+#+TITLE: CONDITIONAL STATEMENTS - NESTING STACKING SWITCHING
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: DSC 205 - Advanced introduction to data science
 #+STARTUP: overview hideblocks indent inlineimages

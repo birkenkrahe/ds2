@@ -1,0 +1,171 @@
+#+TITLE: An Technical Look at Shiny
+#+SUBTITLE: Into to Advanced Data Science
+#+AUTHOR: Jacob, Balah
+
+* Problem
+shiny is a very useful package for building dashboards and apps
+utilizing purely R (with exceptions). It is a potentially useful
+package that people developing in R may want to know to make their
+data more easily viewable. However, a problem exists in how shiny has a great deal of
+complexity that is necessary to understand before becoming truly
+comfortable with developing apps and dashboards with shiny.
+
+
+Additionally, most of the complexity in shiny is not covered by help
+pages as the difficulty lies outside of the domain of syntax and basic
+examples. As such, external sources beyond the help pages are required
+to use shiny. While this is true in some
+since for all packages and even base R functionality when reaching a
+sufficiently advanced application, those using shiny will find these
+kinds of difficulties quite quickly when trying to create a program
+with any real complexity.
+
+* Reason
+This problem is interesting for a number of reasons. Firstly, a
+significant portion of the class has already been introduced to shiny
+in a previous class, so there is already some familiarity with the
+package. As such many already know the purpose and uses of shiny, and
+more focus can be presented on how shiny functions as opposed to
+simple syntax and why the package is useful.
+
+Another reason this problem is interesting is due to prior
+experience. I (Jacob) already have over a month of experience with
+this package, and have found a great deal of satisfaction and
+frustration when solving various issues that have arisen in my
+experimentation. I personally wish I had complete guides and explanations
+on many of the issues we plan on covering. Most of the more
+problematic aspects of shiny are scattered among disjoint
+documentation pages, articles, and blog posts which makes diagnosing a
+singular issue time consuming and frustrating. For example, there was one
+particular problem that took me two days to diagnose involving the
+incompatibility of reactive expressions and S4 classes that I was only
+able to resolve when I found an old issue on the shiny Github
+page. I do not expect this project to be a fully comprehensive guide
+through these issues as one could never claim full mastery of any
+sufficiently complex software, much less explain it fully in the
+allotted time for our presentation.
+
+* Constraints
+
+One of the primary constraints for this project will be the amount of
+time we have to present. There is a significant amount of explantation
+that is required for many issues, so we will have to balance
+succinctness and comprehensiveness.
+
+Another constraint we forsee is that our project will rely on at least
+some knowledge of shiny to fully comprehend some of the issues. The
+details of this are further explained in the next section, but there
+are certain aspects that we plan to overlook on the premise that any
+sufficiently proficient user can trivially understand these aspects on their own.
+
+* Goals and Non-goals
+
+GOALS:
+The primary goal is to explain some of the common issues and
+functionality of shiny that are not easily accessible from the help
+pages. A large portion of the project will be solely for explaining
+the how reactive evaluation in shiny works and the functions that
+interact with it as this is the feature that makes shiny
+complex. Another portion will be devoted to how to implement a dynamic
+UI and the problems that arise from it. Aside from this, there are a number of minor issues and good
+practices that anyone using shiny should know.
+
+Additionally, we would ideally like to implement the presentation
+making use of a web app using shiny. This is unexplored territory for
+all of us, and we will have to determine how much effort is required
+to set up an app that is accessible to the whole class concurrently and
+also experiment to see if the performance of the app is acceptable for
+an adequate presentation. We predict this will be a significant
+portion of the development time for this project if we deem it plausible.
+
+NON-GOALS:
+We do not plan on explaining any HTML. shiny essentially converts R
+code into HTML to create an app inside the web browser, so knowing
+HTML for the customiztion of UI elements is very beneficial, but not a
+skill that we plan to elaborate on.
+
+We do not plan on elaborating on shiny for Python. shiny has developed
+a package to be used with Python; however, this course uses R not
+Python, so while it is an interesting point to mention, we will not
+elaborate at all on it.
+
+We do not plan to elaborate much on syntax aside from the ID values
+for the input and output. Anyone in this class should already be
+familiar with the syntax or be able to comprehend slight deviations from
+the norm.
+
+We do not plan to extensively go over each and every different
+function in R as there simply isn't enough time. We plan on briefly covering
+most of the UI and rendering functions and the functions that are
+directly related to reactive evaluation, but nothing
+else.
+
+Finally, unless there is extra time, we do not plan on explaining how
+to create an accessible web app using shiny. This is because we
+predict this will be quite complicated in its own right, and we are
+already fighting against time constraints. This is the most likely
+non-goal to change depending on its complexity to implement as well as
+the amount of time we find it will take to explain.
+
+* Metrics
+
+Aside from the obvious and boring metric of our grade, our measure of
+success will be based on a couple of different factors. Firstly, our
+success hinges on whether or not we are able to explain various issues
+both briefly and efficiently enough to teach those in the audience
+enough to be able to use shiny on their own if they wished to. We know
+that we will not cover every possible error, but we hope that we can
+explain the inner workings of shiny well enough to allow someone to be
+well equipped to deal with a majority of the issues that arise on
+their own.
+
+Another major aspect of our success depends on whether or not we can
+create an app for the presentation. As a note, if we can create an app, but the
+performance is terrible due to hardware limitations with many
+concurrent users, we will still
+consider our project a success in that regard as we do not plan on
+spending money to buy or rent a server. We will only consider this
+aspect of our project a failure if we completely unable to create an
+app for the final product.
+
+* References
+A great deal of knowledge about shiny has been obtained through a
+little over a month of looking through documentation, blog posts,
+question forum, and personal experimentation. That being said, there
+are a few very reliable sources for learning how to use shiny, and
+these will be our primary resources in our exploration of shiny.
+
+1. Posit. Retrieved February 5, 2023 from https://shiny.rstudio.com/
+
+2. DataCamp. (2022, December 15) /shiny/. Rdocumentation. Retrieved
+   February 5, 2023 from https://rdocumentation.org/packages/shiny/versions/1.7.4
+
+3. DataCamp. /Skill Tracks: Shiny Fundamentals with R/. Retrieved February 5, 2023 from
+   https://app.datacamp.com/learn/skill-tracks/shiny-fundamentals-with-r
+
+4. R 4.2.2 [Computer software]. (2021). Retrieved from
+   https://www.R-project.org/R
+
+5. R 4.1.2 [Computer software]. (2021). Retrieved from
+   https://www.R-project.org/R
+
+6. GNU Emacs 27.2 [Computer software]. (2021). Retrieved from
+   https://ftp.gnu.org/gnu/emacs/windows/
+   
+   
+The first source is the shiny webpage. It includes many different
+informative sources and examples of how shiny is used. The website
+also has a link to the shiny Github page. As a note to avoid confusion, shiny is run by
+Posit which was formerly named RStudio.
+
+The second source is a documentation website run by DataCamp. It has
+been the primary documentation source when exploring shiny.
+
+The third source is a DataCamp skill track that teaches how to use
+shiny. Even though the track takes sixteen hours, DataCamp is a
+reliable source for learning and building skills in R.
+
+The last three sources are the primary softwares used for this
+project, R and emacs. There are two different versions of R listed as
+Jacob's version of R has a different version than the computers in the
+computer lab.

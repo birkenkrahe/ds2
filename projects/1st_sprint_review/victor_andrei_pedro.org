@@ -1,0 +1,89 @@
+#+TITLE: An introduction to ggplot2 project proposal
+#+AUTHOR: Victor, Andrei, and Pedro
+#+SUBTITLE: Sprint review one
+
+* Problem
+
+  The ggplot2 package is a complicated set of tools to learn to use
+  and understand. This set the learning curve to be very high.
+ 
+* Reason
+
+  To show and explain the basics of the ggplot2 package. This could
+  help by lessening the learning curve, but also break the ice for those that
+  have no exposer to the ggplot2 package. It will also get people started
+  on a useful tool for the workforce.
+  
+* Constraints
+
+  1) Finding time to meet between three different people's schedules
+     and class loads could have some difficulties.
+
+  2) Time management for learning and organizing the presentation
+     in order to show basics from the ggplot2 package.
+
+  3) Making the practice file educational and engaging with the limited
+     presentation time.
+     
+* Goals and Non-goals
+** Goals
+  1) Helping our classmates to obtain a basic knowledge of the ggplot2 package.
+
+     a) how fuctions are categorized
+     b) how to use the different fuctions and their arguments
+     
+  2) Creating a practice file that is both engaging and educational.
+     
+** Non-goals
+
+   1) To obtaine a better understanding of the ggplot2 package.
+
+   2) To become more comfortable with exploratory and explanatory data.
+
+   3) Getting more familiarized with speaking and presenting from a specialist standpoint.
+     
+* Plan
+
+  1) Complete the Introduction to Data Visualization with ggplot2 datacamp course.
+
+  2) Practice with built in data sets to obtain more familiarity with the ggplot2 package.
+
+  3) Meet on a regular basis to discuss what functions and arguments we want to use in our
+     practice file.
+
+  4) Help each other obtain the same comfort with the use of the ggplot2 package.
+     
+  5) Find literature to help develop and reinforce our pratice file.
+        
+* Metrics
+
+  1) The amount of knowledge we are able to obtain and relay to or classmates.
+
+  2) How engaged our classmates are with our presentation.
+
+  3) Were we able to fit the presentation to the allotted time frame.   
+
+  4) The overall grade we obtain for this project.
+
+* Quetions
+
+  1) Is this a valid idea for a project?
+
+  2) What is the proper citation for the emacs and org-mode software?
+
+  3) Are there any avenues to this project that you would like to be focused on?
+     (i.e. certain function calls and arguments)
+
+  4) Are there any sources other than datacamp and the ggplot2 cheat sheet
+     that you could recommend?
+     
+* References
+
+  H.Wickham, 2016, ggplot2: Elegant Graphics for Data Analysis,
+  https://www.ggplot2.tidyverse.org
+
+  Rick Scavetta, NA, Inroduction to Data Visualization with ggplot2,
+  https://app.datacamp.com/learn/courses/introduction-to-data-visualization-with-ggplot2
+
+  
+  

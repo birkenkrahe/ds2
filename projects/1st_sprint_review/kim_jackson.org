@@ -1,0 +1,85 @@
+#+TITLE: Exploring Data Science Salary Data with ggvis
+#+AUTHOR: Kim and Jackson (pledged)
+#+SUBTITLE: Intro to Advanced Data Science
+#+STARTUP:overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
+
+* DONE PROBLEM:
+#+begin_quote
+Using ggvis, we intend to show how different factors impact
+overall salary for workers in the data science field. 
+#+end_quote
+
+* DONE REASON:
+#+begin_quote
+As data science students, it would benefit us to understand
+how different factors could impact our future salaries. We chose ggvis to
+learn more about the package's capabilities for visualizing and
+interacting with a dataset.
+#+end_quote
+
+* DONE CONSTRAINTS/LIMITATIONS:
+#+begin_quote
+We had a lot of trouble coming up with a problem, before we
+ultimately decided to go with factors that might affect pay in the
+data science field.
+
+The data is self-reported, so it may have some flaws. We will
+have to examine the dataset and consider removing any obvious
+outliers. The sample size is also limited.
+
+Time is a factor for this semester long project as we manage workload
+for other classes.
+
+Since neither of us have worked with ggvis before, there may be a
+learning curve.
+#+end_quote
+
+* DONE GOALS AND NON-GOALS:
+#+begin_quote
+GOALS:
+1. GET A GOOD GRADE ON THIS PROJECT SO WE DON'T FAIL THE CLASS
+
+2. Find out what factors are most impactful in the overall
+salary of someone in the data science field.
+
+3. Become proficient in ggvis.
+
+4. Add our project to a LinkedIn profile.
+
+NON-GOALS:
+1. Covering jobs outside of the data science field.
+
+2. Having overtly advanced ggvis examples in our final
+presentation.
+#+end_quote
+
+* DONE METRICS:
+#+begin_quote
+Throughout our sprints, we will measure our success by
+comparing our progress to our peers and by our general ability
+to use ggvis.
+
+For the presentation, we will measure our success by
+being able to answer questions that our classmates might have and by
+how smoothly we are able to get through the practice file.
+
+At the end of the term, we will measure our succss with our grade on
+the project. Going forward after that, feel accomplished
+with the addition of the project on our LinkedIn profiles.
+#+end_quote
+
+* DONE REFERENCES:
+#+begin_quote
+“Quick Ggvis Examples.” Ggvis.rstudio, 2023, https://ggvis.rstudio.com/0.1/quick-examples.html. 
+
+Bhatia, Ruchi. “Data Science Job Salaries.” Kaggle, 15 June 2022,
+https://www.kaggle.com/datasets/ruchi798/data-science-job-salaries
+
+Chauhan, Yash. “Difference between Ggvis vs Ggplot in R.” GeeksforGeeks, GeeksforGeeks, 2 Aug. 2022, https://www.geeksforgeeks.org/difference-between-ggvis-vs-ggplot-in-r/. 
+
+Dominik, Carsten. “Org Mode.” Org Mode, 2013, https://orgmode.org/
+
+gnu.org (n.d.). GNU Emacs manuals, www.gnu.org
+#+end_quote
