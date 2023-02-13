@@ -299,7 +299,7 @@ Submissions and tests:
   package-list-packages~, then find the package in the list and install
   with ~i~ and ~x~. [[https://github.com/dakra/speed-type][More information on GitHub.]]
     
-* Week 6: Bonus review, ~while~ and ~for~ loops
+* Week 6: Bonus review, coding loops
 * TODO Assignments with an AI "wingbot"
 #+attr_latex: :width 400px
 [[../img/3_bonus_bot.png]]
@@ -316,6 +316,7 @@ Submissions and tests:
 [[../img/sprint.png]]
 
 - Deadline for 2nd sprint review: Friday, March 10, 1 pm
+- To do: literature review (you'll get a template from me)
 - Feedback for each team submitted via Email (PDF from Org-modex)
 
 * Footnotes
