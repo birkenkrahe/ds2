@@ -309,8 +309,9 @@ Submissions and tests:
 - [ ] Projects 2nd sprint review looming (March 10)
 - [ ] How to reference and document coding support by AI
 
-* NEW Bonus exercises coding loops
+* NEW Bonus exercises coding loops (End-of-week)
 #+attr_latex: :width 400px
+#+Caption: Photo by Frugal Flyer on Unsplash.com
 [[../img/bonus.jpg]]
 
 Download the *raw* bonus exercise file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
@@ -335,6 +336,12 @@ Download the *raw* bonus exercise file [[https://github.com/birkenkrahe/ds2/tree
 - Deadline for 2nd sprint review: Friday, March 10, 1 pm
 - To do: literature review (you'll get a template from me)
 - Feedback for each team submitted via Email (PDF from Org-mode)
+
+* Week 16
+** Buy the "Book of R" and keep it for life
+#+attr_latex: :width 400px
+#+caption: Cover, Book of R by TM Davies, NoStarch 2016
+[[../img/bookofR.png]]
 
 * Footnotes
 

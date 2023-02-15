@@ -1,0 +1,36 @@
+#+TITLE: CODING LOOPS WITH "while" - LECTURE
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE: DSC 205 - Advanced introduction to data science
+#+STARTUP: overview hideblocks indent inlineimages
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
+#+attr_html: :width 300px
+* README
+#+attr_html: :width 300px
+#+caption: Photo by La-Rel Easter on Unsplash
+[[../img/5_loop.jpg]]
+
+Download the *raw* practice file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
+~5_loop_while_practice.org~.
+
+To test your Emacs mettle, open it on the CMD line with the command
+~emacs -nw~ (no graphics - not needed for this exercise).
+
+
+* TODO Exercises
+#+attr_latex: :width 400px
+[[../img/exercise.jpg]]
+
+Download the *raw* exercise file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
+~5_loop_while_exercise.org~. When done, upload the file to Canvas.
+
+* TODO Glossary
+
+| TERM | MEANING |
+|------+---------|
+|      |         |
+
+* References
+
+- Davies, T.D. (2016). The Book of R. NoStarch Press.
+
