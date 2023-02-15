@@ -1,0 +1,104 @@
+#+TITLE: CONDITIONS AND LOOPS - CONDITIONAL STATEMENTS - SWITCH - EXERCISES
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE: DSC 205 - Advanced introduction to data science
+#+STARTUP: overview hideblocks indent
+#+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
+* README
+
+This exercise file accompanies the [[https://github.com/birkenkrahe/ds2/blob/main/org/3_conditions.org][lecture]] on conditional
+statements. Upon completion, upload it to Canvas. Source: Davies, Book
+of R, p. 192.
+
+* TODO IDENTIFY AND PLEDGE YOURSELF
+
+1) In Emacs, replace the placeholder ~[yourname]~ at the top of this
+   file by your own name and write ~(pledged)~ next to it
+2) Go with the cursor on the headline and hange the ~TODO~ label to ~DONE~
+   by entering ~S-<right>~ ("Shift + right-arrow").
+
+* EXERCISES
+** Make a ~for~ loop more efficient
+
+Rewrite the nested loop example from the lecture where the matrix ~foo~
+was filled with the multiples of ~loopvec1~ and ~loopvec2~, using only a
+*single* ~for~ loop.
+
+- Sample data:
+  #+name: foo
+  #+begin_src R
+    loopvec1 <- 5:7; loopvec1
+    loopvec2 <- 9:6; loopvec2
+    foo <- matrix(NA,
+                  length(loopvec1),
+                  length(loopvec2))
+    foo
+  #+end_src
+
+- Nested loop example (two ~for~ loops) and output
+  #+begin_example R
+  for (i in 1:length(loopvec1)) {
+     for (j in 1:length(loopvec2)) {
+       foo[i,j] <- loopvec1[i] * loopvec2[j]
+     }
+  }
+
+  #+RESULTS:
+  :      [,1] [,2] [,3] [,4]
+  : [1,]   45   40   35   30
+  : [2,]   54   48   42   36
+  : [3,]   63   56   49   42
+#+end_example
+
+- Solution:
+  #+begin_src R :noweb yes
+    <<foo>>   ## reinitialize matrix foo
+    ...
+    foo
+  #+end_src
+
+** ~for~ loop with ~switch~
+
+- To return a number based on the supplied value of a single ~character~
+  string, you can use the ~switch~ command - but it won't work if the
+  ~EXPR~ is a ~character~ vector!
+
+  #+begin_src R
+    mystring = "Lisa"
+    switch(
+      EXPR = mystring,
+      Homer=12,
+      Marge=34,
+      Bart=56,
+      Lisa=78,
+      Maggie=90,
+      NA)
+  #+end_src
+
+- *Problem:* Write some code that will take a ~character~ vector ~mystrings~
+  and return a vector ~mynums~ of the appropriate ~numeric~ values. Then
+  test it on this vector:
+  #+begin_example R
+    mystrings <- c("Peter", "Homer", "Lois", "Stewie", "Maggie", "Bart")
+  #+end_example
+  The output of your code should look like this:
+  #+begin_example org
+    : [1] NA 12 NA NA 90 56
+  #+end_example
+
+- /Tip:/ (1) initialize ~character~ vector ~mystrings~, (2) initialize
+  ~numeric~ vector ~mynums~ with missing values, (3) loop and overwrite
+  ~mynums~ with the numbers corresponding to the names using ~switch~ for
+  each value of ~mystring~.
+
+- Solution:
+  #+begin_src R
+    ## initialize character vector
+
+    ## initialize numeric vector
+
+    ## loop over mystrings and overwrite mynums
+    ...
+    ## print mynums
+    mynums
+  #+end_src
+

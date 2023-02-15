@@ -16,7 +16,7 @@ Download the *raw* practice file [[https://github.com/birkenkrahe/ds2/tree/main/
 To test your Emacs mettle, open it on the CMD line with the command
 ~emacs -nw~ (no graphics - not needed for this exercise).
 
-* TODO Coding loops overview
+* Coding loops overview
 
 - Loops repeat a specified section of code often while incrementing an
   index or counter variable.
@@ -48,9 +48,9 @@ To test your Emacs mettle, open it on the CMD line with the command
            FUN = function)
   #+end_example
 
-* TODO ~for~ loops
+* ~for~ loops
 
-  - A ~for~ loop repeates code while going through a vector until a
+  - A ~for~ loop repeats code while going through a vector until a
     condition is no longer met:
     #+begin_example R
     for (loopindex in loopvector) {
@@ -69,6 +69,17 @@ To test your Emacs mettle, open it on the CMD line with the command
       }
     #+end_src
 
+    #+RESULTS:
+    : --BRACED AREA BEGINS--
+    : the current item is 5 
+    : --BRACED AREA ENDS--
+    : --BRACED AREA BEGINS--
+    : the current item is 6 
+    : --BRACED AREA ENDS--
+    : --BRACED AREA BEGINS--
+    : the current item is 7 
+    : --BRACED AREA ENDS--
+
   - You can manipulate objects outside the loop, i.e. the braced area
     is not a local environment:
     #+begin_src R
@@ -79,7 +90,12 @@ To test your Emacs mettle, open it on the CMD line with the command
       }
     #+end_src
 
-* TODO Looping via index or value
+    #+RESULTS:
+    : The item in run 1 is 5 
+    : The item in run 2 is 6 
+    : The item in run 3 is 7
+
+* Looping via index or value
 
 - There is a difference using a /loopindex/ inside a ~for~ statement
 vs. representing /indices/ of a vector.
@@ -93,6 +109,12 @@ represent the elements in ~myvec~:
   }
 #+end_src  
 
+#+RESULTS:
+: [1] 0.8
+: [1] 2.2
+: [1] 0.68
+: [1] 1.1
+
 - *Vector index:* The loop below uses ~i~ to represent ~integer~ values in
 the sequence ~1:length(myvec)~, which form all vector index positions
 of ~myvec~. The same indices are then used to extract elements from
@@ -103,10 +125,16 @@ of ~myvec~. The same indices are then used to extract elements from
   }
 #+end_src  
 
+#+RESULTS:
+: [1] 0.8
+: [1] 2.2
+: [1] 0.68
+: [1] 1.1
+
 - Vector indices take a longer form but offer more flexibility for
 more complicated ~for~ loops.
 
-* TODO Extended example: stepping through a ~list~
+* Extended example: stepping through a ~list~
 
   - You want to write code that will inspect any ~list~ object and gather
     information about any ~matrix~ objects stored as ~list~ members.
@@ -188,7 +216,10 @@ more complicated ~for~ loops.
   #+begin_src R
     loopvec1 <- 5:7; loopvec1
     loopvec2 <- 9:6; loopvec2
-    foo <- matrix(NA,length(loopvec1),length(loopvec2)); foo
+    foo <- matrix(NA,
+                  length(loopvec1),
+                  length(loopvec2))
+    foo
     baz <- foo # make copy of foo for later
   #+end_src
 
@@ -203,6 +234,12 @@ more complicated ~for~ loops.
     }
     foo
   #+end_src
+
+  #+RESULTS:
+  :      [,1] [,2] [,3] [,4]
+  : [1,]   45   40   35   30
+  : [2,]   54   48   42   36
+  : [3,]   63   56   49   42
   
 - [ ] With this code, is the matrix traversed by row or by
   column?[fn:1]
