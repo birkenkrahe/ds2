@@ -303,11 +303,11 @@ Submissions and tests:
 #+attr_latex: :width 400px
 [[../img/5_loop.jpg]]
 
+- [X] Projects 2nd sprint review looming (March 10)
+- [X] How to reference and document coding support by AI
 - [ ] Coding loops: ~for~, ~while~, ~apply~, ~repeat~
 - [ ] Lectures and exercises
 - [ ] Bonus exercises for extra credit
-- [ ] Projects 2nd sprint review looming (March 10)
-- [ ] How to reference and document coding support by AI
 
 * TODO DataCamp lesson due today for full points
 * TODO New Datacamp lessons open - get certified!

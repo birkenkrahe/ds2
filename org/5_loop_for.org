@@ -191,9 +191,9 @@ more complicated ~for~ loops.
       bar
     #+end_src
 
-- Compare with the original list ~foo~ where the structure output
-  indirectly suggests ~matrix~ objects through the indexing:
-  #+begin_src R
+  - Compare with the original list ~foo~ where the structure output
+    indirectly suggests ~matrix~ objects through the indexing:
+    #+begin_src R
     str(foo)
   #+end_src
   
