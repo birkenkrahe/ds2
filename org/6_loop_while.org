@@ -11,7 +11,7 @@
 [[../img/5_loop.jpg]]
 
 Download the *raw* practice file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
-~5_loop_while_practice.org~.
+~6_loop_while_practice.org~.
 
 To test your Emacs mettle, open it on the CMD line with the command
 ~emacs -nw~ (no graphics - not needed for this exercise).
@@ -126,7 +126,7 @@ To test your Emacs mettle, open it on the CMD line with the command
 [[../img/exercise.jpg]]
 
 Download the *raw* exercise file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
-~5_loop_while_exercise.org~. When done, upload the file to Canvas.
+~6_loop_while_exercise.org~. When done, upload the file to Canvas.
 
 * TODO Glossary
 
