@@ -303,7 +303,19 @@ Submissions and tests:
 #+attr_latex: :width 400px
 [[../img/5_loop.jpg]]
 
-* Assignments with an AI "wingbot"
+- [ ] Coding loops: ~for~, ~while~, ~apply~, ~repeat~
+- [ ] Lectures and exercises
+- [ ] Bonus exercises for extra credit
+- [ ] Projects 2nd sprint review looming (March 10)
+- [ ] How to reference and document coding support by AI
+
+* NEW Bonus exercises coding loops
+#+attr_latex: :width 400px
+[[../img/bonus.jpg]]
+
+Download the *raw* bonus exercise file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
+~5_loop_for_bonus.org~. When done, upload the file to Canvas.
+* DONE Assignments with an AI "wingbot"
 #+attr_latex: :width 400px
 [[../img/3_bonus_bot.png]]
 
@@ -316,7 +328,7 @@ Submissions and tests:
 
 - Also, you must cite it as a reference (complete and consistent)
 
-* NEXT Projects: 2nd sprint review
+* DONE Projects: 2nd sprint review
 #+attr_latex: :width 400px
 [[../img/sprint.png]]
 
