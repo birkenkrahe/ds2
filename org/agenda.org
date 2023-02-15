@@ -309,6 +309,8 @@ Submissions and tests:
 - [ ] Projects 2nd sprint review looming (March 10)
 - [ ] How to reference and document coding support by AI
 
+* TODO DataCamp lesson due today for full points
+* TODO New Datacamp lessons open - get certified!
 * NEW Bonus exercises coding loops (End-of-week)
 #+attr_latex: :width 400px
 #+Caption: Photo by Frugal Flyer on Unsplash.com
