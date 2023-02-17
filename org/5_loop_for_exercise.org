@@ -16,8 +16,7 @@ of R, p. 192.
 2) Go with the cursor on the headline and hange the ~TODO~ label to ~DONE~
    by entering ~S-<right>~ ("Shift + right-arrow").
 
-* EXERCISES
-** Make a ~for~ loop more efficient
+* Make a ~for~ loop more efficient
 
 Rewrite the nested loop example from the lecture where the matrix ~foo~
 was filled with the multiples of ~loopvec1~ and ~loopvec2~, using only a
@@ -56,7 +55,7 @@ was filled with the multiples of ~loopvec1~ and ~loopvec2~, using only a
     foo
   #+end_src
 
-** ~for~ loop with ~switch~
+* ~for~ loop with ~switch~
 
 - To return a number based on the supplied value of a single ~character~
   string, you can use the ~switch~ command - but it won't work if the
@@ -96,7 +95,7 @@ was filled with the multiples of ~loopvec1~ and ~loopvec2~, using only a
 
     ## initialize numeric vector
 
-    ## loop over mystrings and overwrite mynums
+    ## loop over mystrings and overwrite mynums with switch
     ...
     ## print mynums
     mynums

@@ -309,16 +309,7 @@ Submissions and tests:
 - [ ] Lectures and exercises
 - [ ] Bonus exercises for extra credit
 
-* TODO DataCamp lesson due today for full points
-* TODO New Datacamp lessons open - get certified!
-* NEW Bonus exercises coding loops (End-of-week)
-#+attr_latex: :width 400px
-#+Caption: Photo by Frugal Flyer on Unsplash.com
-[[../img/bonus.jpg]]
-
-Download the *raw* bonus exercise file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
-~5_loop_for_bonus.org~. When done, upload the file to Canvas.
-* DONE Assignments with an AI "wingbot"
+** DONE Assignments with an AI "wingbot"
 #+attr_latex: :width 400px
 [[../img/3_bonus_bot.png]]
 
@@ -331,7 +322,7 @@ Download the *raw* bonus exercise file [[https://github.com/birkenkrahe/ds2/tree
 
 - Also, you must cite it as a reference (complete and consistent)
 
-* DONE Projects: 2nd sprint review
+** DONE Projects: 2nd sprint review
 #+attr_latex: :width 400px
 [[../img/sprint.png]]
 
@@ -339,11 +330,54 @@ Download the *raw* bonus exercise file [[https://github.com/birkenkrahe/ds2/tree
 - To do: literature review (you'll get a template from me)
 - Feedback for each team submitted via Email (PDF from Org-mode)
 
-* Week 16
+* TODO Bonus exercises coding loops (End-of-week)
+#+attr_latex: :width 400px
+#+Caption: Photo by Frugal Flyer on Unsplash.com
+[[../img/bonus.jpg]]
+
+Download the *raw* bonus exercise file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
+~5_for_loop_bonus.org~. When done, upload the file to Canvas.
+
+
+* TODO Week 7
+
+* TODO Week 8
+
+* TODO Week 9
+
+* TODO Week 10
+
+* TODO Week 11
+
+* TODO Week 12
+
+* TODO Week 13
+
+* TODO Week 14
+
+* TODO Week 15
+
+* TODO Week 16 - Projects & Going Beyond This Course
 ** Buy the "Book of R" and keep it for life
 #+attr_latex: :width 400px
 #+caption: Cover, Book of R by TM Davies, NoStarch 2016
 [[../img/bookofR.png]]
+
+[[https://nostarch.com/bookofr][Link to the publisher.]]
+** Buy "The Art of R Programming" to go even further
+To graduate to a full-fledged R programmer, get this excellent book:
+#+attr_latex: :width 400px
+#+caption: Cover, The Art of R Programming by Matloff (NoStarch 2011)
+[[../img/TARP.png]]
+
+[[https://nostarch.com/artofr.htm][Link to the publisher.]]
+
+** Tidyverse? Read (for free) R for Data Science
+#+attr_latex: :width 400px
+#+caption: Cover, R for Data Science (2e) by Hadley Wickham & Garrett Grolemund, O'Reilly 2023
+[[../img/R4DS.png]]
+
+[[https://r4ds.hadley.nz/][Link to the website for the 2nd edition (2023)]]
 
 * Footnotes
 

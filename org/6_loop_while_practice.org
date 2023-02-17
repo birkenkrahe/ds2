@@ -1,4 +1,4 @@
-#+TITLE: CODING LOOPS WITH "for" - PRACTICE FILE
+#+TITLE: CODING LOOPS WITH "while" - PRACTICE FILE
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: DSC 205 - Advanced introduction to data science
 #+STARTUP: overview hideblocks indent
@@ -26,6 +26,7 @@ This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/mai
 #+begin_src R
 
 #+end_src
+
 * Extended example
 
 - Create a few initial objects first:
@@ -66,4 +67,24 @@ This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/mai
     }
     mylist
   #+end_src
+
+* Exercise: factorials
+
+The factorial of a non-negative ~integer~ ~x~, expressed as ~x!~, refers to
+~x~ multiplied by the product of all integers less than ~x~ down to ~1~: $x!
+= x \times (x-1) \times (x-2) \times \dots \times 1$. The 0th
+factorial is always ~1~: $0! = 1$.
+
+*Problem*: write a ~while~ loop that computes and stores as a new object
+the factorial of any non-negative ~integer~ ~mynum~ by decrementing ~mynum~
+by ~1~ at each repetition of the braced code block.
+
+*Test*: using your loop, confirm the following:
+1) The result of ~mynum <- 5~ is ~120~.
+2) Using ~mynum <- 12~ yields ~479001600~
+3) Having ~mynum <- 0~ correctly returns ~1~
+
+
+
+
 

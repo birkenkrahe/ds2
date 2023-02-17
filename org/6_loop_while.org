@@ -47,8 +47,9 @@ To test your Emacs mettle, open it on the CMD line with the command
     myval <- myval + 1
     cat("\nmyval is now",myval,"\n")
     cat("condition is now",myval<10,"\n")
-    }
+  }
 #+end_src
+
 * Extended example
 
 - It is often useful to set the /loopcondition/ to be an object so that
@@ -57,20 +58,6 @@ To test your Emacs mettle, open it on the CMD line with the command
 - In the example, you will use a ~while~ loop to iterate over an ~integer~
   vector ~mynumbers~ and create an /identity matrix/ using ~diag~ with the
   dimension ~dim~ matching the current integer.
-
-- This loop should stop when it reaches a number in the vector
-  ~mynumbers~ that's greater than ~5~, or when it reaches the end of the
-  vector. The ~while~ condition is stored in a separate object
-  ~mycondition~.
-
-- Create a few initial objects first:
-  #+name: initialize
-  #+begin_src R :results silent
-    mylist <- list()  # create an empty list to store all matrices
-    counter <- 1      # set loop index counter variable to 1
-    mynumbers <- c(4,5,1,2,6,2,4,6,6,2) # matrix dimensions
-    mycondition <- mynumbers[counter] <= 5 # while loop condition
-  #+end_src
 
 - The ~diag~ function extracts or replaces the diagonal of a matrix, or
   constructs a diagonal matrix. Check out its arguments:
@@ -95,20 +82,28 @@ To test your Emacs mettle, open it on the CMD line with the command
     l
   #+end_src
 
-  #+RESULTS:
-  : [[1]]
-  :      [,1] [,2]
-  : [1,]    1    0
-  : [2,]    0    1
-  
+- This loop should stop when it reaches a number in the vector
+  ~mynumbers~ that's greater than ~5~, or when it reaches the end of the
+  vector. The ~while~ condition is stored in a separate object
+  ~mycondition~.
+
+- Create a few initial objects first:
+  #+name: initialize
+  #+begin_src R :results silent
+    mylist <- list()  # create an empty list to store all matrices
+    counter <- 1      # set loop index counter variable to 1
+    mynumbers <- c(4,5,1,2,6,2,4,6,6,2) # matrix dimensions
+    mycondition <- mynumbers[counter] <= 5 # while loop condition
+  #+end_src
+
 - Create the loop:
+  #+name: build_list
   #+begin_src R
-    <<initialize>>
-    while (mycondition) { 
+    while (mycondition) {
       mylist[[counter]] <- diag(mynumbers[counter]) # add matrix to list
       counter <- counter + 1   # increase counter
       ## update loop condition
-      if (counter <= length(mynumbers)) { 
+      if (counter <= length(mynumbers)) {
         mycondition <- mynumbers[counter] <= 5  # counter in bounds
       } else {
         mycondition <- FALSE   # counter out of bounds
@@ -120,6 +115,48 @@ To test your Emacs mettle, open it on the CMD line with the command
 - The result is a list ~mylist~ with four members because 4 is the last
   element of ~mynumbers~ not greater than 5. The identity matrices have
   dimension 4 x 4, 5 x 5, 1 x 1 and 2 x 2.
+
+* Changing conditions
+
+- Based on the extended example of storing identity matrices in a
+  list, determine what the resulting ~mylist~ would look like for each
+  of the following possible ~mynumbers~ vectors, without executing
+  anything - then run the code to confirm:
+
+  1) ~mynumbers <- c(2,2,2,2,5,2)~
+
+  2) ~mynumbers <- 2:20~
+
+  3) ~mynumbers <- c(10,1,10,1,2)~
+
+- To check, we have to re-initialize the counter and condition
+  variables then run ~<<build_list>>:
+  1) ~mynumbers <- c(2,2,2,2,5,2)~
+     #+begin_src R
+       mylist <- list()  # create an empty list to store all matrices
+       counter <- 1      # set loop index counter variable to 1
+       mynumbers <- c(2,2,2,2,5,2) # matrix dimensions
+       mycondition <- mynumbers[counter] <= 5 # while loop condition
+       <<build_list>>
+     #+end_src
+
+  2) ~mynumbers <- 2:20~
+     #+begin_src R
+    mylist <- list()  # create an empty list to store all matrices
+    counter <- 1      # set loop index counter variable to 1
+    mynumbers <- 2:20 # matrix dimensions
+    mycondition <- mynumbers[counter] <= 5 # while loop condition
+    <<build_list>>
+  #+end_src
+
+  3) ~mynumbers <- c(10,1,10,1,2)~
+     #+begin_src R
+       mylist <- list()  # create an empty list to store all matrices
+       counter <- 1      # set loop index counter variable to 1
+       mynumbers <- c(10,1,10,1,2) # matrix dimensions
+       mycondition <- mynumbers[counter] <= 5 # while loop condition
+       <<build_list>>
+     #+end_src
 
 * TODO Exercises
 #+attr_latex: :width 400px
@@ -137,4 +174,3 @@ Download the *raw* exercise file [[https://github.com/birkenkrahe/ds2/tree/main/
 * References
 
 - Davies, T.D. (2016). The Book of R. NoStarch Press.
-
