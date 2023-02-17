@@ -10,11 +10,11 @@
 #+caption: Photo by La-Rel Easter on Unsplash
 [[../img/5_loop.jpg]]
 
-Download the *raw* practice file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
-~6_loop_while_practice.org~.
+- Download the *raw* practice file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
+  ~6_loop_while_practice.org~.
 
-To test your Emacs mettle, open it on the CMD line with the command
-~emacs -nw~ (no graphics - not needed for this exercise).
+- To test your Emacs mettle, open it on the CMD line with the command
+  ~emacs -nw~ (no graphics - not needed for this exercise).
 
 * ~while~ loops
 
@@ -142,12 +142,12 @@ To test your Emacs mettle, open it on the CMD line with the command
 
   2) ~mynumbers <- 2:20~
      #+begin_src R
-    mylist <- list()  # create an empty list to store all matrices
-    counter <- 1      # set loop index counter variable to 1
-    mynumbers <- 2:20 # matrix dimensions
-    mycondition <- mynumbers[counter] <= 5 # while loop condition
-    <<build_list>>
-  #+end_src
+       mylist <- list()  # create an empty list to store all matrices
+       counter <- 1      # set loop index counter variable to 1
+       mynumbers <- 2:20 # matrix dimensions
+       mycondition <- mynumbers[counter] <= 5 # while loop condition
+       <<build_list>>
+     #+end_src
 
   3) ~mynumbers <- c(10,1,10,1,2)~
      #+begin_src R
@@ -158,7 +158,48 @@ To test your Emacs mettle, open it on the CMD line with the command
        <<build_list>>
      #+end_src
 
-* TODO Exercises
+* Exercise - Factorials
+
+- The factorial of a non-negative ~integer~ ~x~, expressed as ~x!~, refers
+  to ~x~ multiplied by the product of all integers less than ~x~ down to
+  ~1~: $x! = x \times (x-1) \times (x-2) \times \dots \times 1$. The 0th
+  factorial is always ~1~: $0! = 1$.
+
+- *Problem*: write a ~while~ loop that computes and stores as a new object
+  the factorial of any non-negative ~integer~ ~mynum~ by decrementing
+  ~mynum~ by ~1~ at each repetition of the braced code block.
+
+- *Test*: using your loop, confirm the following:
+  1) The result of ~mynum <- 5~ is ~120~.
+  2) Using ~mynum <- 12~ yields ~479001600~
+  3) Having ~mynum <- 0~ correctly returns ~1~
+
+#+name: factorial
+#+begin_src R
+  mynum.fac <- 1
+  while(mynum>1){
+    mynum.fac <- mynum.fac*mynum
+    mynum <- mynum-1
+  }
+  mynum.fac
+#+end_src
+
+Test:
+#+begin_src R :noweb yes
+  mynum <- 5
+  <<factorial>>
+  mynum <- 12
+  <<factorial>>
+  mynum <- 0
+  <<factorial>>
+#+end_src
+
+#+RESULTS:
+: [1] 120
+: [1] 479001600
+: [1] 1
+
+* TODO More exercises
 #+attr_latex: :width 400px
 [[../img/exercise.jpg]]
 
