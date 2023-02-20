@@ -10,93 +10,35 @@
 #+caption: Photo by Brett Jordan on Unsplash
 [[../img/7_goforit.jpg]]
 
-- Download the *raw* practice file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
-  ~7_loop_apply_codealong.org~.
+- Download the *raw* file to code along during the lecture [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]],
+  save it as ~7_loop_apply_codealong.org~ and upload it to Canvas later.
 
 - To test your Emacs mettle, open it on the CMD line with the command
   ~emacs -nw~ (no graphics - not needed for this exercise).
-
-* Exercise - 
-
-- The factorial of a non-negative ~integer~ ~x~, expressed as ~x!~, refers
-  to ~x~ multiplied by the product of all integers less than ~x~ down to
-  ~1~: $x! = x \times (x-1) \times (x-2) \times \dots \times 1$. The 0th
-  factorial is always ~1~: $0! = 1$.
-
-- *Problem*: write a ~while~ loop that computes and stores as a new object
-  the factorial of any non-negative ~integer~ ~mynum~ by decrementing
-  ~mynum~ by ~1~ at each repetition of the braced code block.
-
-- *Test*: using your loop, confirm the following:
-  1) The result of ~mynum <- 5~ is ~120~.
-  2) Using ~mynum <- 12~ yields ~479001600~
-  3) Having ~mynum <- 0~ correctly returns ~1~
-
-#+name: factorial
-#+begin_src R
-  mynum.fac <- 1
-  while(mynum>1){
-    mynum.fac <- mynum.fac*mynum
-    mynum <- mynum-1
-    cat("Number",mynum,"\n")
-    cat("Factorial",mynum.fac,"\n")
-  }
-  mynum.fac
-#+end_src
-
-Test:
-#+begin_src R :noweb yes
-  mynum <- 5
-  <<factorial>>
-  mynum <- 12
-  <<factorial>>
-  mynum <- 0
-  <<factorial>>
-#+end_src
-
-#+RESULTS:
-#+begin_example
-Number 4 
-Factorial 5 
-Number 3 
-Factorial 20 
-Number 2 
-Factorial 60 
-Number 1 
-Factorial 120
-[1] 120
-Number 11 
-Factorial 12 
-Number 10 
-Factorial 132 
-Number 9 
-Factorial 1320 
-Number 8 
-Factorial 11880 
-Number 7 
-Factorial 95040 
-Number 6 
-Factorial 665280 
-Number 5 
-Factorial 3991680 
-Number 4 
-Factorial 19958400 
-Number 3 
-Factorial 79833600 
-Number 2 
-Factorial 239500800 
-Number 1 
-Factorial 479001600
-[1] 479001600
-[1] 1
-#+end_example
-
-* TODO More exercises
+* 
+* TODO Exercises
 #+attr_latex: :width 400px
 [[../img/exercise.jpg]]
 
-Download the *raw* exercise file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
-~7_loop_apply_exercise.org~. When done, upload the file to Canvas.
+1) Continuing from the most recent example, write an implicit loop
+   that calculates the product of all the column elements of the
+   matrix returned by the call to ~apply(foo, 1, sort,
+   decreasing=TRUE)~.
+
+2) Convert the following ~for~ loop to an implicit loop that does
+   exactly the same thing. Here, ~t~ transposes its matrix argument.
+   #+name: matlist :noweb yes
+   #+begin_src R
+     matlist <- list(
+       matrix(c(T,F,T,T),2,2),
+       matrix(c("a","c","b","z","p","q"),3,2),
+       matrix(1:8,2,4))
+     matlist
+     for (i in 1:length(matlist)) {
+       matlist[[i]] <- t(matlist[[i]])
+     }
+     matlist
+   #+end_src
 
 * TODO Glossary
 
