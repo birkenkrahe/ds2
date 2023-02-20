@@ -1,0 +1,175 @@
+#+TITLE: CODING LOOPS WITH "apply" - PRACTICE AND EXERCISES
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE: DSC 205 - Advanced introduction to data science
+#+STARTUP: overview hideblocks indent inlineimages
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
+#+attr_html: :width 300px
+* README
+
+This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/main/org/7_loop_apply.org][lecture]] on implicit ~apply~ loops in
+~7_loop_apply.org~, with two exercises at the end.
+
+* TODO Identify and pledge yourself
+
+1) In Emacs, replace the placeholder ~[yourname]~ at the top of this
+   file by your own name and write ~(pledged)~ next to it
+2) Go with the cursor on the headline and hange the ~TODO~ label to ~DONE~
+   by entering ~S-<right>~ ("Shift + right-arrow").
+
+* ~apply~ - implicit looping over arrays
+
+- Does ~apply~ have any other arguments than ~X~, ~FUN~, ~MARGIN~? Find out!
+  #+begin_src R
+
+  #+end_src
+
+* ~apply~ example: ~matrix~
+
+- Create a 4 x 3 matrix with the elements ~1:12~:
+  #+begin_src R
+
+  #+end_src
+- Find the sum of each row of ~foo~. What about ~sum(foo)~?
+  #+begin_src R
+
+  #+end_src
+- Loop over the rows of ~foo~:
+  #+begin_src R
+
+  #+end_src
+- Much shorter with ~apply~:
+  #+begin_src R
+
+  #+end_src
+- To ~sum~ over columns instead, change ~MARGIN~ to ~2~.
+  #+begin_src R
+
+  #+end_src
+
+- You can pass additional arguments to any ~apply~ function: e.g. you
+  can use the function ~sort~ and specify it to be ~decreasing~:
+  #+begin_src R
+
+  #+end_src
+
+* ~apply~ example: ~array~
+
+- Create a 3 x 2 x 2 ~array~ named ~bar~ with the elements ~1:18~
+  #+begin_src R
+
+  #+end_src
+
+- What does the following call to ~apply~ do?
+  #+begin_src R
+
+  #+end_src
+
+- Check the dimensions and class of baz:
+  #+begin_src R
+
+  #+end_src
+
+* ~tapply~ - slicing data by categories
+
+- Compute the ~mean~ tooth length by supply category in
+  the ~ToothGrowth~ dataset:
+  #+begin_src R
+
+  #+end_src
+
+- Here's another example ([[https://www.kaggle.com/datasets/nancyalaswad90/diamonds-prices][data source: Kaggle]])
+  1) read CSV data on diamond pricing (with strings as factors) as data
+     frame ~diamonds~
+  2) display structure of data t
+  3) display first five records
+  #+begin_src R
+    dia.url <- "https://raw.githubusercontent.com/birkenkrahe/ds2/main/data/diamonds.csv"
+    ...
+  #+end_src
+
+- Using ~tapply~, you can add up the total value of the diamonds (in
+  ~price~) for the full data set but separated according to ~color~:
+  #+begin_src R
+
+  #+end_src
+
+* ~lapply~ - cycling through lists
+
+- Define a list in this code block named "define_list":
+  #+name: define_list
+  #+begin_src R
+    baz <- list(
+      aa = c(3.4,1),
+      bb = matrix(1:4,2,2),
+      cc = matrix(c(T,T,F,T,F,F),3,2),
+      dd = "string here",
+      ee = matrix(c("red","green","blue","yellow")))
+  #+end_src
+  
+- Call "define_list" and check for matrices in the list ~baz~:
+  #+begin_src R 
+
+  #+end_src
+  
+* ~sapply~ - simplified cycling
+
+- ~sapply~ (s = "simplified") returns the same results as ~lapply~ but in
+  an array form - call "define_list", then call ~is.matrix~ on ~baz~:
+  #+begin_src R
+
+  #+end_src
+
+- ~baz~ has a ~names~ attribute that is copies to the corresponding
+  entries of the returned object:
+  #+begin_src R
+
+  #+end_src
+
+* TODO ~vapply~ - simplified cycling with safety check
+
+- Read the help file and [[https://www.r-bloggers.com/2020/10/why-you-should-use-vapply-in-r/][this tutorial]] (Treadway, 2020).
+
+* TODO ~mapply~ - multivariate version of ~sapply~
+
+- Read the help file and [[https://www.statology.org/r-mapply/][this tutorial]] (Zach, 2021).
+
+* TODO Exercises
+#+attr_latex: :width 400px
+[[../img/exercise.jpg]]
+
+1) Continuing from the most recent example, write an implicit loop
+   that calculates the product of all the column elements of the
+   matrix returned by the call to ~apply(foo, 1, sort,
+   decreasing=TRUE)~.
+
+2) Convert the following ~for~ loop to an implicit loop that does
+   exactly the same thing. Here, ~t~ transposes its matrix argument.
+   #+name: matlist :noweb yes
+   #+begin_src R
+     matlist <- list(
+       matrix(c(T,F,T,T),2,2),
+       matrix(c("a","c","b","z","p","q"),3,2),
+       matrix(1:8,2,4))
+     matlist
+     for (i in 1:length(matlist)) {
+       matlist[[i]] <- t(matlist[[i]])
+     }
+     matlist
+   #+end_src
+
+* TODO Glossary
+
+| TERM | MEANING |
+|------+---------|
+|      |         |
+
+* References
+
+- Ceballos, M. (2013). Data structure. URL: [[http://venus.ifca.unican.es/Rintro/dataStruct.html][venus.ifca.unican.es]].
+- Davies, T.D. (2016). The Book of R. NoStarch Press.
+- Treadway, A. (20 Oct 2020). Why you should use vapply in R. URL:
+  [[https://theautomatic.net/2020/10/20/why-you-should-use-vapply-in-r/][theautomatic.net]].
+- Zach (Dec 7, 2021). How to Use the mapply() Function in R (With
+  Examples). URL: [[https://www.statology.org/r-mapply/][statology.org]].
+

@@ -11,12 +11,12 @@
 [[../img/7_goforit.jpg]]
 
 - Download the *raw* file to code along during the lecture [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]],
-  save it as ~7_loop_apply_codealong.org~ and upload it to Canvas later.
+  save it as ~7_loop_apply_practice.org~ and upload it to Canvas later.
 
 - To test your Emacs mettle, open it on the CMD line with the command
   ~emacs -nw~ (no graphics - not needed for this exercise).
 
-* The ~apply~ family: ~lapply~, ~sapply~, ~tapply~, ~vapply~
+* ~apply~, ~lapply~, ~sapply~, ~tapply~, ~vapply~, ~mapply~
 #+attr_latex: :width 400px
 #+caption: Family by Rajiv Perera on Unsplash
 [[../img/7_family.jpg]]
@@ -31,9 +31,13 @@
   2) ~lapply~ operates member by member on a ~list~.
   3) ~sapply~ to return simplified ~lapply~ results.
   4) ~vapply~ if you know the data type you're expecting as a return.
+  5) ~mapply~ as a multi-variate version of ~sapply~
 
 - All ~apply~ type functions simplify coding enormously by replacing ~for~
   loop constructions.
+
+- All ~apply~ type functions allow for additional arguments (~...~) to be
+  passed to ~FUN~. 
 
 * ~apply~ - implicit looping over arrays
 
@@ -55,22 +59,22 @@
 #+caption: R data structures (source: Ceballos, 2013)
 [[../img/7_arrays.png]]
 
-  - scalars: 0-dim arrays, e.g. the number ~0~
-  - vectors: 1-dim arrays, e.g. ~c("a","vector")~
-  - matrices: 2-dim arrays, e.g. ~matrix(1:9,3,3)~
-  - arrays: n-dim, e.g. ~array(1:9,dim=c(3,3,2))~
-    #+begin_src R
-      array(1:18,dim=c(3,3,2))
-    #+end_src
+- scalars: 0-dim arrays, e.g. the number ~0~
+- vectors: 1-dim arrays, e.g. ~c("a","vector")~
+- matrices: 2-dim arrays, e.g. ~matrix(1:9,3,3)~
+- arrays: n-dim, e.g. ~array(1:9,dim=c(3,3,2))~
+  #+begin_src R
+    array(1:18,dim=c(3,3,2))
+  #+end_src
 
-  - The ~MARGIN~ index follows the positional order of the dimension for
-    matrices and arrays:
-    | ~MARGIN~ | DATA STRUCTURE |
-    |--------+----------------|
-    |      1 | rows           |
-    |      2 | columns        |
-    |      3 | layers         |
-    |      4 | blocks         |
+- The ~MARGIN~ index follows the positional order of the dimension for
+  matrices and arrays:
+  | ~MARGIN~ | DATA STRUCTURE |
+  |--------+----------------|
+  |      1 | rows           |
+  |      2 | columns        |
+  |      3 | layers         |
+  |      4 | blocks         |
 
 * ~apply~ example: ~matrix~
 
@@ -104,6 +108,16 @@
       X = foo,
       MARGIN = 2,
       FUN = sum)
+  #+end_src
+
+- You can pass additional arguments to any ~apply~ function: e.g. you
+  can use the function ~sort~ and specify it to be ~decreasing~:
+  #+begin_src R
+    apply(
+      X = foo,
+      MARGIN = 1,
+      FUN = sort,
+      decreasing = TRUE)
   #+end_src
 
 * ~apply~ example: ~array~
@@ -144,12 +158,86 @@
 - The result returns the average length for guinea pigs supplied with
   orange juice (~OJ~) and vitamin C (~VC~).
 
-- Here's another example: 
+- Here's another example ([[https://www.kaggle.com/datasets/nancyalaswad90/diamonds-prices][data source: Kaggle]])[fn:2]:
+  1) read web data on diamond pricing (with strings as factors)
+  2) display structure of data table
+  3) display first five records
+  #+begin_src R
+    dia.url <- "https://raw.githubusercontent.com/birkenkrahe/ds2/main/data/diamonds.csv"
+    diamonds <- read.csv(dia.url, stringsAsFactors=TRUE)
+    str(diamonds)
+    head(diamonds)
+  #+end_src
 
-  
+- Using ~tapply~, you can add up the total value of the diamonds for the
+  full data set but separated according to ~color~ (key coded):
+  #+begin_src R
+    tapply(
+      X = diamonds$price,
+      INDEX = diamonds$color,
+      FUN = sum)
+  #+end_src
+
 * ~lapply~ - cycling through lists
+
+- ~lapply~ operates member by member on a ~list~ and returns a ~list~:
+  #+name: define_list
+  #+begin_src R
+    baz <- list(
+      aa = c(3.4,1),
+      bb = matrix(1:4,2,2),
+      cc = matrix(c(T,T,F,T,F,F),3,2),
+      dd = "string here",
+      ee = matrix(c("red","green","blue","yellow")))
+  #+end_src
+  
+- Check for matrices in the list ~baz~:
+  #+begin_src R 
+    <<define_list>>
+    lapply(
+      X = baz,
+      FUN = is.matrix)
+  #+end_src
+
+- No margin or index information is required. R knows how to apply ~FUN~
+  to each member of the list, and returns a ~list~. Fun!
+  
 * ~sapply~ - simplified cycling
-* ~vapply~ - simplified cycling with safety check
+
+- ~sapply~ (s = "simplified") returns the same results as ~lapply~ but in
+  an array form:
+  #+begin_src R
+    <<define_list>>
+    sap <- sapply(
+            X = baz,
+            FUN = is.matrix)
+    sap
+    is.vector(sap)   # sap is a named vector
+  #+end_src
+
+- ~baz~ has a ~names~ attribute that is copies to the corresponding
+  entries of the returned object:
+  #+begin_src R
+    attributes(sap)
+    names(sap)
+    str(sap)
+  #+end_src
+
+  #+RESULTS:
+  : $names
+  : [1] "aa" "bb" "cc" "dd" "ee"
+  : [1] "aa" "bb" "cc" "dd" "ee"
+  :  Named logi [1:5] FALSE TRUE TRUE FALSE TRUE
+  :  - attr(*, "names")= chr [1:5] "aa" "bb" "cc" "dd" ...
+
+* SOMEDAY ~vapply~ - simplified cycling with safety check
+
+- Read the help file and [[https://www.r-bloggers.com/2020/10/why-you-should-use-vapply-in-r/][this tutorial]] (Treadway, 2020).
+
+* SOMEDAY ~mapply~ - multivariate version of ~sapply~
+
+- Read the help file and [[https://www.statology.org/r-mapply/][this tutorial]] (Zach, 2021).
+
 * TODO Exercises
 #+attr_latex: :width 400px
 [[../img/exercise.jpg]]
@@ -186,8 +274,12 @@
 - Davies, T.D. (2016). The Book of R. NoStarch Press.
 - Treadway, A. (20 Oct 2020). Why you should use vapply in R. URL:
   [[https://theautomatic.net/2020/10/20/why-you-should-use-vapply-in-r/][theautomatic.net]].
+- Zach (Dec 7, 2021). How to Use the mapply() Function in R (With
+  Examples). URL: [[https://www.statology.org/r-mapply/][statology.org]].
 
 * Footnotes
+[fn:2]Astonishingly, some websites are trying to sell these (freely
+available) data for US$100.00 ([[https://www.dataandsons.com/categories/product-lists/diamonds-dataset][see here]]).
 
 [fn:1]The ~apply~ call extracts the diagonal elements for each of the 2
 layers with ~diag~. Each call to ~diag~ of a matrix returns a vector and
