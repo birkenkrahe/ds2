@@ -197,7 +197,7 @@ more complicated ~for~ loops.
     str(foo)
   #+end_src
   
-* TODO Nesting ~for~ loops
+* Nesting ~for~ loops
 
 - ~for~ loops can be nested just like ~if~ statements.
 
@@ -241,8 +241,7 @@ more complicated ~for~ loops.
   : [2,]   54   48   42   36
   : [3,]   63   56   49   42
   
-- [ ] With this code, is the matrix traversed by row or by
-  column?[fn:1]
+- With this code, is the matrix traversed by row or by column?[fn:1]
 
 - Inner loopvectors can be defined to match the current value of the
   loopindex of the outer loop:
@@ -259,8 +258,7 @@ more complicated ~for~ loops.
   index: for example, when ~i=1~, the inner loopvector is ~1:1~ so it is
   executed only once before moving on to the next row.
 
-- [ ] The code will fail if ~length(loopvec1) > length(loopvec2)~ -
-  why?[fn:2]
+- The code will fail if ~length(loopvec1)>length(loopvec2)~: why?[fn:2]
   #+begin_src R
     loopvec1 <- 1:4
     loopvec2 <- 9:7
@@ -279,11 +277,16 @@ more complicated ~for~ loops.
 Download the *raw* exercise file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
 ~5_loop_for_exercise.org~. When done, upload the file to Canvas.
 
-* TODO Glossary
+* Glossary
 
-| TERM | MEANING |
-|------+---------|
-|      |         |
+| TERM          | MEANING                                   |
+|---------------+-------------------------------------------|
+| ~for (i in X)~  | loop over index ~i~                         |
+| ~X~             | loop index or vector index                |
+| ~{..}~          | loop body                                 |
+| Nesting loop  | inner loop inside outer loop              |
+| Loop by value | condition computed directly, e.g. ~1:10~    |
+| Loop by index | condition from vector, e.g. ~1:length(vec)~ |
 
 * References
 
