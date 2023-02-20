@@ -330,7 +330,15 @@ Submissions and tests:
 - To do: literature review (you'll get a template from me)
 - Feedback for each team submitted via Email (PDF from Org-mode)
 
-* TODO Week 7 - ~apply~, ~break~, ~next~, ~repeat~
+* IN PROGRESS Week 7 - ~apply~, ~break~, ~next~, ~repeat~
+#+attr_html: :width 400px
+#+caption: Photo by Brett Jordan on Unsplash
+[[../img/7_goforit.jpg]]
+
+- Loops with ~apply~
+- Escaping loops with ~break~ and ~next~
+- Repeating commands without condition with ~repeat~
+
 * TODO Bonus exercises coding loops (24-Feb)
 #+attr_latex: :width 400px
 #+Caption: Photo by Frugal Flyer on Unsplash.com
@@ -341,14 +349,14 @@ Submissions and tests:
 2) ~while~ loops: download the *raw* bonus exercise file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and
    save it as ~6_loop_while_bonus.org~. Upload your solution to Canvas.
 
-* TODO Week 8 - writing functions
-* TODO Week 9 - utility functions
-* TODO Week 10 - text mining
-* TODO Week 11 - ~data.table~
-* TODO Week 12
-* TODO Week 13
-* TODO Week 14
-* TODO Week 15
+* TODO Week 8 - writing functions ~return~
+* TODO Week 9 - function arguments, recursion
+* TODO Week 10 - exceptions, timing, masking
+* TODO Week 11 - utility functions, date, time
+* TODO Week 12 - ~data.table~
+* TODO Week 13 - command line data science
+* TODO Week 14 - text mining
+* TODO Week 15 - machine learning
 * TODO Week 16 - Projects & Going Beyond This Course
 ** Buy the "Book of R" and keep it for life
 #+attr_latex: :width 400px

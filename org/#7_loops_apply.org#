@@ -144,7 +144,13 @@
 - The result returns the average length for guinea pigs supplied with
   orange juice (~OJ~) and vitamin C (~VC~).
 
-- Here's another example: 
+- Here's another example:
+  1) read web data on diamond pricing 
+  2) set appropriate variable names
+  3) display first five records
+  #+begin_src R
+    dia.url <- "http://www.amstat.org/publications/jse/v9n2/4Cdata.txt"
+  #+end_src
 
   
 * ~lapply~ - cycling through lists
