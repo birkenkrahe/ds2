@@ -26,12 +26,13 @@
   elements.
 
 - The different flavors of ~apply~ are:
-  1) ~tapply~ to apply a function to subsets defined in terms of ~factor~
+  1) ~apply~ applies a function to a dataset's margin (segment)
+  2) ~tapply~ to apply a function to subsets defined in terms of ~factor~
      vectors, i.e. sliced by categorical variable values.
-  2) ~lapply~ operates member by member on a ~list~.
-  3) ~sapply~ to return simplified ~lapply~ results.
-  4) ~vapply~ if you know the data type you're expecting as a return.
-  5) ~mapply~ as a multi-variate version of ~sapply~
+  3) ~lapply~ operates member by member on a ~list~.
+  4) ~sapply~ to return simplified ~lapply~ results.
+  5) ~vapply~ if you know the data type you're expecting as a return.
+  6) ~mapply~ as a multi-variate version of ~sapply~
 
 - All ~apply~ type functions simplify coding enormously by replacing ~for~
   loop constructions.
@@ -178,7 +179,7 @@
       FUN = sum)
   #+end_src
 
-* ~lapply~ - cycling through lists
+* NEXT ~lapply~ - cycling through lists
 
 - ~lapply~ operates member by member on a ~list~ and returns a ~list~:
   #+name: define_list
