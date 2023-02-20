@@ -6,7 +6,7 @@
 #+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
 * README
 
-- This BONUS PROBLEM file accompanies the [[https://github.com/birkenkrahe/ds2/blob/main/org/3_conditions.org][lecture]] on ~for~ and ~while~
+- This BONUS PROBLEM file accompanies the [[https://github.com/birkenkrahe/ds2/blob/main/org/5_loop_for.org][lecture]] on ~for~ and ~while~
   loops.
 - Complete and submit the completed Org-mode file in Canvas
 - Bonus points contribute to your final grade as "home assignments"

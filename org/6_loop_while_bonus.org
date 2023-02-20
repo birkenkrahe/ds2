@@ -1,0 +1,103 @@
+#+TITLE: LOOPS with "while" - BONUS ASSIGNMENT
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE: DSC 205 - Advanced introduction to data science
+#+STARTUP: overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
+* README
+
+- This BONUS PROBLEM file accompanies the [[https://github.com/birkenkrahe/ds2/blob/main/org/6_loop_while.org][lecture]] on ~while~
+  loops.
+- Complete and submit the completed Org-mode file in Canvas
+- Bonus points contribute to your final grade as "home assignments"
+- The "literate quality" of the submission will count for your final
+  points
+- The original source of this exercise is Davies, Book of R (2016),
+  pp.199-204.
+- The solution will be published as a PDF after the deadline has
+  passed.
+
+* TODO Identify and pledge yourself
+
+1) In Emacs, replace the placeholder ~[yourname]~ at the top of this
+   file by your own name and write ~(pledged)~ next to it
+2) Go with the cursor on the headline and hange the ~TODO~ label to ~DONE~
+   by entering ~S-<right>~ ("Shift + right-arrow").
+
+* Problem:
+
+- Consider the following code where the operations in the braced area
+  of the ~while~ loop have been omitted:
+  #+begin_src R
+    mystring <- "R fever"
+    index <- 1
+    ecount <- 0
+    result <- mystring
+    while (ecount < 2 && index <= nchar(mystring)) {
+      ## several omitted operations
+    }
+    result
+  #+end_src
+
+- Your task is to complete the code in the braced area so that it
+  inspects ~mystring~ character by character until it reaches the second
+  instance of the letter ~e~ or the end of the string, whichever comes
+  first.
+
+- The ~result~ object should be the entire character string if there is
+  no second ~e~ or the character string made up of all the characters up
+  to, but not including the second ~e~ if there is one.
+
+- For example, ~mystring <- "R fever"~ should provide ~result~ as ~"R fev~,
+  while ~mystring <- "R merit"~ should provide ~result~ as ~"R merit~.
+
+- To achieve this, do:
+  1) Use ~substr~ to extract the single character of ~mystring~ at
+     position ~index~.
+  2) Use a check for equality (~==~) to determine whether this
+     single-character string is either "e" or "E". If so, increase
+     ~ecount~ by ~1~.
+  3) Next, perform a separate check to see whether ~ecount~ is equal to
+     ~2~. If so, use ~substr~ to set ~result~ equal to the characters
+     between ~1~ and ~index-1~ inclusive.
+  4) Increment ~index~ by ~1~
+
+- Tip: ~substr("R fever", start=3, stop=7)~ returns ~fever~:
+  #+begin_src R
+    substr("R fever", start=3, stop=7)
+  #+end_src
+
+* TODO Solution
+#+name: count_e
+#+begin_src R :noweb yes
+
+#+end_src
+
+* TODO Test your solution
+
+Test your code:
+1) ~mystring <- "R fever"~ yields ~result~ as ~R fev~.
+#+begin_src R :noweb yes
+  mystring <- "R fever"
+  <<count_e>>
+#+end_src
+3) ~mystring <- "beautiful"~ yields ~result~ as ~beautiful~.
+#+begin_src R :noweb yes
+  mystring <- "beautiful"
+  <<count_e>>
+#+end_src
+4) ~mystring <- "ECCENTRIC"~ yields ~result~ as ~ECC~.
+#+begin_src R :noweb yes
+  mystring <- "ECCENTRIC"
+  <<count_e>>
+#+end_src
+5) ~mystring <- "ElAbOrAte"~ yields ~result~ as ~ElAbOrAt~.
+#+begin_src R :noweb yes
+  mystring <- "ElAbOrAte"
+  <<count_e>>
+#+end_src
+6) ~mystring <- "eeeeek!"~ yields ~result~ as ~e~.
+#+begin_src R :noweb yes
+  mystring <- "eeeeek!"
+  <<count_e>>
+#+end_src
