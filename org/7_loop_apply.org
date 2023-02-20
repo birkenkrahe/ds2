@@ -10,7 +10,7 @@
 #+caption: Photo by Brett Jordan on Unsplash
 [[../img/7_goforit.jpg]]
 
-- Download the *raw* file to code along during the lecture [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]],
+- Download the *raw* file to practice during the lecture [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]],
   save it as ~7_loop_apply_practice.org~ and upload it to Canvas later.
 
 - To test your Emacs mettle, open it on the CMD line with the command
