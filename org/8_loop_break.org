@@ -1,7 +1,7 @@
 #+TITLE: CODING LOOPS - "break" - "next" - "repeat"
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: DSC 205 - Advanced introduction to data science
-#+STARTUP: overview hideblocks indent inlineimages
+#+STARTUP: overview hideblocks indent inlineimages entitiespretty
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
 * README
@@ -109,9 +109,94 @@
     baz
   #+end_src
   
-* TODO ~repeat~
+* Repeating operations with ~repeat~
 
+- The template for ~repeat~ is simple - it repeats whatever stands
+  between the curly braces:
+  #+begin_src R
+    repeat {
+      do any code in here
+      }
+  #+end_src
 
+- Repetition with ~repeat~ does not include a /loopindex/ or
+  /loopcondition/. To stop repeating the code, you need ~break~.
+
+* Example: ~repeat~
+
+- The Fibonacci series is an infinite series of integers beginning
+  with 1,1,2,3,5,8,13,...formally: the n-th Fibonacci number $F_{nx}$ is
+  $F_{n} = F_{n-2} + F_{n-1 }$, $n=2,3,4,5$ and $F_{1} = F_{2} = 1$.
+
+- You can compute this using a ~for~ loop until ~n~:
+  #+begin_src R
+    n <- 50 # length of sequence
+    fib <- c(1,1,rep(NA,n-2))  # init sequence
+    for (i in 3:n) {
+      fib[i] <- fib[i-2]+fib[i-1]
+      }
+    fib
+  #+end_src
+
+  #+RESULTS:
+  :  [1]           1           1           2           3           5           8
+  :  [7]          13          21          34          55          89         144
+  : [13]         233         377         610         987        1597        2584
+  : [19]        4181        6765       10946       17711       28657       46368
+  : [25]       75025      121393      196418      317811      514229      832040
+  : [31]     1346269     2178309     3524578     5702887     9227465    14930352
+  : [37]    24157817    39088169    63245986   102334155   165580141   267914296
+  : [43]   433494437   701408733  1134903170  1836311903  2971215073  4807526976
+  : [49]  7778742049 12586269025
+
+- Or if you want to break after a certain value:
+  #+begin_src R
+    n <- 50 # length of sequence
+    m <- 150 # value limit
+    fib <- c(1,1,rep(NA,n-2))  # init sequence
+    for (i in 3:n) {
+      fib[i] <- fib[i-2]+fib[i-1]
+      print(fib[i])
+      if (fib[i] > m) {
+        break
+      }
+    }
+  #+end_src
+
+  #+RESULTS:
+  #+begin_example
+  [1] 2
+  [1] 3
+  [1] 5
+  [1] 8
+  [1] 13
+  [1] 21
+  [1] 34
+  [1] 55
+  [1] 89
+  [1] 144
+  [1] 233
+  #+end_example
+
+- Or you can use ~repeat~, and break out of the loop when ~n~ has been
+  reached:
+  #+begin_src R
+    fib.a <- 1
+    fib.b <- 1
+    repeat {
+      temp <- fib.a + fib.b
+      fib.a <- fib.b
+      fib.b <- temp
+      cat(fib.b,",",sep="")
+      if (fib.b > 150) {
+        cat("Break now...\n")
+        break
+        }
+      }
+  #+end_src
+
+  #+RESULTS:
+  : 2,3,5,8,13,21,34,55,89,144,233,Break now...
 
 * TODO Exercises
 #+attr_latex: :width 400px
