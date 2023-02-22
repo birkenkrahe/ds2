@@ -4,7 +4,6 @@
 #+STARTUP: overview hideblocks indent inlineimages
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
-#+attr_html: :width 300px
 * README
 
 This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/main/org/7_loop_apply.org][lecture]] on implicit ~apply~ loops in
@@ -138,13 +137,17 @@ This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/mai
 #+attr_latex: :width 400px
 [[../img/exercise.jpg]]
 
-1) Continuing from the most recent example, write an implicit loop
-   that calculates the product of all the column elements of the
-   matrix returned by the call to ~apply(foo, 1, sort,
-   decreasing=TRUE)~.
+1) Write an implicit loop that calculates the product of all the
+   column elements of the matrix returned by the call to ~apply(foo, 1,
+   sort, decreasing=TRUE)~ where ~foo~ is ~matrix(1:12,4.3)~.
+
+   /Tip: To multiply numbers, you can use the function ~prod~./
 
 2) Convert the following ~for~ loop to an implicit loop that does
    exactly the same thing. Here, ~t~ transposes its matrix argument.
+
+   /Bonus: compare the results of the two operations without looking./
+   
    #+name: matlist :noweb yes
    #+begin_src R
      matlist <- list(

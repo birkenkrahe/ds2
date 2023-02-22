@@ -1,0 +1,162 @@
+#+TITLE: CODING LOOPS - "break" - "next" - "repeat"
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE: DSC 205 - Advanced introduction to data science
+#+STARTUP: overview hideblocks indent inlineimages
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
+* README
+#+attr_html: :width 400px
+#+caption: Photo by Frank Leuderalbert on Unsplash
+[[../img/8_break.jpg]]
+
+- Download the *raw* file to practice during the lecture [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]],
+  save it as ~8_loop_break_practice.org~ and upload it to Canvas later.
+
+- To test your Emacs mettle, open it on the CMD line with the command
+  ~emacs -nw~ (no graphics - not needed for this exercise).
+
+* Declaring ~break~ or ~next~
+
+- ~for~ loops will exit only when the /loopindex/ exhausts the /loopvector/
+
+- ~while~ loops will exit only when the /loopcondition/ evaluates to ~FALSE~
+
+- ~break~ allows to pre-emptively terminate a loop
+
+- ~next~ allows to leave a loop and continue execution
+
+- Both ~break~ and ~next~ work the same way in ~for~ or ~while~ loops
+
+* Example: ~break~
+
+- Divide a number ~foo~ by each element in a ~numeric~ vector ~bar~:
+  #+name: foobar
+  #+begin_src R
+    foo <- 5
+    bar <- c(2,3,1.1,4,0,4.1,3)
+  #+end_src
+
+- You want to halt execution if one of the results evaluates to ~Inf~:
+  1) check each iteration with ~is.finite~
+  2) if a check evaluates to ~TRUE~, terminate loop with ~break~
+  #+begin_src R
+    <<foobar>>
+    ## initialize results
+    loop1.result <- rep(NA,length(bar))
+    loop1.result
+    ## loop over length of bar
+    for (i in 1:length(bar)) {
+      temp <- foo/bar[i]
+      if (is.finite(temp)) {
+        loop1.result[i] <- temp
+      } else {
+        break
+      } # end if
+    } # end for
+    loop1.result
+  #+end_src
+
+* Example: ~next~
+
+- For more routine operations, use ~next~ instead, which simply advances
+  to the next iteration and continues execution
+
+- Here, ~next~ avoids division by zero:
+  #+begin_src R
+    <<foobar>>
+    ## initialize results
+    loop2.result <- rep(NA,length(bar))
+    loop2.result
+    ## loop over length of bar
+    for (i in 1:length(bar)) {
+      if (bar[i]==0) {
+        next
+      } # end if
+      loop2.result[i] <- foo/bar[i]
+    } # end for
+    loop2.result
+  #+end_src  
+
+* ~break~ and ~next~ in nested loops
+
+- If you use either ~break~ or ~next~ in a nested loop, the command will
+  apply only to the innermost loop.
+
+- Fill a matrix with multiples of two vectors and use ~next~ in the
+  inner loop to skip certain values:
+  #+name: init_baz
+  #+begin_src R
+    loopvec1 <- 5:7
+    loopvec2 <- 9:6
+    baz <- matrix(NA,
+                 length(loopvec1),
+                 length(loopvec2))
+  #+end_src
+
+- Loop over both vectors, exclude loops where their element-wise
+  product is greater or equal than 54:
+  #+begin_src R
+    <<init_baz>>
+    for (i in 1:length(loopvec1)) {
+      for (j in 1:length(loopvec2)) {
+        temp <- loopvec1[i] * loopvec2[j]
+        if (temp >= 54) {
+          next # leave inner loop
+        } #end if
+        baz[i,j] <- temp
+      } # end for i
+    } # end for j
+    baz
+  #+end_src
+  
+* TODO ~repeat~
+* TODO Exercises
+#+attr_latex: :width 400px
+[[../img/exercise.jpg]]
+
+1) Write an implicit loop that calculates the product of all the
+   column elements of the matrix returned by the call to ~apply(foo, 1,
+   sort, decreasing=TRUE)~ where ~foo~ is ~matrix(1:12,4.3)~.
+
+   /Tip: To multiply numbers, you can use the function ~prod~./
+   
+2) Convert the following ~for~ loop to an implicit loop that does
+   exactly the same thing. Here, ~t~ transposes its matrix argument.
+
+   /Bonus: compare the results of the two operations without looking./
+
+   #+begin_src R
+     matlist <- list(
+       matrix(c(T,F,T,T),2,2),
+       matrix(c("a","c","b","z","p","q"),3,2),
+       matrix(1:8,2,4))
+     matlist # original list
+
+     for (i in 1:length(matlist)) {
+       matlist[[i]] <- t(matlist[[i]])
+     }
+     matlist  # transposed list
+   #+end_src
+
+* TODO Glossary
+
+| TERM | MEANING |
+|------+---------|
+|      |         |
+
+* References
+
+- Ceballos, M. (2013). Data structure. URL: [[http://venus.ifca.unican.es/Rintro/dataStruct.html][venus.ifca.unican.es]].
+- Davies, T.D. (2016). The Book of R. NoStarch Press.
+- Treadway, A. (20 Oct 2020). Why you should use vapply in R. URL:
+  [[https://theautomatic.net/2020/10/20/why-you-should-use-vapply-in-r/][theautomatic.net]].
+- Zach (Dec 7, 2021). How to Use the mapply() Function in R (With
+  Examples). URL: [[https://www.statology.org/r-mapply/][statology.org]].
+
+* Footnotes
+[fn:2]Astonishingly, some websites are trying to sell these (freely
+available) data for US$100.00 ([[https://www.dataandsons.com/categories/product-lists/diamonds-dataset][see here]]).
+
+[fn:1]The ~apply~ call extracts the diagonal elements for each of the 2
+layers with ~diag~. Each call to ~diag~ of a matrix returns a vector and
+these vectors are returned as columns of a new matrix.

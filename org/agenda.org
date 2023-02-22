@@ -339,7 +339,43 @@ Submissions and tests:
 - Escaping loops with ~break~ and ~next~
 - Repeating commands without condition with ~repeat~
 
-* TODO Bonus exercises coding loops (24-Feb)
+* TODO Review: ~apply~ and ~tapply~
+
+- Compute the arithmetic average over columns for the following
+  matrix using R's ~apply~ function:
+  #+begin_src R
+    mat <- cbind(diag(3),
+                 c(1,NA,NA))
+    mat
+  #+end_src
+
+- Solution:
+  #+begin_src R
+    apply( X = mat,
+          MARGIN = 2,
+          FUN = mean,
+          na.rm = TRUE)
+  #+end_src
+
+- How many male and female passengers died on the Titanic? Answer the
+  question using R's ~tapply~ function.
+
+  /Tip: Turn the built-in ~table~ Titanic into a data frame ~Titanic_df~
+  and check its structure./
+  #+begin_src R
+    Titanic_df <- as.data.frame(Titanic)
+    str(Titanic_df)
+  #+end_src
+
+- Solution:
+  #+begin_src R
+    tapply(X = Titanic_df$Freq,
+           INDEX = Titanic_df$Sex,
+           FUN = sum,
+           na.rm = TRUE)
+  #+end_src
+  
+* DONE Bonus exercises coding loops (24-Feb)
 #+attr_latex: :width 400px
 #+Caption: Photo by Frugal Flyer on Unsplash.com
 [[../img/bonus.jpg]]

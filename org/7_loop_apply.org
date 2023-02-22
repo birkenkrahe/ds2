@@ -4,7 +4,6 @@
 #+STARTUP: overview hideblocks indent inlineimages
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
-#+attr_html: :width 300px
 * README
 #+attr_html: :width 400px
 #+caption: Photo by Brett Jordan on Unsplash
@@ -80,6 +79,7 @@
 * ~apply~ example: ~matrix~
 
 - Create a 4 x 3 matrix with the elements ~1:12~:
+  #+name: define_foo
   #+begin_src R
     foo <- matrix(1:12,4,3) # default byrow=FALSE
     foo
@@ -216,6 +216,11 @@
     is.vector(sap)   # sap is a named vector
   #+end_src
 
+  #+RESULTS:
+  :    aa    bb    cc    dd    ee 
+  : FALSE  TRUE  TRUE FALSE  TRUE
+  : [1] TRUE
+
 - ~baz~ has a ~names~ attribute that is copies to the corresponding
   entries of the returned object:
   #+begin_src R
@@ -223,13 +228,6 @@
     names(sap)
     str(sap)
   #+end_src
-
-  #+RESULTS:
-  : $names
-  : [1] "aa" "bb" "cc" "dd" "ee"
-  : [1] "aa" "bb" "cc" "dd" "ee"
-  :  Named logi [1:5] FALSE TRUE TRUE FALSE TRUE
-  :  - attr(*, "names")= chr [1:5] "aa" "bb" "cc" "dd" ...
 
 * SOMEDAY ~vapply~ - simplified cycling with safety check
 
@@ -243,24 +241,28 @@
 #+attr_latex: :width 400px
 [[../img/exercise.jpg]]
 
-1) Continuing from the most recent example, write an implicit loop
-   that calculates the product of all the column elements of the
-   matrix returned by the call to ~apply(foo, 1, sort,
-   decreasing=TRUE)~.
+1) Write an implicit loop that calculates the product of all the
+   column elements of the matrix returned by the call to ~apply(foo, 1,
+   sort, decreasing=TRUE)~ where ~foo~ is ~matrix(1:12,4.3)~.
 
+   /Tip: To multiply numbers, you can use the function ~prod~./
+   
 2) Convert the following ~for~ loop to an implicit loop that does
    exactly the same thing. Here, ~t~ transposes its matrix argument.
-   #+name: matlist :noweb yes
+
+   /Bonus: compare the results of the two operations without looking./
+
    #+begin_src R
      matlist <- list(
        matrix(c(T,F,T,T),2,2),
        matrix(c("a","c","b","z","p","q"),3,2),
        matrix(1:8,2,4))
-     matlist
+     matlist # original list
+
      for (i in 1:length(matlist)) {
        matlist[[i]] <- t(matlist[[i]])
      }
-     matlist
+     matlist  # transposed list
    #+end_src
 
 * TODO Glossary
