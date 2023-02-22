@@ -179,7 +179,7 @@
       FUN = sum)
   #+end_src
 
-* NEXT ~lapply~ - cycling through lists
+* ~lapply~ - cycling through lists
 
 - ~lapply~ operates member by member on a ~list~ and returns a ~list~:
   #+name: define_list
@@ -216,17 +216,18 @@
     is.vector(sap)   # sap is a named vector
   #+end_src
 
-  #+RESULTS:
-  :    aa    bb    cc    dd    ee 
-  : FALSE  TRUE  TRUE FALSE  TRUE
-  : [1] TRUE
-
 - ~baz~ has a ~names~ attribute that is copies to the corresponding
   entries of the returned object:
   #+begin_src R
     attributes(sap)
     names(sap)
     str(sap)
+  #+end_src
+
+- If we did not have ~sapply~, you could ~unlist~ the result of ~lapply~:
+  #+begin_src R
+    unlist(lapply(baz,is.matrix))
+    sapply(baz,is.matrix)
   #+end_src
 
 * SOMEDAY ~vapply~ - simplified cycling with safety check

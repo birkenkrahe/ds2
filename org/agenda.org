@@ -339,7 +339,7 @@ Submissions and tests:
 - Escaping loops with ~break~ and ~next~
 - Repeating commands without condition with ~repeat~
 
-* TODO Review: ~apply~ and ~tapply~
+* DONE Review: ~apply~ and ~tapply~
 
 - Compute the arithmetic average over columns for the following
   matrix using R's ~apply~ function:
@@ -357,8 +357,8 @@ Submissions and tests:
           na.rm = TRUE)
   #+end_src
 
-- How many male and female passengers died on the Titanic? Answer the
-  question using R's ~tapply~ function.
+- How many male and female passengers traveled on the Titanic? Answer
+  the question using R's ~tapply~ function.
 
   /Tip: Turn the built-in ~table~ Titanic into a data frame ~Titanic_df~
   and check its structure./
@@ -367,6 +367,14 @@ Submissions and tests:
     str(Titanic_df)
   #+end_src
 
+  #+RESULTS:
+  : 'data.frame':	32 obs. of  5 variables:
+  :  $ Class   : Factor w/ 4 levels "1st","2nd","3rd",..: 1 2 3 4 1 2 3 4 1 2 ...
+  :  $ Sex     : Factor w/ 2 levels "Male","Female": 1 1 1 1 2 2 2 2 1 1 ...
+  :  $ Age     : Factor w/ 2 levels "Child","Adult": 1 1 1 1 1 1 1 1 2 2 ...
+  :  $ Survived: Factor w/ 2 levels "No","Yes": 1 1 1 1 1 1 1 1 1 1 ...
+  :  $ Freq    : num  0 0 35 0 0 0 17 0 118 154 ...
+
 - Solution:
   #+begin_src R
     tapply(X = Titanic_df$Freq,
@@ -374,7 +382,24 @@ Submissions and tests:
            FUN = sum,
            na.rm = TRUE)
   #+end_src
-  
+
+  #+RESULTS:
+  :   Male Female 
+  :   1731    470
+
+- How many survivors vs. non-survivors were there?
+  #+begin_src R
+    tapply(X = Titanic_df$Freq,
+           INDEX = Titanic_df$Survived,
+           FUN = sum,
+           na.rm = TRUE) -> survived
+    survived
+  #+end_src
+
+  #+RESULTS:
+  :   No  Yes 
+  : 1490  711  
+
 * DONE Bonus exercises coding loops (24-Feb)
 #+attr_latex: :width 400px
 #+Caption: Photo by Frugal Flyer on Unsplash.com
