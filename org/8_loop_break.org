@@ -39,6 +39,7 @@
 - You want to halt execution if one of the results evaluates to ~Inf~:
   1) check each iteration with ~is.finite~
   2) if a check evaluates to ~TRUE~, terminate loop with ~break~
+  #+name: loop1.result
   #+begin_src R
     <<foobar>>
     ## initialize results
@@ -62,6 +63,7 @@
   to the next iteration and continues execution
 
 - Here, ~next~ avoids division by zero:
+  #+name: loop2.result
   #+begin_src R
     <<foobar>>
     ## initialize results
@@ -75,7 +77,7 @@
       loop2.result[i] <- foo/bar[i]
     } # end for
     loop2.result
-  #+end_src  
+  #+end_src
 
 * ~break~ and ~next~ in nested loops
 
@@ -89,8 +91,8 @@
     loopvec1 <- 5:7
     loopvec2 <- 9:6
     baz <- matrix(NA,
-                 length(loopvec1),
-                 length(loopvec2))
+                  length(loopvec1),
+                  length(loopvec2))
   #+end_src
 
 - Loop over both vectors, exclude loops where their element-wise
@@ -108,7 +110,7 @@
     } # end for j
     baz
   #+end_src
-  
+
 * Repeating operations with ~repeat~
 
 - The template for ~repeat~ is simple - it repeats whatever stands
@@ -116,7 +118,7 @@
   #+begin_src R
     repeat {
       do any code in here
-      }
+    }
   #+end_src
 
 - Repetition with ~repeat~ does not include a /loopindex/ or
@@ -128,71 +130,20 @@
   with 1,1,2,3,5,8,13,...formally: the n-th Fibonacci number $F_{nx}$ is
   $F_{n} = F_{n-2} + F_{n-1 }$, $n=2,3,4,5$ and $F_{1} = F_{2} = 1$.
 
-- You can compute this using a ~for~ loop until ~n~:
+- You can use ~repeat~, and ~break~ out of the loop:
   #+begin_src R
-    n <- 50 # length of sequence
-    fib <- c(1,1,rep(NA,n-2))  # init sequence
-    for (i in 3:n) {
-      fib[i] <- fib[i-2]+fib[i-1]
-      }
-    fib
-  #+end_src
-
-  #+RESULTS:
-  :  [1]           1           1           2           3           5           8
-  :  [7]          13          21          34          55          89         144
-  : [13]         233         377         610         987        1597        2584
-  : [19]        4181        6765       10946       17711       28657       46368
-  : [25]       75025      121393      196418      317811      514229      832040
-  : [31]     1346269     2178309     3524578     5702887     9227465    14930352
-  : [37]    24157817    39088169    63245986   102334155   165580141   267914296
-  : [43]   433494437   701408733  1134903170  1836311903  2971215073  4807526976
-  : [49]  7778742049 12586269025
-
-- Or if you want to break after a certain value:
-  #+begin_src R
-    n <- 50 # length of sequence
-    m <- 150 # value limit
-    fib <- c(1,1,rep(NA,n-2))  # init sequence
-    for (i in 3:n) {
-      fib[i] <- fib[i-2]+fib[i-1]
-      print(fib[i])
-      if (fib[i] > m) {
-        break
-      }
-    }
-  #+end_src
-
-  #+RESULTS:
-  #+begin_example
-  [1] 2
-  [1] 3
-  [1] 5
-  [1] 8
-  [1] 13
-  [1] 21
-  [1] 34
-  [1] 55
-  [1] 89
-  [1] 144
-  [1] 233
-  #+end_example
-
-- Or you can use ~repeat~, and break out of the loop when ~n~ has been
-  reached:
-  #+begin_src R
-    fib.a <- 1
+    fib.a <- 1  # initialize first two terms
     fib.b <- 1
     repeat {
-      temp <- fib.a + fib.b
-      fib.a <- fib.b
-      fib.b <- temp
-      cat(fib.b,",",sep="")
-      if (fib.b > 150) {
+      temp <- fib.a + fib.b   # compute next term
+      fib.a <- fib.b          # move variables forward
+      fib.b <- temp           # fib.b becomes new Fibonacci number
+      cat(fib.b,",",sep="")   # print Fibonacci number
+      if (fib.b > 150) {      # cut of if number greater than 150
         cat("Break now...\n")
-        break
-        }
-      }
+        break                 # leave repeat loop
+      } # end if
+    } #end repeat
   #+end_src
 
   #+RESULTS:
@@ -202,29 +153,71 @@
 #+attr_latex: :width 400px
 [[../img/exercise.jpg]]
 
-1) Write an implicit loop that calculates the product of all the
-   column elements of the matrix returned by the call to ~apply(foo, 1,
-   sort, decreasing=TRUE)~ where ~foo~ is ~matrix(1:12,4.3)~.
+** ~while~ without ~break~ or ~next~
+In the text, we divided ~foo~ by ~bar~, where:
+#+begin_src R
+  <<foobar>>
+  foo
+  bar
+#+end_src
 
-   /Tip: To multiply numbers, you can use the function ~prod~./
-   
-2) Convert the following ~for~ loop to an implicit loop that does
-   exactly the same thing. Here, ~t~ transposes its matrix argument.
+#+RESULTS:
+: [1] 5
+: [1] 2.0 3.0 1.1 4.0 0.0 4.1 3.0
 
-   /Bonus: compare the results of the two operations without looking./
-
+1) Write a ~while~ loop - without using ~break~ or ~next~ that will produce
+   the same vector as ~loop1.result~ ([[https://github.com/birkenkrahe/ds2/blob/main/org/8_loop_break.org#example-break][see GitHub]]): compute ~foo/bar~ and
+   make sure you break off as soon as ~Inf~ is produced.
    #+begin_src R
-     matlist <- list(
-       matrix(c(T,F,T,T),2,2),
-       matrix(c("a","c","b","z","p","q"),3,2),
-       matrix(1:8,2,4))
-     matlist # original list
-
-     for (i in 1:length(matlist)) {
-       matlist[[i]] <- t(matlist[[i]])
-     }
-     matlist  # transposed list
+     <<loop1.result>>
    #+end_src
+
+   #+RESULTS:
+   : [1] NA NA NA NA NA NA NA
+   : [1] 2.500000 1.666667 4.545455 1.250000       NA       NA       NA
+
+2) Obtain the same reesult as ~loop2.result~ using an ~ifelse~ function
+   instead of a loop.
+   #+begin_src R
+     <<loop2.result>>
+   #+end_src
+
+   #+RESULTS:
+   : [1] NA NA NA NA NA NA NA
+   : [1] 2.500000 1.666667 4.545455 1.250000       NA 1.219512 1.666667
+
+** ~for~ and ~repeat~ instead of ~while~
+
+To demonstrate ~while~ loops, you used ~mynumbers~ to progressively fill
+~mylist~ with identity matrices whose dimensions matched the values in
+~mynumbers~. The loop was instructed to stop when it reached the end of
+the ~numeric~ vector or a number greater than 5:
+#+name: initialize
+#+begin_src R :results silent
+  mylist <- list()  # create an empty list to store all matrices
+  counter <- 1      # set loop index counter variable to 1
+  mynumbers <- c(4,5,1,2,6,2,4,6,6,2) # matrix dimensions
+  mycondition <- mynumbers[counter] <= 5 # while loop condition
+#+end_src
+#+name: build_list
+#+begin_src R
+  while (mycondition) {
+    mylist[[counter]] <- diag(mynumbers[counter]) # add matrix to list
+    counter <- counter + 1   # increase counter (stepping through mynumbers)
+    ## update loop condition
+    if (counter <= length(mynumbers)) {
+      mycondition <- mynumbers[counter] <= 5  # counter in bounds
+    } else {
+      mycondition <- FALSE   # counter out of bounds (end of mynumbers)
+    }
+  }
+  mylist
+#+end_src
+
+1) Write a ~for~ loop using a ~break~ declaration that does the same thing.
+
+2) Write a ~repeat~ statement that does the same thing.
+
 
 * TODO Glossary
 

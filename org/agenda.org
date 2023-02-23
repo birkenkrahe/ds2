@@ -385,8 +385,8 @@ Submissions and tests:
 
   #+RESULTS:
   :   Male Female 
-  :   1731    470
-
+  :   1731    470  
+  
 - How many survivors vs. non-survivors were there?
   #+begin_src R
     tapply(X = Titanic_df$Freq,
