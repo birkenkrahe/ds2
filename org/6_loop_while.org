@@ -376,9 +376,10 @@ Download the *raw* exercise file [[https://github.com/birkenkrahe/ds2/tree/main/
 
 * TODO Glossary
 
-| TERM | MEANING |
-|------+---------|
-|      |         |
+| TERM  | MEANING                            |
+|-------+------------------------------------|
+| ~while~ | loop while /loopcondition/ is ~TRUE~ |
+
 
 * References
 

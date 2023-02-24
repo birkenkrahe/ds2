@@ -125,7 +125,7 @@ This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/mai
 
   #+end_src
 
-* TODO ~vapply~ - simplified cycling with safety check
+* NEXT ~vapply~ - simplified cycling with safety check
 
 - Read the help file and [[https://www.r-bloggers.com/2020/10/why-you-should-use-vapply-in-r/][this tutorial]] (Treadway, 2020).
 

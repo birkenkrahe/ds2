@@ -268,9 +268,14 @@
 
 * TODO Glossary
 
-| TERM | MEANING |
-|------+---------|
-|      |         |
+| TERM   | MEANING                                     |
+|--------+---------------------------------------------|
+| ~apply~  | apply ~function~ to the ~margin~ of a dataset ~X~ |
+| ~tapply~ | apply ~function~ to subsets grouped by ~factor~ |
+| ~lapply~ | apply ~function~ to ~list~ members, return ~list~ |
+| ~sapply~ | simplified ~lapply~, returns vector           |
+| ~vapply~ | ~apply~ when you know the return datatype     |
+| ~mapply~ | multivariate version of ~sapply~              |
 
 * References
 

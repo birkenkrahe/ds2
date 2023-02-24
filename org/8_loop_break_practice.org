@@ -16,7 +16,160 @@ This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/mai
 2) Go with the cursor on the headline and hange the ~TODO~ label to ~DONE~
    by entering ~S-<right>~ ("Shift + right-arrow").
 
+* Example: ~break~
+
+- Divide a number ~foo~ by each element in a ~numeric~ vector ~bar~:
+  #+name: foobar
+  #+begin_src R
+    foo <- 5
+    bar <- c(2,3,1.1,4,0,4.1,3)
+  #+end_src
+
+- You want to halt execution if one of the results evaluates to ~Inf~:
+  1) check each iteration with ~is.finite~
+  2) if a check evaluates to ~TRUE~, terminate loop with ~break~
+  #+name: loop1.result
+  #+begin_src R
+    <<foobar>>
+    ## initialize results
+
+    ## loop over length of bar
+
+  #+end_src
+
+* Example: ~next~
+
+- For more routine operations, use ~next~ instead, which simply advances
+  to the next iteration and continues execution
+
+- Here, ~next~ avoids division by zero:
+  #+name: loop2.result
+  #+begin_src R
+    <<foobar>>
+    ## initialize results
+
+    ## loop over length of bar
+
+
+  #+end_src
+
+* ~break~ and ~next~ in nested loops
+
+- Fill a matrix with multiples of two vectors and use ~next~ in the
+  inner loop to skip certain values:
+  #+name: init_baz
+  #+begin_src R
+
+  #+end_src
+
+- Loop over both vectors, exclude loops where their element-wise
+  product is greater or equal than 54:
+  #+begin_src R
+    <<init_baz>>
+
+  #+end_src
+
+* Repeating operations with ~repeat~
+
+- The template for ~repeat~ is simple - it repeats whatever stands
+  between the curly braces:
+  #+begin_src R
+    repeat {
+      do any code in here
+    }
+  #+end_src
+
+- Repetition with ~repeat~ does not include a /loopindex/ or
+  /loopcondition/. To stop repeating the code, you need ~break~.
+
+* Example: ~repeat~
+
+- The Fibonacci series is an infinite series of integers beginning
+  with 1,1,2,3,5,8,13,...formally: the n-th Fibonacci number $F_{nx}$ is
+  $F_{n} = F_{n-2} + F_{n-1 }$, $n=2,3,4,5$ and $F_{1} = F_{2} = 1$.
+
+- You can use ~repeat~, and ~break~ out of the loop:
+  #+begin_src R
+    ...  # initialize first two terms
+    ...   # compute next term
+    ...   # move variables forward
+    ...           # fib.b becomes new Fibonacci number
+    ...   # print Fibonacci number
+    ...     # cut of if number greater than 150
+  #+end_src
+
 * TODO Exercises
-#+attr_latex: :width 400px
-[[../img/exercise.jpg]]
+
+** ~while~ without ~break~ or ~next~
+In the text, we divided ~foo~ by ~bar~, where:
+#+begin_src R
+  <<foobar>>
+  foo
+  bar
+#+end_src
+
+#+RESULTS:
+: [1] 5
+: [1] 2.0 3.0 1.1 4.0 0.0 4.1 3.0
+
+1) Write a ~while~ loop - without using ~break~ or ~next~ that will produce
+   the same vector as ~loop1.result~ ([[https://github.com/birkenkrahe/ds2/blob/main/org/8_loop_break.org#example-break][see GitHub]]): compute ~foo/bar~ and
+   make sure you break off as soon as ~Inf~ is produced.
+   #+begin_src R
+     <<loop1.result>>
+   #+end_src
+
+   #+RESULTS:
+   : [1] NA NA NA NA NA NA NA
+   : [1] 2.500000 1.666667 4.545455 1.250000       NA       NA       NA
+
+   #+begin_src R
+
+   #+end_src
+
+2) Obtain the same result as ~loop2.result~ using an ~ifelse~ function
+   instead of a loop.
+   #+begin_src R
+     <<loop2.result>>
+   #+end_src
+
+   #+RESULTS:
+   : [1] NA NA NA NA NA NA NA
+   : [1] 2.500000 1.666667 4.545455 1.250000       NA 1.219512 1.666667
+
+   #+begin_src R
+
+   #+end_src
+
+** ~for~ and ~repeat~ instead of ~while~
+
+To demonstrate ~while~ loops, you used ~mynumbers~ to progressively fill
+~mylist~ with identity matrices whose dimensions matched the values in
+~mynumbers~. The loop was instructed to stop when it reached the end of
+the ~numeric~ vector or a number greater than 5:
+#+name: initialize
+#+begin_src R :results silent
+  mylist <- list()  # create an empty list to store all matrices
+  counter <- 1      # set loop index counter variable to 1
+  mynumbers <- c(4,5,1,2,6,2,4,6,6,2) # matrix dimensions
+  mycondition <- mynumbers[counter] <= 5 # while loop condition
+#+end_src
+#+name: build_list
+#+begin_src R
+  while (mycondition) {
+    mylist[[counter]] <- diag(mynumbers[counter]) # add matrix to list
+    counter <- counter + 1   # increase counter (stepping through mynumbers)
+    ## update loop condition
+    if (counter <= length(mynumbers)) {
+      mycondition <- mynumbers[counter] <= 5  # counter in bounds
+    } else {
+      mycondition <- FALSE   # counter out of bounds (end of mynumbers)
+    }
+  }
+  mylist
+#+end_src
+
+1) Write a ~for~ loop using a ~break~ declaration that does the same thing.
+
+2) Write a ~repeat~ statement that does the same thing.
 

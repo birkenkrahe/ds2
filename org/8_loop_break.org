@@ -176,7 +176,11 @@ In the text, we divided ~foo~ by ~bar~, where:
    : [1] NA NA NA NA NA NA NA
    : [1] 2.500000 1.666667 4.545455 1.250000       NA       NA       NA
 
-2) Obtain the same reesult as ~loop2.result~ using an ~ifelse~ function
+   #+begin_src R
+
+   #+end_src
+
+2) Obtain the same result as ~loop2.result~ using an ~ifelse~ function
    instead of a loop.
    #+begin_src R
      <<loop2.result>>
@@ -185,6 +189,10 @@ In the text, we divided ~foo~ by ~bar~, where:
    #+RESULTS:
    : [1] NA NA NA NA NA NA NA
    : [1] 2.500000 1.666667 4.545455 1.250000       NA 1.219512 1.666667
+
+   #+begin_src R
+
+   #+end_src
 
 ** ~for~ and ~repeat~ instead of ~while~
 

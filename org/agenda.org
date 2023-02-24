@@ -335,9 +335,10 @@ Submissions and tests:
 #+caption: Photo by Brett Jordan on Unsplash
 [[../img/7_goforit.jpg]]
 
-- Loops with ~apply~
-- Escaping loops with ~break~ and ~next~
-- Repeating commands without condition with ~repeat~
+- [X] Loops with ~apply~ (Mon/Wed)
+- [ ] Exercises with ~apply~ (Fri)
+- [ ] Escaping loops with ~break~ and ~next~
+- [ ] Repeating commands without condition with ~repeat~
 
 * DONE Review: ~apply~ and ~tapply~
 
@@ -409,6 +410,63 @@ Submissions and tests:
    save it as ~5_loop_for_bonus.org~. Upload your solution to Canvas.
 2) ~while~ loops: download the *raw* bonus exercise file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and
    save it as ~6_loop_while_bonus.org~. Upload your solution to Canvas.
+
+* READ AWESOME! 45 THINGS YOU LEARNT IN 6 WEEKS!
+
+- You did not just hear about these things, you used them
+- You applied them within a infrastructure that you fully controlled
+- You're ready for advanced R programming and data engineering work
+
+| TERM                 | MEANING                                           |
+|----------------------+---------------------------------------------------|
+| Scoping              | Rules of storing/retrieving objects               |
+| Environment          | Virtual compartment for data and functions        |
+| Global environment   | All user-created objects                          |
+| Package environments | Objects contained in packages                     |
+| Namespace            | Defines visibility of package functions           |
+|                      | E.g. in ~base::~ for the ~base~ package               |
+| ~ls()~                 | List global environment                           |
+| ~ls(package:base)~     | List functions in the ~base~ package                |
+| Local environment    | Objects created when function is called           |
+| Search path          | List of environments searched, ~search()~           |
+| ~matrix~               | Create matrix                                     |
+| ~seq~                  | Create numerical sequence vector                  |
+| ~base::data~           | List or load dataset                              |
+| ~NaN~                  | Not a number                                      |
+| ~Inf~                  | Infinite numerical value                          |
+| ~NA~                   | Missing value                                     |
+| ~NULL~                 | Null object - returned when value undefined       |
+| ~paste~                | Paste arguments together as string                |
+| ~rm~                   | Remove R objectts, e.g. ~rm(list=ls())~             |
+| Exact arguments      | Full argument tag                                 |
+| Partial argument     | Argument tags abbreviated                         |
+| Positional argument  | Arguments inferred by position alone              |
+| Mixed arguments      | Different matching styles are mixed               |
+| Ellipsis             | Variable number of arguments is accepted          |
+| ~args~                 | Return exact argument tags with defaults          |
+| ~...~                  | Ellipsis in the ~args~ or ~Usage~ section of the ~help~ |
+| ~if~                   | conditional (continue if condition ~TRUE~)          |
+| ~else~                 | alternative (continue if condition ~FALSE~)         |
+| ~ifelse~               | test logical condition on vectors                 |
+| ~else if~              | stacked ~if~                                        |
+| nesting ~if~           | ~if~ statements one after the other                 |
+| stacking ~if~          | ~else~ statement  followed by ~if~                    |
+| string ~switch~        | string expression is checked                      |
+| numeric ~switch~       | positional matching of integer expression         |
+| ~for (i in X)~         | loop over index ~i~                                 |
+| ~X~                    | loop index or vector index                        |
+| ~{..}~                 | loop body                                         |
+| Nesting loop         | inner loop inside outer loop                      |
+| Loop by value        | condition computed directly, e.g. ~1:10~            |
+| Loop by index        | condition from vector, e.g. ~1:length(vec)~         |
+| ~while~                | loop while /loopcondition/ is ~TRUE~                  |
+| ~apply~                | apply ~function~ to the ~margin~ of a dataset ~X~       |
+| ~tapply~               | apply ~function~ to subsets grouped by ~factor~       |
+| ~lapply~               | apply ~function~ to ~list~ members, return ~list~       |
+| ~sapply~               | simplified ~lapply~, returns vector                 |
+| ~vapply~               | ~apply~ when you know the return datatype           |
+| ~mapply~               | multivariate version of ~sapply~                    |
+
 
 * TODO Week 8 - writing functions ~return~
 * TODO Week 9 - function arguments, recursion
