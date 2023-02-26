@@ -99,7 +99,6 @@ This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/mai
   #+end_src
 
 * TODO Exercises
-
 ** ~while~ without ~break~ or ~next~
 In the text, we divided ~foo~ by ~bar~, where:
 #+begin_src R
