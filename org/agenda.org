@@ -330,7 +330,7 @@ Submissions and tests:
 - To do: literature review (you'll get a template from me)
 - Feedback for each team submitted via Email (PDF from Org-mode)
 
-* IN PROGRESS Week 7 - ~apply~, ~break~, ~next~, ~repeat~
+* Week 7 - ~apply~, ~break~, ~next~, ~repeat~
 #+attr_html: :width 400px
 #+caption: Photo by Brett Jordan on Unsplash
 [[../img/7_goforit.jpg]]
@@ -340,7 +340,7 @@ Submissions and tests:
 - [ ] Escaping loops with ~break~ and ~next~
 - [ ] Repeating commands without condition with ~repeat~
 
-* DONE Review: ~apply~ and ~tapply~
+** Review: ~apply~ and ~tapply~
 
 - Compute the arithmetic average over columns for the following
   matrix using R's ~apply~ function:
@@ -401,7 +401,7 @@ Submissions and tests:
   :   No  Yes 
   : 1490  711  
 
-* DONE Bonus exercises coding loops (24-Feb)
+** Bonus exercises coding loops (24-Feb)
 #+attr_latex: :width 400px
 #+Caption: Photo by Frugal Flyer on Unsplash.com
 [[../img/bonus.jpg]]
@@ -411,7 +411,7 @@ Submissions and tests:
 2) ~while~ loops: download the *raw* bonus exercise file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and
    save it as ~6_loop_while_bonus.org~. Upload your solution to Canvas.
 
-* READ AWESOME! 45 THINGS YOU LEARNT IN 6 WEEKS!
+** AWESOME! 45 THINGS YOU LEARNT IN 6 WEEKS!
 
 - You did not just hear about these things, you used them
 - You applied them within a infrastructure that you fully controlled
@@ -469,6 +469,42 @@ Submissions and tests:
 
 
 * TODO Week 8 - writing functions ~return~
+
+** Review: ~break~
+
+- [ ] What does ~break~ do?
+
+- [ ] Let's write an example together!
+  1) loop over the string "Back from the weekend"
+  2) print each letter of the string
+  3) leave the loop if you encounter a "w"
+  
+  /Tip:/ ~strsplit(s,"")~ splits a string into its elements.
+
+  #+begin_src R
+    msg <- "weekend"
+    result <- rep(NA,nchar(msg))
+    result
+    unlist(strsplit(order(msg,decreasing=TRUE),"")) -> msg
+    msg
+    for (i in 1:length(msg)) {
+      if (msg[i]!="n") {
+        result = c(msg[i],result)
+      } else {
+        break
+      }
+    }
+    print(result)
+  #+end_src
+
+  #+RESULTS:
+  : [1] NA NA NA NA NA NA NA
+  : Error in strsplit(order(msg, decreasing = TRUE), "") : 
+  :   non-character argument
+  : [1] "weekend"
+  : [1] "weekend" NA        NA        NA        NA        NA        NA       
+  : [8] NA
+  
 * TODO Week 9 - function arguments, recursion
 * TODO Week 10 - exceptions, timing, masking
 * TODO Week 11 - utility functions, date, time
@@ -476,7 +512,8 @@ Submissions and tests:
 * TODO Week 13 - command line data science
 * TODO Week 14 - text mining
 * TODO Week 15 - machine learning
-* TODO Week 16 - Projects & Going Beyond This Course
+* TODO Week 16 - Projects
+* TODO What next?
 ** Buy the "Book of R" and keep it for life
 #+attr_latex: :width 400px
 #+caption: Cover, Book of R by TM Davies, NoStarch 2016

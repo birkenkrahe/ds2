@@ -45,6 +45,7 @@
     ## initialize results
     loop1.result <- rep(NA,length(bar))
     loop1.result
+    bar
     ## loop over length of bar
     for (i in 1:length(bar)) {
       temp <- foo/bar[i]
@@ -56,6 +57,37 @@
     } # end for
     loop1.result
   #+end_src
+
+  #+name: loop1.result.alt
+  #+begin_src R
+    <<foobar>>
+    ## initialize results
+    loop1.init <- rep(NA,length(bar))
+    loop1.result <- loop1.init
+    loop1.result
+    ## loop over length of bar
+    for(i in 1:length(bar)) {
+      loop1.result[i] <- foo/bar[i]
+    }
+    loop1.result
+    loop1.result <- loop1.init
+    ## with break and condition
+    for (i in 1:length(bar)) {
+      temp <- foo/bar[i]
+      if (is.finite(temp)) {
+        loop1.result[i] <- foo/bar[i]
+      } else {
+        break
+      }
+    }
+    loop1.result
+  #+end_src
+
+  #+RESULTS: loop1.result.alt
+  : [1] NA NA NA NA NA NA NA
+  : [1] 2.500000 1.666667 4.545455 1.250000      Inf 1.219512 1.666667
+  : [1] 2.500000 1.666667 4.545455 1.250000       NA       NA       NA
+
 
 * Example: ~next~
 
@@ -153,8 +185,11 @@
 #+attr_latex: :width 400px
 [[../img/exercise.jpg]]
 
+Submit solutions to these exercises as Org-mode files for bonus.
+
 ** ~while~ without ~break~ or ~next~
-In the text, we divided ~foo~ by ~bar~, where:
+
+Earlier, we divided ~foo~ by ~bar~, where:
 #+begin_src R
   <<foobar>>
   foo
@@ -227,11 +262,13 @@ the ~numeric~ vector or a number greater than 5:
 2) Write a ~repeat~ statement that does the same thing.
 
 
-* TODO Glossary
+* Glossary
 
-| TERM | MEANING |
-|------+---------|
-|      |         |
+| TERM   | MEANING                                   |
+|--------+-------------------------------------------|
+| ~break~  | leave loop and stop execution             |
+| ~next~   | leave current loop and continue execution |
+| ~repeat~ | repeat any statements in the loop area    |
 
 * References
 

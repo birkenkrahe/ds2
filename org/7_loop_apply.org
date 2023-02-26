@@ -236,7 +236,7 @@
 
 * SOMEDAY ~mapply~ - multivariate version of ~sapply~
 
-- Read the help file and [[https://www.statology.org/r-mapply/][this tutorial]] (Zach, 2021).
+- Read the ~help~ file and [[https://www.statology.org/r-mapply/][this tutorial]] (Zach, 2021).
 
 * TODO Exercises
 #+attr_latex: :width 400px
@@ -266,7 +266,7 @@
      matlist  # transposed list
    #+end_src
 
-* TODO Glossary
+* Glossary
 
 | TERM   | MEANING                                     |
 |--------+---------------------------------------------|
