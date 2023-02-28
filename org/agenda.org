@@ -95,40 +95,40 @@ Submissions and tests:
 #+attr_html: :width 400px
 [[../img/sprint.png]]
 
-  - The term project purpose is the exploration of any R package or
-    (linked) group of packages.
+- The term project purpose is the exploration of any R package or
+  (linked) group of packages.
 
-  - There are many different ways to explore and/or document a package - e.g. succinct, verbose, opinionated, objective, accessible or not.
+- There are many different ways to explore and/or document a package - e.g. succinct, verbose, opinionated, objective, accessible or not.
 
-  - Your first deliverable is a project proposal formatted as an
-    Org-mode file. Here is a template for such a file with definitions.
+- Your first deliverable is a project proposal formatted as an
+  Org-mode file. Here is a template for such a file with definitions.
 
-    1) Meta data: preliminary title (~#+TITLE~), list of team members
-       (~#+AUTHOR:~), course title (~#+SUBTITLE~).
+  1) Meta data: preliminary title (~#+TITLE~), list of team members
+     (~#+AUTHOR:~), course title (~#+SUBTITLE~).
 
-    2) Headlines: ~Problem~, ~Reason~, ~Constraints~, ~Goals and Non-goals~,
-       ~Metrics~, ~References~
+  2) Headlines: ~Problem~, ~Reason~, ~Constraints~, ~Goals and Non-goals~,
+     ~Metrics~, ~References~
 
-       - *Problem*: describe the problem that you're trying to solve.
+     - *Problem*: describe the problem that you're trying to solve.
 
-       - *Reason*: why is this problem interesting (to you) right now?
+     - *Reason*: why is this problem interesting (to you) right now?
 
-       - *Constraints:* which difficulties, e.g. technical or conceptual,
-         do you foresee right now?
+     - *Constraints:* which difficulties, e.g. technical or conceptual,
+       do you foresee right now?
 
-       - *Goals and non-goals*: list all goals that you might want to
-         achieve with this project. Order the goals by importance. Add a
-         list of non-goals, i.e. things that are outside the scope of
-         your project.
+     - *Goals and non-goals*: list all goals that you might want to
+       achieve with this project. Order the goals by importance. Add a
+       list of non-goals, i.e. things that are outside the scope of
+       your project.
 
-       - *Metrics*: how would you measure the success of your project?
+     - *Metrics*: how would you measure the success of your project?
 
-       - *References*: list any references that you found already. Make
-         sure that they are consistent (same format) and complete
-         (author, date, title, place).
+     - *References*: list any references that you found already. Make
+       sure that they are consistent (same format) and complete
+       (author, date, title, place).
 
-  - Upload your result to Canvas (*no later than Feb 6, 12 pm*). Missing
-    the deadline will cost you points.
+- Upload your result to Canvas (*no later than Feb 6, 12 pm*). Missing
+  the deadline will cost you points.
 
   Source: Ellis, Data Science Project Proposals (2021). URL:
   [[https://crunchingthedata.com/data-science-project-proposals/][crunchingthedata.com]].
@@ -190,7 +190,7 @@ Submissions and tests:
 5) [ ] Can I write ~m < 4~ even if ~m~ is a ~numeric~ ~matrix~?
    #+begin_src R  :results output
      matrix(1:9,nr=3,byrow=TRUE) < 4
-     
+
    #+end_src
    #+RESULTS:
    :       [,1]  [,2]  [,3]
@@ -273,7 +273,7 @@ Submissions and tests:
 - You can get 10 bonus points if you keep a practice streak of 10 days
 - You can do this up to 3 times for a maximum of 30 points, which will
   be applied to your weakest final grade category
-- Submit a screenshot of your mobile (or desktop) streak in Canvas 
+- Submit a screenshot of your mobile (or desktop) streak in Canvas
 - If you lose your streak between day 5 and 10, you still get 5 points
 - On the dashboard, DataCamp will suggest practice categories for you,
   and also in the mobile app
@@ -298,7 +298,7 @@ Submissions and tests:
   Emacs called ~speed-type~. You have to install it with ~M-x
   package-list-packages~, then find the package in the list and install
   with ~i~ and ~x~. [[https://github.com/dakra/speed-type][More information on GitHub.]]
-    
+
 * Week 6: Bonus review, coding loops
 #+attr_latex: :width 400px
 [[../img/5_loop.jpg]]
@@ -369,7 +369,7 @@ Submissions and tests:
   #+end_src
 
   #+RESULTS:
-  : 'data.frame':	32 obs. of  5 variables:
+  : 'data.frame':       32 obs. of  5 variables:
   :  $ Class   : Factor w/ 4 levels "1st","2nd","3rd",..: 1 2 3 4 1 2 3 4 1 2 ...
   :  $ Sex     : Factor w/ 2 levels "Male","Female": 1 1 1 1 2 2 2 2 1 1 ...
   :  $ Age     : Factor w/ 2 levels "Child","Adult": 1 1 1 1 1 1 1 1 2 2 ...
@@ -385,9 +385,9 @@ Submissions and tests:
   #+end_src
 
   #+RESULTS:
-  :   Male Female 
-  :   1731    470  
-  
+  :   Male Female
+  :   1731    470
+
 - How many survivors vs. non-survivors were there?
   #+begin_src R
     tapply(X = Titanic_df$Freq,
@@ -398,8 +398,8 @@ Submissions and tests:
   #+end_src
 
   #+RESULTS:
-  :   No  Yes 
-  : 1490  711  
+  :   No  Yes
+  : 1490  711
 
 ** Bonus exercises coding loops (24-Feb)
 #+attr_latex: :width 400px
@@ -467,8 +467,18 @@ Submissions and tests:
 | ~vapply~               | ~apply~ when you know the return datatype           |
 | ~mapply~               | multivariate version of ~sapply~                    |
 
-
 * TODO Week 8 - writing functions ~return~
+#+attr_latex: :width 400px
+[[../img/function.jpg]]
+
+** R data analysis without programming: ~lessR~
+#+attr_latex: :width 200px
+[[../img/lessR.png]]
+
+#+begin_example
+  install.packages("lessR")
+  library(lessR)
+#+end_example
 
 ** Review: ~break~
 
@@ -478,7 +488,7 @@ Submissions and tests:
   1) loop over the string "Back from the weekend"
   2) print each letter of the string
   3) leave the loop if you encounter a "w"
-  
+
   /Tip:/ ~strsplit(s,"")~ splits a string into its elements.
 
   #+begin_src R
@@ -499,12 +509,13 @@ Submissions and tests:
 
   #+RESULTS:
   : [1] NA NA NA NA NA NA NA
-  : Error in strsplit(order(msg, decreasing = TRUE), "") : 
+  : Error in strsplit(order(msg, decreasing = TRUE), "") :
   :   non-character argument
   : [1] "weekend"
-  : [1] "weekend" NA        NA        NA        NA        NA        NA       
+  : [1] "weekend" NA        NA        NA        NA        NA        NA
   : [8] NA
-  
+
+
 * TODO Week 9 - function arguments, recursion
 * TODO Week 10 - exceptions, timing, masking
 * TODO Week 11 - utility functions, date, time
