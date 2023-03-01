@@ -467,12 +467,15 @@ Submissions and tests:
 | ~vapply~               | ~apply~ when you know the return datatype           |
 | ~mapply~               | multivariate version of ~sapply~                    |
 
-* TODO Week 8 -  ~next~, ~repeat~
+* IN PROGRESS Week 8 -  ~next~, ~repeat~
 #+attr_latex: :width 400px
 [[../img/midterms.png]]
 
 - Midterm results: not too shabby! Room for improvement!
-- Just 
+- Complete DataCamp projects (esp. unguided)
+- Set yourself small goals (time management, grades, weather data)
+- Visualize & go through Kaggle projects
+- Learn or improve webscraping
 
 ** R data analysis without programming: ~lessR~
 #+attr_latex: :width 200px
@@ -483,7 +486,7 @@ Submissions and tests:
   library(lessR)
 #+end_example
 
-** Review: ~break~
+* Review: ~break~
 
 - [ ] What does ~break~ do? Will this work? Explain if or if not and why.
   #+begin_src R
@@ -495,6 +498,11 @@ Submissions and tests:
       break
     }
   #+end_src
+
+  #+RESULTS:
+  : FALSE
+  : Error: no loop for break/next, jumping to top level
+
   #+begin_notes
   See ~help(break)~: ~break~ breaks out of a ~for~, ~while~ or ~repeat~ loop.
   Control is transferred to the first statement outside the inner-most loop.
@@ -513,34 +521,51 @@ Submissions and tests:
 
   /Tips:/ ~strsplit(s,"")~ splits a string ~s~ into its elements, ~rev~ reverses
   the order of the values of a vector, and ~na.omit~ removes ~NA~ values.
+
+  Let's test these new functions:
+  #+begin_src R
+    strsplit("bwahahah",split="")
+    rev(x=c("banana","rama"))
+    foo <- c("balarney", rep(NA,3))
+    foo
+    na.omit(foo)
+  #+end_src
+
   #+begin_src R
     ## create a string object 'msg' with "Back from the weekend"
-
-    ## initialize a vector 'result' with the same length as 'msg'
-
+    msg <- "Back from the weekend"
+    msg
+    ## initialize a vector 'result' of NAs of the same length as 'msg'
+    rep(NA,times=nchar(msg)) -> result
     ## split 'msg' into individual letters and save it to 'msg'
-
+    strsplit(x=msg,split="") -> msg
     ## unlist the split message and save it to 'msg'
-
+    unlist(msg) -> msg
     ## loop over 'msg'
-
+    for (i in 1:length(msg)) {
       ## if msg not "w" then save letter to 'result'
-
-
+      if (msg[i]!="w") { 
+        result <- c(msg[i], result)
+                                            # alternative: result[i] <- msg[i]
+      } else {
         ## otherwise 'break' and leave the loop
-
-
-
-
+        break
+      }
+    }
     ## print values 1 to 19 of 'result'
-
+    result[1:19]
     ## omit NAs and overwrite 'result'
-
+    na.omit(result) -> result
     ## reverse letters and overwrite 'result'
-
+    rev(result) -> result
     ## paste 'result' and collapse spaces "" between letters
+    paste(result, collapse="")
+    #+end_src
 
-  #+end_src
+  #+RESULTS:
+  : [1] "Back from the weekend"
+  :  [1] " " "e" "h" "t" " " "m" "o" "r" "f" " " "k" "c" "a" "B" NA  NA  NA  NA  NA
+  : [1] "Back from the "
 
 - Solution:
   #+begin_src R
