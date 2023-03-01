@@ -36,28 +36,29 @@
     bar <- c(2,3,1.1,4,0,4.1,3)
   #+end_src
 
+- Divide ~foo~ by ~bar~:
+  #+begin_src R
+    foo/bar
+  #+end_src
+
+  #+RESULTS:
+  : [1] 2.500000 1.666667 4.545455 1.250000      Inf 1.219512 1.666667
+
 - You want to halt execution if one of the results evaluates to ~Inf~:
-  1) check each iteration with ~is.finite~
-  2) if a check evaluates to ~TRUE~, terminate loop with ~break~
+  1) initialize ~result~ as vector of length of ~bar~ with ~NA~
+  2) loop over the length of ~bar~
+     1. store ~foo/bar~ in ~temp~
+     2. if ~temp~ ~is.finite~
+        - store ~temp~ in ~result~
+        - otherwise ~break~
+  3) print ~result~          
   #+name: loop1.result
   #+begin_src R
     <<foobar>>
-    ## initialize results
-    loop1.result <- rep(NA,length(bar))
-    loop1.result
-    bar
-    ## loop over length of bar
-    for (i in 1:length(bar)) {
-      temp <- foo/bar[i]
-      if (is.finite(temp)) {
-        loop1.result[i] <- temp
-      } else {
-        break
-      } # end if
-    } # end for
-    loop1.result
+    ...
   #+end_src
 
+- Solution:
   #+name: loop1.result.alt
   #+begin_src R
     <<foobar>>
@@ -88,13 +89,23 @@
   : [1] 2.500000 1.666667 4.545455 1.250000      Inf 1.219512 1.666667
   : [1] 2.500000 1.666667 4.545455 1.250000       NA       NA       NA
 
-
 * Example: ~next~
 
 - For more routine operations, use ~next~ instead, which simply advances
   to the next iteration and continues execution
 
 - Here, ~next~ avoids division by zero:
+  1) initialize 'result' - make vector of length of 'bar' with NA
+  2) loop over length of 'bar'
+     1. if 'bar' is 0, leave loop with 'next'
+     2. if 'bar' is not 0, divide 'foo' by 'bar' and save to 'result'
+  3) print 'result'
+  #+begin_src R
+    <<foobar>>
+    ...
+  #+end_src
+     
+- Solution:  
   #+name: loop2.result
   #+begin_src R
     <<foobar>>
@@ -110,6 +121,10 @@
     } # end for
     loop2.result
   #+end_src
+
+  #+RESULTS: loop2.result
+  : [1] NA NA NA NA NA NA NA
+  : [1] 2.500000 1.666667 4.545455 1.250000       NA 1.219512 1.666667
 
 * ~break~ and ~next~ in nested loops
 
@@ -128,7 +143,20 @@
   #+end_src
 
 - Loop over both vectors, exclude loops where their element-wise
-  product is greater or equal than 54:
+  product is greater or equal than 54 but keep going otherwise.
+
+- Algorithm:
+  1) loop over ~loopvec1~
+     1. loop over ~loopvec2~
+        - store product in ~temp~
+        - if ~temp~ is greater or equal than ~54~ leave inner loop
+        - otherwise store temp in ~baz~
+  2) when the loops are done, print ~baz~
+  #+begin_src R
+    <<init_baz>>
+  #+end_src
+
+- Solution
   #+begin_src R
     <<init_baz>>
     for (i in 1:length(loopvec1)) {
@@ -163,6 +191,20 @@
   $F_{n} = F_{n-2} + F_{n-1 }$, $n=2,3,4,5$ and $F_{1} = F_{2} = 1$.
 
 - You can use ~repeat~, and ~break~ out of the loop:
+  1) initialize first two terms ~fib.a~ and ~fib.b~ with ~1~
+  2) repeat
+     1. store next term ~fib.a + fib.b~ in ~temp~
+     2. overwrite ~fib.a~ with ~fib.b~ (this is now the head)
+     3. overwrite ~fib.b~ with ~temp~ (this is the new term)
+     4. print ~fib.b~ with ~cat~
+     5. if ~fib.b~ greater than ~150~
+        - write "Break now..." with ~cat~
+        - leave with ~break~
+  #+begin_src R
+    ...
+  #+end_src
+
+- Solution:
   #+begin_src R
     fib.a <- 1  # initialize first two terms
     fib.b <- 1

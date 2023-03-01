@@ -330,7 +330,7 @@ Submissions and tests:
 - To do: literature review (you'll get a template from me)
 - Feedback for each team submitted via Email (PDF from Org-mode)
 
-* Week 7 - ~apply~, ~break~, ~next~, ~repeat~
+* Week 7 - ~apply~, ~break~
 #+attr_html: :width 400px
 #+caption: Photo by Brett Jordan on Unsplash
 [[../img/7_goforit.jpg]]
@@ -467,9 +467,9 @@ Submissions and tests:
 | ~vapply~               | ~apply~ when you know the return datatype           |
 | ~mapply~               | multivariate version of ~sapply~                    |
 
-* TODO Week 8 - writing functions ~return~
+* TODO Week 8 -  ~next~, ~repeat~
 #+attr_latex: :width 400px
-[[../img/function.jpg]]
+[[../img/repeat.jpg]]
 
 ** R data analysis without programming: ~lessR~
 #+attr_latex: :width 200px
@@ -482,41 +482,85 @@ Submissions and tests:
 
 ** Review: ~break~
 
-- [ ] What does ~break~ do?
+- [ ] What does ~break~ do? Will this work? Explain if or if not and why.
+  #+begin_src R
+    x <- 4
+    if (x==5) {
+      cat("TRUE\n")
+    } else {
+      cat("FALSE\n")
+      break
+    }
+  #+end_src
+  #+begin_notes
+  See ~help(break)~: ~break~ breaks out of a ~for~, ~while~ or ~repeat~ loop.
+  Control is transferred to the first statement outside the inner-most loop.
+  #+end_notes
 
-- [ ] Let's write an example together!
+- [ ] Let's write an example together and refresh some knowledge!
   1) loop over the string "Back from the weekend"
   2) print each letter of the string
   3) leave the loop if you encounter a "w"
 
-  /Tip:/ ~strsplit(s,"")~ splits a string into its elements.
+  Expected output:
+  #+begin_example org
+  : [1] "Back from the weekend"
+  : [1] "Back from the "
+  #+end_example
 
+  /Tips:/ ~strsplit(s,"")~ splits a string ~s~ into its elements, ~rev~ reverses
+  the order of the values of a vector, and ~na.omit~ removes ~NA~ values.
   #+begin_src R
-    msg <- "weekend"
-    result <- rep(NA,nchar(msg))
-    result
-    unlist(strsplit(order(msg,decreasing=TRUE),"")) -> msg
+    ## create a string object 'msg' with "Back from the weekend"
+
+    ## initialize a vector 'result' with the same length as 'msg'
+
+    ## split 'msg' into individual letters and save it to 'msg'
+
+    ## unlist the split message and save it to 'msg'
+
+    ## loop over 'msg'
+
+      ## if msg not "w" then save letter to 'result'
+
+
+        ## otherwise 'break' and leave the loop
+
+
+
+
+    ## print values 1 to 19 of 'result'
+
+    ## omit NAs and overwrite 'result'
+
+    ## reverse letters and overwrite 'result'
+
+    ## paste 'result' and collapse spaces "" between letters
+
+  #+end_src
+
+- Solution:
+  #+begin_src R
+    msg <- "Back from the weekend"
     msg
+    rep(NA,nchar(msg)) -> result
+    unlist(strsplit(msg,"")) -> msg
     for (i in 1:length(msg)) {
-      if (msg[i]!="n") {
-        result = c(msg[i],result)
+      if (msg[i] != "w") {
+        result = c(msg[i], result)
       } else {
         break
       }
     }
-    print(result)
+    paste(rev(na.omit(result)), collapse="")
   #+end_src
+ 
+** TODO Re-download ~8_loop_break_practice.org~
 
-  #+RESULTS:
-  : [1] NA NA NA NA NA NA NA
-  : Error in strsplit(order(msg, decreasing = TRUE), "") :
-  :   non-character argument
-  : [1] "weekend"
-  : [1] "weekend" NA        NA        NA        NA        NA        NA
-  : [8] NA
+* TODO Week 9 - ~function~ arguments, recursion
+#+attr_latex: :width 400px
+[[../img/function.jpg]]
 
-
-* TODO Week 9 - function arguments, recursion
 * TODO Week 10 - exceptions, timing, masking
 * TODO Week 11 - utility functions, date, time
 * TODO Week 12 - ~data.table~ for fast big data manipulation

@@ -25,62 +25,62 @@ This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/mai
     bar <- c(2,3,1.1,4,0,4.1,3)
   #+end_src
 
+- Divide ~foo~ by ~bar~:
+  #+begin_src R
+
+  #+end_src
+
 - You want to halt execution if one of the results evaluates to ~Inf~:
-  1) check each iteration with ~is.finite~
-  2) if a check evaluates to ~TRUE~, terminate loop with ~break~
+  1) initialize ~result~ as vector of length of ~bar~ with ~NA~
+  2) loop over the length of ~bar~
+     1. store ~foo/bar~ in ~temp~
+     2. if ~temp~ ~is.finite~
+        - store ~temp~ in ~result~
+        - otherwise ~break~
+  3) print ~result~          
   #+name: loop1.result
   #+begin_src R
     <<foobar>>
-    ## initialize results
-
-    ## loop over length of bar
-
+    ...
   #+end_src
 
 * Example: ~next~
 
-- For more routine operations, use ~next~ instead, which simply advances
-  to the next iteration and continues execution
-
-- Here, ~next~ avoids division by zero:
-  #+name: loop2.result
+- ~next~ avoids division by zero:
+  1) initialize 'result' - make vector of length of 'bar' with NA
+  2) loop over length of 'bar'
+     1. if 'bar' is 0, leave loop with 'next'
+     2. if 'bar' is not 0, divide 'foo' by 'bar' and save to 'result'
+  3) print 'result'
   #+begin_src R
     <<foobar>>
-    ## initialize results
-
-    ## loop over length of bar
-
-
+    ...
   #+end_src
-
+     
 * ~break~ and ~next~ in nested loops
 
 - Fill a matrix with multiples of two vectors and use ~next~ in the
   inner loop to skip certain values:
   #+name: init_baz
   #+begin_src R
-
+    loopvec1 <- 5:7
+    loopvec2 <- 9:6
+    baz <- matrix(NA,
+                  length(loopvec1),
+                  length(loopvec2))
   #+end_src
 
-- Loop over both vectors, exclude loops where their element-wise
-  product is greater or equal than 54:
+- Algorithm:
+  1) loop over ~loopvec1~
+     1. loop over ~loopvec2~
+        - store product in ~temp~
+        - if ~temp~ is greater or equal than ~54~ leave inner loop
+        - otherwise store temp in ~baz~
+  2) when the loops are done, print ~baz~
   #+begin_src R
     <<init_baz>>
-
+    ...
   #+end_src
-
-* Repeating operations with ~repeat~
-
-- The template for ~repeat~ is simple - it repeats whatever stands
-  between the curly braces:
-  #+begin_src R
-    repeat {
-      do any code in here
-    }
-  #+end_src
-
-- Repetition with ~repeat~ does not include a /loopindex/ or
-  /loopcondition/. To stop repeating the code, you need ~break~.
 
 * Example: ~repeat~
 
@@ -89,13 +89,17 @@ This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/mai
   $F_{n} = F_{n-2} + F_{n-1 }$, $n=2,3,4,5$ and $F_{1} = F_{2} = 1$.
 
 - You can use ~repeat~, and ~break~ out of the loop:
+  1) initialize first two terms ~fib.a~ and ~fib.b~ with ~1~
+  2) repeat
+     1. store next term ~fib.a + fib.b~ in ~temp~
+     2. overwrite ~fib.a~ with ~fib.b~ (this is now the head)
+     3. overwrite ~fib.b~ with ~temp~ (this is the new term)
+     4. print ~fib.b~ with ~cat~
+     5. if ~fib.b~ greater than ~150~
+        - write "Break now..." with ~cat~
+        - leave with ~break~
   #+begin_src R
-    ...  # initialize first two terms
-    ...   # compute next term
-    ...   # move variables forward
-    ...           # fib.b becomes new Fibonacci number
-    ...   # print Fibonacci number
-    ...     # cut of if number greater than 150
+    ...
   #+end_src
 
 * TODO Exercises
