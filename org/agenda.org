@@ -349,7 +349,7 @@ Submissions and tests:
                  c(1,NA,NA))
     mat
   #+end_src
-
+  
 - Solution:
   #+begin_src R
     apply( X = mat,
@@ -469,7 +469,10 @@ Submissions and tests:
 
 * TODO Week 8 -  ~next~, ~repeat~
 #+attr_latex: :width 400px
-[[../img/repeat.jpg]]
+[[../img/midterms.png]]
+
+- Midterm results: not too shabby! Room for improvement!
+- Just 
 
 ** R data analysis without programming: ~lessR~
 #+attr_latex: :width 200px
