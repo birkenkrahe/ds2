@@ -223,6 +223,11 @@
   #+RESULTS:
   : 2,3,5,8,13,21,34,55,89,144,233,Break now...
 
+- The quickest Fibonacci generator (first 30 F-numbers, no ~break~):
+  #+begin_src R
+    for (i in 4:30)  f[i] <- f[i-2] + f[i-1] |> print()
+  #+end_src
+
 * TODO Exercises
 #+attr_latex: :width 400px
 [[../img/exercise.jpg]]
