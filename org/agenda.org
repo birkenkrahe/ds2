@@ -477,7 +477,7 @@ Submissions and tests:
 - Visualize & go through Kaggle projects
 - Learn or improve webscraping
 
-** R data analysis without programming: ~lessR~
+* DONE R data analysis without programming: ~lessR~
 #+attr_latex: :width 200px
 [[../img/lessR.png]]
 
@@ -486,7 +486,7 @@ Submissions and tests:
   library(lessR)
 #+end_example
 
-* Review: ~break~
+* DONE Review: ~break~
 
 - [ ] What does ~break~ do? Will this work? Explain if or if not and why.
   #+begin_src R
@@ -584,6 +584,10 @@ Submissions and tests:
   #+end_src
  
 ** TODO Re-download ~8_loop_break_practice.org~
+
+* Live assignments: DataCamp / test 4
+#+attr_latex: :width 400px
+[[../img/msg_week_8.png]]
 
 * TODO Week 9 - ~function~ arguments, recursion
 #+attr_latex: :width 400px
