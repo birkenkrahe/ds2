@@ -349,7 +349,7 @@ Submissions and tests:
                  c(1,NA,NA))
     mat
   #+end_src
-  
+
 - Solution:
   #+begin_src R
     apply( X = mat,
@@ -544,7 +544,7 @@ Submissions and tests:
     ## loop over 'msg'
     for (i in 1:length(msg)) {
       ## if msg not "w" then save letter to 'result'
-      if (msg[i]!="w") { 
+      if (msg[i]!="w") {
         result <- c(msg[i], result)
                                             # alternative: result[i] <- msg[i]
       } else {
@@ -560,7 +560,7 @@ Submissions and tests:
     rev(result) -> result
     ## paste 'result' and collapse spaces "" between letters
     paste(result, collapse="")
-    #+end_src
+  #+end_src
 
   #+RESULTS:
   : [1] "Back from the weekend"
@@ -582,10 +582,128 @@ Submissions and tests:
     }
     paste(rev(na.omit(result)), collapse="")
   #+end_src
- 
-** TODO Re-download ~8_loop_break_practice.org~
 
-* Live assignments: DataCamp / test 4
+* TODO Re-download ~8_loop_break_practice.org~
+
+* TODO Fun: New ChatGPT API - use bot in R
+#+attr_latex: :width 400px
+[[../img/chatgpt.jpg]]
+
+- Announcement: OpenAI has opened the ChatGPT API. Later, I want to
+  share a function with you to run queries from within R. To
+  participate fully, register with OpenAI if you haven't done so yet:
+  https://chat.openai.com/auth/loginLinks to an external site. - use
+  your Lyon Gmail to register, this way it stays in the family.
+
+1) Get your secret ~api_key~ [[https://platform.openai.com/account/api-keys][here from OpenAI]] (you need to register)
+2) [[https://gist.githubusercontent.com/rasmusab/c25badf55f5dacee14ab13834798d3ef/raw/e3af90fc32d91c974cd2ec9ddb2f7bf52e992cff/chat-gtp-api-call.R][Add this code]] to your ~~/.Rprofile~ file (including the secret key)
+3) Install ~httr~ and ~stringr~
+4) Now the function ~ask_chatgpt~ will be available to you (GitHub typo)
+
+Let's try this!
+- Example:
+  #+begin_src R
+    ask_chatgpt("How can I get the arguments of an R function?")
+  #+end_src
+
+  #+RESULTS:
+  : [1] "To get the arguments of an R function, you can use the `args()` function. For example, if you want to get the arguments of the `mean()` function, you can run:\n\n```\nargs(mean)\n```\n\nThis will output:\n\n```\nfunction (x, ...) \nNULL\n```\n\nThis means that the `mean()` function takes one mandatory argument `x`, followed by any number of additional arguments specified using `...`."
+
+- Something fancier from the last session:
+  #+begin_src R
+    ask_chatgpt("In R, loop over the string 'Back from the weekend', leave the loop when you encounter the letter 'w', and print the resulting string up to the letter 'w' only.")
+  #+end_src
+
+  #+RESULTS:
+  : [1] "```{r}\nstring <- 'Back from the weekend'\n\nfor (char in strsplit(string, '')[[1]]) {\n  if (char == 'w') {\n    break\n  }\n  cat(char)\n}\n```\n\nOutput:\n\n```\nBack from the\n```"
+
+- Hmmm...a little hard to read (need to take this apart with R's ~tm~
+  and ~qdap~ functions, save to file, then read it in). After some work:
+  #+begin_src R :results silent
+    string <- 'Back from the weekend'
+    for (char in strsplit(string,'')[[1]]) {
+      if (char == 'w') {
+        break
+      }
+      cat(char)  # prints to the console
+    }
+  #+end_src
+
+- The code output is formatted for RStudio notebooks:
+  #+attr_latex: :width 400px
+  [[../img/chatgpt_rstudio.png]]
+
+- This is apparently not free (though I am not aware of having given
+  OpenAI my credit card or Paypal information): according to Baath,
+  #+begin_quote
+   Cost is $0.002 per 1000 returned words, which roughly translates to
+   that $1 gives you between 1000 and 2000 calls.
+  #+end_quote
+
+- A last example, less code, more text:
+  #+begin_src R
+    ask_chatgpt("Are there reasons to use Emacs + ESS + Org-mode instead of RStudio for R code development?")
+  #+end_src
+
+  #+RESULTS:
+  : [1] "As an AI language model, I cannot have opinions. However, I can provide you with some points that could help you decide whether to use Emacs + ESS + Org-mode instead of RStudio for R code development. \n\nEmacs + ESS + Org-mode is a powerful combination that provides an integrated environment for R programming, which includes all the features necessary for code development, data management, and reproducible research. Here are a few reasons to consider using Emacs + ESS + Org-mode:\n\n1. Customization: Emacs is highly customizable and is designed to be customized by the user. Also, Org-mode is a highly customizable note-taking and authoring tool. Together, Emacs + ESS + Org-mode provide an environment that can be tailored to your needs and preferences.\n\n2. Powerful text editor: Emacs is a highly versatile text editor that allows for efficient navigation and manipulation of large text files.\n\n3. Integration with other languages: Emacs supports other programming languages and can be used as an integrated development environment (IDE) for many other languages.\n\n4. Powerful support for literate programming: Org-mode provides support for literate programming, which allows the integration of narrative, analysis, and code in a single document. This feature can save time and increase productivity.\n\nOn the other hand, RStudio is a popular development environment for R that is designed specifically for R programming. Here are a few reasons to consider using RStudio:\n\n1. User-friendly interface: RStudio has a user-friendly interface that makes it easy to use for R programming.\n\n2. Integrated tools: RStudio has integrated tools for debugging, version control, package management, and data visualization.\n\n3. Shiny: RStudio's Shiny makes it easy to develop interactive web applications using R programming language.\n\n4. Community-driven development: RStudio is actively developed and has a large community of users who contribute to its development.\n\nOverall, the choice of tool for R development depends on your personal preferences and needs. Both Emacs + ESS + Org-mode and RStudio are powerful tools that can provide an efficient environment for R programming."
+
+- Cleaned up:
+  #+begin_quote
+  "As an AI language model, I cannot have opinions. However, I can
+  provide you with some points that could help you decide whether to
+  use Emacs + ESS + Org-mode instead of RStudio for R code
+  development.
+
+  Emacs + ESS + Org-mode is a powerful combination that provides an
+  integrated environment for R programming, which includes all the
+  features necessary for code development, data management, and
+  reproducible research. Here are a few reasons to consider using
+  Emacs + ESS + Org-mode:
+
+  1. Customization: Emacs is highly customizable and is designed to be
+     customized by the user. Also, Org-mode is a highly customizable
+     note-taking and authoring tool. Together, Emacs + ESS + Org-mode
+     provide an environment that can be tailored to your needs and
+     preferences.
+
+  2. Powerful text editor: Emacs is a highly versatile text editor
+     that allows for efficient navigation and manipulation of large text files.
+
+  3. Integration with other languages: Emacs supports other programming languages and can be used as an integrated development  environment (IDE) for many other languages.
+
+  4. Powerful support for literate programming: Org-mode provides
+     support for literate programming, which allows the integration of
+     narrative, analysis, and code in a single document. This feature
+     can save time and increase productivity.
+
+  On the other hand, RStudio is a popular development environment for
+  R that is designed specifically for R programming. Here are a few
+  reasons to consider using RStudio:
+
+  1. User-friendly interface: RStudio has a user-friendly interface that makes it easy to use for R programming.
+
+  2. Integrated tools: RStudio has integrated tools for debugging,
+     version control, package management, and data
+     visualization.
+
+  3. Shiny: RStudio's Shiny makes it easy to develop interactive web applications using R programming language.
+
+  4. Community-driven development: RStudio is actively developed and
+     has a large community of users who contribute to its
+     development. Overall, the choice of tool for R development
+     depends on your personal preferences and needs. Both Emacs +
+     ESS + Org-mode and RStudio are powerful tools that can provide an
+     efficient environment for R programming."
+  #+end_quote
+
+* TODO Bonus exercises ~break~, ~next~, ~repeat~
+#+attr_latex: :width 400px
+[[../img/exercise.jpg]]
+
+[[https://lyon.instructure.com/courses/1041/assignments/8975][See Canvas.]] 
+
+* TODO Live assignments: DataCamp / test 4
 #+attr_latex: :width 400px
 [[../img/msg_week_8.png]]
 

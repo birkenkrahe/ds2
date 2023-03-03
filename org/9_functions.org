@@ -23,6 +23,53 @@
       }
   #+end_example
 
+- ~function_name~ can be any valid R object name
+
+- You can use any number of arguments or none: ~function()~
+
+- The function arguments are not workspace objects. Check that:
+  1) define a ~function~ named ~hello_world~ 
+  2) no arguments
+  3) ~return~ the string "hello world"
+  4) call the function
+  #+begin_src R
+
+  #+end_src
+
+- Solution:
+  #+name: hello_world
+  #+begin_src R
+    hello_world <- function() {
+      return ("hello, world!")
+    }
+  #+end_src  
+
+- Modify ~hello_world~ - create a new function ~hello~ that takes a
+  name as an argument and prints it to the screen:
+  1) define a ~function~ named ~hello~
+  2) ~hello~ should have one argument, ~name~
+  3) ~return~ the ~name~ together with "Hello," using ~paste~
+  4) call the function with your name as the (string) argument
+  5) check if ~name~ is in the list of user-defined objects using ~any~
+  #+begin_src R
+    
+  #+end_src
+
+- Solution:
+  #+name: hello_name
+  #+begin_src R
+    hello <- function(name) {
+      return (paste("Hello,", name))  # 'name' is local
+    }
+    hello("Marcus")
+    any(ls() == "ask_chatgpt")
+    any(ls() == "name")
+  #+end_src
+
+  #+RESULTS: hello_name
+  : [1] "Hello, Marcus"
+  : [1] TRUE
+
 * Footnotes
 
 [fn:3]When you run this, you get the same result, but you should still
