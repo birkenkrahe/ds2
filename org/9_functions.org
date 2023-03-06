@@ -1,9 +1,9 @@
 #+TITLE:Writing Your Own Functions
-#+AUTHOR: Marcus Birkenkrahe (building on Norman Matloff)
+#+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE:DSC205 Introduction to Advanced Data Science
 #+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
-#+PROPERTY: header-args:R :exports both :results output :session *R*
+#+PROPERTY: header-args:R :exports both :results output :session *R* :noweb yes
 * README
 
 - Creating ~function~ objects
@@ -27,8 +27,10 @@
 
 - You can use any number of arguments or none: ~function()~
 
+* Example: hello, world!
+
 - The function arguments are not workspace objects. Check that:
-  1) define a ~function~ named ~hello_world~ 
+  1) define a ~function~ named ~hello_world~
   2) no arguments
   3) ~return~ the string "hello world"
   4) call the function
@@ -42,7 +44,7 @@
     hello_world <- function() {
       return ("hello, world!")
     }
-  #+end_src  
+  #+end_src
 
 - Modify ~hello_world~ - create a new function ~hello~ that takes a
   name as an argument and prints it to the screen:
@@ -52,7 +54,7 @@
   4) call the function with your name as the (string) argument
   5) check if ~name~ is in the list of user-defined objects using ~any~
   #+begin_src R
-    
+
   #+end_src
 
 - Solution:
@@ -62,14 +64,210 @@
       return (paste("Hello,", name))  # 'name' is local
     }
     hello("Marcus")
-    any(ls() == "ask_chatgpt")
     any(ls() == "name")
   #+end_src
 
-  #+RESULTS: hello_name
-  : [1] "Hello, Marcus"
-  : [1] TRUE
+- Ask ChatGPT to create that function for you - very nice: it only
+  returns the code not the detailed explanation.
+  #+begin_src R
+    any(ls() == "ask_chatgpt")
+    ask_chatgpt("Write a 'hello' function in R that takes
+                 my 'name' as input and returns
+                 the message 'hello [name]'.")
+  #+end_src
 
+  #+RESULTS:
+  : [1] TRUE
+  : [1] "hello <- function(name) {\n  message <- paste(\"Hello \", name, \"!\", sep=\"\")\n  return(message)\n}\n\n# Example usage\nhello(\"John\")\n# Output: \"Hello John!\""
+
+  #+begin_src R
+    hello <- function(name) {
+      message <- paste("Hello ", name, "!", sep="")
+      return(message)
+    }
+    hello("Marcus")
+  #+end_src
+
+  #+RESULTS:
+  : [1] "Hello Marcus!"
+
+* Example: Fibonacci sequence generator
+
+- Remember the Fibonacci sequence generator (cut off at 150):
+  #+name: fib
+  #+begin_src R :results output
+    fib <- rep(NA,10); fib[2] <- fib[1] <- 1; i = 2 # initialize
+    repeat { i <- i + 1 # count up
+      append(fib,fib[i] <- fib[i-2] + fib[i-1])
+      if (fib[i] > 150) break # break for values > 150  
+    }
+    fib
+  #+end_src
+
+  #+RESULTS: fib
+  :  [1]   1   1   2   3   5   8  13  21  34  55  89 144 233
+
+- Turn the Fibonacci sequence generator into a function ~myfib~:
+  1) Use ~function~ to create the function ~myfib~
+  2) Check the package environment with ~search~
+  3) Run the function ~myfib~
+  #+begin_src R
+    ...
+  #+end_src
+
+- Solution:
+  #+begin_src R
+    myfib <- function() {
+      <<fib>>
+      }
+    search()
+    myfib()
+  #+end_src
+
+  #+RESULTS:
+  :  [1] ".GlobalEnv"        "ESSR"              "package:stats"    
+  :  [4] "package:graphics"  "package:grDevices" "package:utils"    
+  :  [7] "package:datasets"  "package:stringr"   "package:httr"     
+  : [10] "package:methods"   "Autoloads"         "package:base"
+  :  [1]   1   1   2   3   5   8  13  21  34  55  89 144 233
+
+* Adding arguments
+
+    - Modify ~myfib~ to take a single argument, ~threshold~, to ~break~ off the
+      generator (e.g. ~threshold=150~):
+      1) modify the code block "fib_threshold" below accordingly.
+      2) create a code block for ~myfib2~ that takes the ~threshold~ argument
+      3) ~return~ the result ~fib~ 
+      4) search the list of user-defined objects for "myfib2"
+      5) Run ~myfib2~ for different values of ~threshold~: {150, 250,
+         100000, 1000000}
+      #+name: fib_threshold
+      #+begin_src R
+        fib <- rep(NA,10); fib[2] <- fib[1] <- 1; i = 2 # initialize
+        repeat { i <- i + 1 # count up
+          append(fib,fib[i] <- fib[i-2] + fib[i-1])
+          if (fib[i] > ...) break # break for values > threshold
+        }
+      #+end_src
+      #+begin_src R
+        ...
+      #+end_src
+
+    - Solution:
+      #+name: fib_threshold_solution
+      #+begin_src R
+        fib <- rep(NA,10); fib[2] <- fib[1] <- 1; i = 2 # initialize
+        repeat { i <- i + 1 # count up
+          append(fib,fib[i] <- fib[i-2] + fib[i-1])
+          if (fib[i] > threshold) break # break for values > threshold
+        }
+      #+end_src
+      #+begin_src R
+        myfib2 <- function(threshold) {
+          <<fib_threshold_solution>>
+          return (fib)
+        }
+        ls()[which(ls()=="myfib2")]
+        myfib2(threshold=1e6)
+      #+end_src
+
+    - Print only those results of ~myfib2(1e6)~ that are greater than 150
+      and smaller than 500,000:
+      1) Save ~myfib2(threshold=1e6)~ in an object ~foo~
+      2) Subset ~foo~ accordingly
+      #+begin_src R
+        foo <- myfib2(1e6)
+        subset(foo,foo>150 & foo <500000)
+      #+end_src
+
+      #+RESULTS:
+      :  [1]    233    377    610    987   1597   2584   4181   6765  10946  17711
+      : [11]  28657  46368  75025 121393 196418 317811
+
+* Using ~return~
+
+- If there is no ~return~ statement inside a function, the function will
+  end when the last line in the body has been run and return the most
+  recently assigned or created object.
+
+- If noting is created, the function returns ~NULL~ (the empty object).
+
+- Enter two dummy functions with some ~dummy_code~ then check ~ls()~:
+  #+name: dummy_code
+  #+begin_src R
+    aa <- 2.5
+    bb <- "string me along"
+    cc <- "string 'em up"
+    dd <- 4:8
+  #+end_src
+  #+begin_src R
+    dummy1 <- function() {
+      <<dummy_code>>
+    }
+    dummy2 <- function() {
+      <<dummy_code>>
+      return(dd)
+    }
+    ls()
+  #+end_src
+
+- ~dummy1~ assigns four objects in its lexical (not global) environment.
+
+- ~dummy2~ returns ~dd~ to the global environment.
+
+- Assign ~dummy1~ and ~dummy2~ to ~foo~ and ~bar~, respectively:
+  #+begin_src R
+    foo <- dummy1()
+    foo
+    bar <- dummy2()
+    bar
+  #+end_src  
+
+  #+RESULTS:
+  : [1] 4 5 6 7 8
+  : [1] 4 5 6 7 8
+
+- Create a third function ~dummy3~ that returns ~aa~ and ~bb~ in two
+  separate calls, then run the function:
+  #+begin_src R
+    dummy3 <- function() {
+      aa <- 2.5
+      bb <- "string me along"
+      return (aa)
+      cc <- "string 'em up"
+      dd <- 4:8
+      return (bb)
+    }
+    dummy3()
+      #+end_src
+
+  #+RESULTS:
+  : [1] 2.5
+
+- Only ~aa~ is returned because the function exits at that point. The
+  last three lines will never be executed.
+
+- Which code would return all four objects?
+  #+begin_src R
+    dummy4 <- function() {
+      <<dummy_code>>
+      ...
+    }
+  #+end_src
+
+- Solution:
+  #+begin_src R
+    dummy4 <- function() {
+      <<dummy_code>>
+      return (c(aa,bb,cc,dd))
+    }
+    dummy4()
+  #+end_src
+
+  #+RESULTS:
+  : [1] "2.5"             "string me along" "string 'em up"   "4"              
+  : [5] "5"               "6"               "7"               "8"
+  
 * Footnotes
 
 [fn:3]When you run this, you get the same result, but you should still

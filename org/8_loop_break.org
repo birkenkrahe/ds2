@@ -149,6 +149,10 @@
     loop2.result
   #+end_src
 
+  #+RESULTS: loop2.result
+  : [1] NA NA NA NA NA NA NA
+  : [1] 2.500000 1.666667 4.545455 1.250000       NA 1.219512 1.666667
+
 * ~break~ and ~next~ in nested loops
 
 - If you use either ~break~ or ~next~ in a nested loop, the command will
@@ -276,7 +280,7 @@
     for (i in 4:30)  f[i] <- f[i-2] + f[i-1] |> print()
   #+end_src
 
-- Alternative solution with ~repeat~ and ~break~:
+- Using this generator for an alternative solution:
   #+begin_src R
     fib <- rep(NA,100)  # initialize vector
     fib[2] <- fib[1] <- 1  # initialize first two numbers
@@ -302,13 +306,14 @@
   [1] 144
   #+end_example
 
-* Bonus exercises
+* Bonus exercises (home assignment)
 #+attr_latex: :width 400px
 [[../img/exercise.jpg]]
 
 - Submit solutions to these exercises as Org-mode files for bonus.
-- Complete one or the other or both (max 10 points per exercise)
-- [[https://lyon.instructure.com/courses/1041/assignments/8975/edit][Upload your solutions to Canvas]] by March 13, 11:59 pm.
+- Complete one or the other or both (max 20 points.
+- Bonus points are applied at the end of term for your final grade.
+- [[https://lyon.instructure.com/courses/1041/assignments/8975/edit][Upload your solutions to Canvas]].
 
 ** Exercise 1: ~while~ without ~break~ or ~next~
 

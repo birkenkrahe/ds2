@@ -467,7 +467,7 @@ Submissions and tests:
 | ~vapply~               | ~apply~ when you know the return datatype           |
 | ~mapply~               | multivariate version of ~sapply~                    |
 
-* IN PROGRESS Week 8 -  ~next~, ~repeat~
+* Week 8 -  ~next~, ~repeat~
 #+attr_latex: :width 400px
 [[../img/midterms.png]]
 
@@ -477,7 +477,7 @@ Submissions and tests:
 - Visualize & go through Kaggle projects
 - Learn or improve webscraping
 
-* DONE R data analysis without programming: ~lessR~
+** DONE R data analysis without programming: ~lessR~
 #+attr_latex: :width 200px
 [[../img/lessR.png]]
 
@@ -486,7 +486,7 @@ Submissions and tests:
   library(lessR)
 #+end_example
 
-* DONE Review: ~break~
+** DONE Review: ~break~
 
 - [ ] What does ~break~ do? Will this work? Explain if or if not and why.
   #+begin_src R
@@ -583,9 +583,9 @@ Submissions and tests:
     paste(rev(na.omit(result)), collapse="")
   #+end_src
 
-* TODO Re-download ~8_loop_break_practice.org~
+** TODO Re-download ~8_loop_break_practice.org~
 
-* TODO Fun: New ChatGPT API - use bot in R
+** TODO Fun: New ChatGPT API - use bot in R
 #+attr_latex: :width 400px
 [[../img/chatgpt.jpg]]
 
@@ -697,26 +697,45 @@ Let's try this!
      efficient environment for R programming."
   #+end_quote
 
-* TODO Bonus exercises ~break~, ~next~, ~repeat~
+** TODO Bonus exercises ~break~, ~next~, ~repeat~
 #+attr_latex: :width 400px
 [[../img/exercise.jpg]]
 
 [[https://lyon.instructure.com/courses/1041/assignments/8975][See Canvas.]] 
 
-* TODO Live assignments: DataCamp / test 4
+** TODO Live assignments: DataCamp / test 4
 #+attr_latex: :width 400px
 [[../img/msg_week_8.png]]
 
-* TODO Week 9 - ~function~ arguments, recursion
+* TODO Week 9 - ~function~ creation and arguments
 #+attr_latex: :width 400px
 [[../img/function.jpg]]
 
-* TODO Week 10 - exceptions, timing, masking
-* TODO Week 11 - utility functions, date, time
-* TODO Week 12 - ~data.table~ for fast big data manipulation
-* TODO Week 13 - command line data science
-* TODO Week 14 - text mining
-* TODO Week 15 - machine learning
+*REMINDERS* (check your Canvas calendar):
+- Complete *test 4* by tonight 11:59 pm!
+- Complete *DataCamp assignment* "Utilities" by Friday this week!
+- Complete *bonus assignment* with ~break~, ~next~, ~repeat~ by next week!
+- [[https://lyon.instructure.com/courses/1041/assignments/9014][Literature review (2nd sprint review) by end of next week]]!
+
+*THIS WEEK*:
+- Writing functions with/without arguments with ~function~
+- Returning results with/without ~return~
+- Setting (default) arguments, checking for missing arguments
+- Exception handling, timing and masking
+
+*UPCOMING TOPICS*:
+- Utilities: regular expressions, pattern matching, date/time
+- Text mining with bag-of-words
+- Data science on the command line with csvkit
+- Database operations on the command line with SQLite
+- Data pipeline with Python on the command line
+
+* TODO Week 10 - exception handling and timing
+* TODO Week 11 - utilities
+* TODO Week 12 - text mining with bag-of-words
+* TODO Week 13 - data science on the command line
+* TODO Week 14 - database operations in the shell
+* TODO Week 15 - data pipeline with Python
 * TODO Week 16 - Projects
 * TODO What next?
 ** Buy the "Book of R" and keep it for life

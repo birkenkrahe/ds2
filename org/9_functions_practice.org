@@ -1,0 +1,140 @@
+#+TITLE:Writing Your Own Functions - PRACTICE FILE
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE:DSC205 Introduction to Advanced Data Science
+#+STARTUP:overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :exports both :results output :session *R* :noweb yes
+* README
+
+This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/main/org/7_loop_apply.org][lecture]] on functions.
+
+* TODO Identify and pledge yourself
+
+1) In Emacs, replace the placeholder ~[yourname]~ at the top of this
+   file by your own name and write ~(pledged)~ next to it
+2) Go with the cursor on the headline and hange the ~TODO~ label to ~DONE~
+   by entering ~S-<right>~ ("Shift + right-arrow").
+
+* Example: hello, world!
+
+- The function arguments are not workspace objects. Check that:
+  1) define a ~function~ named ~hello_world~
+  2) no arguments
+  3) ~return~ the string "hello world"
+  4) call the function
+  #+begin_src R
+
+  #+end_src
+
+- Modify ~hello_world~ - create a new function ~hello~ that takes a
+  name as an argument and prints it to the screen:
+  1) define a ~function~ named ~hello~
+  2) ~hello~ should have one argument, ~name~
+  3) ~return~ the ~name~ together with "Hello," using ~paste~
+  4) call the function with your name as the (string) argument
+  5) check if ~name~ is in the list of user-defined objects using ~any~
+  #+begin_src R
+
+  #+end_src
+
+
+- Ask ChatGPT to create that function for you - check that it exists
+  in your environment first:
+  #+begin_src R
+
+  #+end_src
+
+* Example: Fibonacci sequence generator
+
+- Remember the Fibonacci sequence generator (cut off at 150):
+  #+name: fib
+  #+begin_src R :results output
+    fib <- rep(NA,10); fib[2] <- fib[1] <- 1; i = 2 # initialize
+    repeat { i <- i + 1 # count up
+      append(fib,fib[i] <- fib[i-2] + fib[i-1])
+      if (fib[i] > 150) break # break for values > 150
+    }
+    fib
+  #+end_src
+
+- Turn the Fibonacci sequence generator into a function ~myfib~:
+  1) Use ~function~ to create the function ~myfib~
+  2) Check the package environment with ~search~
+  3) Run the function ~myfib~
+  #+begin_src R
+    ...
+  #+end_src
+
+* Adding arguments
+
+- Modify ~myfib~ to take a single argument, ~threshold~, to ~break~ off the
+  generator (e.g. ~threshold=150~):
+  1) modify the code block "fib_threshold" below accordingly.
+  2) create a code block for ~myfib2~ that takes the ~threshold~ argument
+  3) ~return~ the result ~fib~
+  4) search the list of user-defined objects for "myfib2"
+  5) Run ~myfib2~ for different values of ~threshold~: {150, 250,
+     100000, 1000000}
+  #+name: fib_threshold
+  #+begin_src R
+    fib <- rep(NA,10); fib[2] <- fib[1] <- 1; i = 2 # initialize
+    repeat { i <- i + 1 # count up
+      append(fib,fib[i] <- fib[i-2] + fib[i-1])
+      if (fib[i] > ...) break # break for values > threshold
+    }
+  #+end_src
+  #+begin_src R
+    ...
+  #+end_src
+
+- Print only those results of ~myfib2(1e6)~ that are greater than 150
+  and smaller than 500,000:
+  1) Save ~myfib2(threshold=1e6)~ in an object ~foo~
+  2) Subset ~foo~ accordingly
+  #+begin_src R
+
+  #+end_src
+
+* Using ~return~
+
+- Enter two dummy functions with some ~dummy_code~ then check ~ls()~:
+  1) ~dummy1~ should not ~return~ anything
+  2) ~dummy2~ should ~return~ ~dd~
+  #+name: dummy_code
+  #+begin_src R
+    aa <- 2.5
+    bb <- "string me along"
+    cc <- "string 'em up"
+    dd <- 4:8
+  #+end_src
+  #+begin_src R
+
+  #+end_src
+
+- Assign ~dummy1~ and ~dummy2~ to ~foo~ and ~bar~, respectively:
+  #+begin_src R
+
+  #+end_src
+
+- Create a third function ~dummy3~ that returns ~aa~ and ~bb~ in two
+  separate calls after defining ~bb~ and ~dd~, then run the function:
+  #+begin_src R
+    dummy3 <- function() {
+      aa <- 2.5
+      bb <- "string me along"
+      ...
+      cc <- "string 'em up"
+      dd <- 4:8
+      ...
+    }
+    ...
+  #+end_src
+
+- Which code would return all four objects?
+  #+begin_src R
+    dummy4 <- function() {
+      <<dummy_code>>
+      ...
+    }
+  #+end_src
+
