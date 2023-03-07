@@ -29,79 +29,79 @@
 
 * Example: ~break~
 
-      - Divide a number ~foo~ by each element in a ~numeric~ vector ~bar~:
-        #+name: foobar
-        #+begin_src R :results silent
-          foo <- 5
-          bar <- c(2,3,1.1,4,0,4.1,3)
-        #+end_src
+- Divide a number ~foo~ by each element in a ~numeric~ vector ~bar~:
+  #+name: foobar
+  #+begin_src R :results silent
+    foo <- 5
+    bar <- c(2,3,1.1,4,0,4.1,3)
+  #+end_src
 
-      - Divide ~foo~ by ~bar~:
-        #+begin_src R
-          foo/bar
-        #+end_src
+- Divide ~foo~ by ~bar~:
+  #+begin_src R
+    foo/bar
+  #+end_src
 
-        #+RESULTS:
-        : [1] 2.500000 1.666667 4.545455 1.250000      Inf 1.219512 1.666667
+  #+RESULTS:
+  : [1] 2.500000 1.666667 4.545455 1.250000      Inf 1.219512 1.666667
 
-      - You want to halt execution if one of the results evaluates to ~Inf~:
-        1) initialize ~result~ as vector of length of ~bar~ with ~NA~
-        2) loop over the length of ~bar~
-           1. store ~foo/bar~ in ~temp~
-           2. if ~temp~ ~is.finite~
-              - store ~temp~ in ~result~
-              - otherwise ~break~
-        3) print ~result~
-        #+name: loop1.result
-        #+begin_src R
-          <<foobar>>
-          result <- rep(NA,length(bar))
-          for (i in 1:length(bar)) {
-            foo/bar[i] -> temp
-            if (is.finite(temp)) {
-              temp -> result[i]
-            } else {
-              break
-            }
-          }
-          bar
-          result
-        #+end_src
+- You want to halt execution if one of the results evaluates to ~Inf~:
+  1) initialize ~result~ as vector of length of ~bar~ with ~NA~
+  2) loop over the length of ~bar~
+     1. store ~foo/bar~ in ~temp~
+     2. if ~temp~ ~is.finite~
+        - store ~temp~ in ~result~
+        - otherwise ~break~
+  3) print ~result~
+  #+name: loop1.result
+  #+begin_src R
+    <<foobar>>
+    result <- rep(NA,length(bar))
+    for (i in 1:length(bar)) {
+      foo/bar[i] -> temp
+      if (is.finite(temp)) {
+        temp -> result[i]
+      } else {
+        break
+      }
+    }
+    bar
+    result
+  #+end_src
 
-        #+RESULTS: loop1.result
-        : [1] 2.0 3.0 1.1 4.0 0.0 4.1 3.0
-        : [1] 2.500000 1.666667 4.545455 1.250000       NA       NA       NA
+  #+RESULTS: loop1.result
+  : [1] 2.0 3.0 1.1 4.0 0.0 4.1 3.0
+  : [1] 2.500000 1.666667 4.545455 1.250000       NA       NA       NA
 
-      - Solution:
-        #+name: loop1.result.alt
-        #+begin_src R
-          <<foobar>>
-          ## initialize results
-          loop1.init <- rep(NA,length(bar))
-          loop1.result <- loop1.init
-          loop1.result
-          ## loop over length of bar
-          for(i in 1:length(bar)) {
-            loop1.result[i] <- foo/bar[i]
-          }
-          loop1.result
-          loop1.result <- loop1.init
-          ## with break and condition
-          for (i in 1:length(bar)) {
-            temp <- foo/bar[i]
-            if (is.finite(temp)) {
-              loop1.result[i] <- temp
-            } else {
-              break
-            }
-          }
-          loop1.result
-        #+end_src
+- Solution:
+  #+name: loop1.result.alt
+  #+begin_src R
+    <<foobar>>
+    ## initialize results
+    loop1.init <- rep(NA,length(bar))
+    loop1.result <- loop1.init
+    loop1.result
+    ## loop over length of bar
+    for(i in 1:length(bar)) {
+      loop1.result[i] <- foo/bar[i]
+    }
+    loop1.result
+    loop1.result <- loop1.init
+    ## with break and condition
+    for (i in 1:length(bar)) {
+      temp <- foo/bar[i]
+      if (is.finite(temp)) {
+        loop1.result[i] <- temp
+      } else {
+        break
+      }
+    }
+    loop1.result
+  #+end_src
 
-        #+RESULTS: loop1.result.alt
-        : [1] NA NA NA NA NA NA NA
-        : [1] 2.500000 1.666667 4.545455 1.250000      Inf 1.219512 1.666667
-        : [1] 2.500000 1.666667 4.545455 1.250000       NA       NA       NA
+  #+RESULTS: loop1.result.alt
+  : [1] NA NA NA NA NA NA NA
+  : [1] 2.500000 1.666667 4.545455 1.250000      Inf 1.219512 1.666667
+  : [1] 2.500000 1.666667 4.545455 1.250000       NA       NA       NA
 
 * Example: ~next~
 
@@ -167,7 +167,7 @@
     baz <- matrix(NA,
                   length(loopvec1),
                   length(loopvec2))
-    #+end_src
+  #+end_src
 
 - Loop over both vectors, exclude loops where their element-wise
   product is greater or equal than 54 but keep going otherwise.
@@ -247,13 +247,23 @@
      1. store next term ~fib.a + fib.b~ in ~temp~
      2. overwrite ~fib.a~ with ~fib.b~ (this is now the head)
      3. overwrite ~fib.b~ with ~temp~ (this is the new term)
-     4. print ~fib.b~ with ~cat~
+     4. print ~fib.b~ with ~cat~ - in between terms, put a ","
      5. if ~fib.b~ greater than ~150~
         - write "(Break now...Fibonacci > 150)" with ~cat~
         - leave with ~break~
      #+name: fibonacci
      #+begin_src R
-       ...
+       fib.b <- fib.a <- 1 # initialize first 2 terms
+       repeat {
+         fib.a + fib.b -> temp
+         fib.a <- fib.b
+         fib.b <- temp
+         cat(fib.b,",",sep="")
+         if (fib.b > 150) {
+           cat("Break now...Fibonacci > 150\n")
+           break ## 'next' will not break the infinite loop!
+         }
+       }
      #+end_src
 
 - Solution:
@@ -272,13 +282,42 @@
     } #end repeat
   #+end_src
 
-  #+RESULTS:
-  : 2,3,5,8,13,21,34,55,89,144,233,Break now...
-
 - The quickest Fibonacci generator (first 30 F-numbers, no ~break~):
   #+begin_src R
+    f <- c(1,1,1,rep(NA,30))
     for (i in 4:30)  f[i] <- f[i-2] + f[i-1] |> print()
   #+end_src
+
+  #+RESULTS:
+  #+begin_example
+  [1] 1
+  [1] 2
+  [1] 3
+  [1] 5
+  [1] 8
+  [1] 13
+  [1] 21
+  [1] 34
+  [1] 55
+  [1] 89
+  [1] 144
+  [1] 233
+  [1] 377
+  [1] 610
+  [1] 987
+  [1] 1597
+  [1] 2584
+  [1] 4181
+  [1] 6765
+  [1] 10946
+  [1] 17711
+  [1] 28657
+  [1] 46368
+  [1] 75025
+  [1] 121393
+  [1] 196418
+  [1] 317811
+  #+end_example
 
 - Using this generator for an alternative solution:
   #+begin_src R

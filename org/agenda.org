@@ -730,6 +730,8 @@ Let's try this!
 - Database operations on the command line with SQLite
 - Data pipeline with Python on the command line
 
+Program games in Snap! (from Academic Day):
+https://github.com/birkenkrahe/snap
 * TODO Week 10 - exception handling and timing
 * TODO Week 11 - utilities
 * TODO Week 12 - text mining with bag-of-words

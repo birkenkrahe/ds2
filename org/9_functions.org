@@ -25,7 +25,8 @@
 
 - ~function_name~ can be any valid R object name
 
-- You can use any number of arguments or none: ~function()~
+- You can use any number of arguments or none: ~function()~ like: ~ls()~,
+  ~options()~, ~search()~, ~par()~, which can be subset and searched.
 
 * Example: hello, world!
 
@@ -35,8 +36,14 @@
   3) ~return~ the string "hello world"
   4) call the function
   #+begin_src R
-
+    hello_world <- function() {
+      return ("hello world")
+      }
+    hello_world()
   #+end_src
+
+  #+RESULTS:
+  : [1] "hello world"
 
 - Solution:
   #+name: hello_world
@@ -54,8 +61,16 @@
   4) call the function with your name as the (string) argument
   5) check if ~name~ is in the list of user-defined objects using ~any~
   #+begin_src R
-
+    hello <- function(name) {
+      return (paste("Hello,", name))
+    }
+    hello("Marcus")
+    any(ls()=="name")
   #+end_src
+
+  #+RESULTS:
+  : [1] "Hello, Marcus"
+  : [1] FALSE
 
 - Solution:
   #+name: hello_name
@@ -67,8 +82,19 @@
     any(ls() == "name")
   #+end_src
 
-- Ask ChatGPT to create that function for you - very nice: it only
+- Ask ChatGPT to create the function ~hello~ for you - very nice: it only
   returns the code not the detailed explanation.
+
+  #+begin_src R
+    any(ls()=="ask_chatgpt")
+    args(ask_chatgpt)
+  #+end_src
+
+  #+RESULTS:
+  : [1] TRUE
+  : function (prompt) 
+  : NULL
+  
   #+begin_src R
     any(ls() == "ask_chatgpt")
     ask_chatgpt("Write a 'hello' function in R that takes
@@ -91,7 +117,11 @@
   #+RESULTS:
   : [1] "Hello Marcus!"
 
-* Example: Fibonacci sequence generator
+#+begin_src R
+  ask_chatgpt("what's the command in R to define a function?\n")
+#+end_src
+
+* NEXT Example: Fibonacci sequence generator
 
 - Remember the Fibonacci sequence generator (cut off at 150):
   #+name: fib
