@@ -121,18 +121,6 @@
  # ask_chatgpt("what's the command in R to define a function?\n")
 #+end_src
 
-* NEXT WILL SOMEONE PLEASE HAVE LUNCH WITH JACKSON S.?
-#+attr_latex: :width 400px
-#+caption: Photo by Henrikke Due on Unsplash
-[[../img/please.jpg]]
-
-+ His name is *Jackson Shurley* (computer science or data science)
-+ He's already accepted at Lyon and will attend our *Friday* class
-+ If you're OK to have lunch with him at *11.30 AM this Friday*, mail
-  *Dana Bennett* and they'll bring him to Ed's commons at 11.30 AM
-+ After lunch, please *escort him* to our classroom *by 12.30 AM* so that
-  he can a have chat with me!
-
 * Example: Fibonacci sequence generator
 
 - Remember the Fibonacci sequence generator (cut off at 150)?
