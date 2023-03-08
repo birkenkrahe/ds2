@@ -707,21 +707,21 @@ Let's try this!
 #+attr_latex: :width 400px
 [[../img/msg_week_8.png]]
 
-* TODO Week 9 - ~function~ creation and arguments
+* IN PROGRESS Week 9 - ~function~ creation and arguments
 #+attr_latex: :width 400px
 [[../img/function.jpg]]
 
 *REMINDERS* (check your Canvas calendar):
-- Complete *test 4* by tonight 11:59 pm!
-- Complete *DataCamp assignment* "Utilities" by Friday this week!
-- Complete *bonus assignment* with ~break~, ~next~, ~repeat~ by next week!
-- [[https://lyon.instructure.com/courses/1041/assignments/9014][Literature review (2nd sprint review) by end of next week]]!
+- [X] Complete *test 4* by tonight 11:59 pm!
+- [X] Complete *DataCamp assignment* "Utilities" by Friday this week!
+- [X] Complete *bonus assignment* with ~break~, ~next~, ~repeat~ by next week!
+- [X] [[https://lyon.instructure.com/courses/1041/assignments/9014][Literature review (2nd sprint review) by end of next week]]!
 
 *THIS WEEK*:
-- Writing functions with/without arguments with ~function~
-- Returning results with/without ~return~
-- Setting (default) arguments, checking for missing arguments
-- Exception handling, timing and masking
+- [ ] Writing functions with/without arguments with ~function~
+- [ ] Returning results with/without ~return~
+- [ ] Setting (default) arguments, checking for missing arguments
+- [ ] Exception handling, timing and masking
 
 *UPCOMING TOPICS*:
 - Utilities: regular expressions, pattern matching, date/time
@@ -730,9 +730,10 @@ Let's try this!
 - Database operations on the command line with SQLite
 - Data pipeline with Python on the command line
 
-Program games in Snap! (from Academic Day):
-https://github.com/birkenkrahe/snap
-* TODO Week 10 - exception handling and timing
+*Program games in Snap! (from Academic Day):*
+- [X] https://github.com/birkenkrahe/snap
+
+* TODO Week 10 - special functions and exceptions
 * TODO Week 11 - utilities
 * TODO Week 12 - text mining with bag-of-words
 * TODO Week 13 - data science on the command line

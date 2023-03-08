@@ -15,7 +15,7 @@ This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/mai
 2) Go with the cursor on the headline and hange the ~TODO~ label to ~DONE~
    by entering ~S-<right>~ ("Shift + right-arrow").
 
-* Example: hello, world!
+* TODO Example: hello, world!
 
 - The function arguments are not workspace objects. Check that:
   1) define a ~function~ named ~hello_world~
@@ -44,7 +44,7 @@ This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/mai
 
   #+end_src
 
-* Example: Fibonacci sequence generator
+* TODO Example: Fibonacci sequence generator
 
 - Remember the Fibonacci sequence generator (cut off at 150):
   #+name: fib
@@ -59,13 +59,14 @@ This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/mai
 
 - Turn the Fibonacci sequence generator into a function ~myfib~:
   1) Use ~function~ to create the function ~myfib~
-  2) Check the package environment with ~search~
-  3) Run the function ~myfib~
+  2) Use << and >> to include the code block above.
+  3) Check the package environment with ~search~
+  4) Run the function ~myfib~
   #+begin_src R
     ...
   #+end_src
 
-* Adding arguments
+* TODO Adding arguments
 
 - Modify ~myfib~ to take a single argument, ~threshold~, to ~break~ off the
   generator (e.g. ~threshold=150~):
@@ -84,7 +85,7 @@ This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/mai
     }
   #+end_src
   #+begin_src R
-    ...
+    ## your solution here
   #+end_src
 
 - Print only those results of ~myfib2(1e6)~ that are greater than 150
@@ -92,10 +93,10 @@ This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/mai
   1) Save ~myfib2(threshold=1e6)~ in an object ~foo~
   2) Subset ~foo~ accordingly
   #+begin_src R
-
+    ## your solution here
   #+end_src
 
-* Using ~return~
+* TODO Using ~return~
 
 - Enter two dummy functions with some ~dummy_code~ then check ~ls()~:
   1) ~dummy1~ should not ~return~ anything
@@ -130,7 +131,7 @@ This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/mai
     ...
   #+end_src
 
-- Which code would return all four objects?
+- Which code would return all four values?
   #+begin_src R
     dummy4 <- function() {
       <<dummy_code>>

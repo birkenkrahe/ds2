@@ -1,47 +1,9 @@
-#+TITLE:Writing Your Own Functions
-#+AUTHOR: Marcus Birkenkrahe (building on Norman Matloff)
+#+TITLE: Utilities
+#+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE:DSC205 Introduction to Advanced Data Science
 #+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
-#+PROPERTY: header-args:R :exports both :results output :session *R*
+#+PROPERTY: header-args:R :exports both :results output :session *R* :noweb yes
 * README
 
-- Creating ~function~ objects
-- Using the ~return~ function
-- Lazy argument evaluation
-- Setting argument defaults
-- Checking for missing arguments
-- Dealing with ellipses (~...~)
 
-* The ~function~ command
-
-- Template:
-  #+begin_example R
-    function_name <- function (arg_1, arg_2, arg_3, ...) {
-      do any code in here when function_name is called
-      return (return_object)
-      }
-  #+end_example
-
-- Any 
-
-* Footnotes
-
-[fn:3]When you run this, you get the same result, but you should still
-check identity, e.g. using the ~identical~ function:
-#+begin_src R :session
-  m1 <- mean(nileSubsetGT1200)
-  m2 <- mean(Nile[Nile>1200])
-  identical(m1,m2) # identity check
-#+end_src
-
-[fn:2]Challenge: write a function that tells you if a data set is
-built-in or not. ~data()~ is already that function, because if the
-dataset exists, it loads it, but what if we want a ~logical~ answer?
-
-[fn:1]~return~ specifically is not needed because by default R returns
-the last value computed. ~{~ and ~return~ are both functions,
-too. Check that by looking at their respective help pages. ~{~ and ~(~
-are *primitive* functions, while ~return~ and other self-defined
-functions like ~mgd~ are *closures*. You can check that with the
-(storage) ~typeof~ function.

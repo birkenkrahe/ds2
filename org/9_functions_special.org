@@ -1,0 +1,19 @@
+#+TITLE: FUNCTIONS - SPECIAL TOPICS
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE:DSC205 Introduction to Advanced Data Science
+#+STARTUP:overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :exports both :results output :session *R* :noweb yes
+* README
+
+- Specialized functions
+- Helper functions
+- Disposable functions
+- Recursive functions
+- Exception handling
+- Errors and warnings
+- progress and timing
+
+* Exercises: special functions
+* Exercises: exceptions and errors
+* Exercises: progress and timing

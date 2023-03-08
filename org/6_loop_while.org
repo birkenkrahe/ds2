@@ -367,19 +367,11 @@ Factorial 479001600
 [1] 1
 #+end_example
 
-* TODO More exercises
-#+attr_latex: :width 400px
-[[../img/exercise.jpg]]
-
-Download the *raw* exercise file [[https://github.com/birkenkrahe/ds2/tree/main/org][from GitHub]] and save it as
-~6_loop_while_exercise.org~. When done, upload the file to Canvas.
-
 * TODO Glossary
 
 | TERM  | MEANING                            |
 |-------+------------------------------------|
 | ~while~ | loop while /loopcondition/ is ~TRUE~ |
-
 
 * References
 

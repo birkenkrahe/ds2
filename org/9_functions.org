@@ -1,4 +1,4 @@
-#+TITLE:Writing Your Own Functions
+#+TITLE: Writing Your Own Functions
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE:DSC205 Introduction to Advanced Data Science
 #+STARTUP:overview hideblocks indent
@@ -121,26 +121,48 @@
   ask_chatgpt("what's the command in R to define a function?\n")
 #+end_src
 
-* NEXT Example: Fibonacci sequence generator
+* NEXT WILL SOMEONE PLEASE HAVE LUNCH WITH JACKSON S.?
+#+attr_latex: :width 400px
+#+caption: Photo by Henrikke Due on Unsplash
+[[../img/please.jpg]]
 
-- Remember the Fibonacci sequence generator (cut off at 150):
-  #+name: fib
++ His name is *Jackson Shurley* (computer science or data science)
++ He's already accepted at Lyon and will attend our *Friday* class
++ If you're OK to have lunch with him at *11.30 AM this Friday*, mail
+  *Dana Bennett* and they'll bring him to Ed's commons at 11.30 AM
++ After lunch, please *escort him* to our classroom *by 12.30 AM* so that
+  he can a have chat with me!
+
+* Example: Fibonacci sequence generator
+
+- Remember the Fibonacci sequence generator (cut off at 150)?
+
+- Pseudocode
+  #+begin_example sh
+   INITIALIZE SEQUENCE/COUNTER
+   REPEAT
+     INCREASE COUNTER
+     COMPUTE NEW VALUE
+     APPEND TO SEQUENCE
+     CHECK IF VALUE > 150
+  #+end_example
+
+- R code block (named "fibonacci")
+  #+name: fibonacci
   #+begin_src R :results output
     fib <- rep(NA,10); fib[2] <- fib[1] <- 1; i = 2 # initialize
-    repeat { i <- i + 1 # count up
-      append(fib,fib[i] <- fib[i-2] + fib[i-1])
+    repeat { i <- i + 1 # counter
+      append(fib,fib[i] <- fib[i-2] + fib[i-1]) # build sequence
       if (fib[i] > 150) break # break for values > 150  
     }
     fib
   #+end_src
 
-  #+RESULTS: fib
-  :  [1]   1   1   2   3   5   8  13  21  34  55  89 144 233
-
 - Turn the Fibonacci sequence generator into a function ~myfib~:
   1) Use ~function~ to create the function ~myfib~
-  2) Check the package environment with ~search~
-  3) Run the function ~myfib~
+  2) Use << and >> to include the named code block above.
+  3) Check the package environment with ~search~
+  4) Run the function ~myfib~
   #+begin_src R
     ...
   #+end_src
@@ -148,29 +170,22 @@
 - Solution:
   #+begin_src R
     myfib <- function() {
-      <<fib>>
+      <<fibonacci>>
       }
     search()
     myfib()
   #+end_src
 
-  #+RESULTS:
-  :  [1] ".GlobalEnv"        "ESSR"              "package:stats"    
-  :  [4] "package:graphics"  "package:grDevices" "package:utils"    
-  :  [7] "package:datasets"  "package:stringr"   "package:httr"     
-  : [10] "package:methods"   "Autoloads"         "package:base"
-  :  [1]   1   1   2   3   5   8  13  21  34  55  89 144 233
-
 * Adding arguments
 
-    - Modify ~myfib~ to take a single argument, ~threshold~, to ~break~ off the
-      generator (e.g. ~threshold=150~):
+    - Modify ~myfib~ to take a single argument, ~threshold~, to ~break~ off
+      the generator (e.g. ~threshold=150~):
       1) modify the code block "fib_threshold" below accordingly.
       2) create a code block for ~myfib2~ that takes the ~threshold~ argument
       3) ~return~ the result ~fib~ 
       4) search the list of user-defined objects for "myfib2"
-      5) Run ~myfib2~ for different values of ~threshold~: {150, 250,
-         100000, 1000000}
+      5) Run ~myfib2~ for ~threshold =~ 150, 250, 100000, 1000000
+      6) Run the function individually first, then in a loop
       #+name: fib_threshold
       #+begin_src R
         fib <- rep(NA,10); fib[2] <- fib[1] <- 1; i = 2 # initialize
@@ -180,40 +195,47 @@
         }
       #+end_src
       #+begin_src R
-        ...
+        ## your solution here
       #+end_src
-
-    - Solution:
-      #+name: fib_threshold_solution
+    - Solution I: initialize
+      #+name: initialize_fibonacci
       #+begin_src R
         fib <- rep(NA,10); fib[2] <- fib[1] <- 1; i = 2 # initialize
+      #+end_src
+    - Solution II: function body
+      #+name: fib_threshold_solution
+      #+begin_src R
+        <<initialize_fibonacci>>
         repeat { i <- i + 1 # count up
           append(fib,fib[i] <- fib[i-2] + fib[i-1])
           if (fib[i] > threshold) break # break for values > threshold
         }
       #+end_src
+    - Solution III: function definition
       #+begin_src R
         myfib2 <- function(threshold) {
           <<fib_threshold_solution>>
           return (fib)
         }
-        ls()[which(ls()=="myfib2")]
-        myfib2(threshold=1e6)
       #+end_src
-
+    - Solution IV: execution
+      #+begin_src R
+        ls()[which(ls()=="myfib2")]  # print function name if it's loaded
+        ## define vector of arguments
+        threshold <- c(150, 250, 1e5, 1e6);
+        ## loop over threshold
+        for (i in threshold) {
+          print(myfib2(i))
+        }
+      #+end_src            
     - Print only those results of ~myfib2(1e6)~ that are greater than 150
       and smaller than 500,000:
       1) Save ~myfib2(threshold=1e6)~ in an object ~foo~
-      2) Subset ~foo~ accordingly
+      2) Subset ~foo~ so that only the range (150,500000) is printed
       #+begin_src R
         foo <- myfib2(1e6)
-        subset(foo,foo>150 & foo <500000)
+        subset(foo,foo>150 & foo <5e5)
       #+end_src
-
-      #+RESULTS:
-      :  [1]    233    377    610    987   1597   2584   4181   6765  10946  17711
-      : [11]  28657  46368  75025 121393 196418 317811
-
 * Using ~return~
 
 - If there is no ~return~ statement inside a function, the function will
@@ -243,7 +265,7 @@
 
 - ~dummy1~ assigns four objects in its lexical (not global) environment.
 
-- ~dummy2~ returns ~dd~ to the global environment.
+- ~dummy2~ returns the value of ~dd~ to global but not the variable.
 
 - Assign ~dummy1~ and ~dummy2~ to ~foo~ and ~bar~, respectively:
   #+begin_src R
@@ -277,7 +299,7 @@
 - Only ~aa~ is returned because the function exits at that point. The
   last three lines will never be executed.
 
-- Which code would return all four objects?
+- Which code would return all four values?
   #+begin_src R
     dummy4 <- function() {
       <<dummy_code>>
@@ -291,30 +313,80 @@
       <<dummy_code>>
       return (c(aa,bb,cc,dd))
     }
-    dummy4()
+    return <- dummy4()
+    return # all values are returned to global
+    names(return) # the element names are lost to global
+  #+end_src
+
+* Exercise: write a factorial function
+
+- Preparation: accept ~int~ as an argument to a function ~myfac~, set its default value
+  to 1, then print ~int~ in the body of the function:
+  #+begin_src R
+
+  #+end_src
+
+- Solution:
+  #+begin_src R
+    myfac <- function(int=1) print(int)
+    myfac()
+    myfac(5)
+  #+end_src
+
+- Expand ~myfac~ to include the computation of ~int!~ and test it for:
+  1) 1! = 1
+  2) 5! = 120
+  3) 12! = 479,001,600
+  4) 1! = 1
+
+- The pseudocode for the function body is as follows:
+  #+begin_example sh
+  INITIALIZE fac as 1
+  WHILE int GREATER 1
+    fac * int -> fac   ## so int! = int * int-1 * int-2 * ...
+    int - 1
+  #+end_example
+
+- Solution:
+  #+begin_src R
+    myfac <- function(int=1) {
+      fac <- 1
+      while (int > 1) {
+        fac * int -> fac
+        int - 1   -> int
+      } # end of while
+      return (fac)
+    } # end of function
+    ## test the function
+    myfac()
+    myfac(1)
+    myfac(5)
+    myfac(12)
+    myfac(0)
   #+end_src
 
   #+RESULTS:
-  : [1] "2.5"             "string me along" "string 'em up"   "4"              
-  : [5] "5"               "6"               "7"               "8"
-  
-* Footnotes
+  : [1] 1
+  : [1] 1
+  : [1] 120
+  : [1] 479001600
+  : [1] 1
 
-[fn:3]When you run this, you get the same result, but you should still
-check identity, e.g. using the ~identical~ function:
-#+begin_src R :session
-  m1 <- mean(nileSubsetGT1200)
-  m2 <- mean(Nile[Nile>1200])
-  identical(m1,m2) # identity check
-#+end_src
+- What happens if you remove the default and feed the function with a
+  negative or non-integer value?
 
-[fn:2]Challenge: write a function that tells you if a data set is
-built-in or not. ~data()~ is already that function, because if the
-dataset exists, it loads it, but what if we want a ~logical~ answer?
+- *Extension:* write another version of your factorial function, naming
+  it ~myfac2~. This time, assume ~int~ will be supplied as an integer, but
+  not that it will be non-negative. If negative, the function should
+  return ~NaN~. Test it on the values 1, 5, 12, 0, and -6.
 
-[fn:1]~return~ specifically is not needed because by default R returns
-the last value computed. ~{~ and ~return~ are both functions,
-too. Check that by looking at their respective help pages. ~{~ and ~(~
-are *primitive* functions, while ~return~ and other self-defined
-functions like ~mgd~ are *closures*. You can check that with the
-(storage) ~typeof~ function.
+- R has a ~base::factorial~ function, defined via the Gamma function:
+  #+attr_latex: :width 200px
+  [[../img/gamma.png]]
+  #+begin_src R
+    factorial(1)
+    factorial(5)
+    factorial(12)
+    factorial(0)
+    factorial(-6)
+  #+end_src

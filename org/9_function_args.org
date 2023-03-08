@@ -1,0 +1,32 @@
+#+TITLE: FUNCTION ARGUMENTS
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE:DSC205 Introduction to Advanced Data Science
+#+STARTUP:overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :exports both :results output :session *R* :noweb yes
+* Arguments
+#+attr_latex: :width 400px
+[[../img/9_argument.jpg]]
+
+- Watch: [[https://youtu.be/ohDB5gbtaEQ]["The Argument" by Monty Python]] (the British comedy group that
+  gave the "Python" programming language its name).
+
+- The English word 'argument' comes from Latin /argumentum/ for /make
+  clear, prove, accuse/, and stands for any 'process of reasoning'.
+
+- Here: default arguments, missing argument values, and passing extra
+  arguments using ellipses (...)
+
+* Lazy argument evaluation
+
+* Setting default arguments
+
+* Checking for missing arguments
+
+* Dealing with ellipses
+
+* Exercises
+
+* References
+
+Argument Clinic. URL: [[https://en.wikipedia.org/wiki/Argument_Clinic][wikipedia.org]]. Complete sketch on [[https://www.dailymotion.com/video/x2hwqn9][dailymotion]].
