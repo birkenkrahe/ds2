@@ -76,17 +76,35 @@ This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/mai
   4) search the list of user-defined objects for "myfib2"
   5) Run ~myfib2~ for different values of ~threshold~: {150, 250,
      100000, 1000000}
+
+  Create a code block to initialized the sequence:
+  #+name: initialize_fibonacci
+  #+begin_src R :results silent
+    fib <- rep(NA,10);
+    fib[2] <- fib[1] <- 1;
+    i = 2
+    threshold <- 1
+  #+end_src
+
+  When you use ~threshold~, this code block is no longer executable
   #+name: fib_threshold
-  #+begin_src R
-    fib <- rep(NA,10); fib[2] <- fib[1] <- 1; i = 2 # initialize
+  #+begin_src R :results silent
+    <<initialize_fibonacci>>
     repeat { i <- i + 1 # count up
       append(fib,fib[i] <- fib[i-2] + fib[i-1])
-      if (fib[i] > ...) break # break for values > threshold
+      if (fib[i] > threshold) break # break for values > threshold
     }
   #+end_src
+
   #+begin_src R
-    ## your solution here
+    myfib2 <- function(threshold) {
+      <<fib_threshold>>
+    }
+    myfib2(threshold=150)
   #+end_src
+
+  #+RESULTS:
+  :  [1]  1  1  2 NA NA NA NA NA NA NA
 
 - Print only those results of ~myfib2(1e6)~ that are greater than 150
   and smaller than 500,000:
