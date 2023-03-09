@@ -3,7 +3,7 @@
 #+SUBTITLE:DSC205 Introduction to Advanced Data Science
 #+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
-#+PROPERTY: header-args:R :exports both :results output :session *R* :noweb yes
+#+PROPERTY: header-args:R :exports both :results output :session *R* :noweb yes :exports both
 * README
 
 - Creating ~function~ objects

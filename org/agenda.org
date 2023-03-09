@@ -707,7 +707,7 @@ Let's try this!
 #+attr_latex: :width 400px
 [[../img/msg_week_8.png]]
 
-* IN PROGRESS Week 9 - ~function~ creation and arguments
+* Week 9 - ~function~ creation and arguments
 #+attr_latex: :width 400px
 [[../img/function.jpg]]
 
@@ -718,8 +718,8 @@ Let's try this!
 - [X] [[https://lyon.instructure.com/courses/1041/assignments/9014][Literature review (2nd sprint review) by end of next week]]!
 
 *THIS WEEK*:
-- [ ] Writing functions with/without arguments with ~function~
-- [ ] Returning results with/without ~return~
+- [X] Writing functions with/without arguments with ~function~
+- [X] Returning results with/without ~return~
 - [ ] Setting (default) arguments, checking for missing arguments
 - [ ] Exception handling, timing and masking
 
