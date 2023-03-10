@@ -1,0 +1,198 @@
+#+TITLE: FUNCTION ARGUMENTS - CODEALONG PRACTICE FILE
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE:DSC205 Introduction to Advanced Data Science
+#+STARTUP:overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :exports both :results output :session *R* :noweb yes
+* UPDATE #+AUTHOR NAME AND PLEDGE!
+* Intermission: matrix multiplication
+
+- Example: create two matrices, print them and check their dimension:
+  #+name: matrices_A_B
+  #+begin_src R 
+    A <- rbind(c(2,5,2),  # rbind is filled by row
+               c(6,1,4))
+    B <- cbind(c(3,-1,1),  # cbind is filled by column
+               c(-3,1,5))
+  #+end_src
+
+- Let's write a function ~multiply~ to check compatibility and run it:
+  1) ~function~ arguments are matrices ~A~ and ~B~.
+  2) test if ~ncol(A)~ is equal to ~nrow(B)~
+  3) multiply if ~TRUE~, otherwise print message
+  4) test the function on the globally defined ~A~ and ~B~ matrices
+  #+name: f_multiply
+  #+begin_src R
+    ## define function with args A and B
+
+      ## check if A and B are compatible for multiplication
+      ## if so, return their product
+      ## otherwise, let the user know (why)
+
+      ## test your function with the previously defined matrices
+      <<matrices_A_B>>
+
+  #+end_src
+
+- Solution for ~multiply~:
+  #+name: f_multiply_
+  #+begin_src R
+    multiply_ <- function(A,B) {
+      if (ncol(A) == nrow(B)) {
+        return (A %*%B)
+      } else {
+        paste("Not compatible:", ncol(A), "!=", nrow(B))
+      }
+    }
+    <<matrices_A_B>>
+    multiply_(A,B)
+  #+end_src
+  
+- Matrix multiplication is generally not commutative. Check that by
+  running ~multiply~ on ~B~ and ~A~ in reverse order from before:
+  #+begin_src R
+    ## multiply B and A
+    
+  #+end_src
+
+- Finally, test the function on two incompatible matrices ~C~ and ~D~:
+  #+begin_src R
+    C <- matrix(1:4,2)
+    D <- matrix(1:9,3)
+    ## multiply C and D
+  #+end_src
+
+* Example: multiple ~function~ arguments
+
+- Pseudocode for the function body (objects marked with ~$~):
+  #+begin_src sh
+    $flag matrices in the list $x  
+    If $x contains no matrices
+      return $str1
+    Otherwise:
+      Make index from $flag
+      Initialize matrix $counter and $result list
+      Loop over matrices
+         Store matrix in $temp
+         If matrix is compatible with mat
+            Increase matrix counter
+            Multiply $temp and $mat, store in $result
+      If $counter is 0 (no compatible matrices)
+         return $str2
+      Otherwise:
+         return $result of matrix multiplication
+  #+end_src
+
+- Let's code the function ~mult1~ with arguments ~x~, ~mat~, ~str1~, ~str2~:
+  #+name: mult1
+  #+begin_src R :results silent
+
+      ## $flag matrices - use 'sapply', FUN=is.matrix
+
+      ## check if $x has 'any' matrices, otherwise 'return' $str1
+
+      ## $x contains matrices! make index vector $idx from $flag
+
+      ## initialize matrix $counter to 0, and empty $result list
+
+      ## loop over matrices (use $idx as loopindex)
+
+        ## store $x in $temp
+
+        ## check if dim of $x and $mat are compatible
+
+      ## check if $counter is still 0 then 'return' $str2
+      ## otherwise 'return' $result
+
+  #+end_src
+
+- Solution:
+  #+begin_src R
+    mult1 <- function(x,mat,str1,str2) {
+      flag <- sapply(x, FUN=is.matrix)
+      if(!any(flag)) return (str1)
+      idx <- which(flag)
+      counter <- 0
+      result <- list()
+      for (i in idx) {
+        x[[i]] -> temp
+        if (ncol(temp) == nrow(mat)) {
+          counter <- counter + 1
+          temp %*% mat -> result[[counter]]
+        }
+      }
+      if (counter == 0) {
+        return (str2)
+      } else {
+        return (result)
+      }
+    } 
+  #+end_src
+
+- Test suite with three ~list~ objects ~foo~, ~bar~ and ~baz~:
+  #+name: matrices
+  #+begin_src R :results silent
+    foo <- list(matrix(1:4,2,2),
+                "not a matrix",
+                "definitely not a matrix",
+                matrix(1:8,2,4),
+                matrix(1:8,4,2))
+    bar <- list(1:4,
+                "not a matrix",
+                c(F,T,T,T),
+                "??")
+    baz <- list(1:4,
+                "not a matrix",
+                c(F,T,T,T),
+                "??",
+                matrix(1:8,2,4))
+  #+end_src  
+
+- Test ~mult1~ with ~foo~ and set ~mat~ to the 2 x 2 identity matrix - so
+  that post-multiplying any matrix with ~mat~ will simply return the
+  original matrix, as well as appropriate messages ~str1~, ~str2~:
+  #+begin_src R
+    <<matrices>>
+    <<mult1>>
+    mult1(x = ...
+          mat = ...
+          str1 = "no matrices in x",
+          str2 = "no compatible matrices in x")
+  #+end_src
+
+- Test ~mult1~ with ~bar~, which has no matrices at all, and the same
+  arguments otherwise:
+  #+begin_src R
+    <<matrices>>
+    <<mult1>>
+    mult1(x = ...
+          mat = ...
+          str1 = "no matrices in x",
+          str2 = "no compatible matrices in x")
+  #+end_src
+
+- Finally, test ~mult1~ with ~baz~, which has one matrix but no
+  compatibility for multiplication with ~mat~:
+  #+begin_src R
+    <<matrices>>
+    <<mult1>>
+    mult1(x = ...
+          mat = ...
+          str1 = "no matrices in x",
+          str2 = "no compatible matrices in x")
+  #+end_src
+
+- Run ~mult1~ again only for ~x~ and ~mat~:
+  #+begin_src R
+    <<matrices>>
+    <<mult1>>
+    ...
+  #+end_src
+
+- However, for ~x=bar~ this will not work - an argument is missing:
+  #+begin_src R
+    <<matrices>>
+    <<mult1>>
+    ...
+  #+end_src
+  

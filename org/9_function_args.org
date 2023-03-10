@@ -19,15 +19,273 @@
 
 * Lazy argument evaluation
 
+- "Lazy" evaluation refers to the fact that expressions are evaluated
+  only when they're needed by the program (saving time and effort).
 
+- We're going to look at an extended working example: searching
+  through a ~list~ for ~matrix~ objects and trying to multiply them with
+  another ~matrix~ specified as a second argument.
 
-* Setting default arguments
+* Intermission: matrix multiplication
 
-* Checking for missing arguments
+- In order to multiply two matrices A and B of size m x n and p x q,
+  it must be true that n = p (column length of A == row length of B).
+  #+attr_latex: :width 400px
+  [[../img/9_matmult.png]]
 
-* Dealing with ellipses
+- Unlike ~matrix~ addition, subtraction and scalar multiplication (with
+  a number), matrix multiplication is not an element-wide operation,
+  and the operator is not ~*~ but instead ~%*%~.
 
-* Exercises
+- Example: create two matrices, print them and check their dimension:
+  #+name: matrices_A_B
+  #+begin_src R
+    A <- rbind(c(2,5,2),  # rbind is filled by row
+               c(6,1,4))
+    ## check dimension
+    B <- cbind(c(3,-1,1),  # cbind is filled by column
+               c(-3,1,5))
+    ## check dimension
+  #+end_src
+
+- Let's write a function ~multiply~ to check compatibility and run it:
+  1) ~function~ arguments are matrices ~A~ and ~B~.
+  2) test if ~ncol(A)~ is equal to ~nrow(B)~
+  3) multiply if ~TRUE~, otherwise print message
+  4) test the function on the globally defined ~A~ and ~B~ matrices
+     #+name: f_multiply
+     #+begin_src R
+    ## define function with args A and B
+
+      ## check if A and B are compatible for multiplication
+      ## if so, return their product
+      ## otherwise, let the user know (why)
+
+      ## test your function with the previously defined matrices
+      <<matrices_A_B>>
+
+     #+end_src
+
+- Solution for ~multiply~:
+  #+name: f_multiply_
+  #+begin_src R
+    multiply <- function(A,B) {
+      if (ncol(A) == nrow(B)) {
+        A %*%B
+      } else {
+        paste("Not compatible:", ncol(A), "!=", nrow(B))
+      }
+    }
+    <<matrices_A_B>>
+    multiply(A,B)
+  #+end_src
+
+- Matrix multiplication is generally not commutative. Check that by
+  running ~multiply~ on ~B~ and ~A~ in reverse order from before:
+  #+begin_src R
+    ## multiply B and A
+    
+  #+end_src
+
+- Finally, test the function on two incompatible matrices ~C~ and ~D~:
+  #+begin_src R
+    C <- matrix(1:4,2)
+    D <- matrix(1:9,3)
+    ## multiply C and D
+    
+  #+end_src
+
+* Example: multiple ~function~ arguments
+
+- Write a function ~mult1~ that accepts as arguments:
+  1) a list ~x~
+  2) a matrix ~mat~
+  3) two strings ~str1~ and ~str2~
+
+- The function will search through ~x~, look for matrices that can be
+  multiplied with ~mat~, and store the return the result in a new list.
+
+- If no (compatible) matrices are in the supplied list ~x~, the user
+  should be informed of these facts.
+
+- Pseudocode for the function body (objects marked with ~$~):
+  #+begin_src sh
+    $flag matrices in the list $x
+    If $x contains no matrices
+    return $str1
+    Otherwise:
+    Make index from $flag
+    Initialize matrix $counter and $result list
+    Loop over matrices
+    Store matrix in $temp
+    If matrix is compatible with mat
+    Increase matrix counter
+    Multiply $temp and $mat, store in $result
+    If $counter is 0 (no compatible matrices)
+    return $str2
+    Otherwise:
+    return $result of matrix multiplication
+  #+end_src
+
+- Let's code the function ~mult1~ with arguments ~x~, ~mat~, ~str1~, ~str2~:
+  #+name: mult1
+  #+begin_src R :results silent
+
+      ## $flag matrices - use 'sapply', FUN=is.matrix
+
+      ## check if $x has 'any' matrices, otherwise 'return' $str1
+
+      ## $x contains matrices! make index vector $idx from $flag
+
+      ## initialize matrix $counter to 0, and empty $result list
+
+      ## loop over matrices (use $idx as loopindex)
+
+        ## store $x in $temp
+
+        ## check if dim of $x and $mat are compatible
+
+      ## check if $counter is still 0 then 'return' $str2
+      ## otherwise 'return' $result
+
+  #+end_src
+
+- Solution:
+  #+begin_src R
+    mult1 <- function(x,mat,str1,str2) {
+      flag <- sapply(x, FUN=is.matrix)
+      if(!any(flag)) return (str1)
+      idx <- which(flag)
+      counter <- 0
+      result <- list()
+      for (i in idx) {
+        x[[i]] -> temp
+        if (ncol(temp) == nrow(mat)) {
+          counter <- counter + 1
+          temp %*% mat -> result[[counter]]
+        }
+      }
+      if (counter == 0) {
+        return (str2)
+      } else {
+        return (result)
+      }
+    }
+  #+end_src
+
+- Test suite with three ~list~ objects ~foo~, ~bar~ and ~baz~
+  #+name: matrices
+  #+begin_src R :results silent
+    foo <- list(matrix(1:4,2,2),
+                "not a matrix",
+                "definitely not a matrix",
+                matrix(1:8,2,4),
+                matrix(1:8,4,2))
+    bar <- list(1:4,
+                "not a matrix",
+                c(F,T,T,T),
+                "??")
+    baz <- list(1:4,
+                "not a matrix",
+                c(F,T,T,T),
+                "??",
+                matrix(1:8,2,4))
+  #+end_src
+
+- Test ~mult1~ with ~foo~ and set ~mat~ to the 2 x 2 identity matrix - so
+  that post-multiplying any matrix with ~mat~ will simply return the
+  original matrix, as well as appropriate messages ~str1~, ~str2~:
+  #+begin_src R
+    <<matrices>>
+    <<mult1>>
+    mult1(x = foo,
+          mat = diag(2),
+          str1 = "no matrices in x",
+          str2 = "no compatible matrices in x")
+  #+end_src
+
+- Test ~mult1~ with ~bar~, which has no matrices at all, and the same
+  arguments otherwise:
+  #+begin_src R
+    <<matrices>>
+    <<mult1>>
+    mult1(x = bar,
+          mat = diag(2),
+          str1 = "no matrices in x",
+          str2 = "no compatible matrices in x")
+  #+end_src
+
+  #+RESULTS:
+  : [1] "no matrices in x"
+
+- Finally, test ~mult1~ with ~baz~, which has one matrix but no
+  compatibility for multiplication with ~mat~:
+  #+begin_src R
+    <<matrices>>
+    <<mult1>>
+    mult1(x = baz,
+          mat = diag(2),
+          str1 = "no matrices in x",
+          str2 = "no compatible matrices in x")
+  #+end_src
+
+  #+RESULTS:
+  : [1] "no compatible matrices in x"
+
+- Notice that the string arguments ~str1~ and ~str2~ are used only when
+  the argument ~x~ does not contain a matrix with the appropriate
+  dimensions.
+
+- R evaluates the arguments "lazily": argument values are sought only
+  when they are required during execution. For ~x=foo~ you could lazily
+  ignore the string arguments.
+
+- Run ~mult1~ again only for ~x~ and ~mat~:
+  #+begin_src R
+    <<matrices>>
+    <<mult1>>
+    mult1(x=foo,mat=diag(2))
+  #+end_src
+
+  #+RESULTS:
+  #+begin_example
+  [[1]]
+       [,1] [,2]
+  [1,]    1    3
+  [2,]    2    4
+
+  [[2]]
+       [,1] [,2]
+  [1,]    1    5
+  [2,]    2    6
+  [3,]    3    7
+  [4,]    4    8
+  #+end_example
+
+- However, for ~x=bar~ this will not work - an argument is missing:
+  #+begin_src R
+    <<matrices>>
+    <<mult1>>
+    mult1(x=bar,mat=diag(2))
+  #+end_src
+
+  #+RESULTS:
+  : Error in mult1(x = bar, mat = diag(2)) :
+  :   argument "str1" is missing, with no default
+
+* TODO Setting default arguments
+
+- Extend your practice file ~9_function_args_practice.org~ with this
+  (raw) Org-mode code: bit.ly...
+
+- Copy it from the browser and insert it at the end of your existing
+  practice file (~C-y~), or insert it from the saved file (~C-x i~)
+
+* TODO Checking for missing arguments
+
+* TODO Dealing with ellipses
+
+* TODO Exercises
 
 * References
 
@@ -42,5 +300,5 @@ Jesuits for being great at arguing - something you could see in the
 Q&A session after Gr. Guy's talk on "Astronomy, Religion and the Art
 of Storytelling". One could argue that any story contains at least one
 argument (a complete process of reasoning), and that the best
-arguments are constructed like stories (remember the Freytag curve,
+arguments are constructed like stories (remember [[https://github.com/birkenkrahe/ds2/blob/main/img/storytelling.png][the Freytag curve]],
 which I've also used in [[https://www.researchgate.net/publication/265515052_Using_storytelling_methods_to_improve_emotion_motivation_and_attitude_of_students_writing_scientific_papers_and_theses][my paper on scientific storytelling]]).
