@@ -43,4 +43,4 @@ Q&A session after Gr. Guy's talk on "Astronomy, Religion and the Art
 of Storytelling". One could argue that any story contains at least one
 argument (a complete process of reasoning), and that the best
 arguments are constructed like stories (remember the Freytag curve,
-which I've also used in my paper on scientific storytelling).
+which I've also used in [[https://www.researchgate.net/publication/265515052_Using_storytelling_methods_to_improve_emotion_motivation_and_attitude_of_students_writing_scientific_papers_and_theses][my paper on scientific storytelling]]).
