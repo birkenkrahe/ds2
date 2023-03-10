@@ -12,12 +12,14 @@
   gave the "Python" programming language its name).
 
 - The English word 'argument' comes from Latin /argumentum/ for /make
-  clear, prove, accuse/, and stands for any 'process of reasoning'.
+  clear, prove, accuse/, and stands for any 'process of reasoning'[fn:1].
 
 - Here: default arguments, missing argument values, and passing extra
   arguments using ellipses (...)
 
 * Lazy argument evaluation
+
+
 
 * Setting default arguments
 
@@ -30,3 +32,15 @@
 * References
 
 Argument Clinic. URL: [[https://en.wikipedia.org/wiki/Argument_Clinic][wikipedia.org]]. Complete sketch on [[https://www.dailymotion.com/video/x2hwqn9][dailymotion]].
+
+* Footnotes
+
+[fn:1] Since I'm writing this lecture on the eve of the visit of the
+"Pope's astronomer", Br. Guy Consolmagno, a Jesuit and astronomer to
+Pope Francis (another Jesuit), I am reminded of the reputation of
+Jesuits for being great at arguing - something you could see in the
+Q&A session after Gr. Guy's talk on "Astronomy, Religion and the Art
+of Storytelling". One could argue that any story contains at least one
+argument (a complete process of reasoning), and that the best
+arguments are constructed like stories (remember the Freytag curve,
+which I've also used in my paper on scientific storytelling).
