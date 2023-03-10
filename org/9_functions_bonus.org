@@ -1,0 +1,79 @@
+#+TITLE: FUNCTIONS - BONUS ASSIGNMENT
+#+AUTHOR: [yourName] (yourPledge)
+#+SUBTITLE: DSC 205 - Advanced introduction to data science
+#+STARTUP: overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
+* README
+
+- This BONUS PROBLEM file accompanies the [[https://github.com/birkenkrahe/ds2/blob/main/org/9_functions.org][lecture]] on ~function~
+- Complete and submit the completed Org-mode file in Canvas
+- Bonus points contribute to your final grade as "home assignments"
+- The "literate quality" of the submission will count for your final
+  points
+- The solution will be published as a PDF after the deadline has
+  passed.
+
+* TODO Identify and pledge yourself
+
+1) In Emacs, replace the placeholder ~[yourname]~ at the top of this
+   file by your own name and write ~(pledged)~ next to it
+2) Go with the cursor on the headline and hange the ~TODO~ label to ~DONE~
+   by entering ~S-<right>~ ("Shift + right-arrow").
+
+* TODO Bonus exercise: write a factorial function
+
+1) Complete the exercise and [[https://lyon.instructure.com/courses/1041/assignments/9232][submit it as an org-file in canvas]]. We
+   already wrote the code for a factorial together, [[https://github.com/birkenkrahe/ds2/blob/main/org/6_loop_while.org#exercise---factorials][in this lesson]].
+
+2) As a preparation, accept ~int~ as an argument to a function ~myfac~,
+   set its default value to 1, then print ~int~ in the body of the
+   function:
+   #+begin_src R
+     myfac <- function(int=1) print(int)
+     myfac()
+     myfac(5)
+   #+end_src
+
+4) Now expand ~myfac~ to include the computation of ~int!~ and test it for:
+   1) 1! = 1
+   2) 5! = 120
+   3) 12! = 479,001,600
+   4) 1! = 1
+
+5) Reminder: the pseudocode for the function body is as follows:
+   #+begin_example sh
+   INITIALIZE fac as 1
+   WHILE int GREATER 1
+     fac * int -> fac   ## so int! = int * int-1 * int-2 * ...
+     int - 1
+   #+end_example
+
+6) Solution:
+   #+begin_src R
+     ...
+     ## test the function
+     myfac()
+     myfac(1)
+     myfac(5)
+     myfac(12)
+     myfac(0)
+   #+end_src
+
+7) What happens if you remove the default and feed the function with a
+   negative or non-integer value? Try it!
+
+8) *Extension for extra points:* write another version of your
+   factorial function, naming it ~myfac2~. This time, assume ~int~ will be
+   supplied as an integer, but not that it will be non-negative. If
+   negative, the function should return ~NaN~. Test it on the values 1,
+   5, 12, 0, and -6.
+
+9) FYI: R has a ~factorial~ function, defined via the Gamma function:
+   #+begin_src R
+     factorial(1)
+     factorial(5)
+     factorial(12)
+     factorial(0)
+     factorial(-6)
+   #+end_src
