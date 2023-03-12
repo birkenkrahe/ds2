@@ -734,8 +734,13 @@ Let's try this!
 - [X] https://github.com/birkenkrahe/snap
 
 * TODO Week 10 - special functions and exceptions
+#+attr_latex: :width 400px
+#+caption: Photo by Ricardo Gomez Angel on Unsplasy
+[[../img/exception.jpg]]
 
-
+- Download the new (partially filled) version of the practice file
+- Continue alongside the lecture on function arguments
+- Keep up your DataCamp practice streak and solve the bonus problems
 
 * TODO Week 11 - utilities
 * TODO Week 12 - text mining with bag-of-words
