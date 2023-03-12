@@ -73,7 +73,7 @@ be very subtle and/or elude researchers' conscious control. Data, for
 example, can be “cooked” (a process which mathematician Charles
 Babbage in 1830 defined as “an art of various forms, the object of
 which is to give to ordinary observations the appearance and character
-of those of the highest degree of accuracy”[12]); it can be “mined” to
+of those of the highest degree of accuracy”); it can be “mined” to
 find a statistically significant relationship that is then presented
 as the original target of the study; it can be selectively published
 only when it supports one's expectations; it can conceal conflicts of
