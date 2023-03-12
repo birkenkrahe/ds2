@@ -742,6 +742,18 @@ Let's try this!
 - Continue alongside the lecture on function arguments
 - Keep up your DataCamp practice streak and solve the bonus problems
 
+*REVIEW:*
+1) What does "lazy argument evaluation" mean?
+2) How can you multiply two matrices in R?
+3) 2 * 4 = 4 * 2 but is A * B = B * A if A,B are matrices?
+4) What do you remember about the last algorithm we looked at?
+   #+attr_latex: :width 400px
+   #+caption: BPMN diagram (main process)
+   [[../img/9_mult1.png]]
+   #+attr_latex: :width 250px
+   #+caption: BPMN diagram (subprocess)
+   [[../img/9_mult1_sub.png]]
+   
 * TODO Week 11 - utilities
 * TODO Week 12 - text mining with bag-of-words
 * TODO Week 13 - data science on the command line

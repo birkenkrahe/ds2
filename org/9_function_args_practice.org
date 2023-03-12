@@ -51,23 +51,23 @@
 * Example: multiple ~function~ arguments
 
 - Pseudocode for the function body (objects marked with ~$~):
-  #+begin_src sh
-    $flag matrices in the list $x  
+  #+begin_example sh
+    $flag matrices in the list $x
     If $x contains no matrices
-      return $str1
+       return $str1
     Otherwise:
-      Make index from $flag
-      Initialize matrix $counter and $result list
-      Loop over matrices
+       Make index from $flag
+       Initialize matrix $counter and $result list
+       Loop over matrices
          Store matrix in $temp
          If matrix is compatible with mat
-            Increase matrix counter
+            Increase matrix counter by 1
             Multiply $temp and $mat, store in $result
-      If $counter is 0 (no compatible matrices)
+       If $counter is 0 (no compatible matrices)
          return $str2
-      Otherwise:
+       Otherwise:
          return $result of matrix multiplication
-  #+end_src
+  #+end_example
 
 - Let's code the function ~mult1~ with arguments ~x~, ~mat~, ~str1~, ~str2~:
   #+name: mult1
