@@ -734,6 +734,9 @@ Let's try this!
 - [X] https://github.com/birkenkrahe/snap
 
 * TODO Week 10 - special functions and exceptions
+
+
+
 * TODO Week 11 - utilities
 * TODO Week 12 - text mining with bag-of-words
 * TODO Week 13 - data science on the command line

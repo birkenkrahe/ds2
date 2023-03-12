@@ -17,7 +17,7 @@
 - Here: default arguments, missing argument values, and passing extra
   arguments using ellipses (...)
 
-* Lazy argument evaluation
+* DONE Lazy argument evaluation
 
 - "Lazy" evaluation refers to the fact that expressions are evaluated
   only when they're needed by the program (saving time and effort).
@@ -26,7 +26,7 @@
   through a ~list~ for ~matrix~ objects and trying to multiply them with
   another ~matrix~ specified as a second argument.
 
-* Intermission: matrix multiplication
+* DONE Intermission: matrix multiplication
 
 - In order to multiply two matrices A and B of size m x n and p x q,
   it must be true that n = p (column length of A == row length of B).
@@ -42,11 +42,26 @@
   #+begin_src R
     A <- rbind(c(2,5,2),  # rbind is filled by row
                c(6,1,4))
+    A
     ## check dimension
+    dim(A)
     B <- cbind(c(3,-1,1),  # cbind is filled by column
                c(-3,1,5))
     ## check dimension
+    B
+    dim(B)
   #+end_src
+
+  #+RESULTS: matrices_A_B
+  :      [,1] [,2] [,3]
+  : [1,]    2    5    2
+  : [2,]    6    1    4
+  : [1] 2 3
+  :      [,1] [,2]
+  : [1,]    3   -3
+  : [2,]   -1    1
+  : [3,]    1    5
+  : [1] 3 2
 
 - Let's write a function ~multiply~ to check compatibility and run it:
   1) ~function~ arguments are matrices ~A~ and ~B~.
@@ -55,21 +70,42 @@
   4) test the function on the globally defined ~A~ and ~B~ matrices
      #+name: f_multiply
      #+begin_src R
-    ## define function with args A and B
-
-      ## check if A and B are compatible for multiplication
-      ## if so, return their product
-      ## otherwise, let the user know (why)
-
-      ## test your function with the previously defined matrices
-      <<matrices_A_B>>
-
+       ## define function with args A and B
+       multiply <- function(A,B) {
+         ## check if A and B are compatible for multiplication
+         ## if so, return their product
+         ## otherwise, let the user know (why)
+         if(ncol(A) == nrow(B)) {
+           return (A %*% B)
+         } else {
+           paste("Matrices not compatible!")
+         }
+       }
+       ## test your function with the previously defined matrices
+       <<matrices_A_B>>
+       multiply(A,B)
      #+end_src
+
+     #+RESULTS: f_multiply
+     #+begin_example
+          [,1] [,2] [,3]
+     [1,]    2    5    2
+     [2,]    6    1    4
+     [1] 2 3
+          [,1] [,2]
+     [1,]    3   -3
+     [2,]   -1    1
+     [3,]    1    5
+     [1] 3 2
+          [,1] [,2]
+     [1,]    3    9
+     [2,]   21    3
+     #+end_example
 
 - Solution for ~multiply~:
   #+name: f_multiply_
   #+begin_src R
-    multiply <- function(A,B) {
+    multiply_ <- function(A,B) {
       if (ncol(A) == nrow(B)) {
         A %*%B
       } else {
@@ -77,25 +113,61 @@
       }
     }
     <<matrices_A_B>>
-    multiply(A,B)
+    multiply_(A,B)
   #+end_src
+
+  #+RESULTS: f_multiply_
+  #+begin_example
+       [,1] [,2] [,3]
+  [1,]    2    5    2
+  [2,]    6    1    4
+  [1] 2 3
+       [,1] [,2]
+  [1,]    3   -3
+  [2,]   -1    1
+  [3,]    1    5
+  [1] 3 2
+       [,1] [,2]
+  [1,]    3    9
+  [2,]   21    3
+  #+end_example
 
 - Matrix multiplication is generally not commutative. Check that by
   running ~multiply~ on ~B~ and ~A~ in reverse order from before:
   #+begin_src R
     ## multiply B and A
-    
+    multiply(B,A)
+    multiply(A,B)
   #+end_src
+
+  #+RESULTS:
+  :      [,1] [,2] [,3]
+  : [1,]  -12   12   -6
+  : [2,]    4   -4    2
+  : [3,]   32   10   22
+  :      [,1] [,2]
+  : [1,]    3    9
+  : [2,]   21    3
 
 - Finally, test the function on two incompatible matrices ~C~ and ~D~:
   #+begin_src R
-    C <- matrix(1:4,2)
-    D <- matrix(1:9,3)
+    C <- matrix(1:4,2); C
+    D <- matrix(1:9,3); D
     ## multiply C and D
-    
+    multiply_(C,D)
   #+end_src
 
-* Example: multiple ~function~ arguments
+  #+RESULTS:
+  :      [,1] [,2]
+  : [1,]    1    3
+  : [2,]    2    4
+  :      [,1] [,2] [,3]
+  : [1,]    1    4    7
+  : [2,]    2    5    8
+  : [3,]    3    6    9
+  : [1] "Not compatible: 2 != 3"
+
+* NEXT Example: multiple ~function~ arguments
 
 - Write a function ~mult1~ that accepts as arguments:
   1) a list ~x~
@@ -119,35 +191,47 @@
     Loop over matrices
     Store matrix in $temp
     If matrix is compatible with mat
-    Increase matrix counter
+    Increase matrix counter by 1
     Multiply $temp and $mat, store in $result
     If $counter is 0 (no compatible matrices)
     return $str2
     Otherwise:
     return $result of matrix multiplication
-  #+end_src
+                 #+end_src
 
 - Let's code the function ~mult1~ with arguments ~x~, ~mat~, ~str1~, ~str2~:
   #+name: mult1
   #+begin_src R :results silent
-
+    mult1 <- function(x, mat, str1, str2) {
       ## $flag matrices - use 'sapply', FUN=is.matrix
-
+      flag <- sapply(X=x, FUN=is.matrix)
       ## check if $x has 'any' matrices, otherwise 'return' $str1
-
+      if (!any(flag))  { # TRUE if there a no matrices in x
+        return(str1)
+      }
       ## $x contains matrices! make index vector $idx from $flag
-
-      ## initialize matrix $counter to 0, and empty $result list
-
+      idx <- which(flag) # TRUE for matrix elements of x
+      ## initialize matrix $counter to 0 and an empty $result list
+      counter <- 0
+      result <- list()
       ## loop over matrices (use $idx as loopindex)
-
+      for (i in idx) { # sets i to index of x that contains a matrix
         ## store $x in $temp
-
-        ## check if dim of $x and $mat are compatible
-
+        x[[i]] -> temp
+        ## check if dim of $x and $mat are compatible if TRUE, multiply
+        ## them, store in result (index counter) and increase counter
+        if (ncol(temp) == nrow(mat)) {
+          counter + 1 -> counter
+          temp %*% mat -> result[[counter]]
+        }
+      } ## end of loop over matrix elements of list x
       ## check if $counter is still 0 then 'return' $str2
-      ## otherwise 'return' $result
-
+      if (counter == 0) { ## if TRUE then none of the matrices compatible
+        return(str2)
+      } else {      ## otherwise 'return' $result
+        return (result)
+      }
+    }
   #+end_src
 
 - Solution:
@@ -204,6 +288,21 @@
           str2 = "no compatible matrices in x")
   #+end_src
 
+  #+RESULTS:
+  #+begin_example
+  [[1]]
+       [,1] [,2]
+  [1,]    1    3
+  [2,]    2    4
+
+  [[2]]
+       [,1] [,2]
+  [1,]    1    5
+  [2,]    2    6
+  [3,]    3    7
+  [4,]    4    8
+  #+end_example
+
 - Test ~mult1~ with ~bar~, which has no matrices at all, and the same
   arguments otherwise:
   #+begin_src R
@@ -215,9 +314,6 @@
           str2 = "no compatible matrices in x")
   #+end_src
 
-  #+RESULTS:
-  : [1] "no matrices in x"
-
 - Finally, test ~mult1~ with ~baz~, which has one matrix but no
   compatibility for multiplication with ~mat~:
   #+begin_src R
@@ -228,9 +324,6 @@
           str1 = "no matrices in x",
           str2 = "no compatible matrices in x")
   #+end_src
-
-  #+RESULTS:
-  : [1] "no compatible matrices in x"
 
 - Notice that the string arguments ~str1~ and ~str2~ are used only when
   the argument ~x~ does not contain a matrix with the appropriate

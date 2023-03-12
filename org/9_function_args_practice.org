@@ -33,20 +33,6 @@
       <<matrices_A_B>>
 
   #+end_src
-
-- Solution for ~multiply~:
-  #+name: f_multiply_
-  #+begin_src R
-    multiply_ <- function(A,B) {
-      if (ncol(A) == nrow(B)) {
-        return (A %*%B)
-      } else {
-        paste("Not compatible:", ncol(A), "!=", nrow(B))
-      }
-    }
-    <<matrices_A_B>>
-    multiply_(A,B)
-  #+end_src
   
 - Matrix multiplication is generally not commutative. Check that by
   running ~multiply~ on ~B~ and ~A~ in reverse order from before:
@@ -104,29 +90,6 @@
       ## check if $counter is still 0 then 'return' $str2
       ## otherwise 'return' $result
 
-  #+end_src
-
-- Solution:
-  #+begin_src R
-    mult1 <- function(x,mat,str1,str2) {
-      flag <- sapply(x, FUN=is.matrix)
-      if(!any(flag)) return (str1)
-      idx <- which(flag)
-      counter <- 0
-      result <- list()
-      for (i in idx) {
-        x[[i]] -> temp
-        if (ncol(temp) == nrow(mat)) {
-          counter <- counter + 1
-          temp %*% mat -> result[[counter]]
-        }
-      }
-      if (counter == 0) {
-        return (str2)
-      } else {
-        return (result)
-      }
-    } 
   #+end_src
 
 - Test suite with three ~list~ objects ~foo~, ~bar~ and ~baz~:
