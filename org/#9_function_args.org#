@@ -288,6 +288,21 @@
           str2 = "no compatible matrices in x")
   #+end_src
 
+  #+RESULTS:
+  #+begin_example
+  [[1]]
+       [,1] [,2]
+  [1,]    1    3
+  [2,]    2    4
+
+  [[2]]
+       [,1] [,2]
+  [1,]    1    5
+  [2,]    2    6
+  [3,]    3    7
+  [4,]    4    8
+  #+end_example
+
 - Test ~mult1~ with ~bar~, which has no matrices at all, and the same
   arguments otherwise:
   #+begin_src R

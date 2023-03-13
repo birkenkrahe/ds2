@@ -72,24 +72,36 @@
 - Let's code the function ~mult1~ with arguments ~x~, ~mat~, ~str1~, ~str2~:
   #+name: mult1
   #+begin_src R :results silent
-
+    mult1 <- function(x, mat, str1, str2) {
       ## $flag matrices - use 'sapply', FUN=is.matrix
-
+      flag <- sapply(X=x, FUN=is.matrix)
       ## check if $x has 'any' matrices, otherwise 'return' $str1
-
+      if (!any(flag))  { # TRUE if there a no matrices in x
+        return(str1)
+      }
       ## $x contains matrices! make index vector $idx from $flag
-
-      ## initialize matrix $counter to 0, and empty $result list
-
+      idx <- which(flag) # TRUE for matrix elements of x
+      ## initialize matrix $counter to 0 and an empty $result list
+      counter <- 0
+      result <- list()
       ## loop over matrices (use $idx as loopindex)
-
+      for (i in idx) { # sets i to index of x that contains a matrix
         ## store $x in $temp
-
-        ## check if dim of $x and $mat are compatible
-
+        x[[i]] -> temp
+        ## check if dim of $x and $mat are compatible if TRUE, multiply
+        ## them, store in result (index counter) and increase counter
+        if (ncol(temp) == nrow(mat)) {
+          counter + 1 -> counter
+          temp %*% mat -> result[[counter]]
+        }
+      } ## end of loop over matrix elements of list x
       ## check if $counter is still 0 then 'return' $str2
-      ## otherwise 'return' $result
-
+      if (counter == 0) { ## if TRUE then none of the matrices compatible
+        return(str2)
+      } else {      ## otherwise 'return' $result
+        return (result)
+      }
+    }
   #+end_src
 
 - Test suite with three ~list~ objects ~foo~, ~bar~ and ~baz~:
