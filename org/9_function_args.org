@@ -17,7 +17,7 @@
 - Here: default arguments, missing argument values, and passing extra
   arguments using ellipses (...)
 
-* DONE Lazy argument evaluation
+* Lazy argument evaluation
 
 - "Lazy" evaluation refers to the fact that expressions are evaluated
   only when they're needed by the program (saving time and effort).
@@ -26,7 +26,7 @@
   through a ~list~ for ~matrix~ objects and trying to multiply them with
   another ~matrix~ specified as a second argument.
 
-* DONE Intermission: matrix multiplication
+* Intermission: matrix multiplication
 
 - In order to multiply two matrices A and B of size m x n and p x q,
   it must be true that n = p (column length of A == row length of B).
@@ -454,7 +454,7 @@
            mat = diag(2))
     mult2_(x = baz,
            mat = diag(2))
-  #+end_src  
+  #+end_src
 
 - If you do not want to use the default, you can override it. Call
   ~mult2~ again for ~baz~ and change the argument for ~str2~ alone to:
@@ -474,10 +474,7 @@
            str2="Matrices in baz do not have 2 columns.")
   #+end_src
 
-  #+RESULTS:
-  : [1] "Matrices in baz do not have 2 columns."
-
-* TODO Checking for missing arguments
+* Checking for missing arguments
 
 - The ~missing~ function checks the arguments of a function to see if
   all required arguments have been supplied.
@@ -499,7 +496,7 @@
     hello_ <- function(name) {
       if (missing(name)) {
         return("'name' was missing, so this is the message")
-      } else { 
+      } else {
         return(paste("Hello",name))
       }
     }
@@ -544,13 +541,199 @@
     ## test with baz
   #+end_src
 
+- The ~missing~ function is also useful when it it difficult to choose a
+  default value for a certain argument, yet the function needs to
+  handle cases when that argument is not provided.
+
+- In the case of this algorithm, it makes more sense to define
+  defaults for ~str1~ and ~str2~ and avoid the overhead of ~missing~.
+
 - Solution (~mult3~):
+  #+begin_src R :results silent
+    mult3 <- function(x, mat, str1, str2) {
+      flag <- sapply(x,is.matrix)
+      if(!any(flag)) {
+        if(missing(str1)) {
+          return ("'str1' was missing, so this is the message.")
+        } else {
+          return(str1)
+        }
+      }
+      idx <- which(flag)
+      counter <- 0
+      result <- list()
+      for (i in idx) {
+        x[[i]] -> temp
+        if (ncol(temp) == nrow(mat)) {
+          counter <- counter + 1
+          temp %*% mat -> result[[counter]]
+        }
+      }
+      if(counter==0) {
+        if (missing(str2)) {
+          return("'str2' was missing, so this is the message")
+        } else {
+          return(str2)
+        }
+      } else {
+        return (result)
+      }
+    }
+  #+end_src
 
 - Solution (test of ~mult3~):
-    
-* TODO Dealing with ellipses
+  #+begin_src R
+    <<matrices>>
+    mult3(bar,diag(2))
+    mult3(baz,diag(2))
+  #+end_src
 
+  #+RESULTS:
+  : [1] "'str1' was missing, so this is the message."
+  : [1] "'str2' was missing, so this is the message"
+
+* Dealing with ellipses
+
+- The /ellipsis/ or /dot-dot-dot/ notation allows you to pass extra
+  arguments without having to first define them in the argument list.
+
+- In a ~function~ definition, it is placed in the last position
+  representing a variable number of arguments.
+
+- In the example, we use the ellipsis to write a function that can
+  plot the specified Fibonacci numbers:
+  1) create the Fibonacci sequence ~fibseq~ to ~threshold~
+  2) if ~plotit~ is ~TRUE~, plot the obtained sequence on the y-axis
+     against its index for the x-axis
+  3) Pass the ellipsis right into ~plot~
+  #+name: myfibplot
+  #+begin_src R :results silent
+    myfibplot <- function(threshold, plotit=TRUE,...) {
+      fibseq <- c(1,1)  # initialize
+      counter <- 2
+      repeat {
+        fibseq <- c(fibseq,fibseq[counter-1]+fibseq[counter])
+        counter <- counter +1
+        if (fibseq[counter] > threshold) break
+      }
+      if (plotit) {
+        plot(x=1:length(fibseq),y=fibseq,
+             ...)
+      } else {
+        return (fibseq)
+      }
+    }
+  #+end_src
+
+- Suppress the plot but print the sequence up to ~threshold=150~:
+  #+begin_src R
+    <<myfibplot>>
+
+  #+end_src
+
+- Plot Fibonacci numbers up to the ~threshold~ 150 with ~myfib~:
+  #+begin_src R :results graphics file :file ../img/myfib.png
+    <<myfibplot>>
+    myfibplot(150)
+  #+end_src
+
+- In this plot, the ellipsis is not used. In the next one, we'll use
+  it. Add the following arguments to the plot:
+  1) Give it the title "Terms of the Fibonacci sequence"
+  2) Change the point character (~pch~) to 4
+  3) Change the line type (~lty~) to 2
+  4) Change the x-axis label (~xlab~) to "Term (n)"
+  5) Change the y-axis label (~ylab~) to "Fibonacci number"
+  6) Change the plot ~type~ to "both points and lines" (~"b"~)
+  #+begin_src R :results graphics file :file myfib_ellipsis.png
+
+  #+end_src
+
+- Solution ~myfibplot~ function:
+  #+name: myfibplot_
+  #+begin_src R
+    myfibplot_ <- function(threshold, plotit=TRUE,...) {
+      fibseq <- c(1,1)  # initialize
+      counter <- 2
+      repeat {
+        fibseq <- c(fibseq,fibseq[counter-1]+fibseq[counter])
+        counter <- counter +1
+        if (fibseq[counter] > threshold) break
+      }
+      if (plotit) {
+        plot(x=1:length(fibseq),
+             y=fibseq, ...)
+      } else {
+        return (fibseq)
+      }
+    }
+  #+end_src
+
+- Solution to suppress the ~plot~ but print numbers with ~threshold~ 150:
+  #+begin_src R
+    <<myfibplot_>>
+    myfibplot_(threshold=150, plotit=FALSE)
+  #+end_src
+
+- Solution for adding ~plot~ arguments:
+  #+begin_src R :results graphics file :file ../img/myfib_ellipsis_.png
+    <<myfibplot_>>
+    myfibplot_(threshold = 150,
+               main="Terms of the Fibonacci sequence",
+               pch=4,
+               lty=2,
+               xlab="Term (n)",
+               ylab="Fibonacci number",
+               type="b")
+  #+end_src
+
+  #+RESULTS:
+  [[file:../img/myfib_ellipsis_.png]]
+
+
+- The ellipsis ~...~ can represent any number of mysterious arguments -
+  to indicate proper usage, document your functions well.
+
+- The dummy function ~unpackme(...)~ takes an ellipsis converts it into
+  a list:
+  #+name: unpackme
+  #+begin_src R :results silent
+    unpackme <- function(...) {
+      x <- list(...)
+      cat("Here is ... in its entirety as a list:\n")
+      print(x)
+      cat("The names of ... are:", names(x),"\n")
+      cat("The classes of ... are:", unname(unlist(sapply(x,class))),"\n")
+    }
+  #+end_src
+
+- Here's a sample run:
+  1) four arguments, tagged ~aa~, ~bb~, ~cc~, and ~dd~ are contents of ~...~
+  2) ~unpackme~ identifies them using ~list~
+  #+begin_src R
+    <<unpackme>>
+    unpackme(aa = matrix(1:4,2,2),
+             bb = TRUE,
+             cc = c("two","strings"),
+             dd = factor(c(1,1,2,1)))
+  #+end_src
+  
 * TODO Exercises
+
+These bonus exercises carry 20 points each for successful
+completion. These exercises come from Davies, ch. 11. pp. 230-231.
+
+** Annual compound interest function
+
+1) Accruing annual compound interest is a common financial benefit for
+   investors. Given a principal investment amoung P, an interest rate
+   per annum i expressed as a percentage, and a frequency of interest
+   paid per year t, the final amount F after y years is given in this
+   formula.
+   
+
+
+** Real roots of a quadratic equation
 
 * References
 
