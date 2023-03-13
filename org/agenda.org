@@ -735,7 +735,7 @@ Let's try this!
 
 * TODO Week 10 - special functions and exceptions
 #+attr_latex: :width 400px
-#+caption: Photo by Ricardo Gomez Angel on Unsplasy
+#+caption: Photo by Ricardo Gomez Angel on Unsplash
 [[../img/exception.jpg]]
 
 - Download the new (partially filled) version of the practice file
@@ -753,7 +753,21 @@ Let's try this!
    #+attr_latex: :width 250px
    #+caption: BPMN diagram (subprocess)
    [[../img/9_mult1_sub.png]]
-   
+
+* TODO Therapeutic spring break reading
+#+attr_latex: :width 400px
+#+caption: Photo by Drew Beamer on Unsplash
+[[../img/forbes.jpg]]
+
+- What's the future for data science? What should you focus on?
+- Read [[https://www.forbes.com/sites/forbestechcouncil/2022/10/13/predictions-on-the-future-of-data-science/?sh=2db6bd5875ef][this paper]] over spring break for discussion afterwards
+- You will get a luxury letter print copy for personal perusal
+- Also interesting: [[https://www.datacamp.com/blog/python-vs-r-for-data-science-whats-the-difference][Python vs. R in the DataCamp blog]] (Dec 2022)
+  + not much to discuss here - straightforward comparison
+  + this article is unduly skewed towards the "tidyverse", alas
+  + don't forget that you cannot really trust commercial comments
+
+
 * TODO Week 11 - utilities
 * TODO Week 12 - text mining with bag-of-words
 * TODO Week 13 - data science on the command line
@@ -781,6 +795,12 @@ To graduate to a full-fledged R programmer, get this excellent book:
 [[../img/R4DS.png]]
 
 [[https://r4ds.hadley.nz/][Link to the website for the 2nd edition (2023)]]
+
+
+* References
+
+Fabio Moioli (Oct 13, 2022). Predictions on the Future of Data
+Science. In: Forbes magazine. URL: [[https://www.forbes.com/sites/forbestechcouncil/2022/10/13/predictions-on-the-future-of-data-science/?sh=2db6bd5875ef][forbes.com]].
 
 * Footnotes
 
