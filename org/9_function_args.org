@@ -1,7 +1,7 @@
 #+TITLE: FUNCTION ARGUMENTS
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE:DSC205 Introduction to Advanced Data Science
-#+STARTUP:overview hideblocks indent
+#+STARTUP:overview hideblocks indent entitiespretty
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:R :exports both :results output :session *R* :noweb yes
 * Arguments
@@ -687,15 +687,11 @@
                type="b")
   #+end_src
 
-  #+RESULTS:
-  [[file:../img/myfib_ellipsis_.png]]
-
-
 - The ellipsis ~...~ can represent any number of mysterious arguments -
   to indicate proper usage, document your functions well.
 
 - The dummy function ~unpackme(...)~ takes an ellipsis converts it into
-  a list:
+  a list.
   #+name: unpackme
   #+begin_src R :results silent
     unpackme <- function(...) {
@@ -717,7 +713,7 @@
              cc = c("two","strings"),
              dd = factor(c(1,1,2,1)))
   #+end_src
-  
+
 * TODO Exercises
 
 These bonus exercises carry 20 points each for successful
@@ -725,15 +721,74 @@ completion. These exercises come from Davies, ch. 11. pp. 230-231.
 
 ** Annual compound interest function
 
-1) Accruing annual compound interest is a common financial benefit for
-   investors. Given a principal investment amoung P, an interest rate
-   per annum i expressed as a percentage, and a frequency of interest
-   paid per year t, the final amount F after y years is given in this
-   formula.
+Accruing annual compound interest is a common financial benefit for
+investors. Given a principal investment amoung P, an interest rate
+per annum i expressed as a percentage, and a frequency of interest
+paid per year t, the final amount F after y years is given in this
+[[https://github.com/birkenkrahe/ds2/blob/main/img/9_interest.png][formula]]:
+#+attr_latex: :width 200px
+[[../img/9_interest.png]]
+Write a function ~F~ to compute F as per these instructions:
+- Arguments must be present for P, i, t and y. The argument for t
+  should have a default value of 12.
+- Another argument giving a logical value that determines whether
+  to ~plot~ the amount F at each integer time should be included. For
+  example, if ~plotit=TRUE~ (the default) and ~y~ is 5 years, the plot
+  should show the amount F at y = 1,2,3,4,5.
+- If this function is plotted, the plot should always be a
+  step-plot, so ~plot~ should always be called with ~type="s"~.
+- If ~plotit=FALSE~, the final amount F should be returned as a
+  ~numeric~ vector corresponding to the same integer times, as shown
+  earlier.
+- An ellipsis should also be included to control other details of
+  plotting, if it takes place.
+
+Using your function ~F~, do the following:
+1) Work out the final amount after a 10-year investment of a principal
+   of $5000, at an interest rate of 4.4 percent per annum compounded
+   monthly.
+2) Re-create the following step-plot, which shows the result of $100
+   invested at 22.9 percent per annum, compounded monthly, for 20
+   years:
+   #+attr_latex: :width 300px
+   [[../img/9_interest_compound.png]]
+3) Perform another calculation based on the same parameters as in (2),
+   but this time, assume the interest is compounded annually. Return
+   and store the results as a numeric vector. Then, use ~lines~ to add a
+   second step-line, corresponding to this annually accrued amount, to
+   the plot created previously. Use a different color or line type and
+   make use of the ~legend~ function so the two lines can be
+   differentiated.
+
+   Tip - this code prints two step-wise plots in the same graph:
+   - the first ~plot~ plots 50 random numbers ~x~
+   - the second ~plot~ plots the squared values of ~x~
+   #+begin_src R :results graphics file :file step.png
+     par(mfrow=c(1,1))
+     x <- rnorm(50)
+     plot(x,type='s', col="red", yaxt="n", ylab="")
+     par(new=TRUE)
+     plot(x^2,type='s', col="blue", lty=2, ylab="", yaxt="n")
+     legend("topleft",
+            legend=c("x","x^2"), lty=c(1,2),col=c("red","blue"))
+   #+end_src
+
+   #+RESULTS:
+   [[file:step.png]]
    
-
-
 ** Real roots of a quadratic equation
+
+A quadratic equation in the variable x is often expressed in the
+following form: k_{1}x^{2} + k_{2}x + k_{3} = 0. Here, k_{1}, k_{2} and k_{3} are
+constants. Given values for these constants, you can attempt to find
+up to two real roots - values of x that satisfy the equation.
+
+Write a function that takes k_{1}, k_{2} and k_{3} as arguments and finds and
+returns any solutions (as a numeric vector) in such a situation. This
+is achieved as follows:
+- Evaluate k_{2}^{2} - 4k_{1}k_{3}. If this is negative, there are no solutions,
+  and an appropriate message should be printed to the console.
+- If k_{2}^{2} - 4k_{1}k_{3} is zero
 
 * References
 
