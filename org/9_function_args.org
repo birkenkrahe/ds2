@@ -491,7 +491,16 @@
     hello()
   #+end_src
 
-- But ~hello_~ with a check and call to ~missing~ will not break:
+- But this function with a check and call to ~missing~ will not break; 
+  add the missing argument check and test the function ~hello_1~:
+  #+begin_src R
+    hello_1 <- function(name) {
+        return(paste("Hello",name))
+    }
+    ## test function hello_1 without arguments
+  #+end_src
+
+- Solution:
   #+begin_src R
     hello_ <- function(name) {
       if (missing(name)) {
@@ -502,7 +511,7 @@
     }
     hello_()
   #+end_src
-
+  
 - This takes care of the error encountered earlier in the call to
   ~mult1~, when ~str1~ was required but not found (because no default had
   been set).
@@ -778,6 +787,9 @@ Using your function ~F~, do the following:
    
 ** Real roots of a quadratic equation
 
+(Note: to show the formulae in mathematical form, simply add this to
+your Org-mode header (and run it with C-c C-c): #+STATUS: entitiespretty
+
 A quadratic equation in the variable x is often expressed in the
 following form: k_{1}x^{2} + k_{2}x + k_{3} = 0. Here, k_{1}, k_{2} and k_{3} are
 constants. Given values for these constants, you can attempt to find
@@ -786,9 +798,38 @@ up to two real roots - values of x that satisfy the equation.
 Write a function that takes k_{1}, k_{2} and k_{3} as arguments and finds and
 returns any solutions (as a numeric vector) in such a situation. This
 is achieved as follows:
-- Evaluate k_{2}^{2} - 4k_{1}k_{3}. If this is negative, there are no solutions,
+- Evaluate k_{2}^{2} - 4k_{1}k_{3}. If this is /negative/, there are no solutions,
   and an appropriate message should be printed to the console.
-- If k_{2}^{2} - 4k_{1}k_{3} is zero
+- If k_{2}^{2} - 4k_{1}k_{3} is /zero/, then there is one solution, computed by
+  (-k_{2}/2k_{}_{1}).
+- If k_{2}^{2} - 4k_{1}k_{3} is /positive/, then there are two solutions:
+  #+attr_latex: :width 300px
+  [[../img/9_solutions.png]]
+- No default values are needed for the three arguments, but the
+  function should check to see whether any are missing. If so, an
+  appropriate character string message should be returned to the user,
+  informing the user that the calculations are not possible.
+
+Test your function:
+1) Confirm the following:
+
+   1. (2x^{2} - x - 5) has roots 1.850781 and -1.350781
+
+   2. (x^{2} + x - 5) has no real roots
+
+2) Attempt to find solutions to the following quadratic equations:
+
+   1. (1.3x^{2} - 8x - 3.13)
+
+   2. (2.25x^{2}^{} - 3x + 1)
+
+   3. (1.4x^{2} - 2.2x - 5.1)
+
+   4. (-5x^2 + 10.11x -9.9)
+
+3) Test your programmed response in the function if one of the
+   arguments is missing.
+
 
 * References
 

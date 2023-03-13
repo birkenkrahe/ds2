@@ -159,3 +159,178 @@
     ...
   #+end_src
   
+* Setting default arguments
+
+- ~barplot~ has different methods depending on the class of data fed
+  into it. Can you see how many mandatory arguments each method has?
+
+- Create another version of ~mult1~ and name it ~mult2~, which includes
+  default values for ~str1~ and ~str2~.
+
+- Below is the code for ~mult1~ with the new name ~mult2~ - add the
+  default values yourself:
+  #+name: mult2
+  #+begin_src R :results silent
+    mult2 <- function(x,mat,str1,str2) {
+      flag <- sapply(x, FUN=is.matrix)
+      if(!any(flag)) return (str1)
+      idx <- which(flag)
+      counter <- 0
+      result <- list()
+      for (i in idx) {
+        x[[i]] -> temp
+        if (ncol(temp) == nrow(mat)) {
+          counter <- counter + 1
+          temp %*% mat -> result[[counter]]
+        }
+      }
+      if (counter == 0) {
+        return (str2)
+      } else {
+        return (result)
+      }
+    }
+  #+end_src
+
+- Now re-run the test suite for the three lists ~foo~, ~bar~, and ~baz~,
+  with ~mat~ as the 2 x 2 identity matrix as before:
+  #+begin_src R
+    <<matrices>>
+    <<mult2>>
+    ## test foo
+    ## test bar
+    ## test baz
+  #+end_src
+
+- If you do not want to use the default, you can override it. Call
+  ~mult2~ again for ~baz~ and change the argument for ~str2~ alone to:
+  "Matrices in baz do not have 2 columns."
+  #+begin_src R
+    <<matrices>>
+    <<mult2>>
+    ## test baz but specify argument str2
+  #+end_src
+
+* Checking for missing arguments
+
+- Example using the ~hello(name)~ function: the function ~hello~ throws an
+  error when called without argument.
+  #+begin_src R
+    hello <- function(name) {
+      return(paste("Hello",name))
+    }
+        ## run hello without an argument
+  #+end_src
+
+- But ~hello~ with a check and call to ~missing~ will not break: add the
+  check using ~missing~ for ~name~, then run it with and without argument.
+  #+begin_src R
+    hello <- function(name) {
+      return(paste("Hello",name))
+    }
+  #+end_src
+
+- In the modification ~mult3~ of the algorithm ~mult1~, add an argument
+  check with missing both for ~str1~ and ~str2~.
+  #+name: mult3
+  #+begin_src R
+    mult3 <- function(x,mat,str1,str2) {
+      flag <- sapply(x, FUN=is.matrix)
+      if(!any(flag)) return (str1)
+      idx <- which(flag)
+      counter <- 0
+      result <- list()
+      for (i in idx) {
+        x[[i]] -> temp
+        if (ncol(temp) == nrow(mat)) {
+          counter <- counter + 1
+          temp %*% mat -> result[[counter]]
+        }
+      }
+      if (counter == 0) {
+        return (str2)
+      } else {
+        return (result)
+      }
+    }
+  #+end_src
+
+- Test ~mult3~ with ~bar~ (which returns ~str1~) and with ~baz~ (which returns
+  ~str2~:
+  #+begin_src R
+    <<matrices>>
+    <<mult3>>
+    ## test with bar
+    ## test with baz
+  #+end_src
+
+* Dealing with ellipses
+
+- Write a function that can plot the specified Fibonacci numbers:
+  1) create the Fibonacci sequence ~fibseq~ to ~threshold~
+  2) if ~plotit~ is ~TRUE~, plot the obtained sequence on the y-axis
+     against its index for the x-axis
+  3) Pass the ellipsis right into ~plot~
+  #+name: myfibplot
+  #+begin_src R :results silent
+    myfibplot <- function(threshold, plotit=TRUE,...) {
+      fibseq <- c(1,1)  
+      counter <- 2
+      repeat {
+        fibseq <- c(fibseq,fibseq[counter-1]+fibseq[counter])
+        counter <- counter +1
+        if (fibseq[counter] > threshold) break
+      } ## end of Fibonacci computation
+      ## plot(fibseq) if plotit=TRUE and return(fibseq) otherwise
+    }
+  #+end_src
+
+- Suppress the plot but print the sequence up to ~threshold=150~:
+  #+begin_src R
+    <<myfibplot>>
+
+  #+end_src
+
+- Plot Fibonacci numbers up to the ~threshold~ 150 with ~myfib~:
+  #+begin_src R :results graphics file :file ../img/myfib.png
+    <<myfibplot>>
+
+  #+end_src
+
+- In this plot, the ellipsis is not used. In the next one, we'll use
+  it. Add the following arguments to the plot:
+  1) Give it the title "Terms of the Fibonacci sequence"
+  2) Change the point character (~pch~) to 4
+  3) Change the line type (~lty~) to 2
+  4) Change the x-axis label (~xlab~) to "Term (n)"
+  5) Change the y-axis label (~ylab~) to "Fibonacci number"
+  6) Change the plot ~type~ to "both points and lines" (~"b"~)
+  #+begin_src R :results graphics file :file myfib_ellipsis.png
+
+  #+end_src
+
+- The dummy function ~unpackme(...)~ takes an ellipsis converts it into
+  a list.
+  #+name: unpackme
+  #+begin_src R :results silent
+    unpackme <- function(...) {
+      ## assign the ellipsis argument to a list x
+      ## print the list
+      ## print the names of the list elements
+      ## print the types of the list elements
+    }
+  #+end_src
+
+- Here's a sample run:
+  1) four arguments, tagged ~aa~, ~bb~, ~cc~, and ~dd~ are contents of ~...~
+  2) ~unpackme~ identifies them using ~list~
+  #+begin_src R
+    <<unpackme>>
+    unpackme(aa = matrix(1:4,2,2),
+             bb = TRUE,
+             cc = c("two","strings"),
+             dd = factor(c(1,1,2,1)))
+  #+end_src
+
+
+

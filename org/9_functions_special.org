@@ -14,6 +14,6 @@
 - Errors and warnings
 - progress and timing
 
-* Exercises: special functions
-* Exercises: exceptions and errors
-* Exercises: progress and timing
+* TODO Special functions
+* TODO Exceptions and errors
+* TODO Progress and timing
