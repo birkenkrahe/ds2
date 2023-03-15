@@ -665,8 +665,7 @@
         if (fibseq[counter] > threshold) break
       }
       if (plotit) {
-        plot(x=1:length(fibseq),y=fibseq,
-             ...)
+        plot(x=1:length(fibseq),y=fibseq,...)  # ellipsis ...
       } else {
         return (fibseq)
       }
@@ -682,7 +681,7 @@
 - Plot Fibonacci numbers up to the ~threshold~ 150 with ~myfib~:
   #+begin_src R :results graphics file :file ../img/myfib.png
     <<myfibplot>>
-    myfibplot(150)
+
   #+end_src
 
 - In this plot, the ellipsis is not used. In the next one, we'll use
