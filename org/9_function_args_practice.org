@@ -4,12 +4,12 @@
 #+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:R :exports both :results output :session *R* :noweb yes
-* UPDATE #+AUTHOR NAME AND PLEDGE!
+* TODO UPDATE #+AUTHOR NAME AND PLEDGE!
 * Intermission: matrix multiplication
 
 - Example: create two matrices, print them and check their dimension:
   #+name: matrices_A_B
-  #+begin_src R 
+  #+begin_src R
     A <- rbind(c(2,5,2),  # rbind is filled by row
                c(6,1,4))
     B <- cbind(c(3,-1,1),  # cbind is filled by column
@@ -25,20 +25,20 @@
   #+begin_src R
     ## define function with args A and B
 
-      ## check if A and B are compatible for multiplication
-      ## if so, return their product
-      ## otherwise, let the user know (why)
+    ## check if A and B are compatible for multiplication
+    ## if so, return their product
+    ## otherwise, let the user know (why)
 
-      ## test your function with the previously defined matrices
-      <<matrices_A_B>>
+    ## test your function with the previously defined matrices
+    <<matrices_A_B>>
 
   #+end_src
-  
+
 - Matrix multiplication is generally not commutative. Check that by
   running ~multiply~ on ~B~ and ~A~ in reverse order from before:
   #+begin_src R
     ## multiply B and A
-    
+
   #+end_src
 
 - Finally, test the function on two incompatible matrices ~C~ and ~D~:
@@ -121,7 +121,7 @@
                 c(F,T,T,T),
                 "??",
                 matrix(1:8,2,4))
-  #+end_src  
+  #+end_src
 
 - Test ~mult1~ with ~foo~ and set ~mat~ to the 2 x 2 identity matrix - so
   that post-multiplying any matrix with ~mat~ will simply return the
@@ -170,7 +170,7 @@
     <<mult1>>
     ...
   #+end_src
-  
+
 * Setting default arguments
 
 - ~barplot~ has different methods depending on the class of data fed
@@ -231,7 +231,7 @@
     hello <- function(name) {
       return(paste("Hello",name))
     }
-        ## run hello without an argument
+    ## run hello without an argument
   #+end_src
 
 - But ~hello~ with a check and call to ~missing~ will not break: add the
@@ -286,7 +286,7 @@
   #+name: myfibplot
   #+begin_src R :results silent
     myfibplot <- function(threshold, plotit=TRUE,...) {
-      fibseq <- c(1,1)  
+      fibseq <- c(1,1)
       counter <- 2
       repeat {
         fibseq <- c(fibseq,fibseq[counter-1]+fibseq[counter])
@@ -343,6 +343,3 @@
              cc = c("two","strings"),
              dd = factor(c(1,1,2,1)))
   #+end_src
-
-
-

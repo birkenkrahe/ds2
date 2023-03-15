@@ -1,40 +1,10 @@
-#+TITLE: FUNCTIONS - SPECIAL TOPICS
+#+TITLE: SPECIAL FUNCTION - CODEALONG PRACTICE FILE
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE:DSC205 Introduction to Advanced Data Science
 #+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:R :exports both :results output :session *R* :noweb yes
-* README
-
-This lecture and the accompanying practice file covers a number of
-remaining topics to be able to write well-performing functions:
-
-- Specialized functions
-- Helper functions
-- Disposable functions
-- Recursive functions
-- Exception handling
-- Errors and warnings
-- progress and timing
-
-The treatment is necessarily brief, perhaps too brief. To go more
-deeply into it, read a book.
-
-* Special functions
-
-We'll look at three types of special user-defined R functions:
-1) /helper functions/, which support other functions
-2) /disposable functions/, which are used in another function's call
-3) /recursive functions/, which call themselves
-
-* Helper functions
-
-- Helper functions are written specifically to support computations
-  carried out by another function, or to improve readability.
-
-- Helper functions can be defined /internally/ within another function
-  definition or /externally/ within the global R environment.
-
+* TODO UPDATE #+AUTHOR NAME AND PLEDGE!
 * Externally defined helper function
 
 - Here is a new version of ~mult2~ (post-multiplication of matrices in a
@@ -56,9 +26,6 @@ We'll look at three types of special user-defined R functions:
     }
   #+end_src
 
-- We have isolated the core computation for the matrices (if there are
-  any) including the compability check in another function definition.
-
 - The original function is a lot shorter now, but it contains a call
   to the helper function:
   #+name: mult4
@@ -79,9 +46,7 @@ We'll look at three types of special user-defined R functions:
     <<matrices>>
     <<helper>>
     <<mult4>>
-    mult4(foo,diag(2))
-    mult4(bar,diag(2))
-    mult4(baz,diag(2))
+
   #+end_src
 
 - Check the global environment for all functions:
@@ -114,13 +79,6 @@ We'll look at three types of special user-defined R functions:
 
 * Internally defined helper function
 
-- If the helper is only used by one function then it makes more sense
-  to defined it internally, within the /lexical/ environment of the
-  function that calls it.
-
-- This really only makes sense if the main function repeatedly calls
-  the helper function so that we won't have to redo the code.
-
 - Another version of our multiplication routine, this time with the
   helper integrated in the function body:
   #+name: mult5
@@ -143,16 +101,10 @@ We'll look at three types of special user-defined R functions:
   #+begin_src R
     <<matrices>>
     <<mult5>>
-    mult5(foo,diag(2))
-    mult5(bar,diag(2))
-    mult5(baz,diag(2))
+
   #+end_src
 
 * Disposable (anonymous) functions
-
-- Disposable functions perform a simple, one-line task.
-
-- ~apply~ is often used that way (with a simple ~FUN~ argument).
 
 - Example: you want to repeat the columns of a ~numeric~ 3 x 4 ~matrix~
   twice and then ~sort~ its values:
@@ -164,50 +116,28 @@ We'll look at three types of special user-defined R functions:
 - ~apply~ with ~MARGIN=2~ applies a function to every column of its target
   data. The anonymous (i.e. non-named) function is defined inside ~FUN~:
   #+begin_src R
-    apply(X = foo, MARGIN = 2,
-          FUN = function(x) { sort(rep(x,2))})
+
+    
   #+end_src
-
-  #+RESULTS:
-  :      [,1] [,2] [,3] [,4]
-  : [1,]    2    2    3    2
-  : [2,]    2    2    3    2
-  : [3,]    3    4    3    6
-  : [4,]    3    4    3    6
-  : [5,]    3    4    7    7
-  : [6,]    3    4    7    7
-
-- If we only had one function to perform (e.g. ~sort~), there would have
-  been no need for the anonymous function but as soon as we want to
-  nest functions, we need it.
 
 - ~apply~ with ~sort~ alone:
   #+begin_src R
-    apply(X = foo, MARGIN = 2,
-          FUN = sort)
+
   #+end_src
 
 - Now with ~rep~ nested inside ~sort~: error!
   #+begin_src R
-    apply(X = foo, MARGIN = 2,
-          FUN = sort(rep(foo,2)))
+
   #+end_src
 
-* Recursive functions
-
-- /Recursion/ happens when a function calls itself. This is not often
-  used in statistical analysis but you need to be aware of it.
+* Recursion: book recommendation
 
 - [[https://nostarch.com/recursive-book-recursion][Here is a GREAT, FUN BOOK]] to learn more about recursion using Python
   and JavaScript by Al Sweigart (2022): "The Recursive Book of
   Recursion - Ace the Coding Interview with Python and
-  JavaScript". Also [[https://inventwithpython.com/recursion/][available legally for free]] online [fn:1].
+  JavaScript". Also [[https://inventwithpython.com/recursion/][available legally for free]] online.
 
 * Example: Fibonacci sequence recursively
-
-- You can build up a Fibonacci sequence not just /iteratively/ by using
-  a loop, but /recursively/: the function calls itself instead of
-  looping over subsequent terms.
 
 - The function ~fibo~ calls itself on all terms ~n~ except 1 and 2:
   #+name: recursive_fibonacci
@@ -224,20 +154,11 @@ We'll look at three types of special user-defined R functions:
 
   #+end_src
 
-- Without the stopping condition, ~fibo~ would call itself forever. As
-  soon as it reaches a call for the 1st or 2nd term, it will stop.
-
 - Negative ~n~ will break this definition: call ~fibo~ for ~-1~.
   #+begin_src R
     <<recursive_fibonacci>>
 
   #+end_src
-
-- For many sort and search algorithms, recursion is most
-  efficient. For the Fibonacci sequence, the overhead is forbidding as
-  the illustration of the subsequent calls shows:
-  #+attr_latex: :width 400px
-  [[../img/9_recursion.png]]
 
 * TODO Exceptions and errors
 * TODO Progress and timing
@@ -262,53 +183,3 @@ We'll look at three types of special user-defined R functions:
                 matrix(1:8,2,4))
   #+end_src
 
-* Solutions
-** Check the global environment for all functions
-#+begin_src R
-  ls()
-#+end_src
-
-** External helper for ~hello~
-1) Write an external helper function ~hello_ext~ that takes an
-   argument ~x~ and returns ~paste("Hello,",x)~
-2) Write a function ~hello~ that takes an argument ~name~ with default
-   value "world", calls the helper function on ~name~ and prints its
-   return value.
-3) Test the function both with and without an argument.
-   #+begin_src R
-     ## hello_ext takes x and returns string "hello x"
-     hello_ext <- function(x) {
-       return(paste("Hello,", x))
-     }
-     ## hello world with external helper call
-     hello <- function(name="world") {
-       return(hello_ext(name))
-     }
-     ## make the call with and without your name as argument
-     hello()
-     hello("Marcus")
-   #+end_src
-
-   #+RESULTS:
-   : [1] "Hello, world"
-   : [1] "Hello, Marcus"
-
-** Recursive Fibonacci
-- Call it for the argument values 1 through 10 and print the result:
-  #+begin_src R
-    <<recursive_fibonacci>>
-    for (i in 1:10)
-      print(fibo(i))
-  #+end_src
-
-* References
-
-Sweigart (2019). Automate the Boring Stuff with Python. NoStarch.
-
-Sweigart (2022). The Recursive Book of Recursion. NoStarch.
-
-* Footnotes
-
-[fn:1]This is also the author whose "[[https://nostarch.com/automatestuff2][Automate the Boring Stuff with
-Python]]" will be the basis of my first introduction to programming with
-Python (CSC 109) course this summer!
