@@ -6,4 +6,7 @@
 #+PROPERTY: header-args:R :exports both :results output :session *R* :noweb yes
 * README
 
+An extended text cleaning example using several of the functions
+showcased in the DataCamp lesson Intermediate R::Utilities.
 
+[[../img/removePunctuation.png]]

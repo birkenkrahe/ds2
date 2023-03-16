@@ -74,20 +74,49 @@ We'll look at three types of special user-defined R functions:
     }
   #+end_src
 
+  #+RESULTS: mult4
+
 - Test the code:
   #+begin_src R
     <<matrices>>
     <<helper>>
     <<mult4>>
-    mult4(foo,diag(2))
-    mult4(bar,diag(2))
-    mult4(baz,diag(2))
+    mult4(foo,diag(2)) # foo had two valid matrices (for multiplication)
+    mult4(bar,diag(2)) # bar had no matrices at all
+    mult4(baz,diag(2)) # baz had no valid matrix
   #+end_src
+
+  #+RESULTS:
+  #+begin_example
+  [[1]]
+       [,1] [,2]
+  [1,]    1    3
+  [2,]    2    4
+
+  [[2]]
+       [,1] [,2]
+  [1,]    1    5
+  [2,]    2    6
+  [3,]    3    7
+  [4,]    4    8
+  [1] "no matrix"
+  [1] "no valid matrix"
+  #+end_example
 
 - Check the global environment for all functions:
   #+begin_src R
-
+    ls()
+    search()
   #+end_src
+
+  #+RESULTS:
+  :  [1] "api_key"     "ask_chatgpt" "bar"         "baz"         "counter"    
+  :  [6] "fibseq"      "foo"         "helper"      "mult4"       "myfibplot"  
+  : [11] "myfibplot_"  "unpackme"
+  :  [1] ".GlobalEnv"        "ESSR"              "package:stats"    
+  :  [4] "package:graphics"  "package:grDevices" "package:utils"    
+  :  [7] "package:datasets"  "package:stringr"   "package:httr"     
+  : [10] "package:methods"   "Autoloads"         "package:base"
 
 * Exercise: "hello world" with helper
 
@@ -103,12 +132,12 @@ We'll look at three types of special user-defined R functions:
 
 
 
-     ## hello world with external helper call
+     ## hello world with external helper call and argument (your name)
 
 
 
      ## make the call with and without your name as argument
-
+     
 
    #+end_src
 
