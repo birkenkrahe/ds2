@@ -118,7 +118,7 @@ We'll look at three types of special user-defined R functions:
   :  [7] "package:datasets"  "package:stringr"   "package:httr"
   : [10] "package:methods"   "Autoloads"         "package:base"
 
-* NEXT Exercise: "hello world" with helper
+* Exercise: "hello world" with helper
 
 1) Write an external helper function ~hello_ext~ that takes an
    argument ~x~ and returns ~paste("Hello,",x)~
@@ -129,17 +129,21 @@ We'll look at three types of special user-defined R functions:
    #+name: hello_ext
    #+begin_src R
      ## hello_ext takes x and returns string "hello x"
-
-
-
+     hello_ext <- function(x) {
+       return (paste("Hello,", x))
+     }
      ## hello world with external helper call and argument (your name)
-
-
-
+     hello <- function(name="world") {
+       return (hello_ext(name))
+     }
      ## make the call with and without your name as argument
-
-
+     hello()
+     hello("Marcus")
    #+end_src
+
+   #+RESULTS: hello_ext
+   : [1] "Hello, world"
+   : [1] "Hello, Marcus"
 
 * Internally defined helper function
 
@@ -158,7 +162,7 @@ We'll look at three types of special user-defined R functions:
       matrix.flags <- sapply(x,is.matrix)
       if(!any(matrix.flags)) return(str1)
       ## internal helper function
-      <<helper>>
+      <<helper>>  ## this only puts the function here
       ## helper call
       helper.call <- helper(x,matrix.flags,mat) # heavy lifting
       result <- helper.call[[1]]
@@ -170,12 +174,29 @@ We'll look at three types of special user-defined R functions:
 
 - Test the code:
   #+begin_src R
-    <<matrices>>
-    <<mult5>>
+    <<matrices>>   ## initialize matrices
+    <<mult5>>    ## define the function (which includes helper)
     mult5(foo,diag(2))
     mult5(bar,diag(2))
     mult5(baz,diag(2))
   #+end_src
+
+  #+RESULTS:
+  #+begin_example
+  [[1]]
+       [,1] [,2]
+  [1,]    1    3
+  [2,]    2    4
+
+  [[2]]
+       [,1] [,2]
+  [1,]    1    5
+  [2,]    2    6
+  [3,]    3    7
+  [4,]    4    8
+  [1] "no matrix"
+  [1] "no valid matrix"
+  #+end_example
 
 * Disposable (anonymous) functions
 
@@ -189,6 +210,12 @@ We'll look at three types of special user-defined R functions:
     foo <- matrix (c(2,3,3,4,2,4,7,3,3,6,7,2),3,4)
     foo
   #+end_src
+
+  #+RESULTS:
+  :      [,1] [,2] [,3] [,4]
+  : [1,]    2    4    7    6
+  : [2,]    3    2    3    7
+  : [3,]    3    4    3    2
 
 - ~apply~ with ~MARGIN=2~ applies a function to every column of its target
   data. The anonymous (i.e. non-named) function is defined inside ~FUN~:
@@ -215,6 +242,12 @@ We'll look at three types of special user-defined R functions:
     apply(X = foo, MARGIN = 2,
           FUN = sort)
   #+end_src
+
+  #+RESULTS:
+  :      [,1] [,2] [,3] [,4]
+  : [1,]    2    2    3    2
+  : [2,]    3    4    3    6
+  : [3,]    3    4    7    7
 
 - Now with ~rep~ nested inside ~sort~: error!
   #+begin_src R
@@ -248,11 +281,27 @@ We'll look at three types of special user-defined R functions:
   #+end_src
 
 - Call it for the argument values 1 through 10 and print the result
-  (you know at least 2 ways how to do this):
+  (you know at least 3 ways how to do this):
   #+begin_src R
     <<recursive_fibonacci>>
-
+    sapply(FUN=fibo,1:10) ## as an implicit loop with apply
+    for (i in 1:10) print(fibo(i))   ## as a for loop
   #+end_src
+
+  #+RESULTS:
+  #+begin_example
+   [1]  1  1  2  3  5  8 13 21 34 55
+  [1] 1
+  [1] 1
+  [1] 2
+  [1] 3
+  [1] 5
+  [1] 8
+  [1] 13
+  [1] 21
+  [1] 34
+  [1] 55
+  #+end_example
 
 - Without the stopping condition, ~fibo~ would call itself forever. As
   soon as it reaches a call for the 1st or 2nd term, it will stop.
@@ -260,12 +309,20 @@ We'll look at three types of special user-defined R functions:
 - Negative ~n~ will break this definition: call ~fibo~ for ~-1~.
   #+begin_src R
     <<recursive_fibonacci>>
-
+    fibo(-1)
+    fibo(0)
+    fibo(1)
   #+end_src
+
+  #+RESULTS:
+  : Error: evaluation nested too deeply: infinite recursion / options(expressions=)?
+  : Error: evaluation nested too deeply: infinite recursion / options(expressions=)?
+  : [1] 1
 
 - For many sort and search algorithms, recursion is most
   efficient. For the Fibonacci sequence, the overhead is forbidding as
-  the illustration of the subsequent calls shows:
+  the illustration of the subsequent calls shows. Most of these calls
+  to ~myfibrec~ (our ~fibo~) are redundant!
   #+attr_latex: :width 400px
   [[../img/9_recursion.png]]
 
@@ -311,13 +368,18 @@ We'll look at three types of special user-defined R functions:
     }
   #+end_src
 
-  #+RESULTS: warn_test
-
 - Test ~warn_test~ for x = -1, 0, 1, 5, 10 using ~sapply~:
   #+begin_src R
     <<warn_test>>
-
+    sapply(X=c(-1,0,1,5,10),
+           FUN=warn_test)
   #+end_src
+
+  #+RESULTS:
+  : [1] 5.0 5.0 5.0 1.0 0.5
+  : Warning messages:
+  : 1: In FUN(X[[i]], ...) : Argument -1 <= 0 - setting it to 1 and continuing
+  : 2: In FUN(X[[i]], ...) : Argument 0 <= 0 - setting it to 1 and continuing
 
 - The function ~error_test~ stops when the condition is satisfied:
   #+name: error_test
@@ -333,9 +395,20 @@ We'll look at three types of special user-defined R functions:
 - Test ~error_test~ for x = 10,5,0,-1 using ~sapply~:
   #+begin_src R
     <<error_test>>
-
+    sapply(X=c(10,5,0,-1), FUN=error_test)
+    for (i in c(10,5,0,-1)) print(error_test(i))
   #+end_src
-* Making Fibonacci safe
+
+  #+RESULTS:
+  : Error in FUN(X[[i]], ...) : Argument 0 <=0 - TERMINATING
+  : [1] 0.5
+  : [1] 1
+  : Error in error_test(i) : Argument 0 <=0 - TERMINATING
+
+- The second test of ~error_test~ with a ~for~ loop prints the first few
+  terms, while the ~sapply~ version has no return.
+
+* NEXT Making Fibonacci safe - DOWNLOAD 9.ORG?
 
 - In ~fibo_safe~ below, you add a ~warning~ and an error ~stop~, and call
   the previously defined recursive function ~fibo~ on the argument ~n~:
