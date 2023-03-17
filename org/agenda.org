@@ -767,6 +767,16 @@ Let's try this!
   + this article is unduly skewed towards the "tidyverse", alas
   + don't forget that you cannot really trust commercial comments
 
+* TODO Exception handling: download practice file
+#+attr_latex: :width 400px
+#+caption: Fast Rope Insertion Extraction System. Photo: Robert Sullivan, Flickr.com
+[[../img/insertion.jpg]]
+
+- You're already working on the practice file
+  ~9_functions_special_practice.org~
+
+- Download ~9.org~ from GitHub and insert it (~C-x i~) into the practice
+  file to continue
 
 * TODO Week 11 - utilities
 * TODO Week 12 - text mining with bag-of-words
