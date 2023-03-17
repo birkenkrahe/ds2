@@ -110,15 +110,15 @@ We'll look at three types of special user-defined R functions:
   #+end_src
 
   #+RESULTS:
-  :  [1] "api_key"     "ask_chatgpt" "bar"         "baz"         "counter"    
-  :  [6] "fibseq"      "foo"         "helper"      "mult4"       "myfibplot"  
+  :  [1] "api_key"     "ask_chatgpt" "bar"         "baz"         "counter"
+  :  [6] "fibseq"      "foo"         "helper"      "mult4"       "myfibplot"
   : [11] "myfibplot_"  "unpackme"
-  :  [1] ".GlobalEnv"        "ESSR"              "package:stats"    
-  :  [4] "package:graphics"  "package:grDevices" "package:utils"    
-  :  [7] "package:datasets"  "package:stringr"   "package:httr"     
+  :  [1] ".GlobalEnv"        "ESSR"              "package:stats"
+  :  [4] "package:graphics"  "package:grDevices" "package:utils"
+  :  [7] "package:datasets"  "package:stringr"   "package:httr"
   : [10] "package:methods"   "Autoloads"         "package:base"
 
-* Exercise: "hello world" with helper
+* NEXT Exercise: "hello world" with helper
 
 1) Write an external helper function ~hello_ext~ that takes an
    argument ~x~ and returns ~paste("Hello,",x)~
@@ -137,7 +137,7 @@ We'll look at three types of special user-defined R functions:
 
 
      ## make the call with and without your name as argument
-     
+
 
    #+end_src
 
@@ -247,7 +247,8 @@ We'll look at three types of special user-defined R functions:
     }
   #+end_src
 
-- Call it for the argument values 1 through 10 and print the result:
+- Call it for the argument values 1 through 10 and print the result
+  (you know at least 2 ways how to do this):
   #+begin_src R
     <<recursive_fibonacci>>
 
@@ -268,8 +269,113 @@ We'll look at three types of special user-defined R functions:
   #+attr_latex: :width 400px
   [[../img/9_recursion.png]]
 
-* TODO Exceptions and errors
-* TODO Progress and timing
+* Exception handling
+#+attr_latex: :width 400px
+#+caption: Warning flag (1946). Source: Flickr.com (State Library of NSW)
+[[../img/9_warning.jpg]]
+
+- How to make functions throw an error or warning when receiving
+  unexpected input
+
+- When there's an unexpected problem during execution of a function, R
+  will notify you with a /warning/ or an /error/. This is called /exception
+  handling/.
+
+- Even standard functions in different languages differ considerably
+  when it comes to handling exceptions. C for example has NONE.
+
+- You will want to build this functionality into your own user-defined
+  functions.
+
+* Errors and warnings
+
+- An /error/ forces the function to terminate immediately when it occurs.
+
+- A /warning/ indicates an issue but the function will continue to run.
+
+- In R, you can issue a warning with the ~warning~ command and you can
+  "throw errors" (like knives) with the ~stop~ command.
+
+* Example: ~warning~ and error ~stop~
+
+- The function ~warn_test~ warns if its argument is less or equal than
+  0, fixes the value and returns a fraction:
+  #+name: warn_test
+  #+begin_src R :results silent
+    warn_test <- function(x) {
+      if (x <= 0) {
+        warning("Argument ",x," <= 0 - setting it to 1 and continuing")
+        1 -> x
+      }
+      return (5/x)
+    }
+  #+end_src
+
+  #+RESULTS: warn_test
+
+- Test ~warn_test~ for x = -1, 0, 1, 5, 10 using ~sapply~:
+  #+begin_src R
+    <<warn_test>>
+
+  #+end_src
+
+- The function ~error_test~ stops when the condition is satisfied:
+  #+name: error_test
+  #+begin_src R :results silent
+    error_test <- function(x) {
+      if (x<=0) {
+        stop("Argument ",x," <=0 - TERMINATING")
+      }
+      return (5/x)
+    }
+  #+end_src
+
+- Test ~error_test~ for x = 10,5,0,-1 using ~sapply~:
+  #+begin_src R
+    <<error_test>>
+
+  #+end_src
+* Making Fibonacci safe
+
+- In ~fibo_safe~ below, you add a ~warning~ and an error ~stop~, and call
+  the previously defined recursive function ~fibo~ on the argument ~n~:
+  #+name: fibo_safe
+  #+begin_src R :results silent
+    <<recursive_fibonacci>>
+    fibo_safe <- function(n) {
+      ## exception handling for values of n
+      if (n<0) {
+        ## issue a warning
+
+        n * (-1) -> n
+      } else if (n == 0) {
+        ## throw an error and terminate
+
+      }
+      ## calling the external function and return result
+
+    }
+  #+end_src
+
+- Call ~fibo_safe~ on this range of values: -5,-1,5,10:
+  #+begin_src R
+    <<fibo_safe>>
+
+  #+end_src
+
+- Call ~fibo_safe~ on 0:
+  #+begin_src R
+    <<fibo_safe>>
+
+  #+end_src
+
+* TODO Debugging tools
+* TODO Progress, timing and masking
+* TODO Exercises
+#+attr_latex: :width 400px
+#+caption: Women working on an aircraft fuselage, 1943 (Flickr.com)
+[[../img/practice.jpg]]
+
 * Resources
 
 - Matrix definitions for the special functions demonstration:
@@ -328,7 +434,93 @@ We'll look at three types of special user-defined R functions:
     <<recursive_fibonacci>>
     for (i in 1:10)
       print(fibo(i))
+    sapply(1:10,fibo)
   #+end_src
+
+  #+RESULTS:
+  #+begin_example
+  [1] 1
+  [1] 1
+  [1] 2
+  [1] 3
+  [1] 5
+  [1] 8
+  [1] 13
+  [1] 21
+  [1] 34
+  [1] 55
+   [1]  1  1  2  3  5  8 13 21 34 55
+  #+end_example
+
+** Example: ~warning~ and error ~stop~
+
+- Test ~warn_test~ for x = -1, 0, 1, 5 using ~sapply~:
+  #+begin_src R
+    <<warn_test>>
+    sapply(X=c(-1,0,1,5,10), FUN=warn_test)
+  #+end_src
+
+  #+RESULTS:
+  : [1] 5.0 5.0 5.0 1.0 0.5
+  : Warning messages:
+  : 1: In FUN(X[[i]], ...) : Argument -1 <= 0 - setting it to 1 and continuing
+  : 2: In FUN(X[[i]], ...) : Argument 0 <= 0 - setting it to 1 and continuing
+
+- Test ~error_test~ for x = 10,5,0,-1 using ~sapply~:
+  #+begin_src R
+    <<error_test>>
+    sapply(X=c(10,5,0,-1), FUN=error_test)
+  #+end_src
+
+  #+RESULTS:
+  : Error in FUN(X[[i]], ...) : Argument 0 <=0 - TERMINATING
+
+** Making Fibonacci safe
+- Add ~warning~ and ~stop~ commands:
+  #+name: fibo_safe_
+  #+begin_src R :results silent
+    <<recursive_fibonacci>>
+    fibo_safe_ <- function(n) {
+      ## exception handling for values of n
+      if (n<0) {
+        warning("Did you mean ",n," to be > 0? I'll fix it")
+        n * (-1) -> n
+      } else if (n == 0) {
+        stop("Cannot continue at n= ",n)
+      }
+      ## calling the external function
+      return (fibo(n))
+    }
+  #+end_src
+
+- Call ~fibo_safe~ on this range of values: -5,-1,5,10:
+  #+begin_src R
+    <<fibo_safe_>>
+    sapply(c(-5,-1,5,10), fibo_safe_)
+  #+end_src
+
+  #+RESULTS:
+  : [1]  5  1  5 55
+  : Warning messages:
+  : 1: In FUN(X[[i]], ...) : Did you mean -5 to be > 0? I'll fix it
+  : 2: In FUN(X[[i]], ...) : Did you mean -1 to be > 0? I'll fix it
+
+- Call ~fibo_safe~ on 0:
+  #+begin_src R
+    <<fibo_safe_>>
+    fibo_safe_(0)
+  #+end_src
+
+  #+RESULTS:
+  : Error in fibo_safe_(0) : Cannot continue at n= 0
+* Code glossary
+
+| COMMAND  | MEANING                      |
+|----------+------------------------------|
+| ~function~ | Create a function            |
+| ~return~   | Return objects from function |
+| ~missing~  | Check arguments              |
+| ~...~      | Ellipsis (variable) argument |
 
 * References
 
