@@ -1,0 +1,132 @@
+#+TITLE: An Technical Look at Shiny
+#+SUBTITLE: Intro to Advanced Data Science
+#+AUTHOR: Jacob Wolfrom, Balah Muhammad
+
+* Focus
+The focus of this project is to cover how reactive evaluation works in
+Shiny, a package for R. We have chosen this as a topic because it is a
+crucial component in the developement of Shiny application, and it is
+not only a somewhat complicated concept, but it is also difficult to
+piece together its functionality from the standard documentation pages
+and examples that are prompted from R, unlike many other aspects such
+as the creation of UI elements and the server function.
+
+* Sources
+** Understanding Reactivity
+The citation with the link can be found here [fn:1]
+
+This source is an article that is the beginning of a section on
+reactive evaluation by the developers of Shiny that serves as a basic
+overview of how reactivity works in Shiny. This and the other articles
+in its section are important because these articles are made by the
+developers of Shiny themselves. Ultimately these articles seek to give
+the reader a functional (if not complete) understanding on how Shiny
+evalutes reactive expressions. To this end they serve as a very good
+starting point on understanding how reactivity works in Shiny. They
+are concise enough that reading them is not a serious time investment
+while being clear enough that there is little confusion about the
+topic. This was the first source we used in our journey to get a basic
+understanding of our topic.
+
+This is a very good source as it is made directly by the same group
+who made Shiny. We recommend this source for anyone that is new to
+Shiny. We especially liked the fact that it was able to convey the key
+points of reactivity in a way that was both understandable and quick
+to read. The main downside is that this is all the developers of Shiny
+have to say about reactivity on their website itself, and the
+information is not complete. For example, the website states some
+information on how changed values are invalidated, but it doesn't
+mention the process by which that happens. The exact details of this
+process begin a problem when trying to implement data abstractions
+that are not compatible with the ~identical~ function (such as the
+somewhat popular R6 class) as they will not invalidate properly.
+
+** Mastering Shiny
+The citation with the link can be found here [fn:2]
+
+This source is a book by Hadley Wickham, the Chief Scientist at
+Rstudio and one of the contributors to the Shiny Github page, on how
+to develop applications using Shiny. The book covers a great deal more
+than just reactivity, but is has a significant portion devoted to
+reactivity and is more in depth than the previous source. This source
+is one of the most commonly recommended sources from our exploration
+and it really shows. The goal of the book is to teach the reader how
+to effectively use Shiny. As of right now, we have used this to learn
+more about reactive evaluation in Shiny, but we also plan on using
+this source in the development of our final product to help in the
+process of developing our final product.
+
+This book is credible on account of how well appraised it is and how
+credible the author is. This source is incredible not only because of
+the content itself, but also the fact that the online version of it is
+free and separated into easily navigatable sections. Additionally, the
+book includes exercises on each of the topics it explains which is a
+crucial component to committing concepts to memory. We have no real
+complaints with the source. We recommend this source for essentially
+anyone looking to learn Shiny.
+
+** Datacamp Course
+The citation with the link can be found here [fn:3]
+
+This source is a digital skill track for Shiny from Datacamp. Although
+neither of us have fully completed the course, it was our first
+introduction to the Shiny package as it was used as an assignment in a
+previous course. This track intends to teach a beginner how to use
+Shiny as well as looking at some use cases and related packages. This
+extra content is a bit outside the scope of our project, but are
+useful nontheless.
+
+Datacamp is a well known source and credible source for a variety of
+data science topics including this one. There is a number of reasons
+for someone to use this source over the others. Firstly, Datacamp is
+essentially a tutorial that guides you through its lessons, and that
+may be easier depending on the student. Secondly, it has a much more
+hands on approach as most of the learning is done through coding
+assignments. Lastly, when a student completes the skill track, they
+recieve a certificate to prove that they have completed the
+track. This can go on a resume as a way to quickly show an employer
+that the applicant possesses certain skills. We will note however,
+that the entire course is about 16 hours long which is not an
+insignificant time investment. For someone that just wants to learn
+the basics of Shiny, the first course will suffice as it teaches the
+basic technical and syntactical elements of Shiny while the other
+courses delve into other packages or discuss
+applications. Additionally, the first course is only 4 hours long
+which is much more manageable. Ultimately, this source is simple and
+easy to follow, but the pacing can feel really slow at times, making
+other sources preferable for those who want to learn more than just
+the absolute basics or do not have access to Datacamp for whatever
+reason.
+** Github Issue Page
+The citation with the link can be found here [fn:4]
+
+This source is unique among the others listed as it does not aim to
+teach how to use the Shiny package. In fact, its barely even a source
+at all. This is a Github issue page where a user is askin if there is
+a way to overwrite the typical invalidation checking in Shiny. We
+selected and noted this source for later use because it shows an
+example of something that is not covered in any of the sources that we
+discovered.
+
+This source is granted credibility primarily due to the replies and
+interaction by two of the people who have worked on Shiny, including
+the developer of its framework, Joe Cheng. We would not recommend this
+source to any beginner, but it is an interesting dilemma to read for
+those that have a good understanding of the Shiny
+framework. Essentially, the problem the user has is that the default
+method of invalidation checking, the identical function, is to strict
+for his purpose and is causing issues.
+* Footnotes
+[fn:1] - Article by Shiny
+Shiny. (2017, June 28). /Reactivity - An
+    overview/. shiny.rstudio.com. https://shiny.rstudio.com/articles/understanding-reactivity.html
+
+[fn:2] - Book on Shiny
+Wickham, H. (2021, April). /Mastering Shiny/. [[https://mastering-shiny.org/]]
+
+[fn:3] - Datacamp course
+DataCamp. (n.d.). Shiny Fundamentals in R [Skill Track]. DataCamp. https://app.datacamp.com/learn/skill-tracks/shiny-fundamentals-with-r
+
+[fn:4] - GitHub Issue
+Tasan, M., Cheng, J., and Chang, W. (2020, October
+    22). /hashReactiveVal (or checkReactiveVal)/. Github. https://github.com/rstudio/shiny/issues/3109
