@@ -733,7 +733,7 @@ Let's try this!
 *Program games in Snap! (from Academic Day):*
 - [X] https://github.com/birkenkrahe/snap
 
-* TODO Week 10 - special functions and exceptions
+* Week 10 - special functions and exceptions
 #+attr_latex: :width 400px
 #+caption: Photo by Ricardo Gomez Angel on Unsplash
 [[../img/exception.jpg]]
@@ -754,7 +754,7 @@ Let's try this!
    #+caption: BPMN diagram (subprocess)
    [[../img/9_mult1_sub.png]]
 
-* TODO Therapeutic spring break reading
+** Therapeutic spring break reading
 #+attr_latex: :width 400px
 #+caption: Photo by Drew Beamer on Unsplash
 [[../img/forbes.jpg]]
@@ -767,7 +767,7 @@ Let's try this!
   + this article is unduly skewed towards the "tidyverse", alas
   + don't forget that you cannot really trust commercial comments
 
-* TODO Exception handling: download practice file
+** Exception handling: download practice file
 #+attr_latex: :width 400px
 #+caption: Fast Rope Insertion Extraction System. Photo: Robert Sullivan, Flickr.com
 [[../img/insertion.jpg]]
@@ -778,7 +778,21 @@ Let's try this!
 - Download ~9.org~ from GitHub and insert it (~C-x i~) into the practice
   file to continue
 
-* TODO Week 11 - utilities
+* TODO Week 11 - 
+
+- I evaluated & graded outstanding exercises (*please check before*)
+- The literature reviews were all impressive in their own way:
+  + laying open your search strategy
+  + fancy foot[note] work
+  + take a look at my Org-mode files for layout
+- Late submissions *by 3/31* for partial credit
+- Next sprint review: results! *Due on April 21.*
+
+* TODO Exercise: text mining function
+
+- load ~nb_clean.org~ and replace the sequence of ~tm_map~ function calls
+  to create a clean document by one function.
+  
 * TODO Week 12 - text mining with bag-of-words
 * TODO Week 13 - data science on the command line
 * TODO Week 14 - database operations in the shell

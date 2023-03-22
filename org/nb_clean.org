@@ -1,0 +1,59 @@
+#+TITLE: Supervised Learning with Naive Bayes
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE: Case Study - Filtering mobile phone spam
+#+STARTUP: overview hideblocks indent inlineimages
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
+* RUN THIS FILE BEFORE TRAINING YOUR MODEL
+#+begin_src R
+  sms_raw <- read.csv(file="https://raw.githubusercontent.com/birkenkrahe/ml/main/data/sms_spam.csv",
+                      header=TRUE,
+                      stringsAsFactors=FALSE)
+  library(tm)
+  sms_corpus <- VCorpus(VectorSource(sms_raw$text))
+
+  tm_map(x=sms_corpus,
+         FUN = content_transformer(tolower)) -> sms_corpus_clean
+  tm_map(x=sms_corpus_clean,
+         FUN=removeNumbers) -> sms_corpus_clean
+  tm_map(x=sms_corpus_clean,
+         FUN=removeWords,
+         c(stopwords("en"),"just")) -> sms_corpus_clean
+  tm_map(sms_corpus_clean, removePunctuation) -> sms_corpus_clean
+  library(SnowballC)
+  tm_map(sms_corpus_clean, stemDocument) -> sms_corpus_clean
+  tm_map(sms_corpus_clean, stripWhitespace) -> sms_corpus_clean
+  sms_dtm <- DocumentTermMatrix(sms_corpus_clean)
+  m <- as.matrix(sms_dtm)
+  sms_dtm2 <- DocumentTermMatrix(sms_corpus,
+                                 control = list(
+                                   tolower = TRUE,
+                                   removeNumbers = TRUE,
+                                   stopwords = TRUE,
+                                   removePunctuation = TRUE,
+                                   stemming = TRUE))
+  search()
+  ls()
+#+end_src
+
+#+RESULTS:
+#+begin_example
+Loading required package: NLP
+
+Attaching package: 'NLP'
+
+The following object is masked from 'package:httr':
+
+    content
+
+Warning message:
+package 'tm' was built under R version 4.2.3
+ [1] ".GlobalEnv"        "package:SnowballC" "package:tm"       
+ [4] "package:NLP"       "ESSR"              "package:stats"    
+ [7] "package:graphics"  "package:grDevices" "package:utils"    
+[10] "package:datasets"  "package:stringr"   "package:httr"     
+[13] "package:methods"   "Autoloads"         "package:base"
+[1] "api_key"          "ask_chatgpt"      "m"                "sms_corpus"      
+[5] "sms_corpus_clean" "sms_dtm"          "sms_dtm2"         "sms_raw"
+#+end_example
+

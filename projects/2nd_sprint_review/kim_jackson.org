@@ -1,0 +1,147 @@
+#+TITLE: Sprint 2: Literature Review
+#+AUTHOR: Kim Ho and Jackson Harrod
+#+SUBTITLE: DSC 205 - Advanced introduction to data science
+#+STARTUP: overview hideblocks indent inlineimages entitiespretty
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
+
+#+begin_example
+This is our literature review for the second sprint of our project on
+the R package, ggvis. It is broken up by source.
+
+Our research strategies were originally to use google search, google
+scholar, and ChatGPT to find sources to use. However, after struggling
+to find quality sources on our topic, we asked the college librarian
+for help finding sources and they were able to direct us towards some
+of the college's resources.
+#+end_example
+
+#+begin_example
+Magnuson, Lauren, and Tim Dennis. “Chapter 9: Data Visualization : A
+Guide to Visual Storytelling for Libraries.” Data Visualization: A
+Guide to Visual Storytelling for Libraries, Rowman & Littlefield,
+Lanham, 2016, pp. 149–172.
+
+Summary/About: This chapter of this book goes through many uses and
+examples of how to use ggvis and explains them well. It talks about
+the background of ggvis, and gives a very well explained tutorial on
+how to use ggvis.
+Achieve: This chapter intends to explain how to setup and use ggvis,
+with many datasets shown as examples.  Relevance: High; we intend to
+use this source mostly in our methods to help us learn ggvis and its
+many uses.
+
+Evaluation: Even though the intended audience of this book was his
+fellow librarians, the author created a very well written, deeply
+explained tutorial on ggvis.
+
+Credibility: High; this chapter comes from a published book with many authors and
+sources listed.  
+#+end_example
+
+#+begin_example
+Kargl, Michaela, et al. Interactive Data Visualization in R. 13 May
+2018,
+[[https://courses.isds.tugraz.at/ivis/surveys/ss2018/ivis-ss2018-g5-r-datavis-survey.pdf]].
+
+Summary/About: ggvis is a data visualization package in R. It allows
+the user to create interactive graphics. ggvis shares many principles
+and much of its syntax with ggplot2. The main purpose of ggvis is to
+combine aspects of R with the Web, through using shiny and Vega. ggvis
+is built on top of shiny’s programming model and most of the basic
+functions and controls in ggvis have an equivalent in shiny. 
+
+Achieve: They describe ways and show examples of the interactions between ggvis
+and other R packages such as shiny.
+
+Relevance: Low; will only be used if we decide to try and use similar
+methods for a particular aspect of our project in which we try to show
+how ggvis can work in tandem with other packages.
+
+Evaluation: Even though we’re only taking a very small amount of this
+paper, overall it seems fairly well put together, by people who seem
+to know what they are doing. It was interesting to learn about how
+ggvis can interact with other R packages, and I think applying this in
+our project could be fun.
+
+Credibility: Medium; even though the sources are well documented and
+accessible, I don’t feel confident enough in the paper to give it High
+credibility, but it definitely seems mostly credible.
+#+end_example
+
+#+begin_example
+Will, Markow, et al. “The Quant Crunch: How the Demand for Data
+Science Skills Is Disrupting the Job Market.” Voced, Burning Glass
+Technologies, 2017, [[https://www.voced.edu.au/content/ngv%3A76399]].
+
+Summary/About: There is an education and job skill gap in the data
+science field, and this article goes into detail about the need for
+higher education and workforce development to shift and be responsive
+to meet market demands. Part of the problem is the information gap and
+how job titles and skills are not consistent when it comes to data
+science. Burning Glass mined over 130 million current and past job
+listings and along with IBM and BHEF, identified skills needed for
+data science jobs. BG also split the skills into six job categories
+and created a table with specialized skills for each of the six
+occupations. They go on to work with the data gathered to create
+different tables to convey their findings.
+ 
+Achieve: They advocate for data literacy for everyone and developing
+more talent for specific roles under the data science umbrella by
+creating new data science education programs. They also encourage data
+labs, creative spaces where experts from the field and in education
+collaborate on problems, and top-down action plans for organizations,
+where the more experienced data scientists can lead newer recruits,
+talent for data science can be identified, and up-skilling initiatives
+are put in place.
+
+Relevance: High; intro, discussion. Data science categories and the
+demand for them by industry chart, highest paying analytical skills
+table Evaluation: I liked the recommendations they outlined (included
+above in the ‘Achieve’ section. I liked that they included lots of
+tables and presented their data in different ways. It was interesting
+to see which were the top analytical skills in 2017 and which skills
+were the fastest growing. Personally, I thought that the DSA Skills
+Matrix and DSA Job Matrix was confusing; too much going on in one
+visualization. I recommend this reading for those who are interested
+in the Data Science job market, for both recruiter and recruitee as
+well as for educators and students.
+
+Credibility:
+High(scholarly journal, backed by IBM and the Business-Higher
+Education Forum)
+#+end_example
+
+#+begin_example
+De Mauro, Andrea, et al. “Human Resources for Big Data Professions: A
+Systematic Classification of Job Roles and Required Skill Sets.”
+Science Direct, 8 June 2017,
+[[https://www.sciencedirect.com/science/article/pii/S0306457317300018?casa_token=VA2QEJzTWtoAAAAA%3Aaf06rIJQGyRKZsWXlIUClf1LXUwzdm2qeZFzrGSvJ1goa_Krj6Ime4rSo48Opbc4Vu3UN7dz5Tc+Summary%3A+The+researchers+dacollected+online+job+posts+through+web-scraping+and+using+the+keywords+%E2%80%98Big+Data.%E2%80%99+Then%2C+text+mining+and+algorithms+were+used+to+identify+which+and+the+level+of+skill+sets+the+job+posts+were+looking+for.++About%3A+Achieve%3A+They+found+that+%E2%80%98Data+Scientist%E2%80%99+is+used+loosely+by+%E2%80%9Ccompanies+exploiting+Bg+Data+Analytics%E2%80%9D+and+that+the+role+covers+a+variety+of+skills++Relevant%3A+Goes+into+detail+about+Big+Data+job+families+and+skill+sets+Evaluation%3A+Credibility%3A++https%3A%2F%2Fwww.csupom.com%2Fuploads%2F1%2F1%2F4%2F8%2F114895679%2Fv16n1p5.pdf+Lots+of+info%2C+comparing+big+data+analytics+and+data+science%2C+text+mining%2C+clustering%2C+some+interesting+visualizations+and+charts+to+reference+Partial+access+https%3A%2F%2Fwww.voced.edu.au%2Fcontent%2Fngv%3A76399++Data+science+categories+and+the+demand+for+them+by+industry+chart.+Highest+paying+analytical+skills+table++https%3A%2F%2Fieeexplore.ieee.org%2Fabstract%2Fdocument%2F9655894+No+access++https%3A%2F%2Fieeexplore.ieee.org%2Fabstract%2Fdocument%2F9096765+No+access]].
+
+Summary: The researchers collected more than 2,700 online job posts
+from ten different job recruitment websites through web-scraping (with
+Portia) and using the keywords ‘Big Data.’ Then, text mining and
+algorithms were used to identify which and the level of skill sets the
+job posts were looking for. They used the R package “tm“ to run Latent
+Dirichlet Allocation, a mixed-membership model, on job descriptions to
+extract skills required for the job posts.
+
+Achieve: They found that ‘Data Scientist’ is used loosely by
+“companies exploiting Big Data Analytics” and that the role covers a
+variety of hard and soft skills. Data scientists use analytical
+methods, programming languages, and statistical platforms to transform
+data into insights. Charts can be used by businesses for recruitment
+purposes.
+
+Relevance (how used): Medium; Intro, Go into detail about Big Data job
+families and skill sets, specifics of data analytic skills Evaluation
+(likes, dislikes, recommended to others): Really interesting reading,
+easy to interpret charts and visualizations. I liked the Big Data Job
+Families vs. Skill sets matrix and the table of popular keywords
+grouped by skill set. I would recommend this paper to those who are
+interested in knowing more about what skills are required in Big Data
+jobs.
+
+Credibility: High (scholarly paper, cited in multiple scholarly
+journals, credible and extensive lit review)
+#+end_example

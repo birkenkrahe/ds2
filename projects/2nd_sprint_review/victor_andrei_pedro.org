@@ -1,0 +1,163 @@
+#+TITLE: An introduction to ggplot2 project proposal
+#+AUTHOR: Victor Noppe, Andrei Galca, and Pedro Mota
+#+SUBTITLE: Sprint reviews
+#+STARTUP:overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+
+* Sprint review 1 project proposal
+** Problem
+
+  The ggplot2 package is a complicated set of tools to learn to use
+  and understand. This set the learning curve to be very high.
+ 
+** Reason
+
+  To show and explain the basics of the ggplot2 package. This could
+  help by lessening the learning curve, but also break the ice for those that
+  have no exposer to the ggplot2 package. It will also get people started
+  on a useful tool for the workforce.
+  
+** Constraints
+
+  1) Finding time to meet between three different people's schedules
+     and class loads could have some difficulties.
+
+  2) Time management for learning and organizing the presentation
+     in order to show basics from the ggplot2 package.
+
+  3) Making the practice file educational and engaging with the limited
+     presentation time.
+     
+** Goals and Non-goals
+** Goals
+  1) Helping our classmates to obtain a basic knowledge of the ggplot2 package.
+
+     a) how fuctions are categorized
+     b) how to use the different fuctions and their arguments
+     
+  2) Creating a practice file that is both engaging and educational.
+     
+** Non-goals
+
+   1) To obtaine a better understanding of the ggplot2 package.
+
+   2) To become more comfortable with exploratory and explanatory data.
+
+   3) Getting more familiarized with speaking and presenting from a specialist standpoint.
+     
+** Plan
+
+  1) Complete the Introduction to Data Visualization with ggplot2 datacamp course.
+
+  2) Practice with built in data sets to obtain more familiarity with the ggplot2 package.
+
+  3) Meet on a regular basis to discuss what functions and arguments we want to use in our
+     practice file.
+
+  4) Help each other obtain the same comfort with the use of the ggplot2 package.
+     
+  5) Find literature to help develop and reinforce our pratice file.
+        
+** Metrics
+
+  1) The amount of knowledge we are able to obtain and relay to or classmates.
+
+  2) How engaged our classmates are with our presentation.
+
+  3) Were we able to fit the presentation to the allotted time frame.   
+
+  4) The overall grade we obtain for this project.
+
+** Quetions
+
+  1) Is this a valid idea for a project?
+
+  2) What is the proper citation for the emacs and org-mode software?
+
+  3) Are there any avenues to this project that you would like to be focused on?
+     (i.e. certain function calls and arguments)
+
+  4) Are there any sources other than datacamp and the ggplot2 cheat sheet
+     that you could recommend?
+     
+** References
+
+  H.Wickham, 2016, ggplot2: Elegant Graphics for Data Analysis,
+  https://www.ggplot2.tidyverse.org
+
+  Rick Scavetta, NA, Inroduction to Data Visualization with ggplot2,
+  https://app.datacamp.com/learn/courses/introduction-to-data-visualization-with-ggplot2
+ 
+* Sprint review 2 literature review
+** Literature Review Reference 1
+
+- Reference
+  
+  Mandy Mejia, “10 Reasons to Switch to Ggplot”, Mandymejia, 14 Nov. 2013, [[https://mandymejia.com/2013/11/13/10-reasons-to-switch-to-ggplot-7/][10 Reasons]]
+
+- Summary
+
+  The article "10 reasons to switch to ggplot" argues in favor of
+  using ggplot2, an R package based on the principles of The Grammar
+  of Graphics, for making plots. The author claims that while making
+  standard plots is straightforward in most statistical programming
+  languages, using R's base graphics to create custom plots can be
+  complicated. According to the author, ggplot2 is a better
+  alternative because it can create quick-and-dirty and complex
+  plots, so you only need one system. The default colors and other
+  aesthetics of ggplot2 are also nicer, and you never again lose an
+  axis title or get told your PDF can't be created due to misspecified
+  outer or inner margins. The author also suggests that you can save
+  plots, or the beginnings of a plot, as objects and that multivariate
+  exploration is greatly simplified through faceting and
+  coloring. Overall, the author argues that switching to ggplot2 is
+  well worth the time and effort required to get started. We used this
+  in combination with another article to explain what ggplot is, how
+  it works, and what it can be used for.
+
+- Evaluation
+
+  We liked how the author did not just write about each reason, but
+  actually gave examples to back up their claims. The examples the
+  author supplied also showed a person how the code should look. So
+  yes, we would recommend this to be read.
+
+** Literature Review Reference 2
+
+- Reference
+
+  David Robinson, “Why I Use GGPLOT2”, Variance Explained, 12 Feb. 2016 , [[http://varianceexplained.org/r/why-I-use-ggplot2/][Why I use]]
+
+- Summary
+
+  The article titled "Why Use ggplot2" is an opinion piece that
+  discusses the benefits of using ggplot2 for data visualization in
+  R. The author describes ggplot2 as a powerful and flexible tool that
+  allows users to easily create high-quality plots with a declarative
+  syntax. The author argues that ggplot2 provides a more efficient and
+  effective approach to plotting compared to base R plotting, which he
+  refers to as a "bag of tricks." The author emphasizes the importance
+  of following the grammar of graphics when creating plots with
+  ggplot2, as it helps to ensure that the plot is well-organized and
+  easily interpretable. Overall, the author presents a compelling
+  argument for the use of ggplot2 in data visualization and provides
+  practical tips for those looking to get started with the tool. We
+  used this in combination with the "10 Reasons to Switch to Ggplot"
+  to explain what ggplot is, how it works, and what it can be used
+  for.
+
+- Evaluation
+
+  All in all it was a good article. Even though it might not be a
+  great idea to use blog posts all the time. We thought it had a
+  compelling argument and good information about the topic. For this
+  topic it was good to get a first person point of view, and the
+  author is a Director of Data Scientist at Heap and has multiple
+  other publications, so it seemed credible. If someone is skeptical
+  about ggplot we would recommend they read this article. One bad
+  thing about this article is the author does not use as many coding
+  examples to back up his claims.
+  
+** References
+ Stallman, R. M. (1984). The Emacs editor. GNU Project. [[https://www.gnu.org/software/emacs/][emacs]]
+ Schulte, E., Davison, C., & Dominik, C. (2016). The Org mode 8 Reference Manual. [[https://orgmode.org/manual/][org-mode]]

@@ -1,0 +1,118 @@
+#+TITLE: AD Project Proposal
+#+AUTHOR: Marlon Durand
+#+SUBTITLE: DSC 205 - Advanced introduction to data science
+#+STARTUP: overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
+
+* Problem
+Im trying to explore a machien learning R package(caret) and be able to teach
+a class the basics of the package. I also intend on trying to dive
+deeper and show what the package is fully capable of.
+* Reason
+Id like to get a better understanding about machine learning as
+AI and machine learning is a field I'm intrested in. caret is one of
+the most used packages for that next to Mlr3.
+* Constaints
+the bigest constraint is time as this package is really extensive and
+may take more time then whats alotted to fully understand. More over
+my general knowlegde of machine learning may not be enough to put the
+packge to use.
+* Goals & Non-Goals
+ * Goals
+   - better understand machine learning
+   - Teach the class about the package
+   - Make a machine learning model 
+ * Non-Goals
+   - Make a working machine learning model
+* Metrics
+If i can make a machine learnign modle by the end of it weather it
+works or not doesnt matter too much then i simply win. I just want to
+expand my knowldge on machine learning and the capabilites of R.
+* References
+- Kuhn, Max. "The Caret Package." Github Sites, 27 Mar.
+  2019, http://topepo.github.io/caret/index.html.
+
+-  Parbhakaran, Selva. "Caret Package - A complete Guide to 
+  Build Machine Learning in R." Machine Learning Plus,
+  19 Jan. 2023,
+
+
+
+* Literature Review
+
+ For my project I needed to look into R packages and decided to choose
+ machine learning packages that would help me make whatever kind of
+ model i decided on. There are plenty of packages in R that are used
+ for machine learning like Mlr3, xgboost, ect.. When comparing all the
+ other other packages to Caret it was clear that caret was a better
+ choice. It had lots of documentation behind it which makes working
+ with it much easier. It is also rather versatile with the 230+ models it supports.
+
+ 1.) Parbhakaran, Selva. "Caret Package - A complete Guide to 
+       Build Machine Learning in R." Machine Learning Plus,
+       19 Jan. 2023,
+
+- This article was a simplified overview of the 
+  package and its basic features. I use basic loosely because
+  with most things encompassing machine learning it can get
+  complicated very quickly. This article in particular is great
+  because it's giving me great ideas as to how to structure my
+  project effectively. It also shows how to visualize the data as
+  well which helps bring the machine learning process all
+  together. It also goes over how to use some functions like
+  featurePlot, rfe, train, etc. I found the brief overviews to be
+  sufficient enough and I could use the rest of my knowledge to
+  figure out the rest. I think this is a good article for getting
+  a good overview of the Caret. I’d definitely recommend it if
+  you are looking for a more technical focused article.
+
+
+2.) Kuhn, Max. "The Caret Package." Github Sites, 27 Mar.
+2019, http://topepo.github.io/caret/index.html.
+
+- This article is meant to serve as an
+  introduction/tutorial to the package and its features.
+  The article serves as a tutorial to how to use the
+  package and all it offers. In particular, it's great
+  because it's giving me great ideas as to how to structure
+  our project effectively. The article is lengthy as it has
+  everything you could imagine you'd need to understand and
+  use the package. It starts with a brief introduction of
+  what you can do with the package like data splitting,
+  pre-processing, feature selection, ect. Following the
+  introduction we move into the visualization capabilities
+  of caret. The visualization section is small as it's not
+  a main focus but it does help bring everything
+  together. The main plotting function is feature plot and
+  the article shows you several different plot types that
+  can be made with feature plot. The sections following are
+  rather lengthy with pre-processing, data splitting, and
+  model training all having several sub sections. It still
+  goes further by showing all the available models and the
+  corresponding function call and parameters. It gets into
+  model clustering, parallel processing, and much more.
+  It serves as a one stop shop for the caret package and
+  everything it has to offer.
+
+
+3.) Barter, Rebecca. “A Basic Tutorial of Caret: The Machine Learning
+     Package in R.” Hugo Future Imperfect, 18 Nov. 2017,
+     https://www.rebeccabarter.com/blog/2017-11-17-caret_tutorial/. 
+
+     - This article helped me learn more about the types of models
+       using a visual example and a description for each model.
+       It starts off explaining what machine learning is for example
+       “A machine learning model is a program that is used to make
+       predictions for a given data set.”. It also talks about
+       supervised machine learning briefly explaining what it is and
+       how it pertains to model building. Furthermore it begins
+       talking about the two main types of models classification and
+       regression. Classification models are models where the response
+       belongs to a set of classes. Regression models are models where
+       the response is continuous. Following this it goes into a list
+       of examples and descriptions for several different models.
+       Each model also has two links that better explain them and show
+       you how they work. It's nice to have all the descriptions and
+       visual examples all together. It makes comparing the models
+       easy. Making a pros and cons list for them to help in the decision of what I'd use.
