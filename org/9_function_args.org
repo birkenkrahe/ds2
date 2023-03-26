@@ -640,7 +640,7 @@
   #+RESULTS:
   : function (x)  .Primitive("missing")
 
-* NEXT Dealing with ellipses
+* Dealing with ellipses
 
 - The /ellipsis/ or /dot-dot-dot/ notation allows you to pass extra
   arguments without having to first define them in the argument list.

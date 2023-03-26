@@ -488,100 +488,111 @@ Submissions and tests:
 
 ** DONE Review: ~break~
 
-- [ ] What does ~break~ do? Will this work? Explain if or if not and why.
-  #+begin_src R
-    x <- 4
-    if (x==5) {
-      cat("TRUE\n")
-    } else {
-      cat("FALSE\n")
-      break
-    }
-  #+end_src
+1) [ ] What does ~break~ do? Will this work? Explain if or if not and why.
+   #+begin_src R
+     x <- 4
+     if (x==5) {
+       cat("TRUE\n")
+     } else {
+       cat("FALSE\n")
+       break
+     }
+   #+end_src
 
-  #+RESULTS:
-  : FALSE
-  : Error: no loop for break/next, jumping to top level
+   #+RESULTS:
+   : FALSE
+   : Error: no loop for break/next, jumping to top level
 
-  #+begin_notes
-  See ~help(break)~: ~break~ breaks out of a ~for~, ~while~ or ~repeat~ loop.
-  Control is transferred to the first statement outside the inner-most loop.
-  #+end_notes
+   #+begin_notes
+   See ~help(break)~: ~break~ breaks out of a ~for~, ~while~ or ~repeat~ loop.
+   Control is transferred to the first statement outside the inner-most loop.
+   #+end_notes
+   
+2) [ ] Let's write an example together and refresh some knowledge!
+   1) loop over the string "Back from the weekend"
+   2) print each letter of the string
+   3) leave the loop if you encounter a "w"
 
-- [ ] Let's write an example together and refresh some knowledge!
-  1) loop over the string "Back from the weekend"
-  2) print each letter of the string
-  3) leave the loop if you encounter a "w"
+   Expected output:
+   #+begin_example org
+   : [1] "Back from the weekend"
+   : [1] "Back from the "
+   #+end_example
 
-  Expected output:
-  #+begin_example org
-  : [1] "Back from the weekend"
-  : [1] "Back from the "
-  #+end_example
+   /Tips:/ ~strsplit(s,"")~ splits a string ~s~ into its elements, ~rev~ reverses
+   the order of the values of a vector, and ~na.omit~ removes ~NA~ values.
 
-  /Tips:/ ~strsplit(s,"")~ splits a string ~s~ into its elements, ~rev~ reverses
-  the order of the values of a vector, and ~na.omit~ removes ~NA~ values.
+   Let's test these new functions:
+   #+begin_src R
+     strsplit("bwahahah",split="")
+     rev(x=c("banana","rama"))
+     foo <- c("balarney", rep(NA,3))
+     foo
+     na.omit(foo)
+   #+end_src
 
-  Let's test these new functions:
-  #+begin_src R
-    strsplit("bwahahah",split="")
-    rev(x=c("banana","rama"))
-    foo <- c("balarney", rep(NA,3))
-    foo
-    na.omit(foo)
-  #+end_src
+   #+RESULTS:
+   : [[1]]
+   : [1] "b" "w" "a" "h" "a" "h" "a" "h"
+   : [1] "rama"   "banana"
+   : [1] "balarney" NA         NA         NA
+   : [1] "balarney"
+   : attr(,"na.action")
+   : [1] 2 3 4
+   : attr(,"class")
+   : [1] "omit"
 
-  #+begin_src R
-    ## create a string object 'msg' with "Back from the weekend"
-    msg <- "Back from the weekend"
-    msg
-    ## initialize a vector 'result' of NAs of the same length as 'msg'
-    rep(NA,times=nchar(msg)) -> result
-    ## split 'msg' into individual letters and save it to 'msg'
-    strsplit(x=msg,split="") -> msg
-    ## unlist the split message and save it to 'msg'
-    unlist(msg) -> msg
-    ## loop over 'msg'
-    for (i in 1:length(msg)) {
-      ## if msg not "w" then save letter to 'result'
-      if (msg[i]!="w") {
-        result <- c(msg[i], result)
-                                            # alternative: result[i] <- msg[i]
-      } else {
-        ## otherwise 'break' and leave the loop
-        break
-      }
-    }
-    ## print values 1 to 19 of 'result'
-    result[1:19]
-    ## omit NAs and overwrite 'result'
-    na.omit(result) -> result
-    ## reverse letters and overwrite 'result'
-    rev(result) -> result
-    ## paste 'result' and collapse spaces "" between letters
-    paste(result, collapse="")
-  #+end_src
+   #+begin_src R
+     ## create a string object 'msg' with "Back from the weekend"
+     msg <- "Back from the weekend"
+     msg
+     ## initialize a vector 'result' of NAs of the same length as 'msg'
+     rep(NA,times=nchar(msg)) -> result
+     ## split 'msg' into individual letters and save it to 'msg'
+     strsplit(x=msg,split="") -> msg
+     ## unlist the split message and save it to 'msg'
+     unlist(msg) -> msg
+     ## loop over 'msg'
+     for (i in 1:length(msg)) {
+       ## if msg not "w" then save letter to 'result'
+       if (msg[i]!="w") {
+         result <- c(msg[i], result)
+                                             # alternative: result[i] <- msg[i]
+       } else {
+         ## otherwise 'break' and leave the loop
+         break
+       }
+     }
+     ## print values 1 to 19 of 'result'
+     result[1:19]
+     ## omit NAs and overwrite 'result'
+     na.omit(result) -> result
+     ## reverse letters and overwrite 'result'
+     rev(result) -> result
+     ## paste 'result' and collapse spaces "" between letters
+     paste(result, collapse="")
+   #+end_src
 
-  #+RESULTS:
-  : [1] "Back from the weekend"
-  :  [1] " " "e" "h" "t" " " "m" "o" "r" "f" " " "k" "c" "a" "B" NA  NA  NA  NA  NA
-  : [1] "Back from the "
+   #+RESULTS:
+   : [1] "Back from the weekend"
+   :  [1] " " "e" "h" "t" " " "m" "o" "r" "f" " " "k" "c" "a" "B" NA  NA  NA  NA  NA
+   : [1] "Back from the "
 
-- Solution:
-  #+begin_src R
-    msg <- "Back from the weekend"
-    msg
-    rep(NA,nchar(msg)) -> result
-    unlist(strsplit(msg,"")) -> msg
-    for (i in 1:length(msg)) {
-      if (msg[i] != "w") {
-        result = c(msg[i], result)
-      } else {
-        break
-      }
-    }
-    paste(rev(na.omit(result)), collapse="")
-  #+end_src
+3) Solution:
+   #+begin_src R
+     msg <- "Back from the weekend"
+     msg
+     rep(NA,nchar(msg)) -> result
+     unlist(strsplit(msg,"")) -> msg
+     for (i in 1:length(msg)) {
+       if (msg[i] != "w") {
+         result = c(msg[i], result)
+       } else {
+         break
+       }
+     }
+     paste(rev(na.omit(result)), collapse="")
+   #+end_src
 
 ** TODO Re-download ~8_loop_break_practice.org~
 
@@ -778,15 +789,29 @@ Let's try this!
 - Download ~9.org~ from GitHub and insert it (~C-x i~) into the practice
   file to continue
 
-* TODO Week 11 - 
+* NEXT Week 11 - Exception handling
+#+attr_latex: :width 400px
+#+caption: Photo by Dunk Hacking the bridge to your future (Flickr.com)
+[[../img/debugging.jpg]]
 
-- I evaluated & graded outstanding exercises (*please check before*)
+- I evaluated & graded outstanding exercises (*please check*)
 - The literature reviews were all impressive in their own way:
   + laying open your search strategy
   + fancy foot[note] work
   + take a look at my Org-mode files for layout
 - Late submissions *by 3/31* for partial credit
 - Next sprint review: results! *Due on April 21.*
+- Next *test* due March 31.
+
+* TODO Predictions On The Future of Data Science
+#+attr_latex: :width 400px
+#+caption: Photo by Katsujiro Maekawa, Korea (Flickr.com)
+[[../img/future.jpg]]
+
+* TODO TidyverseSceptic and RDesign
+
+- [[https://github.com/matloff/TidyverseSkeptic/blob/master/RDesign.pdf][R Design Patterns, Base-R vs. Tidyverse]]
+- [[https://github.com/matloff/TidyverseSkeptic][TidyverseSceptic: Teaching R kinder, gentler, more effective]]
 
 * TODO Exercise: text mining function
 

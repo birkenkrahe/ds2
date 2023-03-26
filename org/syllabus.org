@@ -31,7 +31,7 @@ explore data science using command line UNIX tools.
 
 * Student learning outcomes
 
-Students who complete dsc 205, "Advanced introduction to data
+Students who complete DSC 205, "Introduction to advanced data
 science", will be able to:
 
 - Import data into R, store them, and transform them for analysis
