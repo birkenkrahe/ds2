@@ -468,9 +468,6 @@ We'll look at three types of special user-defined R functions:
   function: if ~f~ calls ~g~ and ~g~ halts because of an error, ~f~ halts at
   the same point.
 
--   
-
-
 * TODO Progress, timing and masking
 
 * TODO Exercises

@@ -789,7 +789,7 @@ Let's try this!
 - Download ~9.org~ from GitHub and insert it (~C-x i~) into the practice
   file to continue
 
-* NEXT Week 11 - Exception handling
+* NEXT Week 11 - The Future & Exception handling
 #+attr_latex: :width 400px
 #+caption: Photo by Dunk Hacking the bridge to your future (Flickr.com)
 [[../img/debugging.jpg]]
@@ -799,25 +799,65 @@ Let's try this!
   + laying open your search strategy
   + fancy foot[note] work
   + take a look at my Org-mode files for layout
-- Late submissions *by 3/31* for partial credit
+- Late submissions for test 4 *by 3/31* for partial credit
 - Next sprint review: results! *Due on April 21.*
-- Next *test* due March 31.
+- Next *test* due March 31 (open for partial credit until April): we'll
+  review some questions on Wednesday.
 
-* TODO Predictions On The Future of Data Science
+** TODO Predictions On The Future of Data Science
 #+attr_latex: :width 400px
 #+caption: Photo by Katsujiro Maekawa, Korea (Flickr.com)
 [[../img/future.jpg]]
 
-#+begin_notes
+Find someone else in the class to discuss this article and extract:
+1) One central hypothesis
+2) Any questions you have
+3) Your own view of the hypothesis
+4) Any other views you hold on the subject.
 
-#+end_notes
+#+begin_quotes
+- Print article so that you can annotate it manually.
+- Ask yourself WHO wrote this article and for WHOM?
+- Verify important information.
+- Extract hypotheses.
+- Eliminate hyperbole.
+- Summarize conclusions.
 
-* TODO TidyverseSceptic and RDesign
+Some "Research" results:
+1) Author has 135k + 140k = 275k followers (well below "300k+")
+2) "[[https://geekflare.com/nocode-platforms-to-build-product/][12 best Low-code or No-code Platforms to Build Amazing Products]]"
+   (Pathak, 2022) vs. "[[https://www.trustradius.com/buyer-blog/low-code-pros-cons][Pros and Cons of Low-Code Technology Today]]"
+   (Hanif, 2022) vs. "Characteristics and Challenges of Low-code
+   Development: The Practitioner's Perspective" ([[https://arxiv.org/abs/2107.07482][Luo et al, 2021]]).
+3) What are other "most secure jobs in the world?" - Anybody with
+   long, hard training and great responsibility (pilots, MDs), or
+   difficult work in varying circumstances (plumber, electrician).
+4) Basic principles of QM for microscopic systems (Fitzpatrick, 2013):
+   1. *Principle of Limitation* (Dirac's Razor): QM only answers
+      questions regarding the outcome of possible experiments (i.e. if
+      you cannot design an experiment, you have nothing).
+   2. *Principle of Superposition of States*: systems can be partly in
+      each of two or more other states. States can be described as a
+      superposition of two or more states. Such superpositions can be
+      performed in an infinite number of ways. Example: Magnetic
+      Resonance Imaging (MRI).
+   3. *Principle of Indeterminacy* (Schrödinger's Cat): any observation
+      on a system causes it to jump into one or more particular
+      states. It is impossible to predict which state that will be but
+      the probability of a given system jumping into a final given
+      state can be predicted. Example: quantum tunneling - particles
+      can tunnel through a wall (with a small probability) - [[https://en.wikipedia.org/wiki/Quantum_tunnelling#/media/File:EffetTunnel.gif][see here]].
+5) How does a quantum computer work, and how can quantum algorithms be
+   used to solve real world problems? ([[https://www.ibm.com/topics/quantum-computing][IBM, n.d.]])
+#+end_quotes
 
-- [[https://github.com/matloff/TidyverseSkeptic/blob/master/RDesign.pdf][R Design Patterns, Base-R vs. Tidyverse]]
-- [[https://github.com/matloff/TidyverseSkeptic][TidyverseSceptic: Teaching R kinder, gentler, more effective]]
+** TODO Review and test pre-view
+#+attr_latex: :width 400px
+#+caption: Photo: Chris Brady serves a pizza (US Dept Agriculture), Aug-5 2016
+[[../img/review.jpg]]
 
-* TODO Review and test pre-view
+Don't sweat over these now - ask yourself if you know an answer or
+not, then listen to the repetition of my explanation and answer.
 
 1) What does ~strsplit~ do and what does it return?
    #+name: split
@@ -826,6 +866,7 @@ Let's try this!
      s
      class(s)
    #+end_src
+
 2) How can you unlist a list?
    #+begin_src R
      <<split>>
@@ -840,6 +881,7 @@ Let's try this!
    : [1] "list"
    : [1] TRUE
    : [1] "h" "e" "l" "l" "o"
+
 3) What does 'exception handling' mean?
    #+begin_notes
    Protecting against a user-defined function malfunctioning,
@@ -847,6 +889,7 @@ Let's try this!
    undefined, or a mandatory argument is missing. To protect use:
    ~break~, ~next~, ~missing~, ~warning~, ~stop~.
    #+end_notes
+
 4) How can you make a function safe against missing arguments?
    - use ~missing~ in a condition check
    - set a default argument
@@ -857,14 +900,25 @@ Let's try this!
      }
      f()
    #+end_src
+
 5) Is the ellipsis argument mandatory or optional?
-   
-* TODO Exercise: text mining function
+
+** TODO TidyverseSceptic and RDesign
+#+attr_latex: :width 400px
+#+caption: Photo: E.A.Harris in R.W. Howard 1995: Apollo 13.
+[[../img/apollo.jpg]]
+
+- Incidentally, do you know anything about [[https://en.wikipedia.org/wiki/Apollo_13][Apollo 13]]?
+- Design, learning and practice aren't usually aligned[fn:4] 
+- Article by Matloff: [[https://github.com/matloff/TidyverseSkeptic/blob/master/RDesign.pdf][R Design Patterns, Base-R vs. Tidyverse]]
+- [[https://github.com/matloff/TidyverseSkeptic][TidyverseSceptic: Teaching R kinder, gentler, more effective]]
+
+** TODO Exercise: text mining function
 
 - load ~nb_clean.org~ and replace the sequence of ~tm_map~ function calls
   to create a clean document by one function.
 
-* TODO What did you learn?
+** TODO What did you learn?
 
 Mon:
 
@@ -909,10 +963,28 @@ To graduate to a full-fledged R programmer, get this excellent book:
 
 * References
 
-Fabio Moioli (Oct 13, 2022). Predictions on the Future of Data
+Fabio Moioli (13 Oct 2022). Predictions on the Future of Data
 Science. In: Forbes magazine. URL: [[https://www.forbes.com/sites/forbestechcouncil/2022/10/13/predictions-on-the-future-of-data-science/?sh=2db6bd5875ef][forbes.com]].
 
+Fitzpatrick (8 Apr 2013). Fundamental Principles of Quantum
+Mechanics. Online: [[https://farside.ph.utexas.edu/teaching/qm/lectures/node6.html][utexas.edu]].
+
+Hanif (28 Oct 2022). Pros and Cons of Low-Code Technology Today. Online:
+[[https://www.trustradius.com/buyer-blog/low-code-pros-cons][trustradius.com]].
+
+IBM (n.d.). What is quantum computing? Online: [[https://www.ibm.com/topics/quantum-computing][ibm.com]].
+
+Luo et al (15 Jul 2021). Characteristics and Challenges of Low-code
+Development: The Practitioner's Perspective. In: 15th ACM/IEEE
+Int. Symp. ESEM. Online: [[https://arxiv.org/abs/2107.07482][arxiv.org]].
+
+Pathak (16 Nov 2022). 12 best Low-code or No-code Platforms to Build Amazing
+Products. Online: [[https://geekflare.com/nocode-platforms-to-build-product/][geekflare.com]].
+
 * Footnotes
+[fn:4]This very course is an example - designed around R, we learn
+  from books, and practice using Emacs + Org-mode literate
+  programming. None of these elements were conceived together.
 
 [fn:1] Topic: explore an R package; deliverables: proposal, literature
 review, abstract, literate program, presentation.
