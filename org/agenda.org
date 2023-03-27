@@ -789,7 +789,7 @@ Let's try this!
 - Download ~9.org~ from GitHub and insert it (~C-x i~) into the practice
   file to continue
 
-* NEXT Week 11 - The Future & Exception handling
+* Week 11 - The Future & Exception handling
 #+attr_latex: :width 400px
 #+caption: Photo by Dunk Hacking the bridge to your future (Flickr.com)
 [[../img/debugging.jpg]]
@@ -799,12 +799,12 @@ Let's try this!
   + laying open your search strategy
   + fancy foot[note] work
   + take a look at my Org-mode files for layout
-- Late submissions for test 4 *by 3/31* for partial credit
 - Next sprint review: results! *Due on April 21.*
+- Late submissions for test 4 *by 3/31* for partial credit
 - Next *test* due March 31 (open for partial credit until April): we'll
-  review some questions on Wednesday.
+  review some questions on Wednesday
 
-** TODO Predictions On The Future of Data Science
+* DONE Predictions On The Future of Data Science
 #+attr_latex: :width 400px
 #+caption: Photo by Katsujiro Maekawa, Korea (Flickr.com)
 [[../img/future.jpg]]
@@ -851,7 +851,17 @@ Some "Research" results:
    used to solve real world problems? ([[https://www.ibm.com/topics/quantum-computing][IBM, n.d.]])
 #+end_quotes
 
-** TODO Review and test pre-view
+* DONE TidyverseSceptic and RDesign
+#+attr_latex: :width 400px
+#+caption: Photo: E.A.Harris in R.W. Howard 1995: Apollo 13.
+[[../img/apollo.jpg]]
+
+- Incidentally, do you know anything about [[https://en.wikipedia.org/wiki/Apollo_13][Apollo 13]]?
+- Design, learning and practice aren't usually aligned[fn:4] 
+- Article by Matloff: [[https://github.com/matloff/TidyverseSkeptic/blob/master/RDesign.pdf][R Design Patterns, Base-R vs. Tidyverse]]
+- [[https://github.com/matloff/TidyverseSkeptic][TidyverseSceptic: Teaching R kinder, gentler, more effective]]
+
+* TODO Review and test pre-view
 #+attr_latex: :width 400px
 #+caption: Photo: Chris Brady serves a pizza (US Dept Agriculture), Aug-5 2016
 [[../img/review.jpg]]
@@ -903,24 +913,17 @@ not, then listen to the repetition of my explanation and answer.
 
 5) Is the ellipsis argument mandatory or optional?
 
-** TODO TidyverseSceptic and RDesign
-#+attr_latex: :width 400px
-#+caption: Photo: E.A.Harris in R.W. Howard 1995: Apollo 13.
-[[../img/apollo.jpg]]
-
-- Incidentally, do you know anything about [[https://en.wikipedia.org/wiki/Apollo_13][Apollo 13]]?
-- Design, learning and practice aren't usually aligned[fn:4] 
-- Article by Matloff: [[https://github.com/matloff/TidyverseSkeptic/blob/master/RDesign.pdf][R Design Patterns, Base-R vs. Tidyverse]]
-- [[https://github.com/matloff/TidyverseSkeptic][TidyverseSceptic: Teaching R kinder, gentler, more effective]]
-
-** TODO Exercise: text mining function
+* TODO Exercise: text mining function
 
 - load ~nb_clean.org~ and replace the sequence of ~tm_map~ function calls
   to create a clean document by one function.
 
-** TODO What did you learn?
+* TODO What did you learn this week?
 
 Mon:
+- how to execute a "close reading" of an online article
+- validation and researching basic questions
+- extracting and testing hypotheses with examples
 
 Tue:
 
