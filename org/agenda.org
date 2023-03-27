@@ -507,7 +507,7 @@ Submissions and tests:
    See ~help(break)~: ~break~ breaks out of a ~for~, ~while~ or ~repeat~ loop.
    Control is transferred to the first statement outside the inner-most loop.
    #+end_notes
-   
+
 2) [ ] Let's write an example together and refresh some knowledge!
    1) loop over the string "Back from the weekend"
    2) print each letter of the string
@@ -647,8 +647,8 @@ Let's try this!
 - This is apparently not free (though I am not aware of having given
   OpenAI my credit card or Paypal information): according to Baath,
   #+begin_quote
-   Cost is $0.002 per 1000 returned words, which roughly translates to
-   that $1 gives you between 1000 and 2000 calls.
+  Cost is $0.002 per 1000 returned words, which roughly translates to
+  that $1 gives you between 1000 and 2000 calls.
   #+end_quote
 
 - A last example, less code, more text:
@@ -712,7 +712,7 @@ Let's try this!
 #+attr_latex: :width 400px
 [[../img/exercise.jpg]]
 
-[[https://lyon.instructure.com/courses/1041/assignments/8975][See Canvas.]] 
+[[https://lyon.instructure.com/courses/1041/assignments/8975][See Canvas.]]
 
 ** TODO Live assignments: DataCamp / test 4
 #+attr_latex: :width 400px
@@ -808,16 +808,77 @@ Let's try this!
 #+caption: Photo by Katsujiro Maekawa, Korea (Flickr.com)
 [[../img/future.jpg]]
 
+#+begin_notes
+
+#+end_notes
+
 * TODO TidyverseSceptic and RDesign
 
 - [[https://github.com/matloff/TidyverseSkeptic/blob/master/RDesign.pdf][R Design Patterns, Base-R vs. Tidyverse]]
 - [[https://github.com/matloff/TidyverseSkeptic][TidyverseSceptic: Teaching R kinder, gentler, more effective]]
 
+* TODO Review and test pre-view
+
+1) What does ~strsplit~ do and what does it return?
+   #+name: split
+   #+begin_src R
+     strsplit("hello",split="") -> s
+     s
+     class(s)
+   #+end_src
+2) How can you unlist a list?
+   #+begin_src R
+     <<split>>
+     unlist(s) -> vs
+     is.vector(vs)
+     vs
+   #+end_src
+
+   #+RESULTS:
+   : [[1]]
+   : [1] "h" "e" "l" "l" "o"
+   : [1] "list"
+   : [1] TRUE
+   : [1] "h" "e" "l" "l" "o"
+3) What does 'exception handling' mean?
+   #+begin_notes
+   Protecting against a user-defined function malfunctioning,
+   e.g. because an operation is not allowed, or the results are
+   undefined, or a mandatory argument is missing. To protect use:
+   ~break~, ~next~, ~missing~, ~warning~, ~stop~.
+   #+end_notes
+4) How can you make a function safe against missing arguments?
+   - use ~missing~ in a condition check
+   - set a default argument
+   #+begin_src R
+     f <- function(x) {
+       if(missing(x)) x <- "no arg"
+       return(print(x))
+     }
+     f()
+   #+end_src
+5) Is the ellipsis argument mandatory or optional?
+   
 * TODO Exercise: text mining function
 
 - load ~nb_clean.org~ and replace the sequence of ~tm_map~ function calls
   to create a clean document by one function.
-  
+
+* TODO What did you learn?
+
+Mon:
+
+Tue:
+
+Wed:
+
+
+Mon:
+
+Wed:
+
+Fri:
+
 * TODO Week 12 - text mining with bag-of-words
 * TODO Week 13 - data science on the command line
 * TODO Week 14 - database operations in the shell

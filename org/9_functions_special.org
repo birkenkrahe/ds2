@@ -444,6 +444,33 @@ We'll look at three types of special user-defined R functions:
 
 * TODO Debugging tools
 
+- What's your experience with "debugging"?
+
+- Any tool or approach to finding programming errors or mistakes
+
+- Includes ~print~ or ~cat~ commands to inspect values during execution
+
+- More details in TARP by Matloff (2011) chapter 12 or TAOD by Matloff
+  and Salzman (2008).
+
+- Copycat coding and over-use of AI helpers destroys debugging skills
+
+- Interpreted languages like Lisp, R, Python, JavaScript have an edge
+  over compiled languages like C/C++, Java, because it's so much
+  easier to interact with them "live". Emacs Org-mode enables this for
+  C/C++ and Java by simulating interpretation through code blocks.
+
+- Here, we'll look at R's ~try~ function.
+
+* TODO ~try~ to catch me
+
+- When a function terminates from an error, it terminates any parent
+  function: if ~f~ calls ~g~ and ~g~ halts because of an error, ~f~ halts at
+  the same point.
+
+-   
+
+
 * TODO Progress, timing and masking
 
 * TODO Exercises
@@ -588,23 +615,13 @@ We'll look at three types of special user-defined R functions:
 
   #+RESULTS:
   : Error in fibo_safe_(0) : Cannot continue at n= 0
-* Code glossary
+* TODO Code glossary
 
 | COMMAND  | MEANING                      |
 |----------+------------------------------|
-| ~function~ | Create a function            |
-| ~return~   | Return objects from function |
-| ~missing~  | Check arguments              |
-| ~...~      | Ellipsis (variable) argument |
 
 * References
 
 Sweigart (2019). Automate the Boring Stuff with Python. NoStarch.
 
 Sweigart (2022). The Recursive Book of Recursion. NoStarch.
-
-* Footnotes
-
-[fn:1]This is also the author whose "[[https://nostarch.com/automatestuff2][Automate the Boring Stuff with
-Python]]" will be the basis of my first introduction to programming with
-Python (CSC 109) course this summer!
