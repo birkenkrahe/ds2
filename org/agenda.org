@@ -789,20 +789,22 @@ Let's try this!
 - Download ~9.org~ from GitHub and insert it (~C-x i~) into the practice
   file to continue
 
-* Week 11 - The Future & Exception handling
+* IN PROGRESS Week 11 - The Future & Exception handling
 #+attr_latex: :width 400px
 #+caption: Photo by Dunk Hacking the bridge to your future (Flickr.com)
 [[../img/debugging.jpg]]
 
-- I evaluated & graded outstanding exercises (*please check*)
-- The literature reviews were all impressive in their own way:
+- [ ] I evaluated & graded outstanding exercises (*please check*)
+- [ ] The literature reviews were all impressive in their own way:
   + laying open your search strategy
   + fancy foot[note] work
   + take a look at my Org-mode files for layout
-- Next sprint review: results! *Due on April 21.*
-- Late submissions for test 4 *by 3/31* for partial credit
-- Next *test* due March 31 (open for partial credit until April): we'll
+- [ ] Next sprint review: results! *Due on April 21.*
+- [ ] Late submissions for test 4 *by 3/31* for partial credit
+- [ ] Next *test* due March 31 (open for partial credit until April): we'll
   review some questions on Wednesday
+- [ ] *Bonus points* for experience report from the job fair April 4 -
+  [[https://lyon.instructure.com/courses/1041/assignments/9612][see Canvas]]
 
 * DONE Predictions On The Future of Data Science
 #+attr_latex: :width 400px
@@ -861,6 +863,24 @@ Some "Research" results:
 - Article by Matloff: [[https://github.com/matloff/TidyverseSkeptic/blob/master/RDesign.pdf][R Design Patterns, Base-R vs. Tidyverse]]
 - [[https://github.com/matloff/TidyverseSkeptic][TidyverseSceptic: Teaching R kinder, gentler, more effective]]
 
+* TODO Bonus points for job fair experience report!
+#+attr_latex: :width 400px
+[[../img/fair_flickr_color.jpg]]
+
+- Write long paragraph about your job fair experience for 10 points.
+- Great opportunity to network, mix and mingle, and show off.
+- Bring 1 page resume, a few questions, a story, and dress up.
+- Must go: graduating seniors. Should go: everyone else.
+- Motivate each other by going as a pair, a group, a team.
+- Post your experience report in Canvas.
+
+* TODO DataCamp seminar: building your portfolio
+#+attr_latex: :width 400px
+[[../img/resting_flickr_color.jpg]]
+
+[[https://careerfoundry.com/en/blog/data-analytics/data-analytics-portfolio-examples/][See: 9 of the best data analytics portfolios on the web]]
+(Hillier, 2023)
+
 * TODO Review and test pre-view
 #+attr_latex: :width 400px
 #+caption: Photo: Chris Brady serves a pizza (US Dept Agriculture), Aug-5 2016
@@ -913,22 +933,17 @@ not, then listen to the repetition of my explanation and answer.
 
 5) Is the ellipsis argument mandatory or optional?
 
-* TODO Exercise: text mining function
+* TODO Introducing Bag-of-Words text mining
+
+
+- 
+
+* TODO Assignment: text mining function
 
 - load ~nb_clean.org~ and replace the sequence of ~tm_map~ function calls
   to create a clean document by one function.
 
 * TODO What did you learn this week?
-
-Mon:
-- how to execute a "close reading" of an online article
-- validation and researching basic questions
-- extracting and testing hypotheses with examples
-
-Tue:
-
-Wed:
-
 
 Mon:
 
@@ -975,6 +990,9 @@ Mechanics. Online: [[https://farside.ph.utexas.edu/teaching/qm/lectures/node6.ht
 Hanif (28 Oct 2022). Pros and Cons of Low-Code Technology Today. Online:
 [[https://www.trustradius.com/buyer-blog/low-code-pros-cons][trustradius.com]].
 
+Hillier (28 March 2023). 9 of the best data analytics portfolios on
+the web. Online: [[https://careerfoundry.com/en/blog/data-analytics/data-analytics-portfolio-examples/][careerfoundry.com]].
+
 IBM (n.d.). What is quantum computing? Online: [[https://www.ibm.com/topics/quantum-computing][ibm.com]].
 
 Luo et al (15 Jul 2021). Characteristics and Challenges of Low-code
@@ -998,3 +1016,4 @@ at the start as a ~#+property~, or at the start of a code block on the
 
 [fn:3] The Global environment contains auto-loaded and user-defined
 objects. Its contents are listed with ~ls()~ or ~ls('package:[name]')~.
+

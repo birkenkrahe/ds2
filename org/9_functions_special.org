@@ -408,7 +408,7 @@ We'll look at three types of special user-defined R functions:
 - The second test of ~error_test~ with a ~for~ loop prints the first few
   terms, while the ~sapply~ version has no return.
 
-* NEXT Making Fibonacci safe - DOWNLOAD 9.org?
+* NEXT Making Fibonacci safe
 
 - In ~fibo_safe~ below, you add a ~warning~ and an error ~stop~, and call
   the previously defined recursive function ~fibo~ on the argument ~n~:
@@ -442,7 +442,7 @@ We'll look at three types of special user-defined R functions:
 
   #+end_src
 
-* TODO Debugging tools
+* Debugging tools
 
 - What's your experience with "debugging"?
 
@@ -462,11 +462,50 @@ We'll look at three types of special user-defined R functions:
 
 - Here, we'll look at R's ~try~ function.
 
-* TODO ~try~ to catch me
+* ~try~ to catch me
 
 - When a function terminates from an error, it terminates any parent
   function: if ~f~ calls ~g~ and ~g~ halts because of an error, ~f~ halts at
   the same point.
+
+- As an example, if you call ~fibo_safe(0)~ you get an error (there's no
+  0th element of the Fibonacci sequence, and we put a ~stop~ to this case):
+  #+begin_src R
+    <<fibo_safe_>>
+    fibo_safe_(0)
+  #+end_src
+
+  #+RESULTS:
+  : Error in fibo_safe_(0) : Cannot continue at n = 0
+
+- If we wrap the function call in a ~try~ call, the error seems to have
+  disappeared:
+  #+begin_src R
+    try(fibo_safe_(0), silent=TRUE) -> attempt1
+  #+end_src
+
+- ~try~ with ~silent=TRUE~ suppresses printing the error to the console
+  but stored it instead in the object ~attempt1~. Check its class and
+  print it:
+  #+begin_src R
+    class(attempt1)
+    attempt1
+  #+end_src
+
+- If you pass a function to ~try~ and it does NOT throw an error, then
+  ~try~ has no effect:
+  1) pass ~fibo_safe(6)~ to ~try~
+  2) store the result in ~attempt2~ and print it
+  3) check if it is ~identical~ to ~fibo_safe(6)~
+  #+begin_src R
+    try(fibo_safe_(6),silent=TRUE) -> attempt2
+    attempt2
+    fibo_safe_(6)
+    identical(attempt2,fibo_safe_(6))
+  #+end_src
+
+* ~try~ in the body of a function
+
 
 * TODO Progress, timing and masking
 
@@ -585,7 +624,7 @@ We'll look at three types of special user-defined R functions:
         warning("Did you mean ",n," to be > 0? I'll fix it")
         n * (-1) -> n
       } else if (n == 0) {
-        stop("Cannot continue at n= ",n)
+        stop("Cannot continue at n = ",n)
       }
       ## calling the external function
       return (fibo(n))
@@ -612,6 +651,7 @@ We'll look at three types of special user-defined R functions:
 
   #+RESULTS:
   : Error in fibo_safe_(0) : Cannot continue at n= 0
+
 * TODO Code glossary
 
 | COMMAND  | MEANING                      |

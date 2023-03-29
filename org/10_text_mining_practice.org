@@ -1,12 +1,7 @@
-#+TITLE: Utilities
+#+TITLE: TEXT MINING - BAG OF WORDS - PRACTICE
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE:DSC205 Introduction to Advanced Data Science
 #+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:R :exports both :results output :session *R* :noweb yes
-* README
-
-An extended text cleaning example using several of the functions
-showcased in the DataCamp lesson Intermediate R::Utilities.
-
-[[../img/removePunctuation.png]]
+* TODO UPDATE #+AUTHOR NAME AND PLEDGE!

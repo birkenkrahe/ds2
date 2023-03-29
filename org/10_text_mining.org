@@ -1,0 +1,290 @@
+#+TITLE: Text mining - Bag of Words
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE:DSC205 Introduction to Advanced Data Science
+#+STARTUP:overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :exports both :results output :session *R* :noweb yes
+* README
+
+- Short introduction to text mining (TM) and bag-of-words
+
+- Based on Kwartler, Text mining in practice with R (Wiley, 2019)
+
+- Kwartler is also the author of the DataCamp course on TM with R
+
+* Quick taste of test mining with ~qdap~
+
+This is a quick example to demonstrate text mining using the ~qdap~
+package that you need to install first:
+
+- (Install and) load ~qdap~ and show all loaded packages. Run this code
+  block twice.
+  #+begin_src R :results output :session *R*
+    library(qdap)
+    search()
+  #+end_src
+
+  #+RESULTS:
+  :  [1] ".GlobalEnv"               "package:qdap"
+  :  [3] "package:RColorBrewer"     "package:qdapTools"
+  :  [5] "package:qdapRegex"        "package:qdapDictionaries"
+  :  [7] "ESSR"                     "package:stats"
+  :  [9] "package:graphics"         "package:grDevices"
+  : [11] "package:utils"            "package:datasets"
+  : [13] "package:stringr"          "package:httr"
+  : [15] "package:methods"          "Autoloads"
+  : [17] "package:base"
+
+- Store this text in a vector ~text~:
+  #+begin_quote
+  "DataCamp is the first online learning platform that focuses on
+  building the best learning experience specifically for Data
+  Science. We have offices in New York, London, and Belgium, and to
+  date, we trained over 11 million (aspiring) data scientists in over
+  150 countries. These data science enthusiasts completed more than
+  667 million exercises. You can take free beginner courses, or
+  subscribe for $25/month to get access to all premium courses."
+  #+end_quote
+
+  *In Emacs:*
+  1) Mark the start of the text with ~C-SPC~ (CTRL + SPACEBAR)
+  2) Go down to the end of the text with ~C-e~ (CTRL + e)
+  3) Copy the text with ~M-w~ (ALT + w)
+  4) Paste the text wherever you want to with ~C-y~ (CTRL + y)
+  #+name: create_text
+  #+begin_src R :session *R*
+      text <- "DataCamp is the first online learning platform that focuses on building the best learning experience specifically for Data Science. We have offices in New York, London, and Belgium, and to date, we trained over 11 million (aspiring) data scientists in over 150 countries. These data science enthusiasts completed more than 667 million exercises. You can take free beginner courses, or subscribe for $25/month to get access to all premium courses."
+  #+end_src
+
+- Print ~text~.
+  #+begin_src R
+    text
+  #+end_src
+
+  #+RESULTS:
+  : [1] "DataCamp is the first online learning platform that focuses on building the best learning experience specifically for Data Science. We have offices in New York, London, and Belgium, and to date, we trained over 11 million (aspiring) data scientists in over 150 countries. These data science enthusiasts completed more than 667 million exercises. You can take free beginner courses, or subscribe for $25/month to get access to all premium courses."
+
+- Check the data type of ~text~, and print its ~length~ and the number of
+  its characters.
+  #+begin_src R :session :results output
+    class(text)
+    length(text)
+    nchar(text)
+  #+end_src
+
+  #+RESULTS:
+  : [1] "character"
+  : [1] 1
+  : [1] 446
+
+- Find the 10 most frequent terms and store them in ~term_count~:
+  #+begin_src R :session *R* :results output
+    term_count <- freq_terms(text, 10)
+    term_count
+  #+end_src
+
+  #+RESULTS:
+  #+begin_example
+     WORD     FREQ
+  1  data        3
+  2  to          3
+  3  and         2
+  4  courses     2
+  5  for         2
+  6  in          2
+  7  learning    2
+  8  million     2
+  9  over        2
+  10 science     2
+  11 the         2
+  12 we          2
+  #+end_example
+
+- If you compare with what we said above, you can see that this table
+  is a transposed document matrix (TDM) with one feature (word
+  frequency ~FREQ~).
+
+- Plot the term count:
+  #+begin_src R :results graphics file :file ../img/term_count.png :session *R*
+    plot(term_count)
+  #+end_src
+
+  #+RESULTS:
+  [[file:../img/term_count.png]]
+
+* The ~tm~ text mining package
+
+- The ~tm~ package for text mining comes with a /vignette/ ([[https://cran.r-project.org/web/packages/tm/vignettes/tm.pdf][Feinerer,
+  2022]]). Its date reveals that the paper is up to date.
+
+- Load ~tm~ (twice) and check the loaded package list with ~search()~:
+  #+begin_src R
+    library(tm)
+    search()
+  #+end_src
+
+- There is no separate data package. Check which functions ~tm~ contains:
+  #+begin_src R
+    ls("package:tm")
+  #+end_src
+
+  #+RESULTS:
+  #+begin_example
+   [1] "as.DocumentTermMatrix"   "as.TermDocumentMatrix"
+   [3] "as.VCorpus"              "Boost_tokenizer"
+   [5] "content_transformer"     "Corpus"
+   [7] "DataframeSource"         "DirSource"
+   [9] "Docs"                    "DocumentTermMatrix"
+  [11] "DublinCore"              "DublinCore<-"
+  [13] "eoi"                     "findAssocs"
+  [15] "findFreqTerms"           "findMostFreqTerms"
+  [17] "FunctionGenerator"       "getElem"
+  [19] "getMeta"                 "getReaders"
+  [21] "getSources"              "getTokenizers"
+  [23] "getTransformations"      "Heaps_plot"
+  [25] "inspect"                 "MC_tokenizer"
+  [27] "nDocs"                   "nTerms"
+  [29] "PCorpus"                 "pGetElem"
+  [31] "PlainTextDocument"       "read_dtm_Blei_et_al"
+  [33] "read_dtm_MC"             "readDataframe"
+  [35] "readDOC"                 "reader"
+  [37] "readPDF"                 "readPlain"
+  [39] "readRCV1"                "readRCV1asPlain"
+  [41] "readReut21578XML"        "readReut21578XMLasPlain"
+  [43] "readTagged"              "readXML"
+  [45] "removeNumbers"           "removePunctuation"
+  [47] "removeSparseTerms"       "removeWords"
+  [49] "scan_tokenizer"          "SimpleCorpus"
+  [51] "SimpleSource"            "stemCompletion"
+  [53] "stemDocument"            "stepNext"
+  [55] "stopwords"               "stripWhitespace"
+  [57] "TermDocumentMatrix"      "termFreq"
+  [59] "Terms"                   "tm_filter"
+  [61] "tm_index"                "tm_map"
+  [63] "tm_parLapply"            "tm_parLapply_engine"
+  [65] "tm_reduce"               "tm_term_score"
+  [67] "URISource"               "VCorpus"
+  [69] "VectorSource"            "weightBin"
+  [71] "WeightFunction"          "weightSMART"
+  [73] "weightTf"                "weightTfIdf"
+  [75] "writeCorpus"             "XMLSource"
+  [77] "XMLTextDocument"         "Zipf_plot"
+  [79] "ZipSource"
+  #+end_example
+
+- Text documents are processed at different levels:
+  1) *Strings* like "Hello world"
+  2) *Documents* like a text of many strings stored as vector, dataframe
+  3) *Corpora* as collections of documents
+
+- The main purpose of these packages is to clean large bodies of
+  diverse documents in preparation for more advanced analysis.
+
+* Creating a vector source
+
+- Let's add a few elements to ~text~:
+  #+begin_src R
+    <<create_text>>
+    text <- c(text, read.csv("
+     #+end_src
+
+  #+RESULTS:
+  : [1] "DataCamp is the first online learning platform that focuses on building the best learning experience specifically for Data Science. We have offices in New York, London, and Belgium, and to date, we trained over 11 million (aspiring) data scientists in over 150 countries. These data science enthusiasts completed more than 667 million exercises. You can take free beginner courses, or subscribe for $25/month to get access to all premium courses."
+  
+- Use ~VectorSource~ to create a /source/ from the ~text~ vector, and show
+  its structure with ~str~:
+  #+begin_src R
+    source <- VectorSource(text)
+    str(source)
+  #+end_src
+
+  #+RESULTS:
+  : Classes 'VectorSource', 'SimpleSource', 'Source'  hidden list of 5
+  :  $ encoding: chr ""
+  :  $ length  : int 1
+  :  $ position: num 0
+  :  $ reader  :function (elem, language, id)  
+  :  $ content : chr "DataCamp is the first online learning platform that focuses on building the best learning experience specifical"| __truncated__
+
+- The source ~doc_source~ is a ~list~ of five elements and an attribute:
+  1) ~encoding~ says that the content is encoded with apostrophs.
+  2) ~length = 1~ is the length of the input vector
+  3) ~position = 0~ means that there is no other document in the corpus
+  4) ~reader~ is the function used to process the vector
+  5) ~content~ is the content of the corpus - one string only
+  6) ~attr~ is a vector that says what type of source this is
+  #+begin_src R
+    typeof(text_source)
+  #+end_src
+
+  #+RESULTS:
+  : [1] "list"
+
+* Creating a volatile corpus
+
+- To turn the ~VectorSource~ into a volatile (in-memory) corpus, use
+  ~VCorpus~ (that's also a ~list~):
+  #+begin_src R
+    corpus <- VCorpus(VectorSource(text))  # same as 'source' above
+    corpus
+    typeof(corpus)
+  #+end_src
+
+  #+RESULTS:
+  : <<VCorpus>>
+  : Metadata:  corpus specific: 0, document level (indexed): 0
+  : Content:  documents: 1
+  : [1] "list"
+
+- A corpus can have metadata - this only only has two "documents",
+  i.e. the two strings. A corpus can have any number of documents.
+
+- You can inspect the corpus with ~inspect~. This provides information
+  about each of the documents -
+  #+begin_src R
+    inspect(corpus)
+  #+end_src
+
+  #+RESULTS:
+  : <<VCorpus>>
+  : Metadata:  corpus specific: 0, document level (indexed): 0
+  : Content:  documents: 1
+  : 
+  : [[1]]
+  : <<PlainTextDocument>>
+  : Metadata:  7
+  : Content:  chars: 446
+
+- Individual documents can be accessed with the ~[[~ operator or via
+  their name:
+  #+begin_src R
+    meta(corpus[[1]]) # metadata for document no. 1 (list index)
+    meta(corpus[[1]],"language") # metadata for document language
+  #+end_src
+
+  #+RESULTS:
+  :   author       : character(0)
+  :   datetimestamp: 2023-03-29 14:47:53
+  :   description  : character(0)
+  :   heading      : character(0)
+  :   id           : 1
+  :   language     : en
+  :   origin       : character(0)
+  : [1] "en"
+
+- Accessing the corpus document content with ~content~:
+  #+begin_src R
+    content(doc_corpus[[2]])
+  #+end_src
+
+* Cleaning a corpus
+
+
+* Creating a Term-Document-Matrix (TDM)
+
+* Visualizing a TDM as a wordcloud
+
+* TODO Working around ~tm::removePunctuation~
+
+Source: Lantz, ML with R (2019)
+[[../img/removePunctuation.png]]
