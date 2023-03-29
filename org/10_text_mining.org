@@ -25,15 +25,18 @@ package that you need to install first:
   #+end_src
 
   #+RESULTS:
-  :  [1] ".GlobalEnv"               "package:qdap"
-  :  [3] "package:RColorBrewer"     "package:qdapTools"
-  :  [5] "package:qdapRegex"        "package:qdapDictionaries"
-  :  [7] "ESSR"                     "package:stats"
-  :  [9] "package:graphics"         "package:grDevices"
-  : [11] "package:utils"            "package:datasets"
-  : [13] "package:stringr"          "package:httr"
-  : [15] "package:methods"          "Autoloads"
-  : [17] "package:base"
+  #+begin_example
+   [1] ".GlobalEnv"               "package:tm"              
+   [3] "package:NLP"              "package:qdap"            
+   [5] "package:RColorBrewer"     "package:qdapTools"       
+   [7] "package:qdapRegex"        "package:qdapDictionaries"
+   [9] "ESSR"                     "package:stats"           
+  [11] "package:graphics"         "package:grDevices"       
+  [13] "package:utils"            "package:datasets"        
+  [15] "package:stringr"          "package:httr"            
+  [17] "package:methods"          "Autoloads"               
+  [19] "package:base"
+  #+end_example
 
 - Store this text in a vector ~text~:
   #+begin_quote
@@ -53,8 +56,10 @@ package that you need to install first:
   4) Paste the text wherever you want to with ~C-y~ (CTRL + y)
   #+name: create_text
   #+begin_src R :session *R*
-      text <- "DataCamp is the first online learning platform that focuses on building the best learning experience specifically for Data Science. We have offices in New York, London, and Belgium, and to date, we trained over 11 million (aspiring) data scientists in over 150 countries. These data science enthusiasts completed more than 667 million exercises. You can take free beginner courses, or subscribe for $25/month to get access to all premium courses."
+    text <- "DataCamp is the first online learning platform that focuses on building the best learning experience specifically for Data Science. We have offices in New York, London, and Belgium, and to date, we trained over 11 million (aspiring) data scientists in over 150 countries. These data science enthusiasts completed more than 667 million exercises. You can take free beginner courses, or subscribe for $25/month to get access to all premium courses."
   #+end_src
+
+  #+RESULTS: create_text
 
 - Print ~text~.
   #+begin_src R
@@ -123,6 +128,20 @@ package that you need to install first:
     search()
   #+end_src
 
+  #+RESULTS:
+  #+begin_example
+   [1] ".GlobalEnv"               "package:tm"              
+   [3] "package:NLP"              "package:qdap"            
+   [5] "package:RColorBrewer"     "package:qdapTools"       
+   [7] "package:qdapRegex"        "package:qdapDictionaries"
+   [9] "ESSR"                     "package:stats"           
+  [11] "package:graphics"         "package:grDevices"       
+  [13] "package:utils"            "package:datasets"        
+  [15] "package:stringr"          "package:httr"            
+  [17] "package:methods"          "Autoloads"               
+  [19] "package:base"
+  #+end_example
+
 - There is no separate data package. Check which functions ~tm~ contains:
   #+begin_src R
     ls("package:tm")
@@ -130,45 +149,45 @@ package that you need to install first:
 
   #+RESULTS:
   #+begin_example
-   [1] "as.DocumentTermMatrix"   "as.TermDocumentMatrix"
-   [3] "as.VCorpus"              "Boost_tokenizer"
-   [5] "content_transformer"     "Corpus"
-   [7] "DataframeSource"         "DirSource"
-   [9] "Docs"                    "DocumentTermMatrix"
-  [11] "DublinCore"              "DublinCore<-"
-  [13] "eoi"                     "findAssocs"
-  [15] "findFreqTerms"           "findMostFreqTerms"
-  [17] "FunctionGenerator"       "getElem"
-  [19] "getMeta"                 "getReaders"
-  [21] "getSources"              "getTokenizers"
-  [23] "getTransformations"      "Heaps_plot"
-  [25] "inspect"                 "MC_tokenizer"
-  [27] "nDocs"                   "nTerms"
-  [29] "PCorpus"                 "pGetElem"
-  [31] "PlainTextDocument"       "read_dtm_Blei_et_al"
-  [33] "read_dtm_MC"             "readDataframe"
-  [35] "readDOC"                 "reader"
-  [37] "readPDF"                 "readPlain"
-  [39] "readRCV1"                "readRCV1asPlain"
+   [1] "as.DocumentTermMatrix"   "as.TermDocumentMatrix"  
+   [3] "as.VCorpus"              "Boost_tokenizer"        
+   [5] "content_transformer"     "Corpus"                 
+   [7] "DataframeSource"         "DirSource"              
+   [9] "Docs"                    "DocumentTermMatrix"     
+  [11] "DublinCore"              "DublinCore<-"           
+  [13] "eoi"                     "findAssocs"             
+  [15] "findFreqTerms"           "findMostFreqTerms"      
+  [17] "FunctionGenerator"       "getElem"                
+  [19] "getMeta"                 "getReaders"             
+  [21] "getSources"              "getTokenizers"          
+  [23] "getTransformations"      "Heaps_plot"             
+  [25] "inspect"                 "MC_tokenizer"           
+  [27] "nDocs"                   "nTerms"                 
+  [29] "PCorpus"                 "pGetElem"               
+  [31] "PlainTextDocument"       "read_dtm_Blei_et_al"    
+  [33] "read_dtm_MC"             "readDataframe"          
+  [35] "readDOC"                 "reader"                 
+  [37] "readPDF"                 "readPlain"              
+  [39] "readRCV1"                "readRCV1asPlain"        
   [41] "readReut21578XML"        "readReut21578XMLasPlain"
-  [43] "readTagged"              "readXML"
-  [45] "removeNumbers"           "removePunctuation"
-  [47] "removeSparseTerms"       "removeWords"
-  [49] "scan_tokenizer"          "SimpleCorpus"
-  [51] "SimpleSource"            "stemCompletion"
-  [53] "stemDocument"            "stepNext"
-  [55] "stopwords"               "stripWhitespace"
-  [57] "TermDocumentMatrix"      "termFreq"
-  [59] "Terms"                   "tm_filter"
-  [61] "tm_index"                "tm_map"
-  [63] "tm_parLapply"            "tm_parLapply_engine"
-  [65] "tm_reduce"               "tm_term_score"
-  [67] "URISource"               "VCorpus"
-  [69] "VectorSource"            "weightBin"
-  [71] "WeightFunction"          "weightSMART"
-  [73] "weightTf"                "weightTfIdf"
-  [75] "writeCorpus"             "XMLSource"
-  [77] "XMLTextDocument"         "Zipf_plot"
+  [43] "readTagged"              "readXML"                
+  [45] "removeNumbers"           "removePunctuation"      
+  [47] "removeSparseTerms"       "removeWords"            
+  [49] "scan_tokenizer"          "SimpleCorpus"           
+  [51] "SimpleSource"            "stemCompletion"         
+  [53] "stemDocument"            "stepNext"               
+  [55] "stopwords"               "stripWhitespace"        
+  [57] "TermDocumentMatrix"      "termFreq"               
+  [59] "Terms"                   "tm_filter"              
+  [61] "tm_index"                "tm_map"                 
+  [63] "tm_parLapply"            "tm_parLapply_engine"    
+  [65] "tm_reduce"               "tm_term_score"          
+  [67] "URISource"               "VCorpus"                
+  [69] "VectorSource"            "weightBin"              
+  [71] "WeightFunction"          "weightSMART"            
+  [73] "weightTf"                "weightTfIdf"            
+  [75] "writeCorpus"             "XMLSource"              
+  [77] "XMLTextDocument"         "Zipf_plot"              
   [79] "ZipSource"
   #+end_example
 
@@ -185,30 +204,39 @@ package that you need to install first:
 - Let's add a few elements to ~text~:
   #+begin_src R
     <<create_text>>
-    text <- c(text, read.csv("
-     #+end_src
-
-  #+RESULTS:
-  : [1] "DataCamp is the first online learning platform that focuses on building the best learning experience specifically for Data Science. We have offices in New York, London, and Belgium, and to date, we trained over 11 million (aspiring) data scientists in over 150 countries. These data science enthusiasts completed more than 667 million exercises. You can take free beginner courses, or subscribe for $25/month to get access to all premium courses."
-  
-- Use ~VectorSource~ to create a /source/ from the ~text~ vector, and show
-  its structure with ~str~:
-  #+begin_src R
-    source <- VectorSource(text)
-    str(source)
+    text <- c(text,
+              read.csv("https://raw.githubusercontent.com/birkenkrahe/ds2/main/data/tm.csv", header=FALSE))
+    names(text) <- c("text1","text2","text3")
+    str(text)
   #+end_src
 
   #+RESULTS:
-  : Classes 'VectorSource', 'SimpleSource', 'Source'  hidden list of 5
-  :  $ encoding: chr ""
-  :  $ length  : int 1
-  :  $ position: num 0
-  :  $ reader  :function (elem, language, id)  
-  :  $ content : chr "DataCamp is the first online learning platform that focuses on building the best learning experience specifical"| __truncated__
+  : List of 3
+  :  $ text1: chr "DataCamp is the first online learning platform that focuses on building the best learning experience specifical"| __truncated__
+  :  $ text2: chr "Machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamen"| __truncated__
+  :  $ text3: chr "The human mind is not, like ChatGPT and its ilk, a lumbering statistical engine for pattern matching, gorging o"| __truncated__
+
+- Use ~VectorSource~ to create a /source/ from the ~text~ vector, and show
+    its structure with ~str~:
+    #+begin_src R
+    source <- VectorSource(text)
+    str(source)
+    #+end_src
+
+    #+RESULTS:
+    : Classes 'VectorSource', 'SimpleSource', 'Source'  hidden list of 5
+    :  $ encoding: chr ""
+    :  $ length  : int 3
+    :  $ position: num 0
+    :  $ reader  :function (elem, language, id)  
+    :  $ content :List of 3
+    :   ..$ text1: chr "DataCamp is the first online learning platform that focuses on building the best learning experience specifical"| __truncated__
+    :   ..$ text2: chr "Machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamen"| __truncated__
+    :   ..$ text3: chr "The human mind is not, like ChatGPT and its ilk, a lumbering statistical engine for pattern matching, gorging o"| __truncated__
 
 - The source ~doc_source~ is a ~list~ of five elements and an attribute:
   1) ~encoding~ says that the content is encoded with apostrophs.
-  2) ~length = 1~ is the length of the input vector
+  2) ~length = 3~ is the length of the input vector
   3) ~position = 0~ means that there is no other document in the corpus
   4) ~reader~ is the function used to process the vector
   5) ~content~ is the content of the corpus - one string only
@@ -233,7 +261,7 @@ package that you need to install first:
   #+RESULTS:
   : <<VCorpus>>
   : Metadata:  corpus specific: 0, document level (indexed): 0
-  : Content:  documents: 1
+  : Content:  documents: 3
   : [1] "list"
 
 - A corpus can have metadata - this only only has two "documents",
@@ -246,14 +274,26 @@ package that you need to install first:
   #+end_src
 
   #+RESULTS:
-  : <<VCorpus>>
-  : Metadata:  corpus specific: 0, document level (indexed): 0
-  : Content:  documents: 1
-  : 
-  : [[1]]
-  : <<PlainTextDocument>>
-  : Metadata:  7
-  : Content:  chars: 446
+  #+begin_example
+  <<VCorpus>>
+  Metadata:  corpus specific: 0, document level (indexed): 0
+  Content:  documents: 3
+
+  $text1
+  <<PlainTextDocument>>
+  Metadata:  7
+  Content:  chars: 446
+
+  $text2
+  <<PlainTextDocument>>
+  Metadata:  7
+  Content:  chars: 161
+
+  $text3
+  <<PlainTextDocument>>
+  Metadata:  7
+  Content:  chars: 250
+  #+end_example
 
 - Individual documents can be accessed with the ~[[~ operator or via
   their name:
@@ -264,7 +304,7 @@ package that you need to install first:
 
   #+RESULTS:
   :   author       : character(0)
-  :   datetimestamp: 2023-03-29 14:47:53
+  :   datetimestamp: 2023-03-29 15:06:50
   :   description  : character(0)
   :   heading      : character(0)
   :   id           : 1
@@ -274,10 +314,32 @@ package that you need to install first:
 
 - Accessing the corpus document content with ~content~:
   #+begin_src R
-    content(doc_corpus[[2]])
+    content(corpus[[4]])
   #+end_src
 
+  #+RESULTS:
+  : Error in x$content[[i]] : subscript out of bounds
+
+- You can also make a corpus from a data frame and store it
+  permanently using ~PCorpus(DataFrameSource(dataframe))~.
+
 * Cleaning a corpus
+
+- Base R cleaning functions in ~tm~:
+  #+attr_html: :width 400px
+  #+caption: Text mining functions
+  [[../img/10_clean.png]]
+
+- The function ~tolower~ is actually a ~base R~ function:
+  #+begin_src R
+    environment(tolower)
+    tolower("WHATSHAPPENING")
+  #+end_src
+
+  #+RESULTS:
+  : <environment: namespace:base>
+  : [1] "whatshappening"
+
 
 
 * Creating a Term-Document-Matrix (TDM)
