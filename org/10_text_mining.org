@@ -26,15 +26,15 @@ package that you need to install first:
 
   #+RESULTS:
   #+begin_example
-   [1] ".GlobalEnv"               "package:tm"              
-   [3] "package:NLP"              "package:qdap"            
-   [5] "package:RColorBrewer"     "package:qdapTools"       
+   [1] ".GlobalEnv"               "package:tm"
+   [3] "package:NLP"              "package:qdap"
+   [5] "package:RColorBrewer"     "package:qdapTools"
    [7] "package:qdapRegex"        "package:qdapDictionaries"
-   [9] "ESSR"                     "package:stats"           
-  [11] "package:graphics"         "package:grDevices"       
-  [13] "package:utils"            "package:datasets"        
-  [15] "package:stringr"          "package:httr"            
-  [17] "package:methods"          "Autoloads"               
+   [9] "ESSR"                     "package:stats"
+  [11] "package:graphics"         "package:grDevices"
+  [13] "package:utils"            "package:datasets"
+  [15] "package:stringr"          "package:httr"
+  [17] "package:methods"          "Autoloads"
   [19] "package:base"
   #+end_example
 
@@ -130,15 +130,15 @@ package that you need to install first:
 
   #+RESULTS:
   #+begin_example
-   [1] ".GlobalEnv"               "package:tm"              
-   [3] "package:NLP"              "package:qdap"            
-   [5] "package:RColorBrewer"     "package:qdapTools"       
+   [1] ".GlobalEnv"               "package:tm"
+   [3] "package:NLP"              "package:qdap"
+   [5] "package:RColorBrewer"     "package:qdapTools"
    [7] "package:qdapRegex"        "package:qdapDictionaries"
-   [9] "ESSR"                     "package:stats"           
-  [11] "package:graphics"         "package:grDevices"       
-  [13] "package:utils"            "package:datasets"        
-  [15] "package:stringr"          "package:httr"            
-  [17] "package:methods"          "Autoloads"               
+   [9] "ESSR"                     "package:stats"
+  [11] "package:graphics"         "package:grDevices"
+  [13] "package:utils"            "package:datasets"
+  [15] "package:stringr"          "package:httr"
+  [17] "package:methods"          "Autoloads"
   [19] "package:base"
   #+end_example
 
@@ -149,45 +149,45 @@ package that you need to install first:
 
   #+RESULTS:
   #+begin_example
-   [1] "as.DocumentTermMatrix"   "as.TermDocumentMatrix"  
-   [3] "as.VCorpus"              "Boost_tokenizer"        
-   [5] "content_transformer"     "Corpus"                 
-   [7] "DataframeSource"         "DirSource"              
-   [9] "Docs"                    "DocumentTermMatrix"     
-  [11] "DublinCore"              "DublinCore<-"           
-  [13] "eoi"                     "findAssocs"             
-  [15] "findFreqTerms"           "findMostFreqTerms"      
-  [17] "FunctionGenerator"       "getElem"                
-  [19] "getMeta"                 "getReaders"             
-  [21] "getSources"              "getTokenizers"          
-  [23] "getTransformations"      "Heaps_plot"             
-  [25] "inspect"                 "MC_tokenizer"           
-  [27] "nDocs"                   "nTerms"                 
-  [29] "PCorpus"                 "pGetElem"               
-  [31] "PlainTextDocument"       "read_dtm_Blei_et_al"    
-  [33] "read_dtm_MC"             "readDataframe"          
-  [35] "readDOC"                 "reader"                 
-  [37] "readPDF"                 "readPlain"              
-  [39] "readRCV1"                "readRCV1asPlain"        
+   [1] "as.DocumentTermMatrix"   "as.TermDocumentMatrix"
+   [3] "as.VCorpus"              "Boost_tokenizer"
+   [5] "content_transformer"     "Corpus"
+   [7] "DataframeSource"         "DirSource"
+   [9] "Docs"                    "DocumentTermMatrix"
+  [11] "DublinCore"              "DublinCore<-"
+  [13] "eoi"                     "findAssocs"
+  [15] "findFreqTerms"           "findMostFreqTerms"
+  [17] "FunctionGenerator"       "getElem"
+  [19] "getMeta"                 "getReaders"
+  [21] "getSources"              "getTokenizers"
+  [23] "getTransformations"      "Heaps_plot"
+  [25] "inspect"                 "MC_tokenizer"
+  [27] "nDocs"                   "nTerms"
+  [29] "PCorpus"                 "pGetElem"
+  [31] "PlainTextDocument"       "read_dtm_Blei_et_al"
+  [33] "read_dtm_MC"             "readDataframe"
+  [35] "readDOC"                 "reader"
+  [37] "readPDF"                 "readPlain"
+  [39] "readRCV1"                "readRCV1asPlain"
   [41] "readReut21578XML"        "readReut21578XMLasPlain"
-  [43] "readTagged"              "readXML"                
-  [45] "removeNumbers"           "removePunctuation"      
-  [47] "removeSparseTerms"       "removeWords"            
-  [49] "scan_tokenizer"          "SimpleCorpus"           
-  [51] "SimpleSource"            "stemCompletion"         
-  [53] "stemDocument"            "stepNext"               
-  [55] "stopwords"               "stripWhitespace"        
-  [57] "TermDocumentMatrix"      "termFreq"               
-  [59] "Terms"                   "tm_filter"              
-  [61] "tm_index"                "tm_map"                 
-  [63] "tm_parLapply"            "tm_parLapply_engine"    
-  [65] "tm_reduce"               "tm_term_score"          
-  [67] "URISource"               "VCorpus"                
-  [69] "VectorSource"            "weightBin"              
-  [71] "WeightFunction"          "weightSMART"            
-  [73] "weightTf"                "weightTfIdf"            
-  [75] "writeCorpus"             "XMLSource"              
-  [77] "XMLTextDocument"         "Zipf_plot"              
+  [43] "readTagged"              "readXML"
+  [45] "removeNumbers"           "removePunctuation"
+  [47] "removeSparseTerms"       "removeWords"
+  [49] "scan_tokenizer"          "SimpleCorpus"
+  [51] "SimpleSource"            "stemCompletion"
+  [53] "stemDocument"            "stepNext"
+  [55] "stopwords"               "stripWhitespace"
+  [57] "TermDocumentMatrix"      "termFreq"
+  [59] "Terms"                   "tm_filter"
+  [61] "tm_index"                "tm_map"
+  [63] "tm_parLapply"            "tm_parLapply_engine"
+  [65] "tm_reduce"               "tm_term_score"
+  [67] "URISource"               "VCorpus"
+  [69] "VectorSource"            "weightBin"
+  [71] "WeightFunction"          "weightSMART"
+  [73] "weightTf"                "weightTfIdf"
+  [75] "writeCorpus"             "XMLSource"
+  [77] "XMLTextDocument"         "Zipf_plot"
   [79] "ZipSource"
   #+end_example
 
@@ -201,38 +201,39 @@ package that you need to install first:
 
 * Creating a vector source
 
-- Let's add a few elements to ~text~:
+- Let's get some text first:
+  1) remove ~text~ from the R objects list
+  2) read a CSV file into a header-less data frame
+  3) transpose the data frame (columns become rows)
+  4) turn transposed data frame into vector
   #+begin_src R
-    <<create_text>>
-    text <- c(text,
-              read.csv("https://raw.githubusercontent.com/birkenkrahe/ds2/main/data/tm.csv", header=FALSE))
-    names(text) <- c("text1","text2","text3")
+    rm(text)
+    read.csv("https://raw.githubusercontent.com/birkenkrahe/ds2/main/data/tm.csv", header=FALSE) -> text
+    as.vector(t(text)) -> text
     str(text)
+    text
   #+end_src
 
   #+RESULTS:
-  : List of 3
-  :  $ text1: chr "DataCamp is the first online learning platform that focuses on building the best learning experience specifical"| __truncated__
-  :  $ text2: chr "Machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamen"| __truncated__
-  :  $ text3: chr "The human mind is not, like ChatGPT and its ilk, a lumbering statistical engine for pattern matching, gorging o"| __truncated__
+  :  chr [1:3] "Machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamen"| __truncated__ ...
+  : [1] "Machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamentally flawed conception of language and knowledge."
+  : [2] "If you want to learn R, learn the packages in this cheat sheet. These are my 80/20 tools. #rstats #datascience https://buff.ly/3KrP9gi"
+  : [3] "BOOM! Our Free 'All Access Pass' Is Now Available! Hedgeye is the firm that's called every market crash since '08 (including 2022). Get an inside look at our proven market-timing process & high-probability investment ideas. Try 8 investing products FREE (a $294 value)."
 
 - Use ~VectorSource~ to create a /source/ from the ~text~ vector, and show
-    its structure with ~str~:
-    #+begin_src R
+  its structure with ~str~:
+  #+begin_src R
     source <- VectorSource(text)
     str(source)
-    #+end_src
+  #+end_src
 
-    #+RESULTS:
-    : Classes 'VectorSource', 'SimpleSource', 'Source'  hidden list of 5
-    :  $ encoding: chr ""
-    :  $ length  : int 3
-    :  $ position: num 0
-    :  $ reader  :function (elem, language, id)  
-    :  $ content :List of 3
-    :   ..$ text1: chr "DataCamp is the first online learning platform that focuses on building the best learning experience specifical"| __truncated__
-    :   ..$ text2: chr "Machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamen"| __truncated__
-    :   ..$ text3: chr "The human mind is not, like ChatGPT and its ilk, a lumbering statistical engine for pattern matching, gorging o"| __truncated__
+  #+RESULTS:
+  : Classes 'VectorSource', 'SimpleSource', 'Source'  hidden list of 5
+  :  $ encoding: chr ""
+  :  $ length  : int 3
+  :  $ position: num 0
+  :  $ reader  :function (elem, language, id)
+  :  $ content : chr [1:3] "Machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamen"| __truncated__ "If you want to learn R, learn the packages in this cheat sheet. These are my 80/20 tools. #rstats #datascience "| __truncated__ "BOOM! Our Free 'All Access Pass' Is Now Available! Hedgeye is the firm that's called every market crash since '"| __truncated__
 
 - The source ~doc_source~ is a ~list~ of five elements and an attribute:
   1) ~encoding~ says that the content is encoded with apostrophs.
@@ -279,20 +280,20 @@ package that you need to install first:
   Metadata:  corpus specific: 0, document level (indexed): 0
   Content:  documents: 3
 
-  $text1
-  <<PlainTextDocument>>
-  Metadata:  7
-  Content:  chars: 446
-
-  $text2
+  [[1]]
   <<PlainTextDocument>>
   Metadata:  7
   Content:  chars: 161
 
-  $text3
+  [[2]]
   <<PlainTextDocument>>
   Metadata:  7
-  Content:  chars: 250
+  Content:  chars: 134
+
+  [[3]]
+  <<PlainTextDocument>>
+  Metadata:  7
+  Content:  chars: 269
   #+end_example
 
 - Individual documents can be accessed with the ~[[~ operator or via
@@ -304,7 +305,7 @@ package that you need to install first:
 
   #+RESULTS:
   :   author       : character(0)
-  :   datetimestamp: 2023-03-29 15:06:50
+  :   datetimestamp: 2023-03-29 15:20:19
   :   description  : character(0)
   :   heading      : character(0)
   :   id           : 1
@@ -314,16 +315,16 @@ package that you need to install first:
 
 - Accessing the corpus document content with ~content~:
   #+begin_src R
-    content(corpus[[4]])
+    content(corpus[[3]])
   #+end_src
 
   #+RESULTS:
-  : Error in x$content[[i]] : subscript out of bounds
+  : [1] "BOOM! Our Free 'All Access Pass' Is Now Available! Hedgeye is the firm that's called every market crash since '08 (including 2022). Get an inside look at our proven market-timing process & high-probability investment ideas. Try 8 investing products FREE (a $294 value)."
 
 - You can also make a corpus from a data frame and store it
   permanently using ~PCorpus(DataFrameSource(dataframe))~.
 
-* Cleaning a corpus
+* Cleaning a string
 
 - Base R cleaning functions in ~tm~:
   #+attr_html: :width 400px
@@ -331,20 +332,476 @@ package that you need to install first:
   [[../img/10_clean.png]]
 
 - The function ~tolower~ is actually a ~base R~ function:
+  1) check out the namespace of ~tolower~ with ~environment~
+  2) print the first message of the ~corpus~ with ~content~
+  3) apply ~tolower~ to the first message in our ~corpus~
   #+begin_src R
     environment(tolower)
-    tolower("WHATSHAPPENING")
+    content(corpus[[1]])
+    tolower(content(corpus[[1]]))
   #+end_src
 
   #+RESULTS:
   : <environment: namespace:base>
-  : [1] "whatshappening"
+  : [1] "Machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamentally flawed conception of language and knowledge."
+  : [1] "machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamentally flawed conception of language and knowledge."
 
+- Achieve the last result using a pipeline with the ~|>~ operator:
+  #+begin_src R
+    corpus[[1]] |>
+      content() |>
+      tolower()
+  #+end_src
 
+  #+RESULTS:
+  : [1] "machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamentally flawed conception of language and knowledge."
+
+- Save the 2nd ~corpus~ document in an object ~t~, then use the following
+  functions (in this order) on ~t~ and save the result in ~tc~:
+  1) ~removeWords(t,stopwords("en"))~
+  2) ~removeNumbers~
+  3) ~removePunctuation~
+  4) ~stripWhitespace~
+  5) ~tolower~
+  #+begin_src R
+    content(corpus[[2]]) -> t
+    tolower(
+      stripWhitespace(
+        removePunctuation(
+          removeNumbers(
+            removeWords(t, stopwords("en")))))) -> tc
+    tc
+  #+end_src
+
+  #+RESULTS:
+  : [1] "if want learn r learn packages cheat sheet these tools rstats datascience httpsbufflykrpgi"
+
+- Here, ~stopwords~ is a function, and ~stopwords("en")~ is a dictionary
+  of English "small" words to be removed:
+  #+begin_src R
+    stopwords("en")
+  #+end_src
+
+  #+RESULTS:
+  #+begin_example
+    [1] "i"          "me"         "my"         "myself"     "we"        
+    [6] "our"        "ours"       "ourselves"  "you"        "your"      
+   [11] "yours"      "yourself"   "yourselves" "he"         "him"       
+   [16] "his"        "himself"    "she"        "her"        "hers"      
+   [21] "herself"    "it"         "its"        "itself"     "they"      
+   [26] "them"       "their"      "theirs"     "themselves" "what"      
+   [31] "which"      "who"        "whom"       "this"       "that"      
+   [36] "these"      "those"      "am"         "is"         "are"       
+   [41] "was"        "were"       "be"         "been"       "being"     
+   [46] "have"       "has"        "had"        "having"     "do"        
+   [51] "does"       "did"        "doing"      "would"      "should"    
+   [56] "could"      "ought"      "i'm"        "you're"     "he's"      
+   [61] "she's"      "it's"       "we're"      "they're"    "i've"      
+   [66] "you've"     "we've"      "they've"    "i'd"        "you'd"     
+   [71] "he'd"       "she'd"      "we'd"       "they'd"     "i'll"      
+   [76] "you'll"     "he'll"      "she'll"     "we'll"      "they'll"   
+   [81] "isn't"      "aren't"     "wasn't"     "weren't"    "hasn't"    
+   [86] "haven't"    "hadn't"     "doesn't"    "don't"      "didn't"    
+   [91] "won't"      "wouldn't"   "shan't"     "shouldn't"  "can't"     
+   [96] "cannot"     "couldn't"   "mustn't"    "let's"      "that's"    
+  [101] "who's"      "what's"     "here's"     "there's"    "when's"    
+  [106] "where's"    "why's"      "how's"      "a"          "an"        
+  [111] "the"        "and"        "but"        "if"         "or"        
+  [116] "because"    "as"         "until"      "while"      "of"        
+  [121] "at"         "by"         "for"        "with"       "about"     
+  [126] "against"    "between"    "into"       "through"    "during"    
+  [131] "before"     "after"      "above"      "below"      "to"        
+  [136] "from"       "up"         "down"       "in"         "out"       
+  [141] "on"         "off"        "over"       "under"      "again"     
+  [146] "further"    "then"       "once"       "here"       "there"     
+  [151] "when"       "where"      "why"        "how"        "all"       
+  [156] "any"        "both"       "each"       "few"        "more"      
+  [161] "most"       "other"      "some"       "such"       "no"        
+  [166] "nor"        "not"        "only"       "own"        "same"      
+  [171] "so"         "than"       "too"        "very"
+  #+end_example
+
+- Check if the words "good" and "at" are in the English stop words
+  dictionary:
+  #+begin_src R
+    any(stopwords("en")==c("at"))
+    any(stopwords("en")==c("good"))
+  #+end_src
+
+  #+RESULTS:
+  : [1] TRUE
+  : [1] FALSE
+
+- Why is "good" not a stop word?
+
+- Recreate the cleaning from before using a pipeline:
+  #+begin_src R
+    content(corpus[[2]]) -> t
+    t |>
+      removeWords(stopwords("en")) |>
+      removeNumbers() |>
+      removePunctuation() |>
+      stripWhitespace() |>
+      tolower()
+  #+end_src
+
+  #+RESULTS:
+  : [1] "if want learn r learn packages cheat sheet these tools rstats datascience httpsbufflykrpgi"
+
+- The ~qdap~ package contains even more cleaning functions. Check the
+  methods in the package:
+  #+begin_src R
+    library(qdap)
+    ls('package:qdap')
+  #+end_src
+
+  #+RESULTS:
+  #+begin_example
+    [1] "%&%"                         "%>%"
+    [3] "%bs%"                        "%ex%"
+    [5] "%sw%"                        "add_incomplete"
+    [7] "add_s"                       "adjacency_matrix"
+    [9] "adjmat"                      "all_words"
+   [11] "Animate"                     "apply_as_df"
+   [13] "apply_as_tm"                 "as.Corpus"
+   [15] "as.DocumentTermMatrix"       "as.dtm"
+   [17] "as.tdm"                      "as.TermDocumentMatrix"
+   [19] "as.wfm"                      "automated_readability_index"
+   [21] "bag_o_words"                 "beg2char"
+   [23] "blank2NA"                    "boolean_search"
+   [25] "bracketX"                    "bracketXtract"
+   [27] "breaker"                     "build_qdap_vignette"
+   [29] "capitalizer"                 "char_table"
+   [31] "char2end"                    "character_count"
+   [33] "character_table"             "check_spelling"
+   [35] "check_spelling_interactive"  "check_text"
+   [37] "chunker"                     "clean"
+   [39] "cm_2long"                    "cm_code.blank"
+   [41] "cm_code.combine"             "cm_code.exclude"
+   [43] "cm_code.overlap"             "cm_code.transform"
+   [45] "cm_combine.dummy"            "cm_df.fill"
+   [47] "cm_df.temp"                  "cm_df.transcript"
+   [49] "cm_df2long"                  "cm_distance"
+   [51] "cm_dummy2long"               "cm_long2dummy"
+   [53] "cm_range.temp"               "cm_range2long"
+   [55] "cm_time.temp"                "cm_time2long"
+   [57] "colcomb2class"               "coleman_liau"
+   [59] "colpaste2df"                 "colSplit"
+   [61] "colsplit2df"                 "combo_syllable_sum"
+   [63] "comma_spacer"                "common"
+   [65] "condense"                    "correct"
+   [67] "counts"                      "cumulative"
+   [69] "DATA"                        "DATA.SPLIT"
+   [71] "DATA2"                       "delete"
+   [73] "dir_map"                     "discourse_map"
+   [75] "dispersion_plot"             "Dissimilarity"
+   [77] "dist_tab"                    "diversity"
+   [79] "duplicates"                  "edge_apply"
+   [81] "end_inc"                     "end_mark"
+   [83] "end_mark_by"                 "env.syl"
+   [85] "exclude"                     "Filter"
+   [87] "flesch_kincaid"              "folder"
+   [89] "formality"                   "freq_terms"
+   [91] "fry"                         "gantt"
+   [93] "gantt_plot"                  "gantt_rep"
+   [95] "gantt_wrap"                  "genX"
+   [97] "genXtract"                   "gradient_cloud"
+   [99] "hamlet"                      "htruncdf"
+  [101] "imperative"                  "incomp"
+  [103] "incomplete_replace"          "inspect_text"
+  [105] "is.global"                   "key_merge"
+  [107] "kullback_leibler"            "lcolsplit2df"
+  [109] "left_just"                   "lexical_classification"
+  [111] "linsear_write"               "ltruncdf"
+  [113] "lview"                       "mcsv_r"
+  [115] "mcsv_w"                      "mgsub"
+  [117] "mraja1"                      "mraja1spl"
+  [119] "multigsub"                   "multiscale"
+  [121] "NAer"                        "name2sex"
+  [123] "Network"                     "new_project"
+  [125] "ngrams"                      "object_pronoun_type"
+  [127] "outlier_detect"              "outlier_labeler"
+  [129] "paste2"                      "phrase_net"
+  [131] "plot_gantt_base"             "polarity"
+  [133] "polysyllable_sum"            "pos"
+  [135] "pos_by"                      "pos_tags"
+  [137] "potential_NA"                "preprocessed"
+  [139] "pres_debate_raw2012"         "pres_debates2012"
+  [141] "pronoun_type"                "prop"
+  [143] "proportions"                 "qcombine"
+  [145] "qcv"                         "qdap_df"
+  [147] "qheat"                       "qprep"
+  [149] "qtheme"                      "question_type"
+  [151] "qview"                       "raj"
+  [153] "raj.act.1"                   "raj.act.1POS"
+  [155] "raj.act.2"                   "raj.act.3"
+  [157] "raj.act.4"                   "raj.act.5"
+  [159] "raj.demographics"            "rajPOS"
+  [161] "rajSPLIT"                    "random_data"
+  [163] "random_sent"                 "rank_freq_mplot"
+  [165] "rank_freq_plot"              "raw.time.span"
+  [167] "read.transcript"             "replace_abbreviation"
+  [169] "replace_contraction"         "replace_number"
+  [171] "replace_ordinal"             "replace_symbol"
+  [173] "replacer"                    "right_just"
+  [175] "rm_empty_row"                "rm_row"
+  [177] "rm_stop"                     "rm_stopwords"
+  [179] "sample.time.span"            "scores"
+  [181] "scrubber"                    "Search"
+  [183] "sent_detect"                 "sent_detect_nlp"
+  [185] "sentCombine"                 "sentiment_frame"
+  [187] "sentSplit"                   "SMOG"
+  [189] "space_fill"                  "spaste"
+  [191] "speakerSplit"                "stem_words"
+  [193] "stem2df"                     "stemmer"
+  [195] "strip"                       "strWrap"
+  [197] "sub_holder"                  "subject_pronoun_type"
+  [199] "syllable_count"              "syllable_sum"
+  [201] "syn"                         "syn_frame"
+  [203] "synonyms"                    "synonyms_frame"
+  [205] "term_match"                  "termco"
+  [207] "termco_c"                    "termco_d"
+  [209] "termco2mat"                  "Text"
+  [211] "Text<-"                      "theme_badkitchen"
+  [213] "theme_cafe"                  "theme_duskheat"
+  [215] "theme_grayscale"             "theme_greyscale"
+  [217] "theme_hipster"               "theme_nightheat"
+  [219] "theme_norah"                 "Title"
+  [221] "Title<-"                     "TOT"
+  [223] "tot_plot"                    "trans_cloud"
+  [225] "trans_context"               "trans_venn"
+  [227] "Trim"                        "truncdf"
+  [229] "type_token_ratio"            "unbag"
+  [231] "unique_by"                   "vertex_apply"
+  [233] "visual"                      "wc"
+  [235] "weight"                      "wfdf"
+  [237] "wfm"                         "wfm_combine"
+  [239] "wfm_expanded"                "which_misspelled"
+  [241] "word_associate"              "word_cor"
+  [243] "word_count"                  "word_diff_list"
+  [245] "word_length"                 "word_list"
+  [247] "word_network_plot"           "word_position"
+  [249] "word_proximity"              "word_split"
+  [251] "word_stats"
+  #+end_example
+
+* Cleaning a corpus
+
+- To clean a corpus (a collection of different documents), use ~tm_map~,
+  which works as a wrapper. For example for ~removePunctuation~ and our ~corpus~:
+  #+begin_src R
+    library(tm)
+    nchar(content(corpus[[3]]))
+    nchar(content(tm_map(corpus, removePunctuation)[[3]]))
+    nchar(content(tm_map(corpus, removeWords, words=stopwords("en"))[[3]]))
+    nchar(content(tm_map(corpus, content_transformer(tolower))[[3]]))
+  #+end_src
 
 * Creating a Term-Document-Matrix (TDM)
+#+attr_latex: :width 400px
+#+caption: TDM and DTM for a corpus of tweets.
+[[../img/tdm_dtm.png]]
 
-* Visualizing a TDM as a wordcloud
+- Bag-of-words only cares about term (aka word) frequencies - this
+  information is contained in a Term-Document-Matrix whose rows are
+  terms and whose columns are the indidivual documents of the corpus.
+
+- The function ~clean_corpus~ has been defined and contains all the
+  cleaning operations you've seen so far:
+  #+begin_src R
+    <<clean_corpus>>
+    clean_corpus(corpus) -> clean_corpus
+    content(clean_corpus[[2]])
+  #+end_src
+
+  #+RESULTS:
+  : [1] " want learn r learn packages cheat sheet tools rstats datascience httpsbufflykrpgi"
+
+- Notice that the order of operations matters a lot for a truly
+  "clean" result. For example, applying ~tolower~ after ~removeWords~ will
+  leave "If" because the dictionary only contains "if".
+
+- The ~tm::TermDocumentMatrix~~ function turns the ~clean_corpus~ into a TDM:
+  #+begin_src R
+    tdm <- TermDocumentMatrix(clean_corpus)
+    tdm
+  #+end_src
+
+  #+RESULTS:
+  : <<TermDocumentMatrix (terms: 51, documents: 3)>>
+  : Non-/sparse entries: 51/102
+  : Sparsity           : 67%
+  : Maximal term length: 16
+  : Weighting          : term frequency (tf)
+
+- Look at the structure - you can see that the column vector names
+  contain the term and document information:
+  #+begin_src R
+    str(tdm)
+  #+end_src
+
+  #+RESULTS:
+  #+begin_example
+  List of 6
+   $ i       : int [1:51] 6 9 10 11 14 16 23 27 28 30 ...
+   $ j       : int [1:51] 1 1 1 1 1 1 1 1 1 1 ...
+   $ v       : num [1:51] 1 1 1 1 1 1 1 1 1 1 ...
+   $ nrow    : int 51
+   $ ncol    : int 3
+   $ dimnames:List of 2
+    ..$ Terms: chr [1:51] "access" "available" "boom" "called" ...
+    ..$ Docs : chr [1:3] "1" "2" "3"
+   - attr(*, "class")= chr [1:2] "TermDocumentMatrix" "simple_triplet_matrix"
+   - attr(*, "weighting")= chr [1:2] "term frequency" "tf"
+  #+end_example
+
+- Transpose the TDM to a DTM using ~base::t~ (or use ~DocumentTermMatrix~
+  on the clean corpus):
+  #+begin_src R
+    dtm <- t(tdm)
+    dtm
+    tdm
+  #+end_src
+
+  #+RESULTS:
+  #+begin_example
+  <<DocumentTermMatrix (documents: 3, terms: 51)>>
+  Non-/sparse entries: 51/102
+  Sparsity           : 67%
+  Maximal term length: 16
+  Weighting          : term frequency (tf)
+  <<TermDocumentMatrix (terms: 51, documents: 3)>>
+  Non-/sparse entries: 51/102
+  Sparsity           : 67%
+  Maximal term length: 16
+  Weighting          : term frequency (tf)
+  #+end_example
+
+* Analyze and visualize the TDM
+
+- All we're interested in, and all we can analyze and visualize, are
+  term frequencies.
+
+- To see counts, you can transform the TDM into a matrix:
+  #+begin_src R
+    as.matrix(tdm) -> m
+    head(m, 10)
+  #+end_src
+
+  #+RESULTS:
+  #+begin_example
+               Docs
+  Terms         1 2 3
+    access      0 0 1
+    available   0 0 1
+    boom        0 0 1
+    called      0 0 1
+    cheat       0 1 0
+    conception  1 0 0
+    crash       0 0 1
+    datascience 0 1 0
+    debase      1 0 0
+    degrade     1 0 0
+  #+end_example
+
+- To see top counts:
+  1) sum over all documents and get the frequencies for each term
+  2) sort the entries in decreasing order
+  3) print the top six entries
+  #+begin_src R
+    rowSums(m) -> freq
+    sort(freq, decreasing=TRUE) -> sorted
+    head(sorted)
+  #+end_src
+
+  #+RESULTS:
+  :      free     learn    access available      boom    called 
+  :         2         2         1         1         1         1
+
+- You can visualize the results as a barchart or as a wordcloud. For
+  the wordclouds, we need the ~wordcloud~ package.
+
+- Barchart:
+  #+begin_src R :results graphics file :file ../img/text_chart.png
+    barplot(rev(sorted),
+            horiz=TRUE,
+            main="Word frequencies",
+            xlab="Counts",
+            las=1)
+  #+end_src
+
+  #+RESULTS:
+  [[file:../img/text_chart.png]]
+
+- For the wordcloud, we transform the sorted, named frequency vector
+  ~sorted~ into a dataframe and then remove the ~rownames~:
+  #+begin_src R
+    library(wordcloud)
+    df <- data.frame(term=names(sorted),
+                     num=sorted)
+    rownames(df) <- NULL
+    head(df,10)
+  #+end_src  
+
+  #+RESULTS:
+  #+begin_example
+            term num
+  1         free   2
+  2        learn   2
+  3       access   1
+  4    available   1
+  5         boom   1
+  6       called   1
+  7        cheat   1
+  8   conception   1
+  9        crash   1
+  10 datascience   1
+  #+end_example
+
+- Now we apply the ~wordcloud~ function, which requires words (~term~),
+  and frequencies (~freq~). Check the arguments!
+  #+begin_src R
+    args(wordcloud)
+  #+end_src
+
+  #+RESULTS:
+  : function (words, freq, scale = c(4, 0.5), min.freq = 3, max.words = Inf, 
+  :     random.order = TRUE, random.color = FALSE, rot.per = 0.1, 
+  :     colors = "black", ordered.colors = FALSE, use.r.layout = FALSE, 
+  :     fixed.asp = TRUE, ...) 
+  : NULL
+
+- Create the word cloud:
+  #+begin_src R :results graphics file :file ../img/wordcloud.png
+    wordcloud(words = df$term,
+              freq = df$num,
+              max.words=20,
+              color="blue")
+  #+end_src
+
+  #+RESULTS:
+  [[file:../img/wordcloud.png]]
+
+* Resources
+
+- Cleaning function for ~corpus~:
+  #+name: clean_corpus
+  #+begin_src R :results silent
+    clean_corpus <- function(corpus) {
+      corpus <- tm_map(corpus,
+                       removeNumbers)
+      corpus <- tm_map(corpus,
+                       removePunctuation)
+      corpus <- tm_map(corpus,
+                       content_transformer(tolower))
+      corpus <- tm_map(corpus,
+                       removeWords,
+                       words = c(stopwords("en")))
+      corpus <- tm_map(corpus,
+                       stripWhitespace)
+      return(corpus)
+    }
+  #+end_src
 
 * TODO Working around ~tm::removePunctuation~
 

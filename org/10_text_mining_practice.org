@@ -5,3 +5,266 @@
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:R :exports both :results output :session *R* :noweb yes
 * TODO UPDATE #+AUTHOR NAME AND PLEDGE!
+* Quick taste of test mining with ~qdap~
+
+- (Install and) load ~qdap~ and show all loaded packages. Run this code
+  block twice.
+  #+begin_src R :results output :session *R*
+
+  #+end_src
+
+- Store this text in a vector ~text~:
+  #+begin_quote
+  "DataCamp is the first online learning platform that focuses on
+  building the best learning experience specifically for Data
+  Science. We have offices in New York, London, and Belgium, and to
+  date, we trained over 11 million (aspiring) data scientists in over
+  150 countries. These data science enthusiasts completed more than
+  667 million exercises. You can take free beginner courses, or
+  subscribe for $25/month to get access to all premium courses."
+  #+end_quote
+
+  *In Emacs:*
+  1) Mark the start of the text with ~C-SPC~ (CTRL + SPACEBAR)
+  2) Go down to the end of the text with ~C-e~ (CTRL + e)
+  3) Copy the text with ~M-w~ (ALT + w)
+  4) Paste the text wherever you want to with ~C-y~ (CTRL + y)
+  #+name: create_text
+  #+begin_src R :session *R*
+
+  #+end_src
+
+- Print ~text~.
+  #+begin_src R
+
+  #+end_src
+
+- Check the data type of ~text~, and print its ~length~ and the number of
+  its characters, ~nchar~.
+  #+begin_src R :session :results output
+
+  #+end_src
+
+- Find the 10 most frequent terms with ~qdap::freq_terms~ and store them
+  in ~term_count~ - check the arguments of ~freq_terms~ first:
+  #+begin_src R :session *R* :results output
+
+  #+end_src
+
+- Plot the term count with ~plot~:
+  #+begin_src R :results graphics file :file term_count.png :session *R*
+
+  #+end_src
+
+* The ~tm~ text mining package
+
+- Load ~tm~ (twice) and check the loaded package list with ~search()~:
+  #+begin_src R
+
+  #+end_src
+
+- There is no separate data package. Check which functions ~tm~ contains:
+  #+begin_src R
+
+  #+end_src
+
+* Creating a vector source
+
+- Let's get some text first:
+  1) remove ~text~ from the R objects list
+  2) read a CSV file into a header-less data frame with ~read.csv~
+  3) transpose the data frame (columns become rows) with ~t~
+  4) turn transposed data frame into vector with ~as.vector~
+  5) print ~text~
+  #+begin_src R
+    read.csv("https://raw.githubusercontent.com/birkenkrahe/ds2/main/data/tm.csv", header=FALSE) -> text
+  #+end_src
+
+- Use ~VectorSource~ to create a /source/ from the ~text~ vector, and show
+  its structure with ~str~:
+  #+begin_src R
+
+  #+end_src
+
+- The source ~doc_source~ is a ~list~ of five elements and an attribute:
+  1) ~encoding~ says that the content is encoded with apostrophs.
+  2) ~length = 3~ is the length of the input vector
+  3) ~position = 0~ means that there is no other document in the corpus
+  4) ~reader~ is the function used to process the vector
+  5) ~content~ is the content of the corpus - one string only
+  6) ~attr~ is a vector that says what type of source this is
+  #+begin_src R
+
+  #+end_src
+
+* Creating a volatile corpus
+
+- To turn the ~VectorSource~ into a volatile (in-memory) corpus, use
+  ~VCorpus~ (that's also a ~list~):
+  #+begin_src R
+
+  #+end_src
+
+- You can inspect the corpus with ~inspect~. This provides information
+  about each of the documents -
+  #+begin_src R
+
+  #+end_src
+
+- Individual documents can be accessed with the ~[[~ operator or via
+  their name:
+  #+begin_src R
+
+  #+end_src
+
+- Accessing the corpus document content with ~content~:
+  #+begin_src R
+
+  #+end_src
+
+* Cleaning a string
+
+- The function ~tolower~ is actually a ~base R~ function:
+  1) check out the namespace of ~tolower~ with ~environment~
+  2) print the first message of the ~corpus~ with ~content~
+  3) apply ~tolower~ to the first message in our ~corpus~
+  #+begin_src R
+
+  #+end_src
+
+- Achieve the last result using a pipeline with the ~|>~ operator:
+  #+begin_src R
+
+  #+end_src
+
+- Save the 2nd ~corpus~ document in an object ~t~, then use the following
+  functions (in this order) on ~t~ and save the result in ~tc~:
+  1) ~removeWords(t,stopwords("en"))~
+  2) ~removeNumbers~
+  3) ~removePunctuation~
+  4) ~stripWhitespace~
+  5) ~tolower~
+  #+begin_src R
+
+  #+end_src
+
+- Here, ~stopwords~ is a function, and ~stopwords("en")~ is a dictionary
+  of English "small" words to be removed:
+  #+begin_src R
+
+  #+end_src
+
+- Check if the words "good" and "at" are in the English stop words
+  dictionary:
+  #+begin_src R
+
+  #+end_src
+
+- Recreate the cleaning from before using a pipeline:
+  #+begin_src R
+
+  #+end_src
+
+- The ~qdap~ package contains even more cleaning functions. Check the
+  methods in the package:
+  #+begin_src R
+
+  #+end_src
+
+* Cleaning a corpus
+
+- To clean a corpus (a collection of different documents), use ~tm_map~,
+  which works as a wrapper. For example for ~removePunctuation~ and our
+  ~corpus~:
+  #+begin_src R
+    library(tm)
+    nchar(content(corpus[[3]]))
+    nchar(content(tm_map(corpus, removePunctuation)[[3]]))
+    nchar(content(tm_map(corpus, removeWords, words=stopwords("en"))[[3]]))
+    nchar(content(tm_map(corpus, content_transformer(tolower))[[3]]))
+  #+end_src
+
+* Creating a Term-Document-Matrix (TDM)
+
+- The function ~clean_corpus~ has been defined and contains all the
+  cleaning operations you've seen so far:
+  #+begin_src R
+    <<clean_corpus>>
+
+  #+end_src
+
+- The ~tm::TermDocumentMatrix~~ function turns the ~clean_corpus~ into a TDM:
+  #+begin_src R
+
+  #+end_src
+
+- Look at the structure - you can see that the column vector names
+  contain the term and document information:
+  #+begin_src R
+
+  #+end_src
+
+- Transpose the TDM to a DTM using ~base::t~ (or use ~DocumentTermMatrix~
+  on the clean corpus):
+  #+begin_src R
+
+  #+end_src
+
+* Analyze and visualize the TDM
+
+- To see counts, you can transform the TDM into a matrix:
+  #+begin_src R
+
+  #+end_src
+  
+- To see top counts:
+  1) sum over all documents and get the frequencies for each term
+  2) sort the entries in decreasing order
+  3) print the top six entries
+  #+begin_src R
+
+  #+end_src
+
+- Barchart:
+  #+begin_src R :results graphics file :file text_chart.png
+
+  #+end_src
+  
+- For the wordcloud, we transform the sorted, named frequency vector
+  ~sorted~ into a dataframe and then remove the ~rownames~:
+  #+begin_src R
+    library(wordcloud)
+
+  #+end_src
+
+- Now we apply the ~wordcloud~ function, which requires words (~term~),
+  and frequencies (~freq~). Check the arguments!
+  #+begin_src R
+
+  #+end_src
+
+- Create the word cloud:
+  #+begin_src R :results graphics file :file wordcloud.png
+
+  #+end_src
+
+* Resources
+
+- Cleaning function for ~corpus~:
+  #+name: clean_corpus
+  #+begin_src R :results silent
+    clean_corpus <- function(corpus) {
+      corpus <- tm_map(corpus,
+                       removeNumbers)
+      corpus <- tm_map(corpus,
+                       removePunctuation)
+      corpus <- tm_map(corpus,
+                       content_transformer(tolower))
+      corpus <- tm_map(corpus,
+                       removeWords,
+                       words = c(stopwords("en")))
+      corpus <- tm_map(corpus,
+                       stripWhitespace)
+      return(corpus)
+    }
+  #+end_src
