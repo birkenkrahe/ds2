@@ -506,7 +506,6 @@ We'll look at three types of special user-defined R functions:
 
 * ~try~ in the body of a function
 
-
 * TODO Progress, timing and masking
 
 * TODO Exercises

@@ -25,18 +25,15 @@ package that you need to install first:
   #+end_src
 
   #+RESULTS:
-  #+begin_example
-   [1] ".GlobalEnv"               "package:tm"
-   [3] "package:NLP"              "package:qdap"
-   [5] "package:RColorBrewer"     "package:qdapTools"
-   [7] "package:qdapRegex"        "package:qdapDictionaries"
-   [9] "ESSR"                     "package:stats"
-  [11] "package:graphics"         "package:grDevices"
-  [13] "package:utils"            "package:datasets"
-  [15] "package:stringr"          "package:httr"
-  [17] "package:methods"          "Autoloads"
-  [19] "package:base"
-  #+end_example
+  :  [1] ".GlobalEnv"               "package:qdap"            
+  :  [3] "package:RColorBrewer"     "package:qdapTools"       
+  :  [5] "package:qdapRegex"        "package:qdapDictionaries"
+  :  [7] "ESSR"                     "package:stats"           
+  :  [9] "package:graphics"         "package:grDevices"       
+  : [11] "package:utils"            "package:datasets"        
+  : [13] "package:stringr"          "package:httr"            
+  : [15] "package:methods"          "Autoloads"               
+  : [17] "package:base"
 
 - Store this text in a vector ~text~:
   #+begin_quote
@@ -48,7 +45,6 @@ package that you need to install first:
   667 million exercises. You can take free beginner courses, or
   subscribe for $25/month to get access to all premium courses."
   #+end_quote
-
   *In Emacs:*
   1) Mark the start of the text with ~C-SPC~ (CTRL + SPACEBAR)
   2) Go down to the end of the text with ~C-e~ (CTRL + e)
@@ -69,8 +65,8 @@ package that you need to install first:
   #+RESULTS:
   : [1] "DataCamp is the first online learning platform that focuses on building the best learning experience specifically for Data Science. We have offices in New York, London, and Belgium, and to date, we trained over 11 million (aspiring) data scientists in over 150 countries. These data science enthusiasts completed more than 667 million exercises. You can take free beginner courses, or subscribe for $25/month to get access to all premium courses."
 
-- Check the data type of ~text~, and print its ~length~ and the number of
-  its characters.
+- Check the data type of ~text~ with ~class~, and print its ~length~ and the
+  number of its characters with ~nchar~:
   #+begin_src R :session :results output
     class(text)
     length(text)
@@ -82,7 +78,8 @@ package that you need to install first:
   : [1] 1
   : [1] 446
 
-- Find the 10 most frequent terms and store them in ~term_count~:
+- Find the 10 most frequent terms and store them in ~term_count~ using
+  ~qdap::freq_terms~:
   #+begin_src R :session *R* :results output
     term_count <- freq_terms(text, 10)
     term_count
@@ -117,7 +114,7 @@ package that you need to install first:
   #+RESULTS:
   [[file:../img/term_count.png]]
 
-* The ~tm~ text mining package
+* IN PROGRESS The ~tm~ text mining package
 
 - The ~tm~ package for text mining comes with a /vignette/ ([[https://cran.r-project.org/web/packages/tm/vignettes/tm.pdf][Feinerer,
   2022]]). Its date reveals that the paper is up to date.

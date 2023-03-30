@@ -863,7 +863,7 @@ Some "Research" results:
 - Article by Matloff: [[https://github.com/matloff/TidyverseSkeptic/blob/master/RDesign.pdf][R Design Patterns, Base-R vs. Tidyverse]]
 - [[https://github.com/matloff/TidyverseSkeptic][TidyverseSceptic: Teaching R kinder, gentler, more effective]]
 
-* TODO Bonus points for job fair experience report!
+* DONE Bonus points for job fair experience report!
 #+attr_latex: :width 400px
 [[../img/fair_flickr_color.jpg]]
 
@@ -874,14 +874,14 @@ Some "Research" results:
 - Motivate each other by going as a pair, a group, a team.
 - Post your experience report in Canvas.
 
-* TODO DataCamp seminar: building your portfolio
+* DONE DataCamp seminar: building your portfolio
 #+attr_latex: :width 400px
 [[../img/resting_flickr_color.jpg]]
 
 [[https://careerfoundry.com/en/blog/data-analytics/data-analytics-portfolio-examples/][See: 9 of the best data analytics portfolios on the web]]
 (Hillier, 2023)
 
-* TODO Review and test pre-view
+* DONE Review and test pre-view
 #+attr_latex: :width 400px
 #+caption: Photo: Chris Brady serves a pizza (US Dept Agriculture), Aug-5 2016
 [[../img/review.jpg]]
@@ -896,6 +896,11 @@ not, then listen to the repetition of my explanation and answer.
      s
      class(s)
    #+end_src
+
+   #+RESULTS: split
+   : [[1]]
+   : [1] "hello"
+   : [1] "list"
 
 2) How can you unlist a list?
    #+begin_src R
@@ -929,14 +934,35 @@ not, then listen to the repetition of my explanation and answer.
        return(print(x))
      }
      f()
+     f(1)
    #+end_src
 
+   #+RESULTS:
+   : [1] "no arg"
+   : [1] 1
+
 5) Is the ellipsis argument mandatory or optional?
+   #+begin_src R
+     sapply(list(1:10,NA),
+            FUN=mean,
+            na.rm=TRUE)
+   #+end_src
 
-* TODO Introducing Bag-of-Words text mining
+   #+RESULTS:
+   : [1] 5.5 NaN
 
+   #+begin_src R
+     args(sapply)
+   #+end_src
 
-- 
+   #+RESULTS:
+   : function (X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE) 
+   : NULL
+
+* IN PROGRESS Introducing Bag-of-Words text mining
+
+- Download the practice file from GitHub: ~10_text_mining_practice.org~
+- Open it in Emacs to code along
 
 * TODO Assignment: text mining function
 
@@ -946,6 +972,9 @@ not, then listen to the repetition of my explanation and answer.
 * TODO What did you learn this week?
 
 Mon:
+- AI is going to be more important in the future of data science
+- Data science is becoming more of a team sport
+- When listing things, consider number and order
 
 Wed:
 

@@ -1,5 +1,5 @@
 #+TITLE: TEXT MINING - BAG OF WORDS - PRACTICE
-#+AUTHOR: Marcus Birkenkrahe
+#+AUTHOR: [AuthorName] [Pledged???]
 #+SUBTITLE:DSC205 Introduction to Advanced Data Science
 #+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
@@ -31,7 +31,7 @@
   4) Paste the text wherever you want to with ~C-y~ (CTRL + y)
   #+name: create_text
   #+begin_src R :session *R*
-
+    
   #+end_src
 
 - Print ~text~.
