@@ -125,10 +125,61 @@ package that you need to install first:
     search()
   #+end_src
 
+  #+RESULTS:
+  :  [1] ".GlobalEnv"        "package:tm"        "package:NLP"      
+  :  [4] "ESSR"              "package:stats"     "package:graphics" 
+  :  [7] "package:grDevices" "package:utils"     "package:datasets" 
+  : [10] "package:stringr"   "package:httr"      "package:methods"  
+  : [13] "Autoloads"         "package:base"
+
 - There is no separate data package. Check which functions ~tm~ contains:
   #+begin_src R
     ls("package:tm")
   #+end_src
+
+  #+RESULTS:
+  #+begin_example
+   [1] "as.DocumentTermMatrix"   "as.TermDocumentMatrix"  
+   [3] "as.VCorpus"              "Boost_tokenizer"        
+   [5] "content_transformer"     "Corpus"                 
+   [7] "DataframeSource"         "DirSource"              
+   [9] "Docs"                    "DocumentTermMatrix"     
+  [11] "DublinCore"              "DublinCore<-"           
+  [13] "eoi"                     "findAssocs"             
+  [15] "findFreqTerms"           "findMostFreqTerms"      
+  [17] "FunctionGenerator"       "getElem"                
+  [19] "getMeta"                 "getReaders"             
+  [21] "getSources"              "getTokenizers"          
+  [23] "getTransformations"      "Heaps_plot"             
+  [25] "inspect"                 "MC_tokenizer"           
+  [27] "nDocs"                   "nTerms"                 
+  [29] "PCorpus"                 "pGetElem"               
+  [31] "PlainTextDocument"       "read_dtm_Blei_et_al"    
+  [33] "read_dtm_MC"             "readDataframe"          
+  [35] "readDOC"                 "reader"                 
+  [37] "readPDF"                 "readPlain"              
+  [39] "readRCV1"                "readRCV1asPlain"        
+  [41] "readReut21578XML"        "readReut21578XMLasPlain"
+  [43] "readTagged"              "readXML"                
+  [45] "removeNumbers"           "removePunctuation"      
+  [47] "removeSparseTerms"       "removeWords"            
+  [49] "scan_tokenizer"          "SimpleCorpus"           
+  [51] "SimpleSource"            "stemCompletion"         
+  [53] "stemDocument"            "stepNext"               
+  [55] "stopwords"               "stripWhitespace"        
+  [57] "TermDocumentMatrix"      "termFreq"               
+  [59] "Terms"                   "tm_filter"              
+  [61] "tm_index"                "tm_map"                 
+  [63] "tm_parLapply"            "tm_parLapply_engine"    
+  [65] "tm_reduce"               "tm_term_score"          
+  [67] "URISource"               "VCorpus"                
+  [69] "VectorSource"            "weightBin"              
+  [71] "WeightFunction"          "weightSMART"            
+  [73] "weightTf"                "weightTfIdf"            
+  [75] "writeCorpus"             "XMLSource"              
+  [77] "XMLTextDocument"         "Zipf_plot"              
+  [79] "ZipSource"
+  #+end_example
 
 - Text documents are processed at different levels:
   1) *Strings* like "Hello world"
@@ -155,6 +206,12 @@ package that you need to install first:
     text
   #+end_src
 
+  #+RESULTS:
+  :  chr [1:3] "Machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamen"| __truncated__ ...
+  : [1] "Machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamentally flawed conception of language and knowledge."                                                                                                            
+  : [2] "If you want to learn R, learn the packages in this cheat sheet. These are my 80/20 tools. #rstats #datascience https://buff.ly/3KrP9gi"                                                                                                                                       
+  : [3] "BOOM! Our Free 'All Access Pass' Is Now Available! Hedgeye is the firm that's called every market crash since '08 (including 2022). Get an inside look at our proven market-timing process & high-probability investment ideas. Try 8 investing products FREE (a $294 value)."
+
 - Bonus question: can you prevent the system warning in the previous
   code block in case there is no ~text~ vector present in the
   environment, and produce your own /personalized/ warning message?
@@ -171,7 +228,7 @@ package that you need to install first:
   #+RESULTS:
   : Warning message:
   : There is no 'text' vector in the session in 
-  : c:/Users/birkenkrahe/Documents/GitHub/ml/org
+  : c:/Users/birkenkrahe/Documents/GitHub/ds2/org
 
 - Use ~VectorSource~ to create a /source/ from the ~text~ vector, and show
   its structure with ~str~:
@@ -181,16 +238,27 @@ package that you need to install first:
     str(source)
   #+end_src
 
+  #+RESULTS:
+  : Classes 'VectorSource', 'SimpleSource', 'Source'  hidden list of 5
+  :  $ encoding: chr ""
+  :  $ length  : int 3
+  :  $ position: num 0
+  :  $ reader  :function (elem, language, id)  
+  :  $ content : chr [1:3] "Machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamen"| __truncated__ "If you want to learn R, learn the packages in this cheat sheet. These are my 80/20 tools. #rstats #datascience "| __truncated__ "BOOM! Our Free 'All Access Pass' Is Now Available! Hedgeye is the firm that's called every market crash since '"| __truncated__
+
 - The source ~doc_source~ is a ~list~ of five elements and an attribute:
   1) ~encoding~ says that the content is encoded with apostrophs.
   2) ~length = 3~ is the length of the input vector
-  3) ~position = 0~ means that there is no other document in the corpus
+  3) ~position = 0~ means that there is no other document in the source
   4) ~reader~ is the function used to process the vector
   5) ~content~ is the content of the corpus - one string only
   6) ~attr~ is a vector that says what type of source this is
   #+begin_src R
     typeof(source)
   #+end_src
+
+  #+RESULTS:
+  : [1] "list"
 
 * Creating a volatile corpus
 
@@ -200,35 +268,122 @@ package that you need to install first:
     corpus <- VCorpus(VectorSource(text))  
     corpus
     typeof(corpus)
+    str(corpus)
   #+end_src
+
+  #+RESULTS:
+  #+begin_example
+  <<VCorpus>>
+  Metadata:  corpus specific: 0, document level (indexed): 0
+  Content:  documents: 3
+  [1] "list"
+  List of 3
+   $ 1:List of 2
+    ..$ content: chr "Machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamen"| __truncated__
+    ..$ meta   :List of 7
+    .. ..$ author       : chr(0) 
+    .. ..$ datetimestamp: POSIXlt[1:1], format: "2023-03-31 18:20:55"
+    .. ..$ description  : chr(0) 
+    .. ..$ heading      : chr(0) 
+    .. ..$ id           : chr "1"
+    .. ..$ language     : chr "en"
+    .. ..$ origin       : chr(0) 
+    .. ..- attr(*, "class")= chr "TextDocumentMeta"
+    ..- attr(*, "class")= chr [1:2] "PlainTextDocument" "TextDocument"
+   $ 2:List of 2
+    ..$ content: chr "If you want to learn R, learn the packages in this cheat sheet. These are my 80/20 tools. #rstats #datascience "| __truncated__
+    ..$ meta   :List of 7
+    .. ..$ author       : chr(0) 
+    .. ..$ datetimestamp: POSIXlt[1:1], format: "2023-03-31 18:20:55"
+    .. ..$ description  : chr(0) 
+    .. ..$ heading      : chr(0) 
+    .. ..$ id           : chr "2"
+    .. ..$ language     : chr "en"
+    .. ..$ origin       : chr(0) 
+    .. ..- attr(*, "class")= chr "TextDocumentMeta"
+    ..- attr(*, "class")= chr [1:2] "PlainTextDocument" "TextDocument"
+   $ 3:List of 2
+    ..$ content: chr "BOOM! Our Free 'All Access Pass' Is Now Available! Hedgeye is the firm that's called every market crash since '"| __truncated__
+    ..$ meta   :List of 7
+    .. ..$ author       : chr(0) 
+    .. ..$ datetimestamp: POSIXlt[1:1], format: "2023-03-31 18:20:55"
+    .. ..$ description  : chr(0) 
+    .. ..$ heading      : chr(0) 
+    .. ..$ id           : chr "3"
+    .. ..$ language     : chr "en"
+    .. ..$ origin       : chr(0) 
+    .. ..- attr(*, "class")= chr "TextDocumentMeta"
+    ..- attr(*, "class")= chr [1:2] "PlainTextDocument" "TextDocument"
+   - attr(*, "class")= chr [1:2] "VCorpus" "Corpus"
+  #+end_example
 
 - A corpus can have metadata - this only only has two "documents",
   i.e. the two strings. A corpus can have any number of documents.
 
-- You can inspect the corpus with ~inspect~. This provides information
+- You can inspect the corpus with ~tm::inspect~. This provides information
   about each of the documents -
   #+begin_src R
     inspect(corpus)
   #+end_src
 
+  #+RESULTS:
+  #+begin_example
+  <<VCorpus>>
+  Metadata:  corpus specific: 0, document level (indexed): 0
+  Content:  documents: 3
+
+  [[1]]
+  <<PlainTextDocument>>
+  Metadata:  7
+  Content:  chars: 161
+
+  [[2]]
+  <<PlainTextDocument>>
+  Metadata:  7
+  Content:  chars: 134
+
+  [[3]]
+  <<PlainTextDocument>>
+  Metadata:  7
+  Content:  chars: 269
+  #+end_example
+
 - Individual documents can be accessed with the ~[[~ operator or via
   their name:
   #+begin_src R
-    meta(corpus[[1]]) # metadata for document no. 1 (list index)
-    meta(corpus[[1]],"language") # metadata for document language
+    meta(corpus[[3]]) # metadata for document no. 1 (list index)
+    meta(corpus[[3]],"language") # metadata for document language
   #+end_src
+
+  #+RESULTS:
+  :   author       : character(0)
+  :   datetimestamp: 2023-03-31 18:20:55
+  :   description  : character(0)
+  :   heading      : character(0)
+  :   id           : 3
+  :   language     : en
+  :   origin       : character(0)
+  : [1] "en"
 
 - Accessing the corpus document content with ~content~:
   #+begin_src R
-    content(corpus[[3]])
+    content(corpus[[1]])
+    corpus[[1]][1]
+    as.character(corpus[[1]])
   #+end_src
+
+  #+RESULTS:
+  : [1] "Machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamentally flawed conception of language and knowledge."
+  : $content
+  : [1] "Machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamentally flawed conception of language and knowledge."
+  : [1] "Machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamentally flawed conception of language and knowledge."
 
 - You can also make a corpus from a data frame and store it
   permanently in a database using [[https://www.rdocumentation.org/packages/tm/versions/0.7-8/topics/PCorpus][the ~PCorpus~ function]].
 
 * Cleaning a string
 
-- Base R cleaning functions in ~tm~:
+- Base R cleaning functions in ~tm~ and base R:
   #+attr_html: :width 400px
   #+caption: Text mining functions
   [[../img/10_clean.png]]
@@ -241,14 +396,24 @@ package that you need to install first:
     environment(tolower)
     content(corpus[[1]])
     tolower(content(corpus[[1]]))
+    tolower(corpus[[1]])
   #+end_src
+
+  #+RESULTS:
+  : <environment: namespace:base>
+  : [1] "Machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamentally flawed conception of language and knowledge."
+  : [1] "machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamentally flawed conception of language and knowledge."
+  : [1] "machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamentally flawed conception of language and knowledge."
 
 - Achieve the last result using a pipeline with the ~|>~ operator:
   #+begin_src R
-    corpus[[1]] |>
-      content() |>
-      tolower()
+       corpus[[1]] |>
+    #     content() |>
+         tolower()
   #+end_src
+
+  #+RESULTS:
+  : [1] "machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamentally flawed conception of language and knowledge."
 
 - Save the 2nd ~corpus~ document in an object ~t~, then use the following
   functions (in this order) on ~t~ and save the result in ~tc~:
@@ -259,6 +424,7 @@ package that you need to install first:
   5) ~tolower~
   #+begin_src R
     content(corpus[[2]]) -> t
+    t
     tolower(
       stripWhitespace(
         removePunctuation(
@@ -267,18 +433,69 @@ package that you need to install first:
     tc
   #+end_src
 
+  #+RESULTS:
+  : [1] "If you want to learn R, learn the packages in this cheat sheet. These are my 80/20 tools. #rstats #datascience https://buff.ly/3KrP9gi"
+  : [1] "if want learn r learn packages cheat sheet these tools rstats datascience httpsbufflykrpgi"
+
 - Here, ~stopwords~ is a function, and ~stopwords("en")~ is a dictionary
   of English "small" words to be removed:
   #+begin_src R
     stopwords("en")
   #+end_src
 
+  #+RESULTS:
+  #+begin_example
+    [1] "i"          "me"         "my"         "myself"     "we"        
+    [6] "our"        "ours"       "ourselves"  "you"        "your"      
+   [11] "yours"      "yourself"   "yourselves" "he"         "him"       
+   [16] "his"        "himself"    "she"        "her"        "hers"      
+   [21] "herself"    "it"         "its"        "itself"     "they"      
+   [26] "them"       "their"      "theirs"     "themselves" "what"      
+   [31] "which"      "who"        "whom"       "this"       "that"      
+   [36] "these"      "those"      "am"         "is"         "are"       
+   [41] "was"        "were"       "be"         "been"       "being"     
+   [46] "have"       "has"        "had"        "having"     "do"        
+   [51] "does"       "did"        "doing"      "would"      "should"    
+   [56] "could"      "ought"      "i'm"        "you're"     "he's"      
+   [61] "she's"      "it's"       "we're"      "they're"    "i've"      
+   [66] "you've"     "we've"      "they've"    "i'd"        "you'd"     
+   [71] "he'd"       "she'd"      "we'd"       "they'd"     "i'll"      
+   [76] "you'll"     "he'll"      "she'll"     "we'll"      "they'll"   
+   [81] "isn't"      "aren't"     "wasn't"     "weren't"    "hasn't"    
+   [86] "haven't"    "hadn't"     "doesn't"    "don't"      "didn't"    
+   [91] "won't"      "wouldn't"   "shan't"     "shouldn't"  "can't"     
+   [96] "cannot"     "couldn't"   "mustn't"    "let's"      "that's"    
+  [101] "who's"      "what's"     "here's"     "there's"    "when's"    
+  [106] "where's"    "why's"      "how's"      "a"          "an"        
+  [111] "the"        "and"        "but"        "if"         "or"        
+  [116] "because"    "as"         "until"      "while"      "of"        
+  [121] "at"         "by"         "for"        "with"       "about"     
+  [126] "against"    "between"    "into"       "through"    "during"    
+  [131] "before"     "after"      "above"      "below"      "to"        
+  [136] "from"       "up"         "down"       "in"         "out"       
+  [141] "on"         "off"        "over"       "under"      "again"     
+  [146] "further"    "then"       "once"       "here"       "there"     
+  [151] "when"       "where"      "why"        "how"        "all"       
+  [156] "any"        "both"       "each"       "few"        "more"      
+  [161] "most"       "other"      "some"       "such"       "no"        
+  [166] "nor"        "not"        "only"       "own"        "same"      
+  [171] "so"         "than"       "too"        "very"
+  #+end_example
+
 - Check if the words "good" and "at" are in the English stop words
   dictionary:
   #+begin_src R
     any(stopwords("en")==c("at"))
     any(stopwords("en")==c("good"))
+    "good" %in% stopwords("en")
+    "at" %in% stopwords("en")
   #+end_src
+
+  #+RESULTS:
+  : [1] TRUE
+  : [1] FALSE
+  : [1] FALSE
+  : [1] TRUE
 
 - Why is "good" not a stop word?
 
@@ -293,15 +510,158 @@ package that you need to install first:
       tolower()
   #+end_src
 
-  #+RESULTS:
-  : [1] "if want learn r learn packages cheat sheet these tools rstats datascience httpsbufflykrpgi"
-
 - The ~qdap~ package contains even more cleaning functions. Check the
   methods in the package:
   #+begin_src R
     library(qdap)
     ls('package:qdap')
   #+end_src
+
+  #+RESULTS:
+  #+begin_example
+    [1] "%&%"                         "%>%"                        
+    [3] "%bs%"                        "%ex%"                       
+    [5] "%sw%"                        "add_incomplete"             
+    [7] "add_s"                       "adjacency_matrix"           
+    [9] "adjmat"                      "all_words"                  
+   [11] "Animate"                     "apply_as_df"                
+   [13] "apply_as_tm"                 "as.Corpus"                  
+   [15] "as.DocumentTermMatrix"       "as.dtm"                     
+   [17] "as.tdm"                      "as.TermDocumentMatrix"      
+   [19] "as.wfm"                      "automated_readability_index"
+   [21] "bag_o_words"                 "beg2char"                   
+   [23] "blank2NA"                    "boolean_search"             
+   [25] "bracketX"                    "bracketXtract"              
+   [27] "breaker"                     "build_qdap_vignette"        
+   [29] "capitalizer"                 "char_table"                 
+   [31] "char2end"                    "character_count"            
+   [33] "character_table"             "check_spelling"             
+   [35] "check_spelling_interactive"  "check_text"                 
+   [37] "chunker"                     "clean"                      
+   [39] "cm_2long"                    "cm_code.blank"              
+   [41] "cm_code.combine"             "cm_code.exclude"            
+   [43] "cm_code.overlap"             "cm_code.transform"          
+   [45] "cm_combine.dummy"            "cm_df.fill"                 
+   [47] "cm_df.temp"                  "cm_df.transcript"           
+   [49] "cm_df2long"                  "cm_distance"                
+   [51] "cm_dummy2long"               "cm_long2dummy"              
+   [53] "cm_range.temp"               "cm_range2long"              
+   [55] "cm_time.temp"                "cm_time2long"               
+   [57] "colcomb2class"               "coleman_liau"               
+   [59] "colpaste2df"                 "colSplit"                   
+   [61] "colsplit2df"                 "combo_syllable_sum"         
+   [63] "comma_spacer"                "common"                     
+   [65] "condense"                    "correct"                    
+   [67] "counts"                      "cumulative"                 
+   [69] "DATA"                        "DATA.SPLIT"                 
+   [71] "DATA2"                       "delete"                     
+   [73] "dir_map"                     "discourse_map"              
+   [75] "dispersion_plot"             "Dissimilarity"              
+   [77] "dist_tab"                    "diversity"                  
+   [79] "duplicates"                  "edge_apply"                 
+   [81] "end_inc"                     "end_mark"                   
+   [83] "end_mark_by"                 "env.syl"                    
+   [85] "exclude"                     "Filter"                     
+   [87] "flesch_kincaid"              "folder"                     
+   [89] "formality"                   "freq_terms"                 
+   [91] "fry"                         "gantt"                      
+   [93] "gantt_plot"                  "gantt_rep"                  
+   [95] "gantt_wrap"                  "genX"                       
+   [97] "genXtract"                   "gradient_cloud"             
+   [99] "hamlet"                      "htruncdf"                   
+  [101] "imperative"                  "incomp"                     
+  [103] "incomplete_replace"          "inspect_text"               
+  [105] "is.global"                   "key_merge"                  
+  [107] "kullback_leibler"            "lcolsplit2df"               
+  [109] "left_just"                   "lexical_classification"     
+  [111] "linsear_write"               "ltruncdf"                   
+  [113] "lview"                       "mcsv_r"                     
+  [115] "mcsv_w"                      "mgsub"                      
+  [117] "mraja1"                      "mraja1spl"                  
+  [119] "multigsub"                   "multiscale"                 
+  [121] "NAer"                        "name2sex"                   
+  [123] "Network"                     "new_project"                
+  [125] "ngrams"                      "object_pronoun_type"        
+  [127] "outlier_detect"              "outlier_labeler"            
+  [129] "paste2"                      "phrase_net"                 
+  [131] "plot_gantt_base"             "polarity"                   
+  [133] "polysyllable_sum"            "pos"                        
+  [135] "pos_by"                      "pos_tags"                   
+  [137] "potential_NA"                "preprocessed"               
+  [139] "pres_debate_raw2012"         "pres_debates2012"           
+  [141] "pronoun_type"                "prop"                       
+  [143] "proportions"                 "qcombine"                   
+  [145] "qcv"                         "qdap_df"                    
+  [147] "qheat"                       "qprep"                      
+  [149] "qtheme"                      "question_type"              
+  [151] "qview"                       "raj"                        
+  [153] "raj.act.1"                   "raj.act.1POS"               
+  [155] "raj.act.2"                   "raj.act.3"                  
+  [157] "raj.act.4"                   "raj.act.5"                  
+  [159] "raj.demographics"            "rajPOS"                     
+  [161] "rajSPLIT"                    "random_data"                
+  [163] "random_sent"                 "rank_freq_mplot"            
+  [165] "rank_freq_plot"              "raw.time.span"              
+  [167] "read.transcript"             "replace_abbreviation"       
+  [169] "replace_contraction"         "replace_number"             
+  [171] "replace_ordinal"             "replace_symbol"             
+  [173] "replacer"                    "right_just"                 
+  [175] "rm_empty_row"                "rm_row"                     
+  [177] "rm_stop"                     "rm_stopwords"               
+  [179] "sample.time.span"            "scores"                     
+  [181] "scrubber"                    "Search"                     
+  [183] "sent_detect"                 "sent_detect_nlp"            
+  [185] "sentCombine"                 "sentiment_frame"            
+  [187] "sentSplit"                   "SMOG"                       
+  [189] "space_fill"                  "spaste"                     
+  [191] "speakerSplit"                "stem_words"                 
+  [193] "stem2df"                     "stemmer"                    
+  [195] "strip"                       "strWrap"                    
+  [197] "sub_holder"                  "subject_pronoun_type"       
+  [199] "syllable_count"              "syllable_sum"               
+  [201] "syn"                         "syn_frame"                  
+  [203] "synonyms"                    "synonyms_frame"             
+  [205] "term_match"                  "termco"                     
+  [207] "termco_c"                    "termco_d"                   
+  [209] "termco2mat"                  "Text"                       
+  [211] "Text<-"                      "theme_badkitchen"           
+  [213] "theme_cafe"                  "theme_duskheat"             
+  [215] "theme_grayscale"             "theme_greyscale"            
+  [217] "theme_hipster"               "theme_nightheat"            
+  [219] "theme_norah"                 "Title"                      
+  [221] "Title<-"                     "TOT"                        
+  [223] "tot_plot"                    "trans_cloud"                
+  [225] "trans_context"               "trans_venn"                 
+  [227] "Trim"                        "truncdf"                    
+  [229] "type_token_ratio"            "unbag"                      
+  [231] "unique_by"                   "vertex_apply"               
+  [233] "visual"                      "wc"                         
+  [235] "weight"                      "wfdf"                       
+  [237] "wfm"                         "wfm_combine"                
+  [239] "wfm_expanded"                "which_misspelled"           
+  [241] "word_associate"              "word_cor"                   
+  [243] "word_count"                  "word_diff_list"             
+  [245] "word_length"                 "word_list"                  
+  [247] "word_network_plot"           "word_position"              
+  [249] "word_proximity"              "word_split"                 
+  [251] "word_stats"
+  #+end_example
+
+  #+begin_src R
+    ##    save.image("ds2_20230331")
+    save.image(".RData")
+    shell("DIR ds2_20230331")
+  #+end_src
+
+  #+RESULTS:
+  :  Volume in drive C is OS
+  :  Volume Serial Number is 0654-135C
+  : 
+  :  Directory of c:\Users\birkenkrahe\Documents\GitHub\ds2\org
+  : 
+  : 03/31/2023  01:53 PM             4,527 ds2_20230331
+  :                1 File(s)          4,527 bytes
+  :                0 Dir(s)  143,496,208,384 bytes free
 
 * READ Using ~gsub~ and ~tm::removePunctuation~
 
