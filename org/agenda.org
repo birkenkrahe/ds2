@@ -789,7 +789,7 @@ Let's try this!
 - Download ~9.org~ from GitHub and insert it (~C-x i~) into the practice
   file to continue
 
-* IN PROGRESS Week 11 - The Future & Exception handling
+* IN PROGRESS Week 11 - Data science future & text mining
 #+attr_latex: :width 400px
 #+caption: Photo by Dunk Hacking the bridge to your future (Flickr.com)
 [[../img/debugging.jpg]]
@@ -806,7 +806,7 @@ Let's try this!
 - [ ] *Bonus points* for experience report from the job fair April 4 -
   [[https://lyon.instructure.com/courses/1041/assignments/9612][see Canvas]]
 
-* DONE Predictions On The Future of Data Science
+** DONE Predictions On The Future of Data Science
 #+attr_latex: :width 400px
 #+caption: Photo by Katsujiro Maekawa, Korea (Flickr.com)
 [[../img/future.jpg]]
@@ -853,7 +853,7 @@ Some "Research" results:
    used to solve real world problems? ([[https://www.ibm.com/topics/quantum-computing][IBM, n.d.]])
 #+end_quotes
 
-* DONE TidyverseSceptic and RDesign
+** DONE TidyverseSceptic and RDesign
 #+attr_latex: :width 400px
 #+caption: Photo: E.A.Harris in R.W. Howard 1995: Apollo 13.
 [[../img/apollo.jpg]]
@@ -863,7 +863,7 @@ Some "Research" results:
 - Article by Matloff: [[https://github.com/matloff/TidyverseSkeptic/blob/master/RDesign.pdf][R Design Patterns, Base-R vs. Tidyverse]]
 - [[https://github.com/matloff/TidyverseSkeptic][TidyverseSceptic: Teaching R kinder, gentler, more effective]]
 
-* DONE Bonus points for job fair experience report!
+** DONE Bonus points for job fair experience report!
 #+attr_latex: :width 400px
 [[../img/fair_flickr_color.jpg]]
 
@@ -874,14 +874,14 @@ Some "Research" results:
 - Motivate each other by going as a pair, a group, a team.
 - Post your experience report in Canvas.
 
-* DONE DataCamp seminar: building your portfolio
+** DONE DataCamp seminar: building your portfolio
 #+attr_latex: :width 400px
 [[../img/resting_flickr_color.jpg]]
 
 [[https://careerfoundry.com/en/blog/data-analytics/data-analytics-portfolio-examples/][See: 9 of the best data analytics portfolios on the web]]
 (Hillier, 2023)
 
-* DONE Review and test pre-view
+** DONE Review and test pre-view
 #+attr_latex: :width 400px
 #+caption: Photo: Chris Brady serves a pizza (US Dept Agriculture), Aug-5 2016
 [[../img/review.jpg]]
@@ -959,17 +959,16 @@ not, then listen to the repetition of my explanation and answer.
    : function (X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE) 
    : NULL
 
-* IN PROGRESS Introducing Bag-of-Words text mining
+** IN PROGRESS Introducing Bag-of-Words text mining
+#+attr_latex: :width 400px
+[[../img/bagofwords.png]]
 
 - Download the practice file from GitHub: ~10_text_mining_practice.org~
 - Open it in Emacs to code along
+- At the end of the session, do not forget to ~save.image~
+- [[https://bookdown.org/ndphillips/YaRrr/rdata-files.html][More information about ~.RData~ storage here]]
 
-* TODO Assignment: text mining function
-
-- load ~nb_clean.org~ and replace the sequence of ~tm_map~ function calls
-  to create a clean document by one function.
-
-* TODO What did you learn this week?
+** TODO What did you learn this week?
 
 Mon:
 - AI is going to be more important in the future of data science
@@ -977,6 +976,9 @@ Mon:
 - When listing things, consider number and order
 
 Wed:
+- Text mining packages in R include: ~qdap~, ~wordcloud~ and ~tm~.
+- The basis of bag-of-words is words and word frequencies
+- The goal: create a Term-Document-Matrix from a clean corpus
 
 Fri:
 
