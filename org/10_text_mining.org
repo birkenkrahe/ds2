@@ -648,20 +648,17 @@ package that you need to install first:
   #+end_example
 
   #+begin_src R
-    ##    save.image("ds2_20230331")
+    ## save.image("../data/ds2_20230331")
     save.image(".RData")
-    shell("DIR ds2_20230331")
+    shell("DIR .RData")
   #+end_src
 
-  #+RESULTS:
-  :  Volume in drive C is OS
-  :  Volume Serial Number is 0654-135C
-  : 
-  :  Directory of c:\Users\birkenkrahe\Documents\GitHub\ds2\org
-  : 
-  : 03/31/2023  01:53 PM             4,527 ds2_20230331
-  :                1 File(s)          4,527 bytes
-  :                0 Dir(s)  143,496,208,384 bytes free
+- Load when you come back to this analysis:  
+  #+begin_src R
+    load("../data/ds2_20230331")
+    search()
+    ls()
+  #+end_src
 
 * READ Using ~gsub~ and ~tm::removePunctuation~
 
