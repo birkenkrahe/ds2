@@ -1,0 +1,18 @@
+#+TITLE:Python for R users
+#+AUTHOR:Marcus Birkenkrahe
+#+SUBTITLE:Introduction to advanced data science
+#+STARTUP:overview hideblocks indent inlineimages
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:bash :exports both :results output
+* README
+#+attr_latex: :width 400px
+#+caption: Photo: Monty Python Comedy group, 1971
+[[../img/12_monty_python.png]]
+
+- [[https://app.datacamp.com/learn/courses/python-for-r-users][DataCamp course Python for R Users]]
+- Practical comparison: [[https://richardson.byu.edu/624/lpython/PythonforRusers.pdf][Python vs R (2014)]]
+- [[https://towardsdatascience.com/the-struggles-i-had-when-switching-from-r-to-python-baca0139b01b][The Struggles I Had When Switching from R to Python (Seewald, 2020)]]
+
+* References
+
+  

@@ -789,7 +789,7 @@ Let's try this!
 - Download ~9.org~ from GitHub and insert it (~C-x i~) into the practice
   file to continue
 
-* IN PROGRESS Week 11 - Data science future & text mining
+* Week 11 - Data science future & text mining
 #+attr_latex: :width 400px
 #+caption: Photo by Dunk Hacking the bridge to your future (Flickr.com)
 [[../img/debugging.jpg]]
@@ -806,7 +806,7 @@ Let's try this!
 - [ ] *Bonus points* for experience report from the job fair April 4 -
   [[https://lyon.instructure.com/courses/1041/assignments/9612][see Canvas]]
 
-** DONE Predictions On The Future of Data Science
+** Predictions On The Future of Data Science
 #+attr_latex: :width 400px
 #+caption: Photo by Katsujiro Maekawa, Korea (Flickr.com)
 [[../img/future.jpg]]
@@ -853,7 +853,7 @@ Some "Research" results:
    used to solve real world problems? ([[https://www.ibm.com/topics/quantum-computing][IBM, n.d.]])
 #+end_quotes
 
-** DONE TidyverseSceptic and RDesign
+** TidyverseSceptic and RDesign
 #+attr_latex: :width 400px
 #+caption: Photo: E.A.Harris in R.W. Howard 1995: Apollo 13.
 [[../img/apollo.jpg]]
@@ -863,7 +863,7 @@ Some "Research" results:
 - Article by Matloff: [[https://github.com/matloff/TidyverseSkeptic/blob/master/RDesign.pdf][R Design Patterns, Base-R vs. Tidyverse]]
 - [[https://github.com/matloff/TidyverseSkeptic][TidyverseSceptic: Teaching R kinder, gentler, more effective]]
 
-** DONE Bonus points for job fair experience report!
+** Bonus points for job fair experience report!
 #+attr_latex: :width 400px
 [[../img/fair_flickr_color.jpg]]
 
@@ -874,14 +874,14 @@ Some "Research" results:
 - Motivate each other by going as a pair, a group, a team.
 - Post your experience report in Canvas.
 
-** DONE DataCamp seminar: building your portfolio
+** DataCamp webinar: building your portfolio
 #+attr_latex: :width 400px
 [[../img/resting_flickr_color.jpg]]
 
 [[https://careerfoundry.com/en/blog/data-analytics/data-analytics-portfolio-examples/][See: 9 of the best data analytics portfolios on the web]]
 (Hillier, 2023)
 
-** DONE Review and test pre-view
+** Review and test pre-view
 #+attr_latex: :width 400px
 #+caption: Photo: Chris Brady serves a pizza (US Dept Agriculture), Aug-5 2016
 [[../img/review.jpg]]
@@ -959,7 +959,7 @@ not, then listen to the repetition of my explanation and answer.
    : function (X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE) 
    : NULL
 
-** IN PROGRESS Introducing Bag-of-Words text mining
+** Introducing Bag-of-Words text mining
 #+attr_latex: :width 400px
 [[../img/bagofwords.png]]
 
@@ -982,9 +982,24 @@ Wed:
 
 Fri:
 
-* TODO Week 12 - text mining with bag-of-words
-* TODO Week 13 - data science on the command line
-* TODO Week 14 - database operations in the shell
+* TODO Week 12 - text mining / cmdline downloads
+#+attr_latex: :width 400px
+#+caption: Photo: Super Hornet. Source: Flickr.com flic.kr/p/2nDe28b
+[[../img/11_hornet.jpg]]
+
+- Finish text mining with bag-of-words
+- Useful: feed [[https://lyon.instructure.com/calendar][Canvas calendar]] to your Google calendar ([[https://community.canvaslms.com/t5/Student-Guide/How-do-I-subscribe-to-the-Calendar-feed-using-Google-Calendar-as/ta-p/535][instructions]])
+
+** TODO What did you learn this week?
+
+Mon:
+
+Wed:
+
+Fri: NO CLASS - EASTER FRIDAY - SEE YOU NEXT MONDAY!
+
+* TODO Week 13 - cleaning data on the cmdline
+* TODO Week 14 - database operations on the cmdline
 * TODO Week 15 - data pipeline with Python
 * TODO Week 16 - Projects
 * TODO What next?

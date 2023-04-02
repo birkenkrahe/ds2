@@ -1,0 +1,188 @@
+#+TITLE:Data science on the command line
+#+AUTHOR:Marcus Birkenkrahe
+#+SUBTITLE:Introduction to advanced data science
+#+STARTUP:overview hideblocks indent inlineimages
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:bash :exports both :results output
+* README
+#+attr_latex: :width 400px
+#+caption: Photo: Super Hornet. Source: Flickr.com flic.kr/p/2nDe28b
+[[../img/11_hornet.jpg]]
+
+Short introduction to doing data science on the command line:
+- What is the command line?
+- Why use the command line for data science?
+- How to get a command line that works for data science?
+- Downloading data with ~curl~ and ~wget~
+- Regular expression primer
+- Downloading and cleaning data on the command line
+- Database operations on the command line
+- Introduction to the ~csvkit~ toolkit (Python)
+- Introduction to the ~xsv~ toolkit (Rust)
+- Practice with Linux (DataCamp workspaces)
+
+* ~csvkit~ (Python)
+
+- This demo is only interactive if you have access to a Linux
+  installation of some sort. I'm using the ~csvkit~ [[https://csvkit.readthedocs.io/en/latest/tutorial.html][online tutorial]].
+
+- ~csvskit~ is a Python-3 library for manipulating text files.
+
+* Install ~csvkit~
+
+- ~pip~ is a python-based package manager tool.
+  #+begin_example bash
+  sudo pip install csvkit
+  #+end_example
+
+- Or perhaps you already have all the ~csv*~ tools? The output should
+  show a bunch of different executables.
+  #+begin_src bash
+    ls -l /usr/bin/*csv*
+  #+end_src
+
+- If ~pip~ is missing, you can install it (shown for Debian-Linux):
+  #+begin_example bash
+    sudo apt install pip
+  #+end_example
+
+* Getting data
+
+- Make a new working directory
+- Change into it
+- Check where you are
+
+  #+begin_example bash
+  mkdir -v csvkit_tutorial
+  cd csvkit_tutorial
+  pwd
+  #+end_example
+
+- Fetch the data with ~curl(1)~ - check if you got it with ~which curl~,
+  otherwise install it with ~sudo apt install curl~.
+
+  #+begin_example bash
+  url="https://raw.githubusercontent.com/wireservice/csvkit/master/examples/realdata/ne_1033_data.xlsx"
+  curl --location --remote-name $url
+  #+end_example
+
+  The short version of the ~curl~ options: ~-L -O~
+
+- Check if the file ~.xlsx~ file is there - the ~file~ command gives
+  you some file type information.
+
+  #+begin_example bash
+  file *
+  #+end_example
+
+- You can also try to get any old HTML file, like from Lyon:
+
+  #+begin_example bash
+  curl https://lyon.edu | tee fetched | head
+  file fetched
+  #+end_example
+* Look at the data
+* ~in2csv~ to re-write an Excel file as CSV file
+
+- Excel is a binary format - you cannot look at it (without paying
+  Microsoft).
+
+- ~in2csv~ rewrites the Excel file into CSV. Btw, long file names can
+  be expanded using the <TAB> key.
+
+  #+begin_example bash
+ in2csv ne_1033_data.xlsx > data.csv 2&>/dev/null
+ head -5 data.csv
+  #+end_example
+
+  - ~in2csv~ runs the conversion on the following file
+  - ~> data.csv~ redirects the result to a file ~data.csv~
+  - ~2&>/dev/null~ throws standard error msgs away
+
+* ~csvlook~ to get a table output of the CSV file
+- ~csvlook~ provides a tabular look at the data.
+
+  #+begin_example bash
+  csvlook --max-rows 5 data.csv
+  #+end_example
+
+* ~csvcut~ to cut out columns from a CSV file
+- ~csvcut~ is a version of ~cut~ for ~CSV~ files
+  - the ~-n~ option shows all columns
+  - the ~-c~ option shows specific columns
+
+    #+begin_example bash
+   csvcut -n data.csv
+   csvcut -c 2,5,6 | head -5
+    #+end_example
+
+  - output columns can be called by name, too
+
+    #+begin_example bash
+   csvcut -c county, item_name, quantity data.csv | csvlook | head -5
+    #+end_example
+
+  - the pipe prints the first 5 rows of the respective columns
+  - I want to use some of the output later so I put it into a file:
+
+    #+begin_example bash
+   csvcut -c county, item_name, quantity data.csv | tee data1.csv | csvlook | head -5
+    #+end_example
+
+- All of the previous operations can be put together in one pipe:
+
+  #+begin_example bash
+ in2csv ne_1033_data.xlsx 2&>/dev/null |
+ csvcut -c county,item_name,quantity |
+ csvlook |
+ head -5
+  #+end_example
+
+* Examining data
+* ~csvstat~ for summary statistics
+
+- ~csvstat~ is inspired by R's ~summary~ function
+
+  #+begin_example bash
+   csvstat data1.csv
+  #+end_example
+
+  or
+
+  #+begin_example bash
+ cat data1.csv | csvstat
+  #+end_example
+
+* ~csvgrep~ for matching patterns in the file
+
+- ~csvgrep~ is a pattern-matching search function.
+  - run ~csvgrep~ on the ~data1.csv~ subset
+  - focus on the ~county~ column with ~-c~
+  - match the pattern ~LANCASTER~ county
+  - look at the result as a table
+
+    #+begin_example bash
+   csvgrep -c county -m LANCASTER data1.csv | csvlook
+    #+end_example
+
+  - count the lines (= entries for LANCASTER county)
+
+    #+begin_example bash
+   csvgrep -c county -m LANCASTER data1.csv | wc -l
+    #+end_example
+
+* ~csvsort~ to sort rows by column
+
+- ~csvsort~ sorts the rows by any column (or combination of columns)
+  in ascending or descending (reverse) order.
+
+  #+begin_example bash
+ csvcut -c county,item_name,total_cost data.csv > data2.csv
+ cat data2.csv | csvgrep -c county -m LANCASTER > data3.csv
+ cat data3.csv | csvsort -c total_cost -r | csvlook
+  #+end_example
+
+* References
+
+- Gallant (2021). xsv. URL: [[https://github.com/BurntSushi/xsv][github.com]].
+- Janssens (2021). Data science at the command line (2e). O'Reilly.

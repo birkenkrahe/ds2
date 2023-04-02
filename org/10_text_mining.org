@@ -114,7 +114,7 @@ package that you need to install first:
   #+RESULTS:
   [[file:../img/term_count.png]]
 
-* IN PROGRESS The ~tm~ text mining package
+* The ~tm~ text mining package
 
 - The ~tm~ package for text mining comes with a /vignette/ ([[https://cran.r-project.org/web/packages/tm/vignettes/tm.pdf][Feinerer,
   2022]]). Its date reveals that the paper is up to date.
@@ -661,9 +661,10 @@ package that you need to install first:
   #+end_src
 
 * READ Using ~gsub~ and ~tm::removePunctuation~
-
-Source: Lantz, ML with R (2019)
+#+attr_latex: :width 400px
+#+caption: Source: Lantz, Machine learning with R (2e,2019)
 [[../img/removePunctuation.png]]
+
 * Cleaning a corpus
 
 - To clean a corpus (a collection of different documents), use ~tm_map~,

@@ -1,0 +1,27 @@
+#+TITLE:Data science on the command line
+#+AUTHOR:Marcus Birkenkrahe
+#+SUBTITLE:Introduction to advanced data science
+#+STARTUP:overview hideblocks indent inlineimages
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:bash :exports both :results output
+* README
+#+attr_latex: :width 400px
+#+caption: Photo: Super Hornet. Source: Flickr.com flic.kr/p/2nDe28b
+[[../img/11_hornet.jpg]]
+
+Short introduction to doing data science on the command line:
+- What is the command line?
+- Why use the command line for data science?
+- How to get a command line that works for data science?
+- Downloading and cleaning data on the command line
+- Database operations on the command line
+- Downloading data with ~curl~ and ~wget~
+- Regular expression primer
+- Introduction to the ~csvkit~ toolkit (Python)
+- Introduction to the ~xsv~ toolkit (Rust)
+- Practice with Linux (DataCamp workspaces)
+
+* References
+
+- Gallant (2021). xsv. URL: [[https://github.com/BurntSushi/xsv][github.com]].
+- Janssens (2021). Data science at the command line (2e). O'Reilly.

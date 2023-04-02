@@ -1,0 +1,50 @@
+#+TITLE:Data science on the command line - Regular expressions
+#+AUTHOR:Marcus Birkenkrahe
+#+SUBTITLE:Introduction to advanced data science
+#+STARTUP:overview hideblocks indent inlineimages
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:bash :exports both :results output
+#+PROPERTY: header-args:sh :exports both :results output
+* README
+#+attr_latex: :width 400px
+#+caption: Photo: Super Hornet. Source: Flickr.com flic.kr/p/2nDe28b
+[[../img/11_hornet.jpg]]
+
+Short introduction to doing data science on the command line:
+- What is the command line?
+- Why use the command line for data science?
+- How to get a command line that works for data science?
+- Downloading data with ~curl~ and ~wget~
+- Regular expression primer
+- Cleaning data on the command line
+- Database operations on the command line
+- Introduction to the ~csvkit~ toolkit (Python)
+- Introduction to the ~xsv~ toolkit (Rust)
+- Practice with Linux (DataCamp workspaces)
+
+* Regular expressions
+
+- Regular expressions (/regex/ or /regexp/) are useful in extracting
+  information from any text by pattern searching (with a function)
+
+- Applications include: validation, parsing/replacing strings, format
+  transformations, web scraping
+
+- Once you've learnt this tool, you can 
+
+#+begin_src sh
+ls | grep '11_*'
+#+end_src
+
+#+RESULTS:
+: STDIN
+: 11_cmdline.org
+: 11_cmdline_csvkit.org
+: 11_cmdline_practice_1.org
+: 11_cmdline_sql2csv.org
+: 11_cmdline_xsv.org
+
+* References
+
+- Jonny Fox (Jun 23, 2017). Regex tutorial- A quick cheatsheet by
+  examples. [[https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285][Online: medium.com]].

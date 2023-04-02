@@ -408,7 +408,7 @@ We'll look at three types of special user-defined R functions:
 - The second test of ~error_test~ with a ~for~ loop prints the first few
   terms, while the ~sapply~ version has no return.
 
-* NEXT Making Fibonacci safe
+* Making Fibonacci safe
 
 - In ~fibo_safe~ below, you add a ~warning~ and an error ~stop~, and call
   the previously defined recursive function ~fibo~ on the argument ~n~:
@@ -653,8 +653,9 @@ We'll look at three types of special user-defined R functions:
 
 * TODO Code glossary
 
-| COMMAND  | MEANING                      |
-|----------+------------------------------|
+| COMMAND | MEANING |
+|---------+---------|
+|         |         |
 
 * References
 
