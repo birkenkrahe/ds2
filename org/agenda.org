@@ -794,16 +794,16 @@ Let's try this!
 #+caption: Photo by Dunk Hacking the bridge to your future (Flickr.com)
 [[../img/debugging.jpg]]
 
-- [ ] I evaluated & graded outstanding exercises (*please check*)
-- [ ] The literature reviews were all impressive in their own way:
+- [X] I evaluated & graded outstanding exercises (*please check*)
+- [X] The literature reviews were all impressive in their own way:
   + laying open your search strategy
   + fancy foot[note] work
   + take a look at my Org-mode files for layout
-- [ ] Next sprint review: results! *Due on April 21.*
-- [ ] Late submissions for test 4 *by 3/31* for partial credit
-- [ ] Next *test* due March 31 (open for partial credit until April): we'll
+- [X] Next sprint review: results! *Due on April 21.*
+- [X] Late submissions for test 4 *by 3/31* for partial credit
+- [X] Next *test* due March 31 (open for partial credit until April): we'll
   review some questions on Wednesday
-- [ ] *Bonus points* for experience report from the job fair April 4 -
+- [X] *Bonus points* for experience report from the job fair April 4 -
   [[https://lyon.instructure.com/courses/1041/assignments/9612][see Canvas]]
 
 ** Predictions On The Future of Data Science
@@ -982,13 +982,18 @@ Wed:
 
 Fri:
 
-* TODO Week 12 - text mining / cmdline downloads
+* TODO Week 12 - text mining / cmdline / regex
 #+attr_latex: :width 400px
-#+caption: Photo: Super Hornet. Source: Flickr.com flic.kr/p/2nDe28b
-[[../img/11_hornet.jpg]]
+#+caption: Photo: by Cassie Kozyrkov (Google) on Twitter.com@quaesita
+[[../img/chatgpt.jpeg]]
 
 - Finish text mining with bag-of-words
 - Useful: feed [[https://lyon.instructure.com/calendar][Canvas calendar]] to your Google calendar ([[https://community.canvaslms.com/t5/Student-Guide/How-do-I-subscribe-to-the-Calendar-feed-using-Google-Calendar-as/ta-p/535][instructions]])
+
+** TODO Command line data science
+#+attr_latex: :width 400px
+#+caption: Photo: Super Hornet. Source: Flickr.com flic.kr/p/2nDe28b
+[[../img/11_hornet.jpg]]
 
 ** TODO What did you learn this week?
 

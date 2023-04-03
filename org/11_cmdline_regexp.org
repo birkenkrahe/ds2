@@ -5,6 +5,7 @@
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:bash :exports both :results output
 #+PROPERTY: header-args:sh :exports both :results output
+#+PROPERTY: header-args:R :exports both :results output :session *R*
 * README
 #+attr_latex: :width 400px
 #+caption: Photo: Super Hornet. Source: Flickr.com flic.kr/p/2nDe28b
@@ -15,12 +16,16 @@ Short introduction to doing data science on the command line:
 - Why use the command line for data science?
 - How to get a command line that works for data science?
 - Downloading data with ~curl~ and ~wget~
-- Regular expression primer
+- *Regular expression primer*
 - Cleaning data on the command line
 - Database operations on the command line
 - Introduction to the ~csvkit~ toolkit (Python)
 - Introduction to the ~xsv~ toolkit (Rust)
 - Practice with Linux (DataCamp workspaces)
+
+- The source for this chapter is Fox, 2017 but there are many good
+  books and tutorials, see e.g. [[https://nostarch.com/download/automate2e_SampleCh7.pdf][this sample chapter]] in the textbook
+  for my Python course this summer (CSC109) by Sweigart (2019).
 
 * Regular expressions
 
@@ -30,7 +35,109 @@ Short introduction to doing data science on the command line:
 - Applications include: validation, parsing/replacing strings, format
   transformations, web scraping
 
-- Once you've learnt this tool, you can 
+- Once you've learnt this tool, you can use it in all programming
+  languages with (usually) very little changes if any at all
+
+- In data science for transformations and for SQL queries, regexp are
+  absolute life savers (I use them e.g. to play through DataCamp)
+
+- We're going to look at some examples using Emacs' Unix emulation in
+  the ~*eshell*~ (open with ~M-x eshell~).
+
+- Even better: get Ubuntu (on Windows check Microsoft store, or on a
+  Chromebook with the developers' settings).
+
+* Overview of regex operators
+
+- We'll discuss:
+  1) Anchors ~^~ ~$~
+  2) Quantifiers ~*~ ~+~ ~?~ ~{}~
+  3) OR operator ~|~ or ~[]~
+  4) Character classes ~\d~ ~\w~ ~\s~ ~.~
+  5) Flags ~g~ ~m~ ~i~
+  6) Grouping and capturing ~()~
+  7) Bracket expressions ~[]~
+  8) Greedy and lazy match ~*~ ~+~ ~{}~
+  9) Boundaries ~\b~ ~\B~
+  10) Back references ~\1~
+  11) Look-ahead and look-behind ~(?=)~ ~(?<=)~ ~(?!)~
+      
+* Anchors ~^~ ~$~
+
+- The caret ~^~ matches any string that starts with its RHS operand:
+  #+begin_src sh
+    ls | grep '^2'   # find all files starting with 2
+  #+end_src
+
+  #+RESULTS:
+  : STDIN
+  : 2_arguments.org
+  : 2_arguments_practice.org
+
+- Why are we using ~'~ instead of ~"~ - the shell expands any variables or
+  special characters bounded by ~"~ while ~'~ is treated like a /literal/.
+
+- Let's create a text vector to work with: instead of Cicero's /Lorem
+  Ipsum/, we use the beginning of St Augustine's /Confessiones/ ([[https://faculty.georgetown.edu/jod/latinconf/1.html][Source]]):
+  #+begin_src R 
+    foo <- c("Magnus es, domine, et laudabilis valde: magna virtus tua, et sapientiae tuae non est numerus. et laudare te vult homo, aliqua portio creaturae tuae, et homo circumferens mortalitem suam, circumferens testimonium peccati sui et testimonium, quia superbis resistis: et tamen laudare te vult homo, aliqua portio creaturae tuae.tu excitas, ut laudare te delectet, quia fecisti nos ad te et inquietum est cor nostrum, donec requiescat in te. da mihi, domine, scire et intellegere, utrum sit prius invocare te an laudare te, et scire te prius sit an invocare te. sed quis te invocat nesciens te? aliud enim pro alio potest invocare nesciens. an potius invocaris, ut sciaris? quomodo autem invocabunt, in quem non crediderunt? aut quomodo credent sine praedicante? et laudabunt dominum qui requirunt eum. quaerentes enim inveniunt eum et invenientes laudabunt eum. quaeram te, domine, invocans te, et invocem te credens in te: praedicatus enim es nobis. invocat te, domine, fides mea, quam dedisti mihi, quam inspirasti mihi per humanitatem filii tui, per ministerium praedicatoris tui.")
+    nchar(foo)
+  #+end_src
+
+  #+RESULTS:
+  : [1] 1079
+
+- Then we're going to tokenize the string splitting it into its
+  individual words with ~strsplit~, ~unlist~, and save the result in ~bar~:
+  #+begin_src R
+    strsplit(foo,split=" ") -> bar  ## split by spaces
+    unlist(bar) -> bar 
+    length(bar)  ## how many words have we got?
+    sum(nchar(bar)) ## how many characters have we retained?
+    #+end_src
+
+  #+RESULTS:
+  : [1] 167
+  : [1] 913
+  
+- Find all words beginning with specific letter:
+  #+begin_src R
+    x <- grep(pattern='^m',bar) ## finds all words beginning with 'm'
+    bar[x]
+  #+end_src
+
+  #+RESULTS:
+  : [1] "magna"       "mortalitem"  "mihi,"       "mea,"        "mihi,"      
+  : [6] "mihi"        "ministerium"
+
+- The ~$~ matches a string that ends with its LHS operand:
+  #+begin_src sh
+    ls | grep '.org$' | wc --lines   ## files ending with .org
+    ls -la | wc --lines
+  #+end_src
+
+  #+RESULTS:
+  : 45
+  : 52
+
+- Which words in ~bar~ are ending in ~-ium~?
+  #+begin_src R
+    bar[grep(pattern='ium$',bar)]
+  #+end_src
+
+  #+RESULTS:
+  : [1] "testimonium" "ministerium"
+
+* Quantifiers ~*~ ~+~ ~?~ ~{}~
+* OR operator ~|~ or ~[]~
+* Character classes ~\d~ ~\w~ ~\s~ ~.~
+* Flags ~g~ ~m~ ~i~
+* Grouping and capturing ~()~
+* Bracket expressions ~[]~
+* Greedy and lazy match ~*~ ~+~ ~{}~
+* Boundaries ~\b~ ~\B~
+* Back references ~\1~
+* Look-ahead and look-behind ~(?=)~ ~(?<=)~ ~(?!)~
 
 #+begin_src sh
 ls | grep '11_*'
@@ -47,4 +154,10 @@ ls | grep '11_*'
 * References
 
 - Jonny Fox (Jun 23, 2017). Regex tutorial- A quick cheatsheet by
-  examples. [[https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285][Online: medium.com]].
+  examples. [[https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285][Online: medium.com]] ([[https://github.com/birkenkrahe/ds2/blob/main/pdf/regex.pdf][PDF]]).
+
+- Jonny Fox (Mar 20, 2019). Regex cookbook - Top 15 Most common
+  regex. [[https://medium.com/factory-mind/regex-cookbook-most-wanted-regex-aa721558c3c1][Online: medium.com]].
+
+- Al Sweigart (2019). Automate the boring stuff with
+  Python. NoStarch. [[https://automatetheboringstuff.com/][Online: automatetheboringstuff.com]].

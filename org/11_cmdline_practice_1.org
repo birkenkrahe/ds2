@@ -9,3 +9,9 @@
 
 - Use DataCamp workspaces - Tutorial: [[https://www.datacamp.com/blog/notebooks-for-r-users][Notebooks for R Users]] (2022)
 - [[https://app.datacamp.com/workspace/w/3bf737b2-61c4-4aaf-a2be-f61464f05b23/edit][My experimental workspace]]
+
+* Starting with DataCamp workspace
+
+* ~curl~ and ~wget~
+
+* Regular expressions

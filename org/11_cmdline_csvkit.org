@@ -28,6 +28,8 @@ Short introduction to doing data science on the command line:
 
 - ~csvskit~ is a Python-3 library for manipulating text files.
 
+- [[https://youtu.be/XhShmvBYNmw][I made a video of this whole demonstration in 2022]] (14 min).
+  
 * Install ~csvkit~
 
 - ~pip~ is a python-based package manager tool.

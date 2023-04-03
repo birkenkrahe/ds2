@@ -29,13 +29,13 @@ Short introduction to doing data science on the command line:
 * What is the command line?
 
 - Shell
-- bash, csh, sh, zsh, ksh
+- ~bash~, ~csh~, ~sh~, ~zsh~, ~ksh~
 - CMD line
 - Terminal
 - tty
 
   #+attr_html: :width 500px
-  #+caption: Command line terminal (bash)
+  #+caption: Command line terminal (bash) in a docker container
   [[../img/11_bash.png]]
 
   | CMD LINE TOOL      | EXAMPLE         |
@@ -44,8 +44,7 @@ Short introduction to doing data science on the command line:
   | Shell builtin      | ~cd .~            |
   | Interpreted script | ~hello.sh~        |
   | Shell function     | ~pwd~, ~date~, ~echo~ |
-  | Alias              | ~alias~         |
-
+  | Alias              | ~alias~           |
 
 #+attr_html: :width 500px
 #+caption: Things to do on the command line (Source: Janssens, 2021)
@@ -54,7 +53,7 @@ Short introduction to doing data science on the command line:
 * Why use the command line for data science
 
 1. Program to interact with the operating system (kernel)
-2. Sophisticated script language
+2. Sophisticated script language (~bash~, ~zsh~) 
 3. REPL (Read-Eval-Print-Loop)
 4. Agile and exploratory
 5. Augmenting technology (glue to other applications)
@@ -73,29 +72,37 @@ Short introduction to doing data science on the command line:
 9. Cool (hacker value)
 10. Relatable (logical approach)
 
-    All of these are especially valuable in an exploratory environment
-    with highly distributed, unstructured, or "dirty" data sources.
+All of these are especially valuable in an exploratory environment
+with highly distributed, unstructured, or "dirty" data sources.
 
-* How to get a command line that works for data science
+* How to get a commandline for data science
 
-- Install a Docker container as described [[https://github.com/birkenkrahe/org/blob/master/FAQ.org#how-to-set-up-a-docker-container-for-command-line-work][in this FAQ]]
-- Install the Ubuntu app as [[https://github.com/birkenkrahe/org/blob/master/FAQ.org#how-can-i-install-linux-under-windows-10][described in this FAQ]]
-- Get Linux as a dual boot or with VirtualBox (any distro)
-- Get a Linux computer ([[https://vilros.com/products/raspberry-pi-400-kit][like this one for $99]]) or dump Windows for
-  Linux and install it over Windows
+We're going to use DataCamp's workspaces - the Jupyter Notebook
+installation, which is free for you, includes a suitably equipped
+shell.
 
-  Online/cloud installations like Google cloud shell, or replit.com,
+*Alternatives:*
+- Install a Docker container as described [[https://github.com/birkenkrahe/org/blob/master/FAQ.org#how-to-set-up-a-docker-container-for-command-line-work][in this FAQ]] - there is also
+  a short explanation what a "docker container" is [[https://github.com/birkenkrahe/org/blob/master/FAQ.org#what-is-a-docker-container][in the FAQ]].
+- Install the Ubuntu app using Windows Subsystem Linux (WSL) as
+  [[https://github.com/birkenkrahe/org/blob/master/FAQ.org#how-can-i-install-linux-under-windows-10][described in this FAQ]].
+- Get Linux as a dual boot or with (free) VirtualBox (any
+  distro). [[https://www.howtogeek.com/796988/how-to-install-linux-in-virtualbox/][Instructions are here]]. Only for high-end laptops.
+- Get a Linux computer ([[https://vilros.com/products/raspberry-pi-400-kit][like this one for $100]]) or brazenly and boldly
+  just dump Windows for Linux and install it over Windows.
+- Online/cloud installations like Google cloud shell, or replit.com,
   or the bundle of UNIX commands contained in ~cygwin~ do unfortunately
   not allow you to install the ~csvkit~ library, and exclude some other
   commands (like ~wget~).
-
 - The Docker container already comes with ~cvskit~. Once you've got
   another Linux variant, install ~cvskit~ from the command line, e.g. in
   Debian-based systems (Raspberry Pi OS, Ubuntu) with the command ~sudo
   apt install csvkit~.
 
-* Download files from the web with ~curl~
-
+* TODO Download data with ~curl~
+* TODO Download data with ~wget~
+* TODO Summary
+* TODO Code glossary
 * References
 
 - Gallant (2021). xsv. URL: [[https://github.com/BurntSushi/xsv][github.com]].
