@@ -989,7 +989,8 @@ Fri:
 
 - Finish text mining with bag-of-words
 - Useful: feed [[https://lyon.instructure.com/calendar][Canvas calendar]] to your Google calendar ([[https://community.canvaslms.com/t5/Student-Guide/How-do-I-subscribe-to-the-Calendar-feed-using-Google-Calendar-as/ta-p/535][instructions]])
-
+- Useful: R's startup mechanism - 4 p. (~help(base::Startup)~ & PDF@GitHub)
+  
 ** TODO Command line data science
 #+attr_latex: :width 400px
 #+caption: Photo: Super Hornet. Source: Flickr.com flic.kr/p/2nDe28b
