@@ -239,12 +239,24 @@ package that you need to install first:
   #+end_src
 
   #+RESULTS:
-  : Classes 'VectorSource', 'SimpleSource', 'Source'  hidden list of 5
-  :  $ encoding: chr ""
-  :  $ length  : int 3
-  :  $ position: num 0
-  :  $ reader  :function (elem, language, id)  
-  :  $ content : chr [1:3] "Machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamen"| __truncated__ "If you want to learn R, learn the packages in this cheat sheet. These are my 80/20 tools. #rstats #datascience "| __truncated__ "BOOM! Our Free 'All Access Pass' Is Now Available! Hedgeye is the firm that's called every market crash since '"| __truncated__
+  #+begin_example
+  Loading required package: NLP
+
+  Attaching package: 'NLP'
+
+  The following object is masked from 'package:httr':
+
+      content
+
+  Warning message:
+  package 'tm' was built under R version 4.2.3
+  Classes 'VectorSource', 'SimpleSource', 'Source'  hidden list of 5
+   $ encoding: chr ""
+   $ length  : int 3
+   $ position: num 0
+   $ reader  :function (elem, language, id)  
+   $ content : chr [1:3] "Machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamen"| __truncated__ "If you want to learn R, learn the packages in this cheat sheet. These are my 80/20 tools. #rstats #datascience "| __truncated__ "BOOM! Our Free 'All Access Pass' Is Now Available! Hedgeye is the firm that's called every market crash since '"| __truncated__
+  #+end_example
 
 - The source ~doc_source~ is a ~list~ of five elements and an attribute:
   1) ~encoding~ says that the content is encoded with apostrophs.
@@ -282,7 +294,7 @@ package that you need to install first:
     ..$ content: chr "Machine learning will degrade our science and debase our ethics by incorporating into our technology a fundamen"| __truncated__
     ..$ meta   :List of 7
     .. ..$ author       : chr(0) 
-    .. ..$ datetimestamp: POSIXlt[1:1], format: "2023-03-31 18:20:55"
+    .. ..$ datetimestamp: POSIXlt[1:1], format: "2023-04-03 17:38:58"
     .. ..$ description  : chr(0) 
     .. ..$ heading      : chr(0) 
     .. ..$ id           : chr "1"
@@ -294,7 +306,7 @@ package that you need to install first:
     ..$ content: chr "If you want to learn R, learn the packages in this cheat sheet. These are my 80/20 tools. #rstats #datascience "| __truncated__
     ..$ meta   :List of 7
     .. ..$ author       : chr(0) 
-    .. ..$ datetimestamp: POSIXlt[1:1], format: "2023-03-31 18:20:55"
+    .. ..$ datetimestamp: POSIXlt[1:1], format: "2023-04-03 17:38:58"
     .. ..$ description  : chr(0) 
     .. ..$ heading      : chr(0) 
     .. ..$ id           : chr "2"
@@ -306,7 +318,7 @@ package that you need to install first:
     ..$ content: chr "BOOM! Our Free 'All Access Pass' Is Now Available! Hedgeye is the firm that's called every market crash since '"| __truncated__
     ..$ meta   :List of 7
     .. ..$ author       : chr(0) 
-    .. ..$ datetimestamp: POSIXlt[1:1], format: "2023-03-31 18:20:55"
+    .. ..$ datetimestamp: POSIXlt[1:1], format: "2023-04-03 17:38:58"
     .. ..$ description  : chr(0) 
     .. ..$ heading      : chr(0) 
     .. ..$ id           : chr "3"
@@ -357,7 +369,7 @@ package that you need to install first:
 
   #+RESULTS:
   :   author       : character(0)
-  :   datetimestamp: 2023-03-31 18:20:55
+  :   datetimestamp: 2023-04-03 17:38:58
   :   description  : character(0)
   :   heading      : character(0)
   :   id           : 3
@@ -712,6 +724,9 @@ package that you need to install first:
     content(clean_corpus[[2]])
   #+end_src
 
+  #+RESULTS:
+  : [1] " want learn r learn packages cheat sheet tools rstats datascience httpsbufflykrpgi"
+
 - Notice that the order of operations matters a lot for a truly
   "clean" result. For example, applying ~tolower~ after ~removeWords~ will
   leave "If" because the dictionary only contains "if".
@@ -722,11 +737,33 @@ package that you need to install first:
     tdm
   #+end_src
 
+  #+RESULTS:
+  : <<TermDocumentMatrix (terms: 51, documents: 3)>>
+  : Non-/sparse entries: 51/102
+  : Sparsity           : 67%
+  : Maximal term length: 16
+  : Weighting          : term frequency (tf)
+
 - Look at the structure - you can see that the column vector names
   contain the term and document information:
   #+begin_src R
     str(tdm)
   #+end_src
+
+  #+RESULTS:
+  #+begin_example
+  List of 6
+   $ i       : int [1:51] 6 9 10 11 14 16 23 27 28 30 ...
+   $ j       : int [1:51] 1 1 1 1 1 1 1 1 1 1 ...
+   $ v       : num [1:51] 1 1 1 1 1 1 1 1 1 1 ...
+   $ nrow    : int 51
+   $ ncol    : int 3
+   $ dimnames:List of 2
+    ..$ Terms: chr [1:51] "access" "available" "boom" "called" ...
+    ..$ Docs : chr [1:3] "1" "2" "3"
+   - attr(*, "class")= chr [1:2] "TermDocumentMatrix" "simple_triplet_matrix"
+   - attr(*, "weighting")= chr [1:2] "term frequency" "tf"
+  #+end_example
 
 - Transpose the TDM to a DTM using ~base::t~ (or use ~DocumentTermMatrix~
   on the clean corpus):
@@ -735,6 +772,20 @@ package that you need to install first:
     dtm
     tdm
   #+end_src
+
+  #+RESULTS:
+  #+begin_example
+  <<DocumentTermMatrix (documents: 3, terms: 51)>>
+  Non-/sparse entries: 51/102
+  Sparsity           : 67%
+  Maximal term length: 16
+  Weighting          : term frequency (tf)
+  <<TermDocumentMatrix (terms: 51, documents: 3)>>
+  Non-/sparse entries: 51/102
+  Sparsity           : 67%
+  Maximal term length: 16
+  Weighting          : term frequency (tf)
+  #+end_example
 
 * Analyze and visualize the TDM
 
