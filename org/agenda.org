@@ -987,22 +987,49 @@ Fri:
 #+caption: Photo: by Cassie Kozyrkov (Google) on Twitter.com@quaesita
 [[../img/chatgpt.jpeg]]
 
-- Finish text mining with bag-of-words
+- Finish [[https://lyon.instructure.com/courses/1041/assignments/9004][text mining with bag-of-words]] by Friday this week (7-Apr)
 - Useful: feed [[https://lyon.instructure.com/calendar][Canvas calendar]] to your Google calendar ([[https://community.canvaslms.com/t5/Student-Guide/How-do-I-subscribe-to-the-Calendar-feed-using-Google-Calendar-as/ta-p/535][instructions]])
 - Useful: R's startup mechanism - 4 p. (~help(base::Startup)~ & PDF@GitHub)
-  
-** TODO Command line data science
+
+* TODO About Artificial Idiocy (AI)
+#+attr_latex: :width 400px
+#+caption: Mesmeric Therapy, by an unknown French painter (1778/1784)
+[[../img/mesmerism.jpg]]
+#+begin_quote
+"Google Bard Fakes Math Skills Despite Being Incompetent - While
+ChatGPT, although slightly more proficient, still struggles to
+identify errors when prompted." [[https://medium.com/@0ce/google-bard-fakes-math-skills-despite-being-incompetent-70f3efbb3ba0][Link to the article (medium.com)]]​
+#+end_quote
+
+- The current narrative is dangerous: /"Chatbots are useful tools but
+  they're imperfect of course, just like you and me."/ 
+- Why? Because they're not reliable tools - like a hammer that
+  strongly believes it's a hacksaw - and they are highly suggestive.
+- AI = Artificial Idiocy? Modern resurrection of 18th century
+  mesmerism: pseudo-quackery fuelled by hysteria in the Paris salons.
+
+/Image: Mesmeric Therapy/Animal Magnetism (ca. 1780)/[fn:5]
+
+* TODO Command line data science
 #+attr_latex: :width 400px
 #+caption: Photo: Super Hornet. Source: Flickr.com flic.kr/p/2nDe28b
 [[../img/11_hornet.jpg]]
 
-** TODO What did you learn this week?
+Planned:
+- Introduction to command line data science
+- Setting up shop at DataCamp workspaces
+- Trying ~curl~ and ~wget~ to download data files
+- Learning more about regular expressions (regex)
+- Exploring ~cvskit~ (Python) and ~xsv~ (Rust)
+
+* TODO What did you learn this week?
 
 Mon:
 
 Wed:
 
 Fri: NO CLASS - EASTER FRIDAY - SEE YOU NEXT MONDAY!
+
 
 * TODO Week 13 - cleaning data on the cmdline
 * TODO Week 14 - database operations on the cmdline
@@ -1055,6 +1082,12 @@ Pathak (16 Nov 2022). 12 best Low-code or No-code Platforms to Build Amazing
 Products. Online: [[https://geekflare.com/nocode-platforms-to-build-product/][geekflare.com]].
 
 * Footnotes
+
+[fn:5]Mesmer(1734-1815) postulated "animal magnetism/gravity" and
+tried to restore nervous "balance" with magnets. Discovered
+hypnotherapy in the process. Spectacular healing experiences due to
+hysterical influences. Probably quackery. See also: [[https://en.wikipedia.org/wiki/Animal_magnetism][Wikipedia]].
+
 [fn:4]This very course is an example - designed around R, we learn
   from books, and practice using Emacs + Org-mode literate
   programming. None of these elements were conceived together.

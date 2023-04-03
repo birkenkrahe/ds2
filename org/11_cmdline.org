@@ -21,65 +21,132 @@ Short introduction to doing data science on the command line:
 - Introduction to the ~xsv~ toolkit (Rust)
 - Practice with Linux (DataCamp workspaces)
 
+Open a fresh .org file to code along now.
+
 * Workflow: expectation vs. reality
 #+attr_html: :width 500px
 #+caption: Data science pipeline (Janssen, 2021)
 [[../img/11_pipeline.png]]
 
+This is essentially our well-known data science pipeline:
+#+begin_example sh
+  data + code + stats = story
+#+end_example
+Command line example[fn:1]: what is data, code, stats and story?
+#+attr_html: :width 500px
+#+caption: Screenshot: Ubuntu (Windows WSL2) ps -ax --forest command
+[[../img/11_psaxforest.png]]
+#+begin_quote
+- Data: ~PID~, ~TTY~, ~TIME~, ~COMMAND~
+- Code: ~ps -ax --forest~
+- Stats: snapshot of currently active CPU processes
+- Story: tell me what you're busy with including dependencies!
+#+end_quote
+
 * What is the command line?
 
-- Shell
-- ~bash~, ~csh~, ~sh~, ~zsh~, ~ksh~
-- CMD line
-- Terminal
-- tty
+- The command line is a programming and management interface
 
+- It consists of many thousands of programs and packages focused on
+  file and process management
+
+- Some alternative names (though not exactly the same thing):
+  + Shell
+  + ~bash~, ~csh~, ~sh~, ~zsh~, ~ksh~
+  + eshell
+  + CMD line
+  + Terminal
+  + tty
+  #+begin_quote
+  | TERM      | MEANING                      |
+  |-----------+------------------------------|
+  | Shell     | Program interface to the OS  |
+  | ~bash~ etc. | Shell scripting languages    |
+  | eshell    | Emacs bash emulator          |
+  | CMD line  | Windows term for the shell   |
+  | Terminal  | MacOS term for the shell     |
+  | tty       | Tele-type/session management |
+  |           |                              |
+  #+end_quote
+* Things to do on the command line
+#+attr_html: :width 500px
+#+caption: Things to do on the command line (Source: Janssens, 2021)
+[[../img/11_cmdline.png]]
+
+- Example in a Linux docker container:
   #+attr_html: :width 500px
   #+caption: Command line terminal (bash) in a docker container
   [[../img/11_bash.png]]
 
+- The command line is bigger than the shell:
   | CMD LINE TOOL      | EXAMPLE         |
   |--------------------+-----------------|
   | Binary executable  | ~bash --help~     |
   | Shell builtin      | ~cd .~            |
   | Interpreted script | ~hello.sh~        |
-  | Shell function     | ~pwd~, ~date~, ~echo~ |
+  | Shell function     | ~pwd~, ~date~, ~echo~   |
   | Alias              | ~alias~           |
 
-#+attr_html: :width 500px
-#+caption: Things to do on the command line (Source: Janssens, 2021)
-[[../img/11_cmdline.png]]
-
 * Why use the command line for data science
+#+attr_html: :width 500px
+#+caption: Huskies pulling sledge (State Lib of NSW on Flickr.com)
+[[../img/11_huskies.jpg]]
 
-1. Program to interact with the operating system (kernel)
-2. Sophisticated script language (~bash~, ~zsh~) 
-3. REPL (Read-Eval-Print-Loop)
-4. Agile and exploratory
-5. Augmenting technology (glue to other applications)
-   - Run pipeline (e.g. ~ls -a | wc -w~)
-   - Run from inside your R program
-   - Convert R code to command line script
-6. Scalability:
-   - it's fast
-   - used to automate tasks
+1. Program to interact with the *operating system* (kernel)
+2. Sophisticated *script* language (~bash~, ~zsh~)
+3. *REPL* (Read-Eval-Print-Loop) like ~replit.com~, ~Python~, ~R~, ~SQLite~[fn:2]
+4. *Agile*, flexible and exploratory
+5. *Augmenting* technology (glue to other applications)
+   - Run pipeline (e.g. ~ls -a | wc -l~)
+   - Run from inside your R program (with ~shell~)
+   - Convert R code to command line script:
+     #+begin_src sh :results output
+     echo 'head(mtcars)' > t.R
+     cat t.R
+     Rscript t.R
+     #+end_src
+6. *Scalability*:
+   - it's fast (sits right on top of the engine)
+   - it is used to automate tasks
    - repeatable and parallelizable
-7. Extensibility:
+7. *Extensibility*:
    - language agnostic
-   - been in use a long time
-   - continuously improved
-8. Ubiquitous: comes with all OS
-9. Cool (hacker value)
-10. Relatable (logical approach)
+   - been in use for a long time
+   - it is continuously improved
+8. *Ubiquitous*: comes with all OS
+9. *Cool factor* (you're "hacking")
+10. *Relatable* (logical approach)
 
 All of these are especially valuable in an exploratory environment
 with highly distributed, unstructured, or "dirty" data sources.
 
 * How to get a commandline for data science
+#+attr_html: :width 500px
+#+caption: Huskies pulling sledge (State Lib of NSW on Flickr.com)
+[[../img/11_workspace.png]]
 
 We're going to use DataCamp's workspaces - the Jupyter Notebook
 installation, which is free for you, includes a suitably equipped
 shell.
+
+*How to do it:*
+1) Go to ~workspace.datacamp.com~
+2) Start from ~empty [Python] workspace~
+3) Enter workspace name "commandline"
+4) Choose Language: "R + SQL"
+5) In the notebook go to "Launcher"
+6) In ~notebook.ipynb~ type ~version~ and run it
+7) In ~notebook.ipynb~ type ~plot(rnorm(1000))~ and run it
+8) Open another window ("+" tab) and launch "Terminal"
+9) In terminal, type ~cat /etc/os-release~
+10) In terminal, type ~echo 'hello world'~
+11) Open an R console, type ~plot(rnorm(1000))~ and run with ~<S-RET>~
+12) Open an R script, enter ~plot(rnorm(1000))~ and name it ~plot.r~
+13) Run script in the console with ~Rscript plot.r~
+
+More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Started-with-DataCamp-Workspace][Getting Started with DataCamp Workspace]] (DataCamp 2023)
+
+* Alternative command line installations
 
 *Alternatives:*
 - Install a Docker container as described [[https://github.com/birkenkrahe/org/blob/master/FAQ.org#how-to-set-up-a-docker-container-for-command-line-work][in this FAQ]] - there is also
@@ -105,5 +172,17 @@ shell.
 * TODO Code glossary
 * References
 
+- Ballesteros (2006). Introduction to Operating Systems Abstractions:
+  Using Plan 9 from Bell Labs (PDF). URL: [[http://doc.cat-v.org/plan_9/9.intro.pdf][doc.cat-v.org]].
 - Gallant (2021). xsv. URL: [[https://github.com/BurntSushi/xsv][github.com]].
 - Janssens (2021). Data science at the command line (2e). O'Reilly.
+
+* Footnotes
+[fn:2]replit.com is a platform with multiple languages set up as
+REPLs. Python (~M-x run-python~), R (~M-x R~) and SQLite (~M-x sql-sqlite~)
+can be run interactively.
+
+[fn:1]Here, ~plan9~ is the weirdest kid on the block: Plan 9 is file
+server also known as the 9P protocol file server. It allows Windows to
+access the files contained within WSL2. The name comes from a
+distributed OS called Plan 9 (see Ballesteros, 2006).
