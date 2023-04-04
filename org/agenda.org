@@ -981,8 +981,10 @@ Wed:
 - The goal: create a Term-Document-Matrix from a clean corpus
 
 Fri:
+- Cleaning functions from ~tm~ applied to a simple string
+- Saving an R session with ~save.image~ in an ~.RData~ file
 
-* TODO Week 12 - text mining / cmdline / regex
+* IN PROGRESS Week 12 - text mining / cmdline / regex
 #+attr_latex: :width 400px
 #+caption: Photo: by Cassie Kozyrkov (Google) on Twitter.com@quaesita
 [[../img/chatgpt.jpeg]]
@@ -994,7 +996,7 @@ Fri:
 * TODO About Artificial Idiocy (AI)
 #+attr_latex: :width 400px
 #+caption: Mesmeric Therapy, by an unknown French painter (1778/1784)
-[[../img/mesmerism.jpg]]
+I[[../img/mesmerism.jpg]]
 #+begin_quote
 "Google Bard Fakes Math Skills Despite Being Incompetent - While
 ChatGPT, although slightly more proficient, still struggles to
@@ -1025,6 +1027,9 @@ Planned:
 * TODO What did you learn this week?
 
 Mon:
+- Cleaning a corpus with ~tm_map~ and ~tm~ functions
+- Creating a Text-Document-Matrix (TDM) / Document-Term-Matrix (DTM)
+- Loading the ~wordcloud~ package
 
 Wed:
 
@@ -1032,6 +1037,20 @@ Fri: NO CLASS - EASTER FRIDAY - SEE YOU NEXT MONDAY!
 
 
 * TODO Week 13 - cleaning data on the cmdline
+#+attr_latex: :width 400px
+#+caption: Photo: Hoaxbuster - deze kinderen hebben wél aandacht voor Rembrandt (2014)
+[[../img/exhibition.png]]
+
+/Image: Picture of an exhibition./
+#+attr_latex: :width 400px
+#+caption: Photo: The same group of kids.
+[[../img/exhibition.jpeg]]
+
+/Image: Same exhibition, same group of school children./
+
+- Hoaxbusters and fact checkers don't always need fancy tech.
+- We're going to do it anyway - this week: a tour of cvskit
+
 * TODO Week 14 - database operations on the cmdline
 * TODO Week 15 - data pipeline with Python
 * TODO Week 16 - Projects

@@ -679,6 +679,27 @@ package that you need to install first:
 
 * Cleaning a corpus
 
+#+begin_src R
+  load("../data/.RData")
+  ls()
+  save.image("ds2_April_3")
+#+end_src
+
+#+RESULTS:
+: [1] "api_key"      "ask_chatgpt"  "clean_corpus" "corpus"       "dtm"         
+: [6] "source"       "tdm"          "text"
+
+
+#+begin_src R
+  library(tm)
+  args(stopwords)
+  stopwords()
+#+end_src
+
+#+RESULTS:
+: function (kind = "en") 
+: NULL
+
 - To clean a corpus (a collection of different documents), use ~tm_map~,
   which works as a wrapper. For example for ~removePunctuation~ and our ~corpus~:
   #+begin_src R
@@ -688,6 +709,12 @@ package that you need to install first:
     nchar(content(tm_map(corpus, removeWords, words=stopwords("en"))[[3]]))
     nchar(content(tm_map(corpus, content_transformer(tolower))[[3]]))
   #+end_src
+
+  #+RESULTS:
+  : [1] 269
+  : [1] 252
+  : [1] 250
+  : [1] 269
 
 - Bonus: we only have 3 strings in the corpus, so an index 4 will be
   out of bounds. How can you make the first command safe against this
@@ -704,6 +731,13 @@ package that you need to install first:
       }
     }
     #+end_src
+
+    #+RESULTS:
+    : [1] 161
+    : [1] 134
+    : [1] 269
+    : Error: Index out of bounds: only 3 elements exist.
+    : Command terminated.
     
 * Creating a Term-Document-Matrix (TDM)
 #+attr_latex: :width 400px
@@ -721,10 +755,12 @@ package that you need to install first:
   #+begin_src R
     <<clean_corpus>>
     clean_corpus(corpus) -> clean_corpus
+    content(corpus[[2]])
     content(clean_corpus[[2]])
   #+end_src
 
   #+RESULTS:
+  : [1] "If you want to learn R, learn the packages in this cheat sheet. These are my 80/20 tools. #rstats #datascience https://buff.ly/3KrP9gi"
   : [1] " want learn r learn packages cheat sheet tools rstats datascience httpsbufflykrpgi"
 
 - Notice that the order of operations matters a lot for a truly
@@ -797,6 +833,22 @@ package that you need to install first:
     as.matrix(tdm) -> m
     head(m, 10)
   #+end_src
+
+  #+RESULTS:
+  #+begin_example
+               Docs
+  Terms         1 2 3
+    access      0 0 1
+    available   0 0 1
+    boom        0 0 1
+    called      0 0 1
+    cheat       0 1 0
+    conception  1 0 0
+    crash       0 0 1
+    datascience 0 1 0
+    debase      1 0 0
+    degrade     1 0 0
+  #+end_example
   
 - To see top counts:
   1) sum over all documents and get the frequencies for each term
@@ -805,11 +857,33 @@ package that you need to install first:
   #+begin_src R
     rowSums(m) -> freq
     sort(freq, decreasing=TRUE) -> sorted
-    head(sorted)
+    head(sorted,10)
   #+end_src
+
+  #+RESULTS:
+  :        free       learn      access   available        boom      called 
+  :           2           2           1           1           1           1 
+  :       cheat  conception       crash datascience 
+  :           1           1           1           1
 
 - You can visualize the results as a barchart or as a wordcloud. For
   the wordclouds, we need the ~wordcloud~ package.
+  #+begin_src R
+    library(wordcloud)
+    search()
+    ls('package:wordcloud')
+    save.image('ds2_April_3')
+  #+end_src
+
+  #+RESULTS:
+  :  [1] ".GlobalEnv"           "package:wordcloud"    "package:RColorBrewer"
+  :  [4] "package:tm"           "package:NLP"          "ESSR"                
+  :  [7] "package:stats"        "package:graphics"     "package:grDevices"   
+  : [10] "package:utils"        "package:datasets"     "package:stringr"     
+  : [13] "package:httr"         "package:methods"      "Autoloads"           
+  : [16] "package:base"
+  : [1] "commonality.cloud" "comparison.cloud"  "textplot"         
+  : [4] "wordcloud"         "wordlayout"
 
 - Barchart:
   #+begin_src R :results graphics file :file ../img/text_chart.png

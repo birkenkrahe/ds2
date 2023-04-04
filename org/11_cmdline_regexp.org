@@ -24,8 +24,10 @@ Short introduction to doing data science on the command line:
 - Practice with Linux (DataCamp workspaces)
 
 - The source for this chapter is Fox, 2017 but there are many good
-  books and tutorials, see e.g. [[https://nostarch.com/download/automate2e_SampleCh7.pdf][this sample chapter]] in the textbook
-  for my Python course this summer (CSC109) by Sweigart (2019).
+  books and tutorials, e,g, at [[https://www.regular-expressions.info/tutorialcnt.html][regular-expressions.info]].
+
+- For regex especially in R, see e.g. [[https://www.datacamp.com/tutorial/regex-r-regular-expressions-guide][A Guide to R Regular Expressions]]
+  (Kosourova, 2022).
 
 * Regular expressions
 
@@ -159,5 +161,8 @@ ls | grep '11_*'
 - Jonny Fox (Mar 20, 2019). Regex cookbook - Top 15 Most common
   regex. [[https://medium.com/factory-mind/regex-cookbook-most-wanted-regex-aa721558c3c1][Online: medium.com]].
 
+- Elena Kosourova (Oct 2022). A Guide to R Regular
+  Expressions. [[https://www.datacamp.com/tutorial/regex-r-regular-expressions-guide][Online: datacamp.com]].
+  
 - Al Sweigart (2019). Automate the boring stuff with
   Python. NoStarch. [[https://automatetheboringstuff.com/][Online: automatetheboringstuff.com]].

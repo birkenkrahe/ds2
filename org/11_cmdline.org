@@ -127,7 +127,7 @@ with highly distributed, unstructured, or "dirty" data sources.
 
 We're going to use DataCamp's workspaces - the Jupyter Notebook
 installation, which is free for you, includes a suitably equipped
-shell.
+shell ([[https://app.datacamp.com/workspace/w/7927d795-69d1-41a7-a076-76acf8c79068/edit][example]]).
 
 *How to do it:*
 1) Go to ~workspace.datacamp.com~
