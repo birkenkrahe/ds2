@@ -101,9 +101,9 @@ Command line example[fn:1]: what is data, code, stats and story?
    - Run from inside your R program (with ~shell~)
    - Convert R code to command line script:
      #+begin_src sh :results output
-     echo 'head(mtcars)' > t.R
-     cat t.R
-     Rscript t.R
+       echo 'head(mtcars)' > t.R
+       cat t.R
+       Rscript t.R
      #+end_src
 6. *Scalability*:
    - it's fast (sits right on top of the engine)
@@ -166,8 +166,202 @@ More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Sta
   Debian-based systems (Raspberry Pi OS, Ubuntu) with the command ~sudo
   apt install csvkit~.
 
-* TODO Download data with ~curl~
-* TODO Download data with ~wget~
+* Unix-type commands
+
+- The following sections on ~curl~ and ~wget~ is based on the first
+  chapter of the DataCamp course "Data processing in shell".
+
+- Both commands obey the same Unix-type format:
+  #+begin_example sh
+    [command] [options/flags] [targets]
+  #+end_example
+
+- The specialty of Unix utilities are stable, small, fast routines
+  each of which does one particular job really well and allow managing
+  files, shell and text: e.g. ~ls~, ~ps~, ~cd~ - all of them written in C.
+
+- The utilities attain full power only when used as part of a command
+  pipeline, e.g. in the following codeblock:
+  1) list files in ~$PWD~ in long format, time-ordered with ~ls~
+  2) in the list, search for the pattern 'text' with ~grep~
+  3) save the result of the search to a file ~files.txt~ with ~tee~
+  4) count the characters of the search result with ~wc~
+  #+begin_src sh
+    ls -lt $PWD | grep text | tee files.txt | wc -c
+    cat files.txt
+  #+end_src
+
+- The bulk of these utilities are part of the [[https://www.gnu.org/gnu/gnu.html][GNU Operating System]],
+  which is FOSS. The GNU system also includes very large, complex
+  programs like ~gcc~ and ~gdb~, the GNU compiler and debugger, or GNU
+  Emacs, the self-extensible editor.
+
+- Making these programs graphical does not add anything but only takes
+  away transparency, speed of use, and performance - they embody the
+  power of the command line.
+
+- Jobs that cannot live without commandline tools include anything
+  with data (at the engineering end), databases, networks or operating
+  systems (including servers).
+
+* Download data with ~curl~
+
+- Open your workspace on ~workspace.datacamp.com~ to try this yourself
+  or run the commands in Emacs using my practice file[fn:3]
+
+- The ~curl~ command line tool is short for "Client for URLs" and
+  transports data to and from web servers.
+
+* Getting to know a utility
+
+- Your first step is to look at its option palette with ~--help~:
+  #+begin_src sh
+    curl --help
+  #+end_src
+
+  #+RESULTS:
+  #+begin_example
+  Usage: curl [options...] <url>
+   -d, --data <data>          HTTP POST data
+   -f, --fail                 Fail fast with no output on HTTP errors
+   -h, --help <category>      Get help for commands
+   -i, --include              Include protocol response headers in the output
+   -o, --output <file>        Write to file instead of stdout
+   -O, --remote-name          Write output to a file named as the remote file
+   -s, --silent               Silent mode
+   -T, --upload-file <file>   Transfer local FILE to destination
+   -u, --user <user:password> Server user and password
+   -A, --user-agent <name>    Send User-Agent <name> to server
+   -v, --verbose              Make the operation more talkative
+   -V, --version              Show version number and quit
+
+  This is not the full help, this menu is stripped into categories.
+  Use "--help category" to get an overview of all categories.
+  For all options use the manual or "--help all".
+  #+end_example
+
+- The help reveals that there are two sets of options/flags: a short
+  version and a long, verbose version, e.g. ~-V~ and ~--version~:
+  #+begin_src sh
+    curl --version
+  #+end_src
+
+  #+RESULTS:
+  : curl 7.88.1 (x86_64-w64-mingw32) libcurl/7.88.1 OpenSSL/1.1.1t (Schannel) zlib/1.2.13 brotli/1.0.9 zstd/1.5.4 libidn2/2.3.4 libpsl/0.21.2 (+libidn2/2.3.3) libssh2/1.10.0 nghttp2/1.52.0
+  : Release-Date: 2023-02-20
+  : Protocols: dict file ftp ftps gopher gophers http https imap imaps ldap ldaps mqtt pop3 pop3s rtsp scp sftp smb smbs smtp smtps telnet tftp
+  : Features: alt-svc AsynchDNS brotli HSTS HTTP2 HTTPS-proxy IDN IPv6 Kerberos Largefile libz MultiSSL NTLM PSL SPNEGO SSL SSPI threadsafe TLS-SRP UnixSockets zstd
+
+- This gives a lot of different information:
+  1) version number and release date
+  2) compiler and libraries used to create the binary (which is what
+     you usually use under Windows, instead of building it from source
+     under Linux)
+  3) supported server protocols (everything under the sun)
+  4) additional features to deal with network/data specifics
+
+- Information on any shell utility is on its [[https://man7.org/linux/man-pages/man1/curl.1.html][manual page]] - on Linux,
+  you can find these inside Emacs, too (~M-x man~).
+  #+attr_latex: :width 400px
+  #+caption: curl(7) man page
+  [[../img/11_man_curl.png]]
+
+* Examples for ~curl~
+
+- Copy data from URL without changing name, then list file:
+  #+begin_src sh
+    pwd
+    curl -O 'https://bit.ly/nile_txt'
+    ls -l 'nile_txt'
+  #+end_src
+
+  #+RESULTS:
+  : /c/Users/birkenkrahe/Documents/GitHub/ds2/org
+  : -rw-r--r-- 1 Birkenkrahe 1049089 155 Apr  5 10:14 nile_txt
+
+- Copy data from URL, change name, then list files:
+  #+begin_src sh
+    pwd
+    curl -o 'nile.txt' 'https://bit.ly/nile_txt'
+    ls -l nile*
+  #+end_src
+
+  #+RESULTS:
+  : /c/Users/birkenkrahe/Documents/GitHub/ds2/org
+  : -rw-r--r-- 1 Birkenkrahe 1049089 155 Apr  5 10:16 nile.txt
+  : -rw-r--r-- 1 Birkenkrahe 1049089 155 Apr  5 10:14 nile_txt
+
+- Here, the 'wildcard' or 'glob' character ~*~ is actually a regular
+  expression or a - more about these in the next lecture!
+
+- The 'globbing parser' is a shell component that interprets and
+  expands globs or wildcards. Here is an example with ~curl~:
+  #+begin_src sh :noweb yes
+    github=https://raw.githubusercontent.com/birkenkrahe/ds2/main
+    curl --remote-name "$github/data/Nile[001-003].txt"
+    ls -l Nile*
+  #+end_src
+
+  #+RESULTS:
+  : -rw-r--r-- 1 Birkenkrahe 1049089 430 Apr  5 10:57 Nile001.txt
+  : -rw-r--r-- 1 Birkenkrahe 1049089 430 Apr  5 10:57 Nile002.txt
+  : -rw-r--r-- 1 Birkenkrahe 1049089 430 Apr  5 10:57 Nile003.txt
+
+- Explore other ~curl~ flags on your own time!
+
+* Download data with ~wget~ - the background
+
+- The utility ~wget~ is a "non-interactive" ("batch") network downloader
+  that downloads very efficiently in the background from the Web.
+
+- It is better than ~curl~ at downloading multiple files recursively
+  (i.e. entering and copying nested file hierarchies), especially when
+  connections are wonky - ~wget~ will just keep trying!
+
+- Like other batch programs, ~wget~ also creates a log file ~wget-log~
+
+- The notion of "background" relates to Unix' process management:
+  e.g. I can put Emacs in the background (~C-z~) then check that the
+  process is running (~ps -ax~) and bring it back into the foreground
+  with ~fg~:
+  #+attr_latex: :width 400px
+  #+caption: Emacs in the background
+  [[../img/11_background.png]]
+
+- This is the same thing that happens when we run an R script ~file.R~
+  in "batch" mode with ~R CMD BATCH file.R~: the file is executed in the
+  background and an ~.Rout~ log file is produced alongside the output:
+  1) download ~$github/src/t.R~ with ~curl~ and name it ~mtcars.R~
+  2) check that the file is there with ~ls~
+  3) look at ~mtcars.R~ with ~cat~
+  4) run ~mtcars.R~ as a batch script
+  5) look at ~mtcars.Rout~
+  #+begin_src sh
+    github=https://raw.githubusercontent.com/birkenkrahe/ds2/main
+    curl -o mtcars.R "$github/src/t.R"
+    ls -l mtcars.R
+    cat mtcars.R
+    R CMD BATCH mtcars.R
+    cat mtcars.Rout
+  #+end_src
+
+* IN PROGRESS Examples with ~wget~
+
+- Important flags:
+  1) ~-b~ to go to background immediately after startup
+  2) ~-q~ turn off output
+  3) ~-c~ resume broken (partial) download
+  4) ~-i~ pass a file with URLs to ~wget~ for download
+  5) ~--limit-rate={rate}k~ set download constraint for large files
+  6) ~--wait={seconds}~ pause between file downloads
+
+* ~curl~ vs ~wget~
+
+| ~curl~                      | ~wget~                          |
+|---------------------------+-------------------------------|
+| many transfer protocols   | multiple file downloads       |
+| easy to install across OS | handles multiple file formats |
+
 * TODO Summary
 * TODO Code glossary
 * References
@@ -178,6 +372,12 @@ More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Sta
 - Janssens (2021). Data science at the command line (2e). O'Reilly.
 
 * Footnotes
+
+[fn:3]If these commands work on the shell in Emacs or in ~sh~ code
+blocks depends on the availability of the utilities on your PC and on
+your ~PATH~ environment variable settings. Alternatively you can install
+Ubuntu Linux as a Windows Linux Subsystem from the Microsoft store.
+
 [fn:2]replit.com is a platform with multiple languages set up as
 REPLs. Python (~M-x run-python~), R (~M-x R~) and SQLite (~M-x sql-sqlite~)
 can be run interactively.

@@ -1,0 +1,2 @@
+-rw-r--r-- 1 Birkenkrahe 1049089 38329 Apr  4 21:40 10_text_mining.org
+-rw-r--r-- 1 Birkenkrahe 1049089  7535 Mar 29 13:56 10_text_mining_practice.org

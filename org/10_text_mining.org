@@ -823,7 +823,7 @@ package that you need to install first:
   Weighting          : term frequency (tf)
   #+end_example
 
-* Analyze and visualize the TDM
+* NEXT Analyze and visualize the TDM
 
 - All we're interested in, and all we can analyze and visualize, are
   term frequencies.

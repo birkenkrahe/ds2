@@ -993,7 +993,7 @@ Fri:
 - Useful: feed [[https://lyon.instructure.com/calendar][Canvas calendar]] to your Google calendar ([[https://community.canvaslms.com/t5/Student-Guide/How-do-I-subscribe-to-the-Calendar-feed-using-Google-Calendar-as/ta-p/535][instructions]])
 - Useful: R's startup mechanism - 4 p. (~help(base::Startup)~ & PDF@GitHub)
 
-* TODO About Artificial Idiocy (AI)
+* DONE About Artificial Idiocy (AI)
 #+attr_latex: :width 400px
 #+caption: Mesmeric Therapy, by an unknown French painter (1778/1784)
 I[[../img/mesmerism.jpg]]
@@ -1012,18 +1012,6 @@ identify errors when prompted." [[https://medium.com/@0ce/google-bard-fakes-math
 
 /Image: Mesmeric Therapy/Animal Magnetism (ca. 1780)/[fn:5]
 
-* TODO Command line data science
-#+attr_latex: :width 400px
-#+caption: Photo: Super Hornet. Source: Flickr.com flic.kr/p/2nDe28b
-[[../img/11_hornet.jpg]]
-
-Planned:
-- Introduction to command line data science
-- Setting up shop at DataCamp workspaces
-- Trying ~curl~ and ~wget~ to download data files
-- Learning more about regular expressions (regex)
-- Exploring ~cvskit~ (Python) and ~xsv~ (Rust)
-
 * TODO What did you learn this week?
 
 Mon:
@@ -1035,6 +1023,17 @@ Wed:
 
 Fri: NO CLASS - EASTER FRIDAY - SEE YOU NEXT MONDAY!
 
+* TODO Command line data science
+#+attr_latex: :width 400px
+#+caption: Photo: Super Hornet. Source: Flickr.com flic.kr/p/2nDe28b
+[[../img/11_hornet.jpg]]
+
+Planned:
+- Introduction to command line data science
+- Setting up shop at DataCamp workspaces
+- Trying ~curl~ and ~wget~ to download data files
+- Learning more about regular expressions (regex)
+- Exploring ~cvskit~ (Python) and ~xsv~ (Rust)
 
 * TODO Week 13 - cleaning data on the cmdline
 #+attr_latex: :width 400px
