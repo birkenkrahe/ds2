@@ -1028,7 +1028,7 @@ Fri: NO CLASS - EASTER FRIDAY - SEE YOU NEXT MONDAY!
 #+caption: Photo: Super Hornet. Source: Flickr.com flic.kr/p/2nDe28b
 [[../img/11_hornet.jpg]]
 
-Planned:
+*Planned:*
 - Introduction to command line data science
 - Setting up shop at DataCamp workspaces
 - Trying ~curl~ and ~wget~ to download data files
@@ -1048,7 +1048,8 @@ Planned:
 /Image: Same exhibition, same group of school children./
 
 - Hoaxbusters and fact checkers don't always need fancy tech.
-- We're going to do it anyway - this week: a tour of cvskit
+- We're going to do it anyway - this week: regular expressions
+  (regexp) and a tour of the cvskit Python package
 
 * TODO Week 14 - database operations on the cmdline
 * TODO Week 15 - data pipeline with Python

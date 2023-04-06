@@ -30,6 +30,8 @@ Short introduction to doing data science on the command line:
   (Kosourova, 2022).
 
 * Regular expressions
+  #+attr_latex: :width 400px
+  [[../img/11_regex_cheat.png]]
 
 - Regular expressions (/regex/ or /regexp/) are useful in extracting
   information from any text by pattern searching (with a function)
@@ -48,6 +50,9 @@ Short introduction to doing data science on the command line:
 
 - Even better: get Ubuntu (on Windows check Microsoft store, or on a
   Chromebook with the developers' settings).
+
+- [[https://libguides.lib.fit.edu/ld.php?content_id=50509658][This cheat sheet]] for string manipulation with the R package ~stringr~
+  contains a list of important regexp on the 2nd page.
 
 * Overview of regex operators
 

@@ -823,7 +823,23 @@ package that you need to install first:
   Weighting          : term frequency (tf)
   #+end_example
 
-* NEXT Analyze and visualize the TDM
+* Analyze and visualize the TDM
+
+#+begin_src R
+  load('ds2_April_3')
+  ls()
+  tdm
+#+end_src
+
+#+RESULTS:
+:  [1] "api_key"      "ask_chatgpt"  "b"            "clean_corpus" "corpus"      
+:  [6] "dtm"          "freq"         "i"            "m"            "sorted"      
+: [11] "source"       "tdm"          "text"
+: <<TermDocumentMatrix (terms: 51, documents: 3)>>
+: Non-/sparse entries: 51/102
+: Sparsity           : 67%
+: Maximal term length: 16
+: Weighting          : term frequency (tf)
 
 - All we're interested in, and all we can analyze and visualize, are
   term frequencies.
@@ -860,12 +876,6 @@ package that you need to install first:
     head(sorted,10)
   #+end_src
 
-  #+RESULTS:
-  :        free       learn      access   available        boom      called 
-  :           2           2           1           1           1           1 
-  :       cheat  conception       crash datascience 
-  :           1           1           1           1
-
 - You can visualize the results as a barchart or as a wordcloud. For
   the wordclouds, we need the ~wordcloud~ package.
   #+begin_src R
@@ -875,16 +885,6 @@ package that you need to install first:
     save.image('ds2_April_3')
   #+end_src
 
-  #+RESULTS:
-  :  [1] ".GlobalEnv"           "package:wordcloud"    "package:RColorBrewer"
-  :  [4] "package:tm"           "package:NLP"          "ESSR"                
-  :  [7] "package:stats"        "package:graphics"     "package:grDevices"   
-  : [10] "package:utils"        "package:datasets"     "package:stringr"     
-  : [13] "package:httr"         "package:methods"      "Autoloads"           
-  : [16] "package:base"
-  : [1] "commonality.cloud" "comparison.cloud"  "textplot"         
-  : [4] "wordcloud"         "wordlayout"
-
 - Barchart:
   #+begin_src R :results graphics file :file ../img/text_chart.png
     barplot(rev(sorted),
@@ -893,6 +893,9 @@ package that you need to install first:
             xlab="Counts",
             las=1)
   #+end_src
+
+  #+RESULTS:
+  [[file:../img/text_chart.png]]
 
 - For the wordcloud, we transform the sorted, named frequency vector
   ~sorted~ into a dataframe and then remove the ~rownames~:
@@ -906,8 +909,6 @@ package that you need to install first:
 
   #+RESULTS:
   #+begin_example
-  Warning message:
-  package 'wordcloud' was built under R version 4.2.3
             term num
   1         free   2
   2        learn   2
@@ -927,6 +928,13 @@ package that you need to install first:
     args(wordcloud)
   #+end_src
 
+  #+RESULTS:
+  : function (words, freq, scale = c(4, 0.5), min.freq = 3, max.words = Inf, 
+  :     random.order = TRUE, random.color = FALSE, rot.per = 0.1, 
+  :     colors = "black", ordered.colors = FALSE, use.r.layout = FALSE, 
+  :     fixed.asp = TRUE, ...) 
+  : NULL
+
 - Create the word cloud:
   #+begin_src R :results graphics file :file ../img/wordcloud.png
     wordcloud(words = df$term,
@@ -934,6 +942,9 @@ package that you need to install first:
               max.words=20,
               color="blue")
   #+end_src
+
+  #+RESULTS:
+  [[file:../img/wordcloud.png]]
 
 * Resources
 

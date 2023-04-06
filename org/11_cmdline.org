@@ -54,7 +54,7 @@ Command line example[fn:1]: what is data, code, stats and story?
   + Shell
   + ~bash~, ~csh~, ~sh~, ~zsh~, ~ksh~
   + eshell
-  + CMD line
+  + CMD prompt (Windows), PowerShell
   + Terminal
   + tty
   #+begin_quote
@@ -92,7 +92,7 @@ Command line example[fn:1]: what is data, code, stats and story?
 #+caption: Huskies pulling sledge (State Lib of NSW on Flickr.com)
 [[../img/11_huskies.jpg]]
 
-1. Program to interact with the *operating system* (kernel)
+1. Program to interact with the *operating system* (kernel) + memory
 2. Sophisticated *script* language (~bash~, ~zsh~)
 3. *REPL* (Read-Eval-Print-Loop) like ~replit.com~, ~Python~, ~R~, ~SQLite~[fn:2]
 4. *Agile*, flexible and exploratory
