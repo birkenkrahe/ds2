@@ -984,7 +984,7 @@ Fri:
 - Cleaning functions from ~tm~ applied to a simple string
 - Saving an R session with ~save.image~ in an ~.RData~ file
 
-* IN PROGRESS Week 12 - text mining / cmdline / regex
+* Week 12 - text mining / cmdline / regex
 #+attr_latex: :width 400px
 #+caption: Photo: by Cassie Kozyrkov (Google) on Twitter.com@quaesita
 [[../img/chatgpt.jpeg]]
@@ -993,7 +993,7 @@ Fri:
 - Useful: feed [[https://lyon.instructure.com/calendar][Canvas calendar]] to your Google calendar ([[https://community.canvaslms.com/t5/Student-Guide/How-do-I-subscribe-to-the-Calendar-feed-using-Google-Calendar-as/ta-p/535][instructions]])
 - Useful: R's startup mechanism - 4 p. (~help(base::Startup)~ & PDF@GitHub)
 
-* DONE About Artificial Idiocy (AI)
+** About Artificial Idiocy (AI)
 #+attr_latex: :width 400px
 #+caption: Mesmeric Therapy, by an unknown French painter (1778/1784)
 I[[../img/mesmerism.jpg]]
@@ -1012,18 +1012,7 @@ identify errors when prompted." [[https://medium.com/@0ce/google-bard-fakes-math
 
 /Image: Mesmeric Therapy/Animal Magnetism (ca. 1780)/[fn:5]
 
-* TODO What did you learn this week?
-
-Mon:
-- Cleaning a corpus with ~tm_map~ and ~tm~ functions
-- Creating a Text-Document-Matrix (TDM) / Document-Term-Matrix (DTM)
-- Loading the ~wordcloud~ package
-
-Wed:
-
-Fri: NO CLASS - EASTER FRIDAY - SEE YOU NEXT MONDAY!
-
-* TODO Command line data science
+** Command line data science
 #+attr_latex: :width 400px
 #+caption: Photo: Super Hornet. Source: Flickr.com flic.kr/p/2nDe28b
 [[../img/11_hornet.jpg]]
@@ -1035,25 +1024,30 @@ Fri: NO CLASS - EASTER FRIDAY - SEE YOU NEXT MONDAY!
 - Learning more about regular expressions (regex)
 - Exploring ~cvskit~ (Python) and ~xsv~ (Rust)
 
-* TODO Week 13 - cleaning data on the cmdline
+** What did you learn this week?
+
+Mon:
+- Cleaning a corpus with ~tm_map~ and ~tm~ functions
+- Creating a Text-Document-Matrix (TDM) / Document-Term-Matrix (DTM)
+- Loading the ~wordcloud~ package
+
+Wed:
+
+
+Fri: NO CLASS - EASTER FRIDAY - SEE YOU NEXT MONDAY!
+
+* TODO Week 13 - regex / cleaning data on the cmdline
 #+attr_latex: :width 400px
-#+caption: Photo: Hoaxbuster - deze kinderen hebben wél aandacht voor Rembrandt (2014)
-[[../img/exhibition.png]]
+#+caption: Wawel Royal Castle in Krakow, Poland (Flickr.com)
+[[../img/wawel_castle_krakow.jpg]]
 
-/Image: Picture of an exhibition./
-#+attr_latex: :width 400px
-#+caption: Photo: The same group of kids.
-[[../img/exhibition.jpeg]]
-
-/Image: Same exhibition, same group of school children./
-
-- Hoaxbusters and fact checkers don't always need fancy tech.
-- We're going to do it anyway - this week: regular expressions
-  (regexp) and a tour of the cvskit Python package
+*Project:*
+- [ ] [[https://lyon.instructure.com/courses/1041/assignments/9906][3rd sprint review is live]] - deadline April 21
+- [ ] [[https://lyon.instructure.com/courses/1041/pages/sign-up-for-final-presentations][Sign up for final presentations now]] - last 2 weeks
 
 * TODO Week 14 - database operations on the cmdline
-* TODO Week 15 - data pipeline with Python
-* TODO Week 16 - Projects
+* TODO Week 15 - Projects I
+* TODO Week 16 - Projects II
 * TODO What next?
 ** Buy the "Book of R" and keep it for life
 #+attr_latex: :width 400px
@@ -1075,7 +1069,6 @@ To graduate to a full-fledged R programmer, get this excellent book:
 [[../img/R4DS.png]]
 
 [[https://r4ds.hadley.nz/][Link to the website for the 2nd edition (2023)]]
-
 
 * References
 
