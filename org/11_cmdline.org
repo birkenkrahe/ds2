@@ -120,18 +120,43 @@ Command line example[fn:1]: what is data, code, stats and story?
 All of these are especially valuable in an exploratory environment
 with highly distributed, unstructured, or "dirty" data sources.
 
-* How to get a commandline for data science
+* NEXT How to get a commandline for data science
 #+attr_html: :width 500px
 #+caption: Huskies pulling sledge (State Lib of NSW on Flickr.com)
 [[../img/11_workspace.png]]
 
 We're going to use DataCamp's workspaces - the Jupyter Notebook
 installation, which is free for you, includes a suitably equipped
-shell ([[https://app.datacamp.com/workspace/w/7927d795-69d1-41a7-a076-76acf8c79068/edit][example]]).
+shell.
+
+1. Logging into ~workspace.datacamp.com~ with your Lyon account
+2. Picking a workspace template (empty, GitHub, data, project)
+   - Upload GitHub [[https://github.com/birkenkrahe/py][repo]]
+   - Choose SMS message data
+   - Extraction with regex
+   - Empty notebook "commandline"
+3. Publishing a Jupyter notebook ~notebook.ipynb~
+4. File management:
+   - Upload ~.RData~ file
+   - Load ~tm~ package
+   - Print tweet no. 999 from ~clean_coffee~ corpus
+5. Integrations with relational databases (pre-loaded)
+   - For example ~employees~ - Add SQL block
+   - Run ~SELECT 1+1~
+   - Run ~SELECT COUNT(first_name) AS George from employees.employees
+     WHERE first_name = "George" LIMIT 10;~
+6. Check ~environment~: installed packages with versions
+7. Select ~View~ > ~Switch to JupyterLab~ (vs. "DataCamp Notebook Editor")
+8. Click ~+~ to get a ~Launcher~ tab:
+   - R Notebook or R console or R file
+   - ~bash~ terminal (~echo $SHELL~) which is where we will work!
+9. Once created, the workspace is available any time with the link
+
+* Your turn! Create your own commandline workspace
 
 *How to do it:*
 1) Go to ~workspace.datacamp.com~
-2) Start from ~empty [Python] workspace~
+2) Start from ~empty workspace~
 3) Enter workspace name "commandline"
 4) Choose Language: "R + SQL"
 5) In the notebook go to "Launcher"
@@ -143,8 +168,37 @@ shell ([[https://app.datacamp.com/workspace/w/7927d795-69d1-41a7-a076-76acf8c790
 11) Open an R console, type ~plot(rnorm(1000))~ and run with ~<S-RET>~
 12) Open an R script, enter ~plot(rnorm(1000))~ and name it ~plot.r~
 13) Run script in the console with ~Rscript plot.r~
+14) Test the built-in editor ~nano~:
+    - write a script with ~head(mtcars)~ in ~nano~
+    - save it as ~head.R~
+    - check it with ~ls -l head.R~
+    - view it with ~cat head.R~
+    - run it with ~Rscript head.R~
 
 More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Started-with-DataCamp-Workspace][Getting Started with DataCamp Workspace]] (DataCamp 2023)
+
+* Workspace picture gallery
+
+- Create new empty workspace
+  #+attr_latex: :width 400px
+  #+caption: workspace creation
+  [[../img/workspace1.png]]
+- Run R command in Jupyter notebook cell
+  #+attr_latex: :width 400px
+  #+caption: Running an R command in a Jupyter Notebook cell
+  [[../img/workspace2.png]]
+- Run shell built-in function in the shell (REPL)
+  #+attr_latex: :width 400px
+  #+caption: Running a shell built-in function in the shell (REPL)
+  [[../img/workspace3.png]]
+- Running R code in the R console
+  #+attr_latex: :width 400px
+  #+caption: Running R code in the R console
+  [[../img/workspace4.png]]
+- Running R code as a batch job
+  #+attr_latex: :width 400px
+  #+caption: Output from running R code as a batch job
+  [[../img/workspace5.png]]
 
 * Alternative command line installations
 
@@ -187,8 +241,8 @@ More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Sta
   3) save the result of the search to a file ~files.txt~ with ~tee~
   4) count the characters of the search result with ~wc~
   #+begin_src sh
-    ls -lt $PWD | grep text | tee files.txt | wc -c
-    cat files.txt
+    ls -lt $PWD | grep text | tee files.txt | wc -c 
+    cat 'files.txt'
   #+end_src
 
 - The bulk of these utilities are part of the [[https://www.gnu.org/gnu/gnu.html][GNU Operating System]],
@@ -202,26 +256,33 @@ More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Sta
 
 - Jobs that cannot live without commandline tools include anything
   with data (at the engineering end), databases, networks or operating
-  systems (including servers).
+  systems (including servers), especially (technical) cybersecurity.
 
 * Download data with ~curl~
 
 - Open your workspace on ~workspace.datacamp.com~ to try this yourself
-  or run the commands in Emacs using my practice file[fn:3]
+  or run the commands in Emacs/Linux using my practice file[fn:3]
 
 - The ~curl~ command line tool is short for "Client for URLs" and
   transports data to and from web servers.
 
+- Check in the workspace if ~curl~ is installed (~/usr/bin/curl~):
+  #+begin_example sh
+    which curl
+  #+end_example
+  #+begin_example sh
+    c:/Windows/system32/curl.exe
+  #+end_example
+
 * Getting to know a utility
 
 - Your first step is to look at its option palette with ~--help~:
-  #+begin_src sh
+  #+begin_example sh
     curl --help
-  #+end_src
+  #+end_example    
 
-  #+RESULTS:
-  #+begin_example
-  Usage: curl [options...] <url>
+  #+begin_example sh
+  $ Usage: curl [options...] <url>
    -d, --data <data>          HTTP POST data
    -f, --fail                 Fail fast with no output on HTTP errors
    -h, --help <category>      Get help for commands
@@ -242,15 +303,15 @@ More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Sta
 
 - The help reveals that there are two sets of options/flags: a short
   version and a long, verbose version, e.g. ~-V~ and ~--version~:
-  #+begin_src sh
+  #+begin_example sh
     curl --version
-  #+end_src
-
-  #+RESULTS:
+  #+end_example
+  #+begin_example org
   : curl 7.88.1 (x86_64-w64-mingw32) libcurl/7.88.1 OpenSSL/1.1.1t (Schannel) zlib/1.2.13 brotli/1.0.9 zstd/1.5.4 libidn2/2.3.4 libpsl/0.21.2 (+libidn2/2.3.3) libssh2/1.10.0 nghttp2/1.52.0
   : Release-Date: 2023-02-20
   : Protocols: dict file ftp ftps gopher gophers http https imap imaps ldap ldaps mqtt pop3 pop3s rtsp scp sftp smb smbs smtp smtps telnet tftp
   : Features: alt-svc AsynchDNS brotli HSTS HTTP2 HTTPS-proxy IDN IPv6 Kerberos Largefile libz MultiSSL NTLM PSL SPNEGO SSL SSPI threadsafe TLS-SRP UnixSockets zstd
+  #+end_example
 
 - This gives a lot of different information:
   1) version number and release date
@@ -274,39 +335,40 @@ More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Sta
     curl -O 'https://bit.ly/nile_txt'
     ls -l 'nile_txt'
   #+end_src
-
-  #+RESULTS:
+  #+begin_example org
   : /c/Users/birkenkrahe/Documents/GitHub/ds2/org
   : -rw-r--r-- 1 Birkenkrahe 1049089 155 Apr  5 10:14 nile_txt
-
+  #+end_example
 - Copy data from URL, change name, then list files:
-  #+begin_src sh
+  #+begin_example sh
     pwd
     curl -o 'nile.txt' 'https://bit.ly/nile_txt'
     ls -l nile*
-  #+end_src
-
-  #+RESULTS:
+  #+end_example
+  #+begin_example org
   : /c/Users/birkenkrahe/Documents/GitHub/ds2/org
   : -rw-r--r-- 1 Birkenkrahe 1049089 155 Apr  5 10:16 nile.txt
   : -rw-r--r-- 1 Birkenkrahe 1049089 155 Apr  5 10:14 nile_txt
-
-- Here, the 'wildcard' or 'glob' character ~*~ is actually a regular
+  #+end_example
+- If you're tired (as I am) of typing ~ls -lt~, set an ~alias~:
+  #+begin_example sh
+    alias l='ls -lt'
+  #+end_example
+- Above, the 'wildcard' or 'glob' character ~*~ is actually a regular
   expression or a - more about these in the next lecture!
 
 - The 'globbing parser' is a shell component that interprets and
   expands globs or wildcards. Here is an example with ~curl~:
-  #+begin_src sh :noweb yes
+  #+begin_example sh
     github=https://raw.githubusercontent.com/birkenkrahe/ds2/main
     curl --remote-name "$github/data/Nile[001-003].txt"
     ls -l Nile*
-  #+end_src
-
-  #+RESULTS:
+  #+end_example
+  #+begin_example org
   : -rw-r--r-- 1 Birkenkrahe 1049089 430 Apr  5 10:57 Nile001.txt
   : -rw-r--r-- 1 Birkenkrahe 1049089 430 Apr  5 10:57 Nile002.txt
   : -rw-r--r-- 1 Birkenkrahe 1049089 430 Apr  5 10:57 Nile003.txt
-
+  #+end_example
 - Explore other ~curl~ flags on your own time!
 
 * Download data with ~wget~ - the background
@@ -323,7 +385,7 @@ More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Sta
 - The notion of "background" relates to Unix' process management:
   e.g. I can put Emacs in the background (~C-z~) then check that the
   process is running (~ps -ax~) and bring it back into the foreground
-  with ~fg~:
+  with ~fg~ - the image show this on a Linux shell:
   #+attr_latex: :width 400px
   #+caption: Emacs in the background
   [[../img/11_background.png]]
@@ -336,16 +398,16 @@ More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Sta
   3) look at ~mtcars.R~ with ~cat~
   4) run ~mtcars.R~ as a batch script
   5) look at ~mtcars.Rout~
-  #+begin_src sh
+  #+begin_example sh
     github=https://raw.githubusercontent.com/birkenkrahe/ds2/main
     curl -o mtcars.R "$github/src/t.R"
     ls -l mtcars.R
     cat mtcars.R
     R CMD BATCH mtcars.R
     cat mtcars.Rout
-  #+end_src
+  #+end_example
 
-* IN PROGRESS Examples with ~wget~
+* Download examples with ~wget~
 
 - Important flags:
   1) ~-b~ to go to background immediately after startup
@@ -354,6 +416,23 @@ More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Sta
   4) ~-i~ pass a file with URLs to ~wget~ for download
   5) ~--limit-rate={rate}k~ set download constraint for large files
   6) ~--wait={seconds}~ pause between file downloads
+
+- Use ~curl~ and ~wget~ in connection with a few other shell commands:
+  1) define a variable ~spotify~ set to this URL (copy from chat):
+     https://assets.datacamp.com/production/repositories/4180/datasets/eb1d6a36fa3039e4e00064797e1a1600d267b135/201812SpotifyData.zip
+  2) check the variable with ~echo $spotify~
+  3) download the ZIP file with ~curl -o spotify.zip $spotify~
+  4) check download with ~l~ (aliased from ~ls -lt~ with ~alias~)
+  5) extract data and remove ZIP file: ~unzip spotify.zip && rm spotify.zip~
+  6) rename the CSV file with ~mv~ to ~spotify.csv~
+  7) redirect the URL to a file: ~echo $spotify > url_list.txt~
+  8) check content of file with ~cat url_list.txt~
+  9) download the ZIP again: ~wget --limit-rate=2500k -i url_list.txt~
+  10) show what you did with ~history~ and redo ~l~ with ~![id]~
+
+- Whole exercise input with ~history~:   
+  #+attr_latex: :width 400px
+  [[../img/11_exercise.png]]
 
 * ~curl~ vs ~wget~
 

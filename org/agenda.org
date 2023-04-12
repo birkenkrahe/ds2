@@ -1044,7 +1044,13 @@ Fri: NO CLASS - EASTER FRIDAY - SEE YOU NEXT MONDAY!
 *Project:*
 - [ ] [[https://lyon.instructure.com/courses/1041/assignments/9906][3rd sprint review is live]] - deadline April 21
 - [ ] [[https://lyon.instructure.com/courses/1041/pages/sign-up-for-final-presentations][Sign up for final presentations now]] - last 2 weeks
+- [ ] My office hours this week: Thu 4-5 pm, next week: Mon-Thu 4-5 pm
 
+*Assignments:*
+- [ ] Test 6 is live - complete for full (partial) credit by April 14 (21).
+- [ ] Last DataCamp assignment deadlines: April 21 and April 28
+- [ ] Two more in-class practice file submissions (TBC)
+  
 * TODO Week 14 - database operations on the cmdline
 * TODO Week 15 - Projects I
 * TODO Week 16 - Projects II
