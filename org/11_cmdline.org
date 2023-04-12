@@ -441,8 +441,37 @@ More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Sta
 | many transfer protocols   | multiple file downloads       |
 | easy to install across OS | handles multiple file formats |
 
-* TODO Summary
-* TODO Code glossary
+* Summary
+
+- The command line (aka 'shell') is a programming and file management
+  interface to the operating system.
+- The shell offers a REPL, it is flexible, fast, exploratory,
+  scalable, ubiquitous, and augmenting (plugs into other programs)
+- To try shell programming and use get a Linux distribution e.g. as a
+  docker image, or as a Linux subsystem (with Windows), or online as a
+  cloud installation (like DataCamp workspace)
+
+* Code glossary
+
+| COMMAND   | MEANING                                       |
+|-----------+-----------------------------------------------|
+| ~ls~        | list files                                    |
+| ~cd~        | change directory                              |
+| ~ps~        | show processes                                |
+| ~mv~        | move file                                     |
+| ~echo~      | print argument to screen                      |
+| ~echo $PWD~ | print present working directory               |
+| ~/usr/bin~  | Linux directory for user's binary executables |
+| ~curl~      | client URL download program                   |
+| ~wget~      | program to get files from the web             |
+| ~cat~       | view file                                     |
+| ~>~         | redirect into file, e.g. ~echo "1"> file~       |
+| ~>>~        | append to file                                |
+| ~history~   | command history (call commands with ~!~)        |
+| ~&&~        | (between commands) run together               |
+| ~\vert~         | pipeline operator (LHS output = RHS input)    |
+| ~;~         | (between commands) run after one another      |
+
 * References
 
 - Ballesteros (2006). Introduction to Operating Systems Abstractions:
