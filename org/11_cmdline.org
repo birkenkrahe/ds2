@@ -120,7 +120,7 @@ Command line example[fn:1]: what is data, code, stats and story?
 All of these are especially valuable in an exploratory environment
 with highly distributed, unstructured, or "dirty" data sources.
 
-* NEXT How to get a commandline for data science
+* How to get a commandline for data science
 #+attr_html: :width 500px
 #+caption: Huskies pulling sledge (State Lib of NSW on Flickr.com)
 [[../img/11_workspace.png]]
@@ -200,7 +200,16 @@ More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Sta
   #+caption: Output from running R code as a batch job
   [[../img/workspace5.png]]
 
-* Alternative command line installations
+* NEXT Alternative command line installations
+
+*Victor says...*
+- That you (with your student accounts) can just install the Windows
+  Subsystem for Linux (WSL) from the Microsoft Store without admin
+  rights.
+- Please try it! Now!
+- We're still going to use DataCamp workspaces (because it's a
+  development environment rather than just a shel) but it's good to
+  know that Linux is in reach!
 
 *Alternatives:*
 - Install a Docker container as described [[https://github.com/birkenkrahe/org/blob/master/FAQ.org#how-to-set-up-a-docker-container-for-command-line-work][in this FAQ]] - there is also
