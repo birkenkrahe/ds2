@@ -984,7 +984,7 @@ Fri:
 - Cleaning functions from ~tm~ applied to a simple string
 - Saving an R session with ~save.image~ in an ~.RData~ file
 
-* Week 12 - text mining / cmdline / regex
+* Week 12 - text mining / cmdline
 #+attr_latex: :width 400px
 #+caption: Photo: by Cassie Kozyrkov (Google) on Twitter.com@quaesita
 [[../img/chatgpt.jpeg]]
@@ -1038,7 +1038,7 @@ Wed:
 
 Fri: NO CLASS - EASTER FRIDAY - SEE YOU NEXT MONDAY!
 
-* IN PROGRESS Week 13 - regex / cleaning data on the cmdline
+* IN PROGRESS Week 13 - data science on cmdline I
 #+attr_latex: :width 400px
 #+caption: Wawel Royal Castle in Krakow, Poland (Flickr.com)
 [[../img/wawel_castle_krakow.jpg]]
@@ -1049,11 +1049,22 @@ Fri: NO CLASS - EASTER FRIDAY - SEE YOU NEXT MONDAY!
 - [X] My office hours this week: Thu 4-5 pm, next week: Mon-Thu 4-5 pm
 
 *Assignments:*
-- [ ] Test 6 is live - complete for full (partial) credit by April 14 (21).
-- [ ] Last DataCamp assignment deadlines: April 21 and April 28
-- [ ] Two more in-class practice file submissions (TBC)
-  
-* TODO Week 14 - database operations on the cmdline
+- [X] Test 6 is live - complete for full (partial) credit by April 14 (21).
+- [X] Last DataCamp assignment deadlines: April 21 and April 28
+- [X] Two more in-class practice file submissions (TBC)
+
+* [[https://docs.google.com/forms/d/e/1FAIpQLSdLkJ65AaAsx-g2_cGj2y3SXwmpz_HdH9mr86QDKGqZBkSNPA/viewform][2023 Arkansas Summer Research Institute]]
+#+attr_latex: :width 400px
+#+caption: Cat on Sidewalk (1959, Angelo Rizzuto) Flickr.com
+[[../img/cat.jpg]]
+
+- Great opportunity to network and learn
+- Free and virtual
+- Only 2 weeks long (June 1-19)
+- Share link with others: https://tinyurl.com/apply2023asri
+
+
+* TODO Week 14 - data science on the cmdline II
 * TODO Week 15 - Projects I
 * TODO Week 16 - Projects II
 * TODO What next?
