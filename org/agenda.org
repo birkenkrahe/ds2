@@ -1063,6 +1063,34 @@ Fri: NO CLASS - EASTER FRIDAY - SEE YOU NEXT MONDAY!
 - Only 2 weeks long (June 1-19)
 - Share link with others: https://tinyurl.com/apply2023asri
 
+* TODO What did you learn this week?
+
+Mon: NO CLASS
+
+Wed:
+- What is the DataCamp workspace?
+  #+begin_notes
+  1) An online application
+  2) An interface to an editor, a terminal and an R console
+  3) An interface to a Jupyter notebook
+  #+end_notes
+- What is a Jupyter notebook?
+  #+begin_notes
+  1) A literate programming app
+  2) A notebook with text and code cells
+  3) A file with the file extension ~.ipynb~
+  #+end_notes
+- How can you run an R file in the DataCamp workspace?
+  #+begin_notes
+  1) With ~Rscript~ on the command line
+  2) With ~R CMD BATCH~ as a batch job on the command line
+  3) On the console with ~shell~
+  #+end_notes
+
+Fri: 
+-
+-
+- 
 
 * TODO Week 14 - data science on the cmdline II
 * TODO Week 15 - Projects I
