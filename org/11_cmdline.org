@@ -483,7 +483,7 @@ More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Sta
 | ~>>~        | append to file                                |
 | ~history~   | command history (call commands with ~!~)        |
 | ~&&~        | (between commands) run together               |
-| ~\vert~         | pipeline operator (LHS output = RHS input)    |
+| ~\vert~     | pipeline operator (LHS output = RHS input)    |
 | ~;~         | (between commands) run after one another      |
 
 * References

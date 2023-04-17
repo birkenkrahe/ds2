@@ -72,11 +72,11 @@
      pwd
    #+end_example
 
-4) Fetch the data with ~curl(1)~ - check if you got it with ~which curl~,
+4) Fetch some data with ~curl(1)~ - check if you got it with ~which curl~,
    otherwise install it with ~sudo apt install curl~.
    #+begin_example sh
-     url="https://github.com/birkenkrahe/ds2/blob/main/data/coffee.xlsx?raw=true"
-     curl --location -o 'coffee.xlsx' $url
+     url="https://github.com/birkenkrahe/ds2/blob/main/data/Spotify_data.xlsx?raw=true"
+     curl --location -o 'spotify.xlsx' $url
    #+end_example
 
 5) Check if the file ~.xlsx~ file is there - the ~file~ command gives
@@ -85,7 +85,7 @@
    file coffee.xlsx
    #+end_example
 
-6) You can also try this to get any old HTML file, like from Lyon:
+6) You can also try ~curl~ and ~file~ to get any old HTML file, like from Lyon:
    #+begin_example sh
    curl https://lyon.edu | tee fetched | head
    file fetched
@@ -95,59 +95,135 @@
 
 - ~in2csv~ converts tabular data files like Excel or text into CSV files
 - ~csvlook~ prints CSV files in an easy-to-read format to the cmdline
-- ~csvcut~
 - ~csvstat~ prints descriptive summary stats for each data type
+- ~csvcut~ 
 - ~csvgrep~
 - ~csvsort~
 
 * ~in2csv~ to re-write an Excel file as CSV file
 
+- In DataCamp workspaces, you unfortunately have to ~alias~ the command
+  from the ~$HOME/.local/bin~ directory where it is located - or update
+  the ~PATH~:
+  #+begin_example sh
+    which in2csv                   # executable cannot be found
+    echo $PATH                     # see current PATH
+    PATH=$PATH:$HOME/.local/bin    # extend the PATH
+    which in2csv                   # check
+  #+end_example
+
 - Excel is a binary format - you cannot look at it (without paying
   Microsoft).
 
-- ~in2csv~ rewrites the Excel file into CSV. Btw, long file names can
-  be expanded using the <TAB> key.
+- ~in2csv~ rewrites the Excel file into CSV:
+  #+begin_example sh
+    in2csv coffee.xlsx > coffee.csv 2&>/dev/null
+    head -3 coffee.csv
+  #+end_example
+  1) ~in2csv~ runs the conversion on the following file
+  2) ~> coffee.csv~ redirects the result to a file ~coffee.csv~
+  3) ~2&>/dev/null~ throws standard error messages away
+  4) ~head -3 coffee.csv~ prints header and first two records
 
-  #+begin_example bash
- in2csv ne_1033_data.xlsx > data.csv 2&>/dev/null
- head -5 data.csv
+- More powerful with an Excel file that has worksheets:
+  #+begin_example sh
+    in2csv -n spotify.xlsx
   #+end_example
 
-  - ~in2csv~ runs the conversion on the following file
-  - ~> data.csv~ redirects the result to a file ~data.csv~
-  - ~2&>/dev/null~ throws standard error msgs away
+- You can convert individual worksheets into CSV files:
+  #+begin_example sh
+    in2csv  spotify.xlsx --sheet "Spotify_Popularity" > pop.csv
+    head -5 pop.csv
+  #+end_example
 
+- The term "standard" refers to the three available data streams:
+  standard error (stderr), output (stdout) and input (stdin).
+  #+attr_latex: :width 400px
+  #+caption: standard error, input and output
+  [[../img/std.png]]
+
+- In a pipeline, stdout is piped into stdin:
+  #+attr_latex: :width 400px
+  #+caption: standard error, input and output
+  [[../img/12_pipeline.png]]
+    
+- The ~rev~ command reverses lines of its input:
+  #+begin_example sh
+    ls | rev  # reverses the characters of all file listings
+  #+end_example
+
+- The ~grep~ command searches for patterns:
+  #+begin_example sh
+    ls | grep txt   # finds all files that contain 'txt'
+  #+end_example
+  
 * ~csvlook~ to get a table output of the CSV file
+
 - ~csvlook~ provides a tabular look at the data.
 
-  #+begin_example bash
-  csvlook --max-rows 5 data.csv
+  #+begin_example sh
+  csvlook pop.csv
+  csvlook --max-rows 5 coffee.csv
   #+end_example
 
-* ~csvcut~ to cut out columns from a CSV file
+- Look at the help for ~csvlook~ and limit the output of ~coffee.csv~ to 5
+  columns:
+  #+begin_example sh
+    csvlook --max-columns 5 --max-rows 5 coffee.csv
+  #+end_example
+
+* ~csvstat~ for summary statistics
+
+- ~csvstat~ is inspired by R's ~summary~ function
+  #+begin_example sh
+    csvstat pop.csv
+  #+end_example
+  
+- Alternativesly as a pipeline:
+  #+begin_example sh
+    cat data1.csv | csvstat
+  #+end_example
+
+- For more interesting stats, turn the other sheet in ~spotify.xlsx~
+  into a CSV file ~music.csv~ and print the stats:
+  #+begin_src sh
+    in2csv -n 
+    in2csv spotify.xlsx --sheet "Spotify_MusicAttributes" > music.csv
+    csvstats music.csv
+  #+end_src
+
+* IN PROGRESS ~csvcut~ to filter by row
+
 - ~csvcut~ is a version of ~cut~ for ~CSV~ files
-  - the ~-n~ option shows all columns
-  - the ~-c~ option shows specific columns
+  1) the ~-n~ option shows all columns
+  2) the ~-c~ option shows specific columns
+  #+begin_example sh
+    csvcut -n data.csv
+    csvcut -c 2,5,6 data.csv| head -5
+  #+end_example
+
+- Look at the columns of ~music.csv~ and ~coffee.csv~:
+  #+begin_example sh
+    csvcut -n music.csv
+    csvcut -n coffee.csv
+  #+end_example
+
+- output columns can be called by name, too
     #+begin_example bash
-      csvcut -n data.csv
-      csvcut -c 2,5,6 | head -5
+      csvcut -c county, item_name, quantity data.csv | csvlook | head -5
     #+end_example
 
-  - output columns can be called by name, too
+- the pipe prints the first 5 rows of the respective columns
 
+- I want to use some of the output later so I put it into a file:
     #+begin_example bash
-   csvcut -c county, item_name, quantity data.csv | csvlook | head -5
-    #+end_example
-
-  - the pipe prints the first 5 rows of the respective columns
-  - I want to use some of the output later so I put it into a file:
-
-    #+begin_example bash
-   csvcut -c county, item_name, quantity data.csv | tee data1.csv | csvlook | head -5
+    csvcut -c county, item_name, quantity data.csv |
+       tee data1.csv |
+       csvlook |
+       head -5
     #+end_example
 
 - All of the previous operations can be put together in one pipe:
-
   #+begin_example bash
  in2csv ne_1033_data.xlsx 2&>/dev/null |
  csvcut -c county,item_name,quantity |
@@ -155,22 +231,7 @@
  head -5
   #+end_example
 
-* Examining data
-* ~csvstat~ for summary statistics
-
-- ~csvstat~ is inspired by R's ~summary~ function
-
-  #+begin_example bash
-   csvstat data1.csv
-  #+end_example
-
-  or
-
-  #+begin_example bash
- cat data1.csv | csvstat
-  #+end_example
-
-* ~csvgrep~ for matching patterns in the file
+* TODO ~csvgrep~ to filter by row
 
 - ~csvgrep~ is a pattern-matching search function.
   - run ~csvgrep~ on the ~data1.csv~ subset
@@ -188,7 +249,7 @@
    csvgrep -c county -m LANCASTER data1.csv | wc -l
     #+end_example
 
-* ~csvsort~ to sort rows by column
+* TODO ~csvsort~ to sort rows by column
 
 - ~csvsort~ sorts the rows by any column (or combination of columns)
   in ascending or descending (reverse) order.

@@ -1089,14 +1089,18 @@ Wed:
   #+end_notes
 
 Fri: 
--
--
+- 
+- 
 - 
 
 * TODO Week 14 - Introduction to csvkit
 #+attr_latex: :width 400px
 #+caption: Andy Miccone, Milsa (Flickr.com)
 [[../img/12_kit.jpg]]
+
+- Installing ~csvkit~
+- Getting Excel data for conversion to CSV data
+- Looking at CSV data with ~in2csv~, ~csvlook~ and ~csvstat~
 
 * TODO [[https://www.freecodecamp.org/news/learn-bash-scripting-tutorial/][Free 1 hr online ~bash~ scripting tutorial]]
 #+attr_latex: :width 400px
