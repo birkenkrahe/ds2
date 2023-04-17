@@ -72,31 +72,34 @@
      pwd
    #+end_example
 
-4) Download the Excel file to your PC from this URL:
-   [[https://bit.ly/coffee_xlsx][bit.ly/coffee_xlsx]]
-
-5) Fetch the data with ~curl(1)~ - check if you got it with ~which curl~,
+4) Fetch the data with ~curl(1)~ - check if you got it with ~which curl~,
    otherwise install it with ~sudo apt install curl~.
    #+begin_example sh
-     url="https://raw.githubusercontent.com/wireservice/csvkit/master/examples/realdata/ne_1033_data.xlsx"
-     curl --location --remote-name $url
+     url="https://github.com/birkenkrahe/ds2/blob/main/data/coffee.xlsx?raw=true"
+     curl --location -o 'coffee.xlsx' $url
    #+end_example
 
-   The short version of the ~curl~ options: ~-L -O~
-
-6) Check if the file ~.xlsx~ file is there - the ~file~ command gives
-   you some file type information.
-   #+begin_example bash
-   file *
+5) Check if the file ~.xlsx~ file is there - the ~file~ command gives
+   you some file type information, too:
+   #+begin_example sh
+   file coffee.xlsx
    #+end_example
 
-7) You can also try to get any old HTML file, like from Lyon:
-
-   #+begin_example bash
+6) You can also try this to get any old HTML file, like from Lyon:
+   #+begin_example sh
    curl https://lyon.edu | tee fetched | head
    file fetched
    #+end_example
-* Look at the data
+
+* The ~csvkit~ command suite
+
+- ~in2csv~ converts tabular data files like Excel or text into CSV files
+- ~csvlook~ prints CSV files in an easy-to-read format to the cmdline
+- ~csvcut~
+- ~csvstat~ prints descriptive summary stats for each data type
+- ~csvgrep~
+- ~csvsort~
+
 * ~in2csv~ to re-write an Excel file as CSV file
 
 - Excel is a binary format - you cannot look at it (without paying
