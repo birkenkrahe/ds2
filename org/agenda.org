@@ -1038,7 +1038,7 @@ Wed:
 
 Fri: NO CLASS - EASTER FRIDAY - SEE YOU NEXT MONDAY!
 
-* IN PROGRESS Week 13 - data science on cmdline I
+* Week 13 - data science on the cmdline
 #+attr_latex: :width 400px
 #+caption: Wawel Royal Castle in Krakow, Poland (Flickr.com)
 [[../img/wawel_castle_krakow.jpg]]
@@ -1093,7 +1093,19 @@ Fri:
 -
 - 
 
-* TODO Week 14 - data science on the cmdline II
+* TODO Week 14 - Introduction to csvkit
+#+attr_latex: :width 400px
+#+caption: Andy Miccone, Milsa (Flickr.com)
+[[../img/12_kit.jpg]]
+
+* TODO [[https://www.freecodecamp.org/news/learn-bash-scripting-tutorial/][Free 1 hr online ~bash~ scripting tutorial]]
+#+attr_latex: :width 400px
+[[../img/bashscripting.png]]
+
+- Uses ~vim~ which you should have on Windows, too
+- Alternatively, use a ~bash~ template at [[https://replit.com][replit.com]]
+- Or use DataCamp workspace and run files with ~bash~
+
 * TODO Week 15 - Projects I
 * TODO Week 16 - Projects II
 * TODO What next?
