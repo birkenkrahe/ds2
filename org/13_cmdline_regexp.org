@@ -194,13 +194,13 @@ Short introduction to doing data science on the command line:
 
 - ~a(bc){2,5}~ matches a string that has a followed by 2 up to 5 ~bc~
 
-* OR operator ~|~ or ~[]~
+* TODO OR operator ~|~ or ~[]~
 
 - ~a(b|c)~ matches a string that has ~a~ followed by ~b~ or ~c~ and captures ~b~
   or ~c~
 - ~a[bc]~ same as previous, but without capturing ~b~ or ~c~
 
-* Character classes ~\d~ ~\w~ ~\s~ ~.~
+* TODO Character classes ~\d~ ~\w~ ~\s~ ~.~
 
 - ~\d~ matches a single character that is a digit
 - ~\w~ matches a word character (alphanumeric character plus underscore)
@@ -217,7 +217,7 @@ Short introduction to doing data science on the command line:
 - Notice that you can match also non-printable characters like tabs
   ~\t~, new-lines ~\n~, carriage returns ~\r~.
   
-* Flags ~g~ ~m~ ~i~
+* TODO Flags ~g~ ~m~ ~i~
 
 - A regex usually comes within this form ~/abc/~, where the search
   pattern is delimited by two slash characters ~/~. At the end we can
@@ -231,7 +231,7 @@ Short introduction to doing data science on the command line:
 - ~i~ (insensitive) makes the whole expression case-insensitive (for
   instance ~/aBc/i~ would match ~AbC~)
 
-* Advanced topics:
+* TODO Advanced topics:
 ** Grouping and capturing ~()~
 ** Bracket expressions ~[]~
 ** Greedy and lazy match ~*~ ~+~ ~{}~

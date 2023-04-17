@@ -200,7 +200,7 @@ More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Sta
   #+caption: Output from running R code as a batch job
   [[../img/workspace5.png]]
 
-* NEXT Alternative command line installations
+* Alternative command line installations
 
 *Victor says...*
 - That you (with your student accounts) can just install the Windows
@@ -380,7 +380,7 @@ More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Sta
   #+end_example
 - Explore other ~curl~ flags on your own time!
 
-* Download data with ~wget~ - the background
+* NEXT Download data with ~wget~ - the background
 
 - The utility ~wget~ is a "non-interactive" ("batch") network downloader
   that downloads very efficiently in the background from the Web.
@@ -451,6 +451,8 @@ More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Sta
 | easy to install across OS | handles multiple file formats |
 
 * Summary
+#+attr_latex: :width 400px
+[[../img/certificate.png]]
 
 - The command line (aka 'shell') is a programming and file management
   interface to the operating system.
@@ -459,6 +461,9 @@ More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Sta
 - To try shell programming and use get a Linux distribution e.g. as a
   docker image, or as a Linux subsystem (with Windows), or online as a
   cloud installation (like DataCamp workspace)
+- For an easy & fun lesson on many useful shell commands, see
+  ~Introduction to Shell~ at DataCamp. This takes no more than 2-4
+  hours.
 
 * Code glossary
 
