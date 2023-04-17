@@ -10,8 +10,9 @@
   [[../img/wireservice.png]]
   
 - Introduction to the ~csvkit~ toolkit (Python)
-- Developed by wirekit
+- Developed by wirekit for journalists
 - Practice with Linux (DataCamp workspaces)
+- Based on ~csvkit~ tutorial (different dataset)
 
 * ~csvkit~ (Python)
 
@@ -23,7 +24,8 @@
 
 - ~csvskit~ is a Python-3 library for manipulating text files.
 
-- [[https://youtu.be/XhShmvBYNmw][I made a video of my whole demonstration in 2022]] (14 min).
+- [[https://youtu.be/XhShmvBYNmw][I made a video of my whole demonstration in 2022]] (14 min) using the
+  dataset from the ~csvkit~ tutorial.
   
 * Install ~csvkit~
 
@@ -60,7 +62,9 @@
 * Getting some data
 
 1) Make a new working directory ~csvkit~ with ~mkdir~
+
 2) Change into it with ~cd~ 
+
 3) Check where you are with ~pwd~
    #+begin_example sh
      mkdir -v csvkit
@@ -68,7 +72,10 @@
      pwd
    #+end_example
 
-4) Fetch the data with ~curl(1)~ - check if you got it with ~which curl~,
+4) Download the Excel file to your PC from this URL:
+   [[https://bit.ly/coffee_xlsx][bit.ly/coffee_xlsx]]
+
+5) Fetch the data with ~curl(1)~ - check if you got it with ~which curl~,
    otherwise install it with ~sudo apt install curl~.
    #+begin_example sh
      url="https://raw.githubusercontent.com/wireservice/csvkit/master/examples/realdata/ne_1033_data.xlsx"
@@ -77,13 +84,13 @@
 
    The short version of the ~curl~ options: ~-L -O~
 
-5) Check if the file ~.xlsx~ file is there - the ~file~ command gives
+6) Check if the file ~.xlsx~ file is there - the ~file~ command gives
    you some file type information.
    #+begin_example bash
    file *
    #+end_example
 
-6) You can also try to get any old HTML file, like from Lyon:
+7) You can also try to get any old HTML file, like from Lyon:
 
    #+begin_example bash
    curl https://lyon.edu | tee fetched | head
