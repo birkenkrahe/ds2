@@ -380,7 +380,7 @@ More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Sta
   #+end_example
 - Explore other ~curl~ flags on your own time!
 
-* NEXT Download data with ~wget~ - the background
+* Download data with ~wget~ - the background
 
 - The utility ~wget~ is a "non-interactive" ("batch") network downloader
   that downloads very efficiently in the background from the Web.
@@ -430,7 +430,7 @@ More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Sta
   1) define a variable ~spotify~ set to this URL (copy from chat):
      https://assets.datacamp.com/production/repositories/4180/datasets/eb1d6a36fa3039e4e00064797e1a1600d267b135/201812SpotifyData.zip
   2) check the variable with ~echo $spotify~
-  3) download the ZIP file with ~curl -o spotify.zip $spotify~
+  3) download the ZIP file with ~curl -v -o spotify.zip $spotify~
   4) check download with ~l~ (aliased from ~ls -lt~ with ~alias~)
   5) extract data and remove ZIP file: ~unzip spotify.zip && rm spotify.zip~
   6) rename the CSV file with ~mv~ to ~spotify.csv~
@@ -447,6 +447,7 @@ More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Sta
 
 | ~curl~                      | ~wget~                          |
 |---------------------------+-------------------------------|
+| good for single files     | handles bandwith problems     |
 | many transfer protocols   | multiple file downloads       |
 | easy to install across OS | handles multiple file formats |
 
@@ -484,6 +485,9 @@ More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Sta
 | ~history~   | command history (call commands with ~!~)        |
 | ~&&~        | (between commands) run together               |
 | ~\vert~     | pipeline operator (LHS output = RHS input)    |
+| ~alias~     | create command alias                          |
+| ~&&~        | line up commands                              |
+| ~chmod~     | change file permissions                       |
 | ~;~         | (between commands) run after one another      |
 
 * References

@@ -1053,7 +1053,7 @@ Fri: NO CLASS - EASTER FRIDAY - SEE YOU NEXT MONDAY!
 - [X] Last DataCamp assignment deadlines: April 21 and April 28
 - [X] Two more in-class practice file submissions (TBC)
 
-* [[https://docs.google.com/forms/d/e/1FAIpQLSdLkJ65AaAsx-g2_cGj2y3SXwmpz_HdH9mr86QDKGqZBkSNPA/viewform][2023 Arkansas Summer Research Institute]]
+** [[https://docs.google.com/forms/d/e/1FAIpQLSdLkJ65AaAsx-g2_cGj2y3SXwmpz_HdH9mr86QDKGqZBkSNPA/viewform][2023 Arkansas Summer Research Institute]]
 #+attr_latex: :width 400px
 #+caption: Cat on Sidewalk (1959, Angelo Rizzuto) Flickr.com
 [[../img/cat.jpg]]
@@ -1063,7 +1063,7 @@ Fri: NO CLASS - EASTER FRIDAY - SEE YOU NEXT MONDAY!
 - Only 2 weeks long (June 1-19)
 - Share link with others: https://tinyurl.com/apply2023asri
 
-* TODO What did you learn this week?
+** TODO What did you learn this week?
 
 Mon: NO CLASS
 
@@ -1089,9 +1089,9 @@ Wed:
   #+end_notes
 
 Fri: 
-- 
-- 
-- 
+- GNU Unix shell utilities on the command line
+- Pipeline to chain small Unix commands
+- Commands covered: ~ls~, ~alias~, ~tee~, ~curl~
 
 * TODO Week 14 - Introduction to csvkit
 #+attr_latex: :width 400px
