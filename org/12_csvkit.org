@@ -71,15 +71,15 @@
   #+end_example 
 
 - This opens the ~nano~ editor where you can enter the following lines:
-  1) run this shell file with ~bash~
-  2) install ~csvkit~ with ~pip~ (Python package manager)
-  3) list contents of local ~bin~ directory with highlighting
   #+begin_example sh
     #!/usr/bin/bash
     pip --quiet install csvkit
     ls --color $HOME/.local/bin/*csv*
     PATH=$PATH:$HOME/.local/bin
   #+end_example
+  1) run this shell file with ~bash~
+  2) install ~csvkit~ with ~pip~ (Python package manager)
+  3) list contents of local ~bin~ directory with highlighting
 
 - Save the file with ~C-s~ and exit with ~C-x~.
 
@@ -108,6 +108,12 @@
   #+end_example  
 
 - You should get the location ~/home/repl/.local/bin/csvstat~
+
+- Any time you get kicked out of your workspace terminal, do:
+  #+begin_example sh
+    . ./restart.sh 2>/dev/null
+    cd csvkit
+  #+end_example
     
 * Getting some data
 
@@ -123,20 +129,36 @@
    #+end_example
 
 4) To save you from having to type long file names, I have put all
-   URLs in a shell script that you can download with ~curl~:
+   URLs in a shell script that you can download with ~curl~: I will post
+   the URL in the Zoom chat!
    #+begin_example sh
-     curl -o url.sh "https://github.com/birkenkrahe/ds2/blob
+     curl -o url.sh "https://gist.githubusercontent.com/birkenkrahe/586db7e2ac26b09daa86769cca87002f/raw/54561f4c06f11157fed798d544901870e2137035/url.sh"
    #+end_example
-   
-5) 
 
-5) Check if the file ~.xlsx~ file is there - the ~file~ command gives
+5) Do the following on your own:
+   1) view the downloaded file with ~cat~
+   2) source the file with ~.~
+   3) check that the URLs are available with ~echo~
+   #+begin_example sh
+     cat url.sh
+     . ./url.sh
+     echo $spotify && echo $coffee
+   #+end_example
+
+6) Now download the corresponding files with ~curl~:
+   #+begin_example sh
+     wget --quiet -O spotify.xlsx $spotify
+     wget --quiet -O coffee.xlsx $coffee
+   #+end_example
+
+7) Check if the file ~.xlsx~ file is there - the ~file~ command gives
    you some file type information, too:
    #+begin_example sh
-   file coffee.xlsx
+     file coffee.xlsx
+     file spotify.xlsx
    #+end_example
 
-6) You can also try ~curl~ and ~file~ to get any old HTML file, like from Lyon:
+8) You can also try ~curl~ and ~file~ to get any old HTML file, like from Lyon:
    #+begin_example sh
    curl https://lyon.edu | tee fetched | head
    file fetched
@@ -152,16 +174,6 @@
 - ~csvsort~
 
 * ~in2csv~ to re-write an Excel file as CSV file
-
-- In DataCamp workspaces, you unfortunately have to ~alias~ the command
-  from the ~$HOME/.local/bin~ directory where it is located - or update
-  the ~PATH~:
-  #+begin_example sh
-    which in2csv                   # executable cannot be found
-    echo $PATH                     # see current PATH
-    PATH=$PATH:$HOME/.local/bin    # extend the PATH
-    which in2csv                   # check
-  #+end_example
 
 - Excel is a binary format - you cannot look at it (without paying
   Microsoft).
@@ -243,45 +255,65 @@
     csvstats music.csv
   #+end_src
 
-* IN PROGRESS ~csvcut~ to filter by row
+* ~csvcut~ to filter by row
 
 - ~csvcut~ is a version of ~cut~ for ~CSV~ files
   1) the ~-n~ option shows all columns
   2) the ~-c~ option shows specific columns
   #+begin_example sh
-    csvcut -n data.csv
-    csvcut -c 2,5,6 data.csv| head -5
+    csvcut -n coffee.csv
+    csvcut -c 2,5,6 music.csv| head -5
   #+end_example
 
-- Look at the columns of ~music.csv~ and ~coffee.csv~:
+- Look at the columns of ~music.csv~ and ~coffee.csv~ :
   #+begin_example sh
     csvcut -n music.csv
     csvcut -n coffee.csv
   #+end_example
 
-- output columns can be called by name, too
+- Look at the first five records of the columns 1,3 of ~coffee.csv~ and
+  the columns 2,5,6 of ~music.csv~:
+  #+begin_example sh
+    csvcut -c 1,3 coffee.csv | head -5
+    csvcut -c 2,5,6 music.csv | head -5
+  #+end_example
+  
+- Output columns can be called by name, too - here, the pipe prints
+  tabular format (~csvlook~) and the first 5 records only:
     #+begin_example bash
-      csvcut -c county, item_name, quantity data.csv | csvlook | head -5
+      csvcut -c county,item_name,quantity data.csv | csvlook | head -5
     #+end_example
 
-- the pipe prints the first 5 rows of the respective columns
+- Apply the example to ~music.csv~ and three of its columns by name:
+  #+begin_example sh
+    csvcut -n music.csv
+    csvcut -c track_id,loudness,tempo | csvlook | head -5
+  #+end_example
+
+- Did you get an error? Could you fix it?[fn:1]
 
 - I want to use some of the output later so I put it into a file:
-    #+begin_example bash
-    csvcut -c county, item_name, quantity data.csv |
-       tee data1.csv |
+  #+begin_example sh
+    csvcut -c danceability,time_signature music.csv |
+       tee cols.csv |
        csvlook |
        head -5
-    #+end_example
+  #+end_example
 
 - All of the previous operations can be put together in one pipe:
   #+begin_example bash
- in2csv ne_1033_data.xlsx 2&>/dev/null |
- csvcut -c county,item_name,quantity |
- csvlook |
- head -5
+    in2csv coffee.xlsx |
+    csvcut -c num,text |
+    tee coffee |
+    csvlook |
+    head -3
   #+end_example
 
+- How many lines does ~coffee~ have?
+  #+begin_example sh
+    cat coffee | wc -l
+  #+end_example
+  
 * TODO ~csvgrep~ to filter by row
 
 - ~csvgrep~ is a pattern-matching search function.
@@ -290,15 +322,15 @@
   - match the pattern ~LANCASTER~ county
   - look at the result as a table
 
-    #+begin_example bash
+  #+begin_example bash
    csvgrep -c county -m LANCASTER data1.csv | csvlook
-    #+end_example
+  #+end_example
 
   - count the lines (= entries for LANCASTER county)
 
-    #+begin_example bash
+  #+begin_example bash
    csvgrep -c county -m LANCASTER data1.csv | wc -l
-    #+end_example
+  #+end_example
 
 * TODO ~csvsort~ to sort rows by column
 
@@ -315,3 +347,9 @@
 
 - Janssens (2021). Data science at the command line
   (2e). O'Reilly. URL: [[https://jeroenjanssens.com/dsatcl/][jeroenjanssens.com]].
+
+* Footnotes
+
+[fn:1] ~csvcut~ does not ignore whitespace between the arguments to its
+flags, so ~-c tempo, loudness~ throws an error, but ~-c tempo,loudness~
+does not.
