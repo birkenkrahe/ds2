@@ -145,7 +145,7 @@
      echo $spotify && echo $coffee
    #+end_example
 
-6) Now download the corresponding files with ~curl~:
+6) Now download the corresponding files with ~wget~:
    #+begin_example sh
      wget --quiet -O spotify.xlsx $spotify
      wget --quiet -O coffee.xlsx $coffee
@@ -180,13 +180,12 @@
 
 - ~in2csv~ rewrites the Excel file into CSV:
   #+begin_example sh
-    in2csv coffee.xlsx > coffee.csv 2&>/dev/null
+    in2csv coffee.xlsx > coffee.csv
     head -3 coffee.csv
   #+end_example
   1) ~in2csv~ runs the conversion on the following file
   2) ~> coffee.csv~ redirects the result to a file ~coffee.csv~
-  3) ~2&>/dev/null~ throws standard error messages away
-  4) ~head -3 coffee.csv~ prints header and first two records
+  3) ~head -3 coffee.csv~ prints header and first two records
 
 - More powerful with an Excel file that has worksheets:
   #+begin_example sh
@@ -217,7 +216,7 @@
 
 - The ~grep~ command searches for patterns:
   #+begin_example sh
-    ls | grep txt   # finds all files that contain 'txt'
+    ls | grep txt   # finds all files that contain 'txt' - try others!
   #+end_example
   
 * ~csvlook~ to get a table output of the CSV file
