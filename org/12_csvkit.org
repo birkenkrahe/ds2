@@ -290,7 +290,12 @@
     csvcut -c track_id,loudness,tempo | csvlook | head -5
   #+end_example
 
-- Did you get an error? Could you fix it?[fn:1]
+- Did you get an error? Could you fix it?
+  #+begin_quote
+    ~csvcut~ does not ignore whitespace between the arguments to its
+    flags, so ~-c tempo, loudness~ throws an error, but ~-c
+    tempo,loudness~ does not.
+  #+end_quote
 
 - I want to use some of the output later so I put it into a file:
   #+begin_example sh
@@ -348,8 +353,3 @@
 - Janssens (2021). Data science at the command line
   (2e). O'Reilly. URL: [[https://jeroenjanssens.com/dsatcl/][jeroenjanssens.com]].
 
-* Footnotes
-
-[fn:1] ~csvcut~ does not ignore whitespace between the arguments to its
-flags, so ~-c tempo, loudness~ throws an error, but ~-c tempo,loudness~
-does not.
