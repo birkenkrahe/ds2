@@ -13,6 +13,7 @@
 - Developed by wirekit for journalists
 - Practice with Linux (DataCamp workspaces)
 - Based on ~csvkit~ tutorial (different dataset)
+- See also: Data Science at the Command Line ([[https://jeroenjanssens.com/dsatcl/][Janssens, 2021]]).
 
 * ~csvkit~ (Python)
 
@@ -20,12 +21,13 @@
   installation of some sort. Source: the ~csvkit~ [[https://csvkit.readthedocs.io/en/latest/tutorial.html][online tutorial]].
 
 - In Spring 2023, we're going to use DataCamp's new workspace feature,
-  where you can install cvskit easily:
+  where you can install cvskit easily: ~pip install csvkit~
 
 - ~csvskit~ is a Python-3 library for manipulating text files.
 
 - [[https://youtu.be/XhShmvBYNmw][I made a video of my whole demonstration in 2022]] (14 min) using the
-  dataset from the ~csvkit~ tutorial.
+  dataset from the ~csvkit~ tutorial and a Linux docker container (same
+  software that DataCamp workspace uses for its terminal app).
   
 * Install ~csvkit~
 
@@ -33,7 +35,7 @@
 
 - ~pip~ is a python-based package manager tool.
   #+begin_example sh
-  sudo pip install csvkit
+  pip install csvkit
   #+end_example
 
 - Or perhaps you already have all the ~csv*~ tools? The output should
@@ -44,7 +46,7 @@
     l /usr/bin/*csv*
   #+end_src
 
-- On DataCamp workspaces, this is ~$HOME/.local/bin/~:
+- In DataCamp, your installs are stored in ~$HOME/.local/bin/~:
   #+begin_example sh
     l -t $HOME/.local/bin/*csv*
   #+end_example  
@@ -54,11 +56,59 @@
     sudo apt install pip
   #+end_example
 
-- Or you may have to upgrade ~pip~ (the command line will tell you):
+- Or you may have to upgrade ~pip~ (the command line will tell you) -
+  but the upgrade will likely end up in your ~.local~ directory:
   #+begin_example sh
     python3 -mv pip install --upgrade pip
   #+end_example
 
+* Let's make a shell script
+
+- Since we're getting kicked out of DataCamp workspace every 30
+  minutes, we want to put installations in a script:
+  #+begin_example sh
+    nano restart.sh
+  #+end_example 
+
+- This opens the ~nano~ editor where you can enter the following lines:
+  1) run this shell file with ~bash~
+  2) install ~csvkit~ with ~pip~ (Python package manager)
+  3) list contents of local ~bin~ directory with highlighting
+  #+begin_example sh
+    #!/usr/bin/bash
+    pip --quiet install csvkit
+    ls --color $HOME/.local/bin/*csv*
+    PATH=$PATH:$HOME/.local/bin
+  #+end_example
+
+- Save the file with ~C-s~ and exit with ~C-x~.
+
+- On the command line, change the file permissions to executable:
+  #+begin_example sh
+    chmod ugo+x restart.sh
+    ll restart.sh
+  #+end_example
+
+- You can see that the file permissions are ~-rwxr-xr-x~ (executable for
+  user, group and others). The file listing color has changed and it
+  carries a ~*~.
+
+- Now run the file and redirect errors to the "null device", the void:
+  #+begin_example sh
+    . ./restart.sh 2>/dev/null
+  #+end_example
+
+- You need to specify the location with ~./~ if your directory is not in
+  the ~PATH~. The first ~.~ is the ~source~ command that exports local
+  variables (in this case the new ~PATH~) to your current shell.
+
+- Test if you can find the ~csvkit~ scripts:
+  #+begin_example sh
+    which in2csv
+  #+end_example  
+
+- You should get the location ~/home/repl/.local/bin/csvstat~
+    
 * Getting some data
 
 1) Make a new working directory ~csvkit~ with ~mkdir~
@@ -72,12 +122,13 @@
      pwd
    #+end_example
 
-4) Fetch some data with ~curl(1)~ - check if you got it with ~which curl~,
-   otherwise install it with ~sudo apt install curl~.
+4) To save you from having to type long file names, I have put all
+   URLs in a shell script that you can download with ~curl~:
    #+begin_example sh
-     url="https://github.com/birkenkrahe/ds2/blob/main/data/Spotify_data.xlsx?raw=true"
-     curl --location -o 'spotify.xlsx' $url
+     curl -o url.sh "https://github.com/birkenkrahe/ds2/blob
    #+end_example
+   
+5) 
 
 5) Check if the file ~.xlsx~ file is there - the ~file~ command gives
    you some file type information, too:
@@ -262,5 +313,5 @@
 
 * References
 
-- Gallant (2021). xsv. URL: [[https://github.com/BurntSushi/xsv][github.com]].
-- Janssens (2021). Data science at the command line (2e). O'Reilly.
+- Janssens (2021). Data science at the command line
+  (2e). O'Reilly. URL: [[https://jeroenjanssens.com/dsatcl/][jeroenjanssens.com]].

@@ -1101,8 +1101,33 @@ Fri:
 - Installing ~csvkit~
 - Getting Excel data for conversion to CSV data
 - Looking at CSV data with ~in2csv~, ~csvlook~ and ~csvstat~
+- Go to your old DataCamp workspace now and type ~Ctrl .~
+- *This will give you just the (Ubuntu Linux) terminal*
+- Alternatively open a Linux-type terminal elsewhere
 
-* TODO [[https://www.freecodecamp.org/news/learn-bash-scripting-tutorial/][Free 1 hr online ~bash~ scripting tutorial]]
+* TODO [[https://github.com/birkenkrahe/org/blob/master/grading/Presentation_Assessment_Form.pdf][Rubric for evaluating your presentations]]
+#+attr_latex: :width 400px
+#+caption: Dicky Smythe, motorcycle speedway rider (1948) - Flickr.com
+[[../img/presentation.jpg]]
+
+- The rubric covers all aspects of a successful presentation
+- Test the technology before presenting - the devil's in the detail!
+- Zip all materials and upload them to Canvas no later than May 3rd
+- If I don't get your material by that time, you won't get any points
+
+* TODO What about the last DataCamp lesson? (BONUS)
+#+attr_latex: :width 400px
+#+caption: Photo: Microscopic apocalypse - the devil is in the detail (Flickr.com)
+[[../img/microscopic.jpg]]
+
+- This lesson gives you an introduction to (or a reminder of) SQL
+- SQL is by far the most important data science language to know
+- Complete the last lesson, too, if you can and grab the certificate
+- It brings together SQL, bash, and Python
+- In this way, you've got a head start in FOUR data science dialects!
+- I may produce another video based on the [[https://csvkit.readthedocs.io/en/latest/tutorial.html][csvkit tutorial]] this summer[fn:6]
+
+* DONE [[https://www.freecodecamp.org/news/learn-bash-scripting-tutorial/][Free 1 hr online ~bash~ scripting tutorial]]
 #+attr_latex: :width 400px
 [[../img/bashscripting.png]]
 
@@ -1158,6 +1183,9 @@ Pathak (16 Nov 2022). 12 best Low-code or No-code Platforms to Build Amazing
 Products. Online: [[https://geekflare.com/nocode-platforms-to-build-product/][geekflare.com]].
 
 * Footnotes
+[fn:6]You don't really need a video but I would like to swap the
+dataset used in the tutorial - about gun murders - with a more
+palatable, positive dataset, and add some command line information.
 
 [fn:5]Mesmer(1734-1815) postulated "animal magnetism/gravity" and
 tried to restore nervous "balance" with magnets. Discovered
