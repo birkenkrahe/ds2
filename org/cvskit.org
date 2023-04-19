@@ -1,0 +1,355 @@
+#+TITLE:Data science on the command line
+#+AUTHOR:Marcus Birkenkrahe
+#+SUBTITLE:Introduction to advanced data science
+#+STARTUP:overview hideblocks indent inlineimages
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:bash :exports both :results output
+* README
+  #+attr_latex: :width 400px
+  #+caption: Wireservice repo on GitHub
+  [[./wireservice.png]]
+  
+- Introduction to the ~csvkit~ toolkit (Python)
+- Developed by wirekit for journalists
+- Practice with Linux (DataCamp workspaces)
+- Based on ~csvkit~ tutorial (different dataset)
+- See also: Data Science at the Command Line ([[https://jeroenjanssens.com/dsatcl/][Janssens, 2021]]).
+
+* ~csvkit~ (Python)
+
+- This demo is only interactive if you have access to a Linux
+  installation of some sort. Source: the ~csvkit~ [[https://csvkit.readthedocs.io/en/latest/tutorial.html][online tutorial]].
+
+- In Spring 2023, we're going to use DataCamp's new workspace feature,
+  where you can install cvskit easily: ~pip install csvkit~
+
+- ~csvskit~ is a Python-3 library for manipulating text files.
+
+- [[https://youtu.be/XhShmvBYNmw][I made a video of my whole demonstration in 2022]] (14 min) using the
+  dataset from the ~csvkit~ tutorial and a Linux docker container (same
+  software that DataCamp workspace uses for its terminal app).
+  
+* Install ~csvkit~
+
+- Many of the ~csvkit~ functions are inspired by regular Unix commands.
+
+- ~pip~ is a python-based package manager tool.
+  #+begin_example sh
+  pip install csvkit
+  #+end_example
+
+- Or perhaps you already have all the ~csv*~ tools? The output should
+  show a bunch of different executables. ~[dir]~ is wherever your local
+  binary files are installed (~l~ is a standard ~alias~ for ~ls -alF~ -
+  print long listing of all files with classification):
+  #+begin_src sh
+    l /usr/bin/*csv*
+  #+end_src
+
+- In DataCamp, your installs are stored in ~$HOME/.local/bin/~:
+  #+begin_example sh
+    l -t $HOME/.local/bin/*csv*
+  #+end_example  
+  
+- If ~pip~ is missing, you can install it (shown for Debian-Linux):
+  #+begin_example sh
+    sudo apt install pip
+  #+end_example
+
+- Or you may have to upgrade ~pip~ (the command line will tell you) -
+  but the upgrade will likely end up in your ~.local~ directory:
+  #+begin_example sh
+    python3 -mv pip install --upgrade pip
+  #+end_example
+
+* Let's make a shell script
+
+- Since we're getting kicked out of DataCamp workspace every 30
+  minutes, we want to put installations in a script:
+  #+begin_example sh
+    nano restart.sh
+  #+end_example 
+
+- This opens the ~nano~ editor where you can enter the following lines:
+  #+begin_example sh
+    #!/usr/bin/bash
+    pip --quiet install csvkit
+    ls --color $HOME/.local/bin/*csv*
+    PATH=$PATH:$HOME/.local/bin
+  #+end_example
+  1) run this shell file with ~bash~
+  2) install ~csvkit~ with ~pip~ (Python package manager)
+  3) list contents of local ~bin~ directory with highlighting
+
+- Save the file with ~C-s~ and exit with ~C-x~.
+
+- On the command line, change the file permissions to executable:
+  #+begin_example sh
+    chmod ugo+x restart.sh
+    ll restart.sh
+  #+end_example
+
+- You can see that the file permissions are ~-rwxr-xr-x~ (executable for
+  user, group and others). The file listing color has changed and it
+  carries a ~*~.
+
+- Now run the file and redirect errors to the "null device", the void:
+  #+begin_example sh
+    . ./restart.sh 2>/dev/null
+  #+end_example
+
+- You need to specify the location with ~./~ if your directory is not in
+  the ~PATH~. The first ~.~ is the ~source~ command that exports local
+  variables (in this case the new ~PATH~) to your current shell.
+
+- Test if you can find the ~csvkit~ scripts:
+  #+begin_example sh
+    which in2csv
+  #+end_example  
+
+- You should get the location ~/home/repl/.local/bin/csvstat~
+
+- Any time you get kicked out of your workspace terminal, do:
+  #+begin_example sh
+    . ./restart.sh 2>/dev/null
+    cd csvkit
+  #+end_example
+    
+* Getting some data
+
+1) Make a new working directory ~csvkit~ with ~mkdir~
+
+2) Change into it with ~cd~ 
+
+3) Check where you are with ~pwd~
+   #+begin_example sh
+     mkdir -v csvkit
+     cd csvkit
+     pwd
+   #+end_example
+
+4) To save you from having to type long file names, I have put all
+   URLs in a shell script that you can download with ~curl~: I will post
+   the URL in the Zoom chat!
+   #+begin_example sh
+     curl -o url.sh "https://gist.githubusercontent.com/birkenkrahe/586db7e2ac26b09daa86769cca87002f/raw/54561f4c06f11157fed798d544901870e2137035/url.sh"
+   #+end_example
+
+5) Do the following on your own:
+   1) view the downloaded file with ~cat~
+   2) source the file with ~.~
+   3) check that the URLs are available with ~echo~
+   #+begin_example sh
+     cat url.sh
+     . ./url.sh
+     echo $spotify && echo $coffee
+   #+end_example
+
+6) Now download the corresponding files with ~curl~:
+   #+begin_example sh
+     wget --quiet -O spotify.xlsx $spotify
+     wget --quiet -O coffee.xlsx $coffee
+   #+end_example
+
+7) Check if the file ~.xlsx~ file is there - the ~file~ command gives
+   you some file type information, too:
+   #+begin_example sh
+     file coffee.xlsx
+     file spotify.xlsx
+   #+end_example
+
+8) You can also try ~curl~ and ~file~ to get any old HTML file, like from Lyon:
+   #+begin_example sh
+   curl https://lyon.edu | tee fetched | head
+   file fetched
+   #+end_example
+
+* The ~csvkit~ command suite
+
+- ~in2csv~ converts tabular data files like Excel or text into CSV files
+- ~csvlook~ prints CSV files in an easy-to-read format to the cmdline
+- ~csvstat~ prints descriptive summary stats for each data type
+- ~csvcut~ 
+- ~csvgrep~
+- ~csvsort~
+
+* ~in2csv~ to re-write an Excel file as CSV file
+
+- Excel is a binary format - you cannot look at it (without paying
+  Microsoft).
+
+- ~in2csv~ rewrites the Excel file into CSV:
+  #+begin_example sh
+    in2csv coffee.xlsx > coffee.csv 2&>/dev/null
+    head -3 coffee.csv
+  #+end_example
+  1) ~in2csv~ runs the conversion on the following file
+  2) ~> coffee.csv~ redirects the result to a file ~coffee.csv~
+  3) ~2&>/dev/null~ throws standard error messages away
+  4) ~head -3 coffee.csv~ prints header and first two records
+
+- More powerful with an Excel file that has worksheets:
+  #+begin_example sh
+    in2csv -n spotify.xlsx
+  #+end_example
+
+- You can convert individual worksheets into CSV files:
+  #+begin_example sh
+    in2csv  spotify.xlsx --sheet "Spotify_Popularity" > pop.csv
+    head -5 pop.csv
+  #+end_example
+
+- The term "standard" refers to the three available data streams:
+  standard error (stderr), output (stdout) and input (stdin).
+  #+attr_latex: :width 400px
+  #+caption: standard error, input and output
+  [[./std.png]]
+
+- In a pipeline, stdout is piped into stdin:
+  #+attr_latex: :width 400px
+  #+caption: standard error, input and output
+  [[./12_pipeline.png]]
+    
+- The ~rev~ command reverses lines of its input:
+  #+begin_example sh
+    ls | rev  # reverses the characters of all file listings
+  #+end_example
+
+- The ~grep~ command searches for patterns:
+  #+begin_example sh
+    ls | grep txt   # finds all files that contain 'txt'
+  #+end_example
+  
+* ~csvlook~ to get a table output of the CSV file
+
+- ~csvlook~ provides a tabular look at the data.
+
+  #+begin_example sh
+  csvlook pop.csv
+  csvlook --max-rows 5 coffee.csv
+  #+end_example
+
+- Look at the help for ~csvlook~ and limit the output of ~coffee.csv~ to 5
+  columns:
+  #+begin_example sh
+    csvlook --max-columns 5 --max-rows 5 coffee.csv
+  #+end_example
+
+* ~csvstat~ for summary statistics
+
+- ~csvstat~ is inspired by R's ~summary~ function
+  #+begin_example sh
+    csvstat pop.csv
+  #+end_example
+  
+- Alternativesly as a pipeline:
+  #+begin_example sh
+    cat data1.csv | csvstat
+  #+end_example
+
+- For more interesting stats, turn the other sheet in ~spotify.xlsx~
+  into a CSV file ~music.csv~ and print the stats:
+  #+begin_src sh
+    in2csv -n 
+    in2csv spotify.xlsx --sheet "Spotify_MusicAttributes" > music.csv
+    csvstats music.csv
+  #+end_src
+
+* ~csvcut~ to filter by row
+
+- ~csvcut~ is a version of ~cut~ for ~CSV~ files
+  1) the ~-n~ option shows all columns
+  2) the ~-c~ option shows specific columns
+  #+begin_example sh
+    csvcut -n coffee.csv
+    csvcut -c 2,5,6 music.csv| head -5
+  #+end_example
+
+- Look at the columns of ~music.csv~ and ~coffee.csv~ :
+  #+begin_example sh
+    csvcut -n music.csv
+    csvcut -n coffee.csv
+  #+end_example
+
+- Look at the first five records of the columns 1,3 of ~coffee.csv~ and
+  the columns 2,5,6 of ~music.csv~:
+  #+begin_example sh
+    csvcut -c 1,3 coffee.csv | head -5
+    csvcut -c 2,5,6 music.csv | head -5
+  #+end_example
+  
+- Output columns can be called by name, too - here, the pipe prints
+  tabular format (~csvlook~) and the first 5 records only:
+    #+begin_example bash
+      csvcut -c county,item_name,quantity data.csv | csvlook | head -5
+    #+end_example
+
+- Apply the example to ~music.csv~ and three of its columns by name:
+  #+begin_example sh
+    csvcut -n music.csv
+    csvcut -c track_id,loudness,tempo | csvlook | head -5
+  #+end_example
+
+- Did you get an error? Could you fix it?
+  #+begin_quote
+    ~csvcut~ does not ignore whitespace between the arguments to its
+    flags, so ~-c tempo, loudness~ throws an error, but ~-c
+    tempo,loudness~ does not.
+  #+end_quote
+
+- I want to use some of the output later so I put it into a file:
+  #+begin_example sh
+    csvcut -c danceability,time_signature music.csv |
+       tee cols.csv |
+       csvlook |
+       head -5
+  #+end_example
+
+- All of the previous operations can be put together in one pipe:
+  #+begin_example bash
+    in2csv coffee.xlsx |
+    csvcut -c num,text |
+    tee coffee |
+    csvlook |
+    head -3
+  #+end_example
+
+- How many lines does ~coffee~ have?
+  #+begin_example sh
+    cat coffee | wc -l
+  #+end_example
+  
+* TODO ~csvgrep~ to filter by row
+
+- ~csvgrep~ is a pattern-matching search function.
+  - run ~csvgrep~ on the ~data1.csv~ subset
+  - focus on the ~county~ column with ~-c~
+  - match the pattern ~LANCASTER~ county
+  - look at the result as a table
+
+  #+begin_example bash
+   csvgrep -c county -m LANCASTER data1.csv | csvlook
+  #+end_example
+
+  - count the lines (= entries for LANCASTER county)
+
+  #+begin_example bash
+   csvgrep -c county -m LANCASTER data1.csv | wc -l
+  #+end_example
+
+* TODO ~csvsort~ to sort rows by column
+
+- ~csvsort~ sorts the rows by any column (or combination of columns)
+  in ascending or descending (reverse) order.
+
+  #+begin_example bash
+ csvcut -c county,item_name,total_cost data.csv > data2.csv
+ cat data2.csv | csvgrep -c county -m LANCASTER > data3.csv
+ cat data3.csv | csvsort -c total_cost -r | csvlook
+  #+end_example
+
+* References
+
+- Janssens (2021). Data science at the command line
+  (2e). O'Reilly. URL: [[https://jeroenjanssens.com/dsatcl/][jeroenjanssens.com]].
+
