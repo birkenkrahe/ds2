@@ -1127,6 +1127,18 @@ Fri:
 - In this way, you've got a head start in FOUR data science dialects!
 - I may produce another video based on the [[https://csvkit.readthedocs.io/en/latest/tutorial.html][csvkit tutorial]] this summer[fn:6]
 
+* TODO Import Jupyter Notebook from Emacs
+#+attr_latex: :width 400px
+[[../img/import.png]]
+
+1) Download ~import.zip~ from GitHub (bit.ly/ipynb_import)
+2) Open a NEW empty DataCamp workspace
+3) Open ~Browse and Upload Files~ in the left sidebar
+4) Click the ~+~ button at the top and choose ~Upload~
+5) Open the ~csvkit.ipynb~ file (the lecture script)
+
+Converted to Jupyter notebook with ~ox-ipynb~ in Emacs! ([[https://github.com/jkitchin/ox-ipynb][Link]])
+   
 * DONE [[https://www.freecodecamp.org/news/learn-bash-scripting-tutorial/][Free 1 hr online ~bash~ scripting tutorial]]
 #+attr_latex: :width 400px
 [[../img/bashscripting.png]]
