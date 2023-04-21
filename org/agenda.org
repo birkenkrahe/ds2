@@ -1093,7 +1093,7 @@ Fri:
 - Pipeline to chain small Unix commands
 - Commands covered: ~ls~, ~alias~, ~tee~, ~curl~
 
-* TODO Week 14 - Introduction to csvkit
+* IN PROGRESS Week 14 - Introduction to csvkit
 #+attr_latex: :width 400px
 #+caption: Andy Miccone, Milsa (Flickr.com)
 [[../img/12_kit.jpg]]
@@ -1105,7 +1105,7 @@ Fri:
 - *This will give you just the (Ubuntu Linux) terminal*
 - Alternatively open a Linux-type terminal elsewhere
 
-* TODO [[https://github.com/birkenkrahe/org/blob/master/grading/Presentation_Assessment_Form.pdf][Rubric for evaluating your presentations]]
+* DONE [[https://github.com/birkenkrahe/org/blob/master/grading/Presentation_Assessment_Form.pdf][Rubric for evaluating your presentations]]
 #+attr_latex: :width 400px
 #+caption: Dicky Smythe, motorcycle speedway rider (1948) - Flickr.com
 [[../img/presentation.jpg]]
@@ -1115,7 +1115,7 @@ Fri:
 - Zip all materials and upload them to Canvas no later than May 3rd
 - If I don't get your material by that time, you won't get any points
 
-* TODO What about the last DataCamp lesson? (BONUS)
+* DONE What about the last DataCamp lesson? (BONUS)
 #+attr_latex: :width 400px
 #+caption: Photo: Microscopic apocalypse - the devil is in the detail (Flickr.com)
 [[../img/microscopic.jpg]]
@@ -1135,30 +1135,132 @@ Fri:
 - Alternatively, use a ~bash~ template at [[https://replit.com][replit.com]]
 - Or use DataCamp workspace and run files with ~bash~
 
-* TODO Week 15 - Projects I
-* TODO Week 16 - Projects II
-* TODO What next?
-** Buy the "Book of R" and keep it for life
+
+* TODO Finish ~csvkit~ practice
+
+- Open your workspace in ~workspace.datacamp.com~
+- Open a ~terminal~
+- Initiate ~csvkit~ with the ~restart.sh~ file
+- Change to the ~csvkit~ directory and check your files are there
+
+#+begin_example sh
+  source restart.sh  ## GNU source (.) searches in the current directory!
+  cd csvkit
+  ls -alF  ## the -F (--classify) attaches an indicator to the file listing
+#+end_example
+
+* TODO What next? summary and outlook
 #+attr_latex: :width 400px
+#+caption: Deaf children of St. Rita's School, Cincinnati, singing Star Spangled Banner (LOC)
+[[../img/signing.jpg]]
+** Achievements:
+- Learnt how to code in R (not just explore interactively)
+- Learnt transferable skills on functional programming
+- Text mining applications useful for natural language processing
+- Engaged with a multitude of different R packages
+- Used agile project management especially Scrum
+- Learnt to use the command line for data processing
+- Developed fluency with the GNU Emacs literate programming system
+** Changes
+
+- An introduction to regular expressions (see DataCamp course)
+
+- Other languages than R? Python? Julia? Java? C++? SQL?
+
+- RStudio instead of Emacs? Colaboratory? 
+
+- Leave one session for reviewing the final exam questions?
+
+- Let me know what you liked and what you didn't like: fill in the
+  survey ([[https://lyon.instructure.com/courses/1021/assignments/10076]["CourseEval"@Canvas]]) by May 4, 5:59 pm (*bonus points*)
+
+** Books
+*** Buy the "Book of R" and keep it for life
+#+attr_latex: :width 200px
 #+caption: Cover, Book of R by TM Davies, NoStarch 2016
 [[../img/bookofR.png]]
 
 [[https://nostarch.com/bookofr][Link to the publisher.]]
-** Buy "The Art of R Programming" to go even further
+*** Buy "The Art of R Programming" to go even further
 To graduate to a full-fledged R programmer, get this excellent book:
-#+attr_latex: :width 400px
+#+attr_latex: :width 200px
 #+caption: Cover, The Art of R Programming by Matloff (NoStarch 2011)
 [[../img/TARP.png]]
 
 [[https://nostarch.com/artofr.htm][Link to the publisher.]]
-
-** Tidyverse? Read (for free) R for Data Science
-#+attr_latex: :width 400px
+*** Tidyverse? Read (for free) R for Data Science
+#+attr_latex: :width 200px
 #+caption: Cover, R for Data Science (2e) by Hadley Wickham & Garrett Grolemund, O'Reilly 2023
 [[../img/R4DS.png]]
 
-[[https://r4ds.hadley.nz/][Link to the website for the 2nd edition (2023)]]
+- [[https://r4ds.hadley.nz/][Link to the website for the 2nd edition (2023)]]
 
+- You should make up your own mind but you should take note of
+  Matloff's essay "[[https://github.com/matloff/TidyverseSkeptic][TidyverseSceptic]]" and his side-by-side comparison
+  "[[https://github.com/matloff/TidyverseSkeptic/blob/master/RDesign.pdf][R Design Patterns, Base-R vs. Tidyverse]]" for R beginners.
+
+** Languages
+
+- *SQL*: take my CSC 330 course next spring if you're still around,
+  and/or work through introductory and intermediate SQL (PostgreSQL)
+  on DataCamp (until July 6).
+
+- Learn SQLite on your own 
+
+- *Python:* take my CSC 109 course this summer, read "Python Crash
+  Course" 3rd edition (NoStarch Press, 2022), or work through
+  introductory and intermediate Python on DataCamp (until July 6).
+
+- Discover data science compatibility in other languages you already
+  know! For example: Natural Language Processing in *Java*, Data
+  Visualization with *C++*, or Neural Nets with *Python*.
+
+- Search for, and apply R packages that interface with other
+  languages: ~Rcpp~ (C++), ~RSQLite~ (SQLite), or ~reticulate~ (Python)
+
+- Needless to say, stick with Emacs and keep using Org-mode,
+  especially if you mix languages! Stay literate, don't go numb!
+
+- If you tire of Emacs, I recommend ~replit.com~ templates for a
+  multitude of languages - (still) free and online (with phone app).
+
+** Career
+
+- ​[[https://link.medium.com/pLGMURvz1yb][How To Improve Your Job Search With 4 + 1 Quick Tips]]:
+  1) Apply to a lot of jobs
+  2) Practice interviewing at tier 2 firms
+  3) Adjust your resume every 20 or so applications
+  4) Practice everything
+  5) Fortune favors the bold
+
+- Above and beyond, what you need in this field (CompSci and Data
+  Science) is a set of GOALS and a SYSTEM of continuous improvement to
+  meet these goals.
+
+- What could be a good goal? Wanting to work in analytics for
+  SpaceX. Work at a NYC stock broker firm. Work in bioinformatics to
+  help develop new drugs. Learn machine learning methods to work for
+  OpenAI. Work in Florida in a house by the beach.
+
+- Example SYSTEM components:
+  1) *One-off:* complete DataCamp course on regression in R.
+  2) *Routine:* practice daily on ALL completed DataCamp courses.
+  3) *Routine:* read recent papers on regression applications beginning
+     with literature reviews - especially important in this field
+     (it's like computer science in the 1950s) - [[https://arxiv.org/pdf/2301.03774.pdf][see here]].
+  4) *Routine*: find experts and join their communities on Twitter,
+     Discord, Substack or Medium (though most of the data science
+     celebrities have been infected with the Tidyverse virus, alas).
+  5) *Repeatedly:* pull datasets off Kaggle or other places and go
+     through the data science workflow on your own using an
+     interactive notebook (for sharing). Especially useful if you have
+     a feeling/knowledge for the data - e.g. sports data if you're an
+     athlete, environmental data if you're a conversationist, art data
+     if you're an artist etc.
+     
+
+* TODO Week 15 - Projects I
+* TODO Week 16 - Projects II
 * References
 
 Fabio Moioli (13 Oct 2022). Predictions on the Future of Data

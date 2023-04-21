@@ -220,7 +220,7 @@
     ls | grep txt   # finds all files that contain 'txt'
   #+end_example
   
-* ~csvlook~ to get a table output of the CSV file
+* NEXT ~csvlook~ to get a table output of the CSV file
 
 - ~csvlook~ provides a tabular look at the data.
 
@@ -318,25 +318,55 @@
   #+begin_example sh
     cat coffee | wc -l
   #+end_example
+
+- ~csvcut~ (and also ~cut~) is much like ~SELECT~ in SQL:
+  #+begin_example sqlite
+    SELECT age, first_name FROM customer_table;
+  #+end_example
+
+* ~csvgrep~ to filter by row
+
+- Like ~grep~ in Unix or in R, ~csvgrep~ is a pattern-matching search
+  function. It filters by row using either exact match or regex fuzzy
+  matching.
+
+- It must be paired with one of these options:
+  1) ~-m~ followed by the row value to filter
+  2) ~-r~ followed by a regular expression pattern
+  3) ~-f~ followed by the path to a file
   
-* TODO ~csvgrep~ to filter by row
-
-- ~csvgrep~ is a pattern-matching search function.
-  - run ~csvgrep~ on the ~data1.csv~ subset
-  - focus on the ~county~ column with ~-c~
-  - match the pattern ~LANCASTER~ county
-  - look at the result as a table
-
-  #+begin_example bash
-   csvgrep -c county -m LANCASTER data1.csv | csvlook
+- When looking at the help for ~csvgrep~, pipe the output into ~less~ or
+  ~more~ ("less is more"):
+  #+begin_example sh
+    csvgrep -h | less # to get out of the pageview, enter 'q'
   #+end_example
 
-  - count the lines (= entries for LANCASTER county)
-
-  #+begin_example bash
-   csvgrep -c county -m LANCASTER data1.csv | wc -l
+- Example:
+  1) Run ~csvgrep on the ~music.csv~ dataset
+  2) Select the ~tempo~ column with ~-c~
+  3) Match the pattern ~120~ with ~-m~
+  4) Save the result as a table ~table~ with ~csvlook~ and ~tee~
+  5) Count the number of records in the result
+  6) View the table
+  #+begin_example sh
+    csvgrep music.csv -c tempo -m 120
+    csvgrep music.csv -c tempo -m 120 | csvlook
+    csvgrep music.csv -c tempo -m 120 | csvlook | tee table | wc -l
+    cat table
   #+end_example
 
+- You can also pass the column location instead:  
+  #+begin_example sh
+      csvgrep music.csv -c 6 -m 120 | csvlook | tee table1
+      diff table table1  ## checks and reports file differences
+    #+end_example
+
+- ~csvgrep~ is like the ~WHERE~ filter in SQL:
+  #+begin_example sqlite
+    SELECT age, first_name FROM customer_table
+    WHERE age > 25 AND first_name IN ("Joe", "Jim)
+  #+end_example
+  
 * TODO ~csvsort~ to sort rows by column
 
 - ~csvsort~ sorts the rows by any column (or combination of columns)
