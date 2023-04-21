@@ -169,8 +169,8 @@
 - ~in2csv~ converts tabular data files like Excel or text into CSV files
 - ~csvlook~ prints CSV files in an easy-to-read format to the cmdline
 - ~csvstat~ prints descriptive summary stats for each data type
-- ~csvcut~ 
-- ~csvgrep~
+- ~csvcut~ filter CSV files by column
+- ~csvgrep~ filters CSV files by row
 - ~csvsort~
 
 * ~in2csv~ to re-write an Excel file as CSV file
@@ -255,7 +255,7 @@
     csvstats music.csv
   #+end_src
 
-* ~csvcut~ to filter by row
+* ~csvcut~ to filter by columns
 
 - ~csvcut~ is a version of ~cut~ for ~CSV~ files
   1) the ~-n~ option shows all columns
@@ -367,17 +367,28 @@
     WHERE age > 25 AND first_name IN ("Joe", "Jim)
   #+end_example
   
-* TODO ~csvsort~ to sort rows by column
+* ~csvsort~ to sort rows by column
 
-- ~csvsort~ sorts the rows by any column (or combination of columns)
-  in ascending or descending (reverse) order.
+- ~csvsort~ sorts the rows by any column (or combination of columns) in
+  ascending or descending (reverse) order. Like the Unix ~sort~ command
+  for tabular data.
 
-  #+begin_example bash
- csvcut -c county,item_name,total_cost data.csv > data2.csv
- cat data2.csv | csvgrep -c county -m LANCASTER > data3.csv
- cat data3.csv | csvsort -c total_cost -r | csvlook
+- Forgot which columns ~music.csv~ has? List them:
+  #+begin_example sh
+    csvcut -n music.csv
+  #+end_example
+- Sort ~music.csv~ by ~tempo~ in ascending order and print as table:
+  #+begin_example sh
+    csvsort -c tempo music.csv | csvlook
+  #+end_example
+- Reverse the order with ~-r~ and only show the first 5 records:  
+  #+begin_example sh
+    csvsort -c tempo music.csv -r | csvlook --max-rows 5
   #+end_example
 
+- You can sort on more than one column. This is like the ~ORDER~ command
+  in SQL.
+  
 * References
 
 - Janssens (2021). Data science at the command line

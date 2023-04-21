@@ -1135,14 +1135,31 @@ Fri:
 - Alternatively, use a ~bash~ template at [[https://replit.com][replit.com]]
 - Or use DataCamp workspace and run files with ~bash~
 
-
 * TODO Finish ~csvkit~ practice
 
+1) What is ~csvkit~ exactly?
+   #+begin_quote
+   A suite of Python scripts to manipulate files.
+   #+end_quote
+2) How did we address the problem of getting logged out often?
+   #+begin_quote
+     - By creating a shell script that re-installs ~csvkit~ and adds the
+       location of the kit scripts to the ~PATH~
+     - The first line of which contains the shell program location
+     - We have to ~source~ the script to export the ~PATH~
+   #+end_quote
+3) Which ~csvkit~ command did we discuss already and what does it do?
+   #+begin_quote
+     - ~in2csv~ writes from Excel to CSV
+     - the ~-n~ flag shows the worksheets in the Excel file
+     - the ~--sheet~ flag writes selected Excel sheets
+   #+end_quote
+
+-----   
 - Open your workspace in ~workspace.datacamp.com~
-- Open a ~terminal~
+- Open a ~terminal~ in the ~Run~ tab of the workspace dashboard
 - Initiate ~csvkit~ with the ~restart.sh~ file
 - Change to the ~csvkit~ directory and check your files are there
-
 #+begin_example sh
   source restart.sh  ## GNU source (.) searches in the current directory!
   cd csvkit
