@@ -220,7 +220,7 @@
     ls | grep txt   # finds all files that contain 'txt'
   #+end_example
   
-* NEXT ~csvlook~ to get a table output of the CSV file
+* ~csvlook~ to get a table output of the CSV file
 
 - ~csvlook~ provides a tabular look at the data.
 
@@ -230,7 +230,7 @@
   #+end_example
 
 - Look at the help for ~csvlook~ and limit the output of ~coffee.csv~ to 5
-  columns:
+  columns and 5 rows:
   #+begin_example sh
     csvlook --max-columns 5 --max-rows 5 coffee.csv
   #+end_example
@@ -244,7 +244,7 @@
   
 - Alternativesly as a pipeline:
   #+begin_example sh
-    cat data1.csv | csvstat
+    cat pop.csv | csvstat
   #+end_example
 
 - For more interesting stats, turn the other sheet in ~spotify.xlsx~
@@ -274,14 +274,14 @@
 - Look at the first five records of the columns 1,3 of ~coffee.csv~ and
   the columns 2,5,6 of ~music.csv~:
   #+begin_example sh
-    csvcut -c 1,3 coffee.csv | head -5
-    csvcut -c 2,5,6 music.csv | head -5
+    csvcut -c 1,3 coffee.csv | head -6
+    csvcut -c 2,5,6 music.csv | head -6
   #+end_example
   
 - Output columns can be called by name, too - here, the pipe prints
   tabular format (~csvlook~) and the first 5 records only:
-    #+begin_example bash
-      csvcut -c county,item_name,quantity data.csv | csvlook | head -5
+    #+begin_example sh
+    csvcut -c "tempo","loudness" music.csv | csvlook | head -5
     #+end_example
 
 - Apply the example to ~music.csv~ and three of its columns by name:
@@ -342,7 +342,7 @@
   #+end_example
 
 - Example:
-  1) Run ~csvgrep on the ~music.csv~ dataset
+  1) Run ~csvgrep~ on the ~music.csv~ dataset
   2) Select the ~tempo~ column with ~-c~
   3) Match the pattern ~120~ with ~-m~
   4) Save the result as a table ~table~ with ~csvlook~ and ~tee~
@@ -364,7 +364,7 @@
 - ~csvgrep~ is like the ~WHERE~ filter in SQL:
   #+begin_example sqlite
     SELECT age, first_name FROM customer_table
-    WHERE age > 25 AND first_name IN ("Joe", "Jim)
+      WHERE age > 25 AND first_name IN ("Joe", "Jim)
   #+end_example
   
 * ~csvsort~ to sort rows by column

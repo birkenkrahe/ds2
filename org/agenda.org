@@ -1139,14 +1139,15 @@ Fri:
 
 1) What is ~csvkit~ exactly?
    #+begin_quote
-   A suite of Python scripts to manipulate files.
+   A suite of Python scripts to manipulate files. It provides several
+   scripts (aka commands) to use Unix-style programs (like ~sort~ or ~grep~) on  tabular data (like CSV files)
    #+end_quote
 2) How did we address the problem of getting logged out often?
    #+begin_quote
      - By creating a shell script that re-installs ~csvkit~ and adds the
-       location of the kit scripts to the ~PATH~
+       location of the kit scripts (in ~.local) to the ~PATH~
      - The first line of which contains the shell program location
-     - We have to ~source~ the script to export the ~PATH~
+     - We have to ~source~ the script to export the ~PATH~ to global
    #+end_quote
 3) Which ~csvkit~ command did we discuss already and what does it do?
    #+begin_quote
@@ -1170,7 +1171,8 @@ Fri:
 #+attr_latex: :width 400px
 #+caption: Deaf children of St. Rita's School, Cincinnati, singing Star Spangled Banner (LOC)
 [[../img/signing.jpg]]
-** Achievements:
+* Achievements:
+
 - Learnt how to code in R (not just explore interactively)
 - Learnt transferable skills on functional programming
 - Text mining applications useful for natural language processing
@@ -1178,7 +1180,8 @@ Fri:
 - Used agile project management especially Scrum
 - Learnt to use the command line for data processing
 - Developed fluency with the GNU Emacs literate programming system
-** Changes
+
+* Changes
 
 - An introduction to regular expressions (see DataCamp course)
 
@@ -1216,13 +1219,13 @@ To graduate to a full-fledged R programmer, get this excellent book:
   Matloff's essay "[[https://github.com/matloff/TidyverseSkeptic][TidyverseSceptic]]" and his side-by-side comparison
   "[[https://github.com/matloff/TidyverseSkeptic/blob/master/RDesign.pdf][R Design Patterns, Base-R vs. Tidyverse]]" for R beginners.
 
-** Languages
+* Languages
 
 - *SQL*: take my CSC 330 course next spring if you're still around,
   and/or work through introductory and intermediate SQL (PostgreSQL)
   on DataCamp (until July 6).
 
-- Learn SQLite on your own 
+- Learn SQLite on your own (just use the standard tutorial)
 
 - *Python:* take my CSC 109 course this summer, read "Python Crash
   Course" 3rd edition (NoStarch Press, 2022), or work through
@@ -1230,7 +1233,8 @@ To graduate to a full-fledged R programmer, get this excellent book:
 
 - Discover data science compatibility in other languages you already
   know! For example: Natural Language Processing in *Java*, Data
-  Visualization with *C++*, or Neural Nets with *Python*.
+  Visualization with *C++*, or Neural Nets with *Python*, animation with
+  JavaScript.
 
 - Search for, and apply R packages that interface with other
   languages: ~Rcpp~ (C++), ~RSQLite~ (SQLite), or ~reticulate~ (Python)
@@ -1241,7 +1245,7 @@ To graduate to a full-fledged R programmer, get this excellent book:
 - If you tire of Emacs, I recommend ~replit.com~ templates for a
   multitude of languages - (still) free and online (with phone app).
 
-** Career
+* Career
 
 - ​[[https://link.medium.com/pLGMURvz1yb][How To Improve Your Job Search With 4 + 1 Quick Tips]]:
   1) Apply to a lot of jobs
@@ -1257,7 +1261,7 @@ To graduate to a full-fledged R programmer, get this excellent book:
 - What could be a good goal? Wanting to work in analytics for
   SpaceX. Work at a NYC stock broker firm. Work in bioinformatics to
   help develop new drugs. Learn machine learning methods to work for
-  OpenAI. Work in Florida in a house by the beach.
+  OpenAI. 
 
 - Example SYSTEM components:
   1) *One-off:* complete DataCamp course on regression in R.
