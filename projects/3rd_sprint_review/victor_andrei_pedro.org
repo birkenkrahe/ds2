@@ -1,0 +1,820 @@
+#+TITLE: An introduction to ggplot2 project proposal
+#+AUTHOR: Victor Noppe, Andrei Galca, and Pedro Mota
+#+SUBTITLE: Sprint reviews
+#+STARTUP:overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+
+* DONE Sprint review 1 project proposal
+** Problem
+
+  The ggplot2 package is a complicated set of tools to learn to use
+  and understand. This set the learning curve to be very high.
+ 
+** Reason
+
+  To show and explain the basics of the ggplot2 package. This could
+  help by lessening the learning curve, but also break the ice for those that
+  have no exposer to the ggplot2 package. It will also get people started
+  on a useful tool for the workforce.
+  
+** Constraints
+
+  1) Finding time to meet between three different people's schedules
+     and class loads could have some difficulties.
+
+  2) Time management for learning and organizing the presentation
+     in order to show basics from the ggplot2 package.
+
+  3) Making the practice file educational and engaging with the limited
+     presentation time.
+     
+** Goals and Non-goals
+** Goals
+  1) Helping our classmates to obtain a basic knowledge of the ggplot2 package.
+
+     a) how fuctions are categorized
+     b) how to use the different fuctions and their arguments
+     
+  2) Creating a practice file that is both engaging and educational.
+     
+** Non-goals
+
+   1) To obtaine a better understanding of the ggplot2 package.
+
+   2) To become more comfortable with exploratory and explanatory data.
+
+   3) Getting more familiarized with speaking and presenting from a specialist standpoint.
+     
+** Plan
+
+  1) Complete the Introduction to Data Visualization with ggplot2 datacamp course.
+
+  2) Practice with built in data sets to obtain more familiarity with the ggplot2 package.
+
+  3) Meet on a regular basis to discuss what functions and arguments we want to use in our
+     practice file.
+
+  4) Help each other obtain the same comfort with the use of the ggplot2 package.
+     
+  5) Find literature to help develop and reinforce our pratice file.
+        
+** Metrics
+
+  1) The amount of knowledge we are able to obtain and relay to or classmates.
+
+  2) How engaged our classmates are with our presentation.
+
+  3) Were we able to fit the presentation to the allotted time frame.   
+
+  4) The overall grade we obtain for this project.
+
+** Quetions
+
+  1) Is this a valid idea for a project?
+
+  2) What is the proper citation for the emacs and org-mode software?
+
+  3) Are there any avenues to this project that you would like to be focused on?
+     (i.e. certain function calls and arguments)
+
+  4) Are there any sources other than datacamp and the ggplot2 cheat sheet
+     that you could recommend?
+     
+** References
+
+  H.Wickham, 2016, ggplot2: Elegant Graphics for Data Analysis,
+  https://www.ggplot2.tidyverse.org
+
+  Rick Scavetta, NA, Inroduction to Data Visualization with ggplot2,
+  https://app.datacamp.com/learn/courses/introduction-to-data-visualization-with-ggplot2
+ 
+* DONE Sprint review 2 literature review
+** Literature Review Reference 1
+
+- Reference
+  
+  Mandy Mejia, “10 Reasons to Switch to Ggplot”, Mandymejia, 14 Nov. 2013, [[https://mandymejia.com/2013/11/13/10-reasons-to-switch-to-ggplot-7/][10 Reasons]]
+
+- Summary
+
+  The article "10 reasons to switch to ggplot" argues in favor of
+  using ggplot2, an R package based on the principles of The Grammar
+  of Graphics, for making plots. The author claims that while making
+  standard plots is straightforward in most statistical programming
+  languages, using R's base graphics to create custom plots can be
+  complicated. According to the author, ggplot2 is a better
+  alternative because it can create quick-and-dirty and complex
+  plots, so you only need one system. The default colors and other
+  aesthetics of ggplot2 are also nicer, and you never again lose an
+  axis title or get told your PDF can't be created due to misspecified
+  outer or inner margins. The author also suggests that you can save
+  plots, or the beginnings of a plot, as objects and that multivariate
+  exploration is greatly simplified through faceting and
+  coloring. Overall, the author argues that switching to ggplot2 is
+  well worth the time and effort required to get started. We used this
+  in combination with another article to explain what ggplot is, how
+  it works, and what it can be used for.
+
+- Evaluation
+
+  We liked how the author did not just write about each reason, but
+  actually gave examples to back up their claims. The examples the
+  author supplied also showed a person how the code should look. So
+  yes, we would recommend this to be read.
+
+** Literature Review Reference 2
+
+- Reference
+
+  David Robinson, “Why I Use GGPLOT2”, Variance Explained, 12 Feb. 2016 , [[http://varianceexplained.org/r/why-I-use-ggplot2/][Why I use]]
+
+- Summary
+
+  The article titled "Why Use ggplot2" is an opinion piece that
+  discusses the benefits of using ggplot2 for data visualization in
+  R. The author describes ggplot2 as a powerful and flexible tool that
+  allows users to easily create high-quality plots with a declarative
+  syntax. The author argues that ggplot2 provides a more efficient and
+  effective approach to plotting compared to base R plotting, which he
+  refers to as a "bag of tricks." The author emphasizes the importance
+  of following the grammar of graphics when creating plots with
+  ggplot2, as it helps to ensure that the plot is well-organized and
+  easily interpretable. Overall, the author presents a compelling
+  argument for the use of ggplot2 in data visualization and provides
+  practical tips for those looking to get started with the tool. We
+  used this in combination with the "10 Reasons to Switch to Ggplot"
+  to explain what ggplot is, how it works, and what it can be used
+  for.
+
+- Evaluation
+
+  All in all it was a good article. Even though it might not be a
+  great idea to use blog posts all the time. We thought it had a
+  compelling argument and good information about the topic. For this
+  topic it was good to get a first person point of view, and the
+  author is a Director of Data Scientist at Heap and has multiple
+  other publications, so it seemed credible. If someone is skeptical
+  about ggplot we would recommend they read this article. One bad
+  thing about this article is the author does not use as many coding
+  examples to back up his claims.
+  
+** References
+ Stallman, R. M. (1984). The Emacs editor. GNU Project. [[https://www.gnu.org/software/emacs/][emacs]]
+ Schulte, E., Davison, C., & Dominik, C. (2016). The Org mode 8 Reference Manual. [[https://orgmode.org/manual/][org-mode]]
+ Mandy Mejia, “10 Reasons to Switch to Ggplot”, Mandymejia, 14 Nov. 2013, [[https://mandymejia.com/2013/11/13/10-reasons-to-switch-to-ggplot-7/][10 Reasons]]
+ David Robinson, “Why I Use GGPLOT2”, Variance Explained, 12 Feb. 2016 , [[http://varianceexplained.org/r/why-I-use-ggplot2/][Why I use]]
+
+* TODO Sprint review 3 Abstract
+** Abstract
+
+- Data Science is used by a large part of people to make decisions
+  given some question or problem. This is done in many ways, one of
+  which is data visualization. You can use base R graphics, ggplot2,
+  or many other options to do this One issue that comes up is why and
+  what package or packages should you use, or need to use, to complete
+  your task. To make this determination a person needs exposure to
+  different ways of data visualization to determine what works best,
+  and what they prefer. With our project, we introduce one of the data
+  visualization packages, which is ggplot2. Prior to this project, the
+  ggplot2 package seemed to be very complex. Through the process of
+  this project, it has been seen that though ggplot2 does have a vast
+  number of commands; they are basically the same across any
+  visualization. This can make it easier to create themed plots across
+  a given presentation. Though there are those on each side of the
+  aisle when it comes to using ggplot2, base R graphics, or other
+  packages for Data Visualization. This project gives a small exposure
+  to one way of doing visualization and enables a person to make a
+  better determination for themself what they might prefer to
+  use. Through our research, we have concluded that when it comes to
+  whether to use base R graphics or ggplot2 it comes down to the
+  user’s task and preferences. Both base R graphics and ggplot2 can
+  complete any task. Whether one is better suited to a given task is
+  largely a matter of personal perspective.
+
+** Results:
+*** completed practice sheet
+#+TITLE: Intorduction to ggplot2
+#+AUTHOR: Victor Noppe, Andrei Galca, and Pedro Mota 
+#+SUBTITLE: ggplot2 project practice sheet
+#+STARTUP:overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :session *R* :results output :exports both 
+***** README
+
+- This practice guide will give you an introduction to ggplot2. It
+  will start you on the path to understanding and becoming proficient
+  in using the ggplot2 package to explore and visualize data.
+  
+***** TODO Identify and pledge yourself
+
+1) In Emacs, put your name at the top of this
+   file next to where it says ~#+AUTHOR~ and write ~(pledged)~ next to
+   it. In case this will be turned in.
+2) Then with the cursor on the head line for this block, while holding
+   the ~shift~ key use the ~right and left arrow keys~ to change ~TODO~ to
+   ~DONE~. As you work through the practice guide do this on every
+   header as you complet the sections.
+
+***** TODO What is ggplot2 and what is it used for?
+
+- ggplot2 is a data visualization package in R that is based on the
+  grammer of graphics. It provides a flexible and intuitive approach
+  to complex visualizations by breaking down a plot into a
+  set of layers. ggplot2 differs from other R plotting packages in
+  that it is declarative. This means that you specify what you want a
+  plot to look like instead of how to create it.
+  
+***** TODO What are the basic components of a ggplot2 plot?
+
+- A ggplot2 plot is composed of a data frame, a set of aesthetics that
+  map data to visual properties such as x and y coordinates or color,
+  and one or more layers that define the visual elements ~(geometry)~ of the plot
+  such as points, lines or bars.
+
+  Every plot call starts with a call to the ggplot2 package using the
+  ~ggplot()~ function call. The basic call looks like this ~ggplot(data
+  = , aes(x = , y =))~. You can also specify color in the aes
+  ~(aesthetics)~ call. View the help page to see other arguments for
+  later uses. The ~geom_*()~ call is where you start choosing what type
+  of geometry you want for you plot.
+
+  ~i.e. geom_point() will create a scatter plot, geom_line() a line plot, geom_bar
+  a bar plot, and so on.~  
+   
+***** TODO Create a basic scatter plot using the iris data set
+
+- The ~iris~ data set is a built in data set in R. It contains
+  measurements of the sepals and petals of three different species of
+  iris flowers. The data set contains 150 observations and 5 variables.
+
+1) Look at the structure of the ~iris~ dataset.
+
+#+begin_src R
+  str(iris)    
+#+end_src
+
+#+RESULTS:
+: 'data.frame':	150 obs. of  5 variables:
+:  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+:  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+:  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+:  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+:  $ Species     : Factor w/ 3 levels "setosa","versicolor",..: 1 1 1 1 1 1 1 1 1 1 ...
+
+2)Load the ggplot2 package.
+
+#+begin_src R 
+  library(ggplot2)
+#+end_src
+
+#+RESULTS:
+: Warning message:
+: package 'ggplot2' was built under R version 4.1.3
+
+3) Make a basic scatter plot of the sepal length vs the sepal width.
+  
+#+begin_src R :results graphics file :file ggplot_geom_point1.png
+  ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width)) +
+    geom_point()
+#+end_src
+
+#+RESULTS:
+[[file:ggplot_geom_point1.png]]
+
+- The plot suggests that there may be some differences in sepal length
+  and width between the different species of iris flowers.
+
+4) Add color to the points by setting color to ~Species~.
+
+#+begin_src R :results graphics file :file ggplot_geom_point2.png
+  ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width,color = Species)) +
+    geom_point()
+#+end_src
+
+#+RESULTS:
+[[file:ggplot_geom_point2.png]]
+
+5) Change the axis labels to ~Length of Sepal~ and ~Width of Sepal~. Also
+   add a title, call it ~Sepal Length vs Sepal Width~.
+   ~hint: you use labs in some manner~
+
+#+begin_src R :results graphics file :file ggplot_geom_point3.png
+  ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+    geom_point() +
+    labs(title = "Sepal Length vs Sepal Width",
+         x = "Length of Sepal",
+         y = "Width of Sepal")
+#+end_src
+
+#+RESULTS:
+[[file:ggplot_geom_point3.png]]
+
+- The ~mtcars~ data set includes measurements on 32 cars and 11
+  variables for each car. 
+
+6)Look at the structure of the ~mtcars~ dataset.
+
+#+begin_src R
+  str(mtcars)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+'data.frame':	32 obs. of  11 variables:
+ $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+ $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
+ $ disp: num  160 160 108 258 360 ...
+ $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
+ $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+ $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
+ $ qsec: num  16.5 17 18.6 19.4 17 ...
+ $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...
+ $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
+ $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
+ $ carb: num  4 4 1 1 2 1 4 2 2 4 ...
+#+end_example
+
+7) Make a scatter plot of ~mpg~ vs ~wt~ from the ~mtcars~ dataset and set
+   the color to a factor of ~cyl~, and save it to a variable named ~carplot~.
+
+#+begin_src R :results graphics file :file ggplot_geom_point4.png
+  carplot <-  ggplot(data = mtcars, aes(x = mpg, y = wt, color = factor(cyl))) +
+    geom_point()
+  carplot
+#+end_src
+
+#+RESULTS:
+[[file:ggplot_geom_point4.png]]
+
+8) Using the variable you created add a regression line to the
+   plot. Use the call ~geom_smooth()~ with the argument ~method~ and set
+   method equal to ~"lm"~.~ You will also need to set the ~se~ argument to
+   false, set color to black, and call ~aes~ and set group to 1.
+   
+#+begin_src R :results graphics file :file ggplot_geom_smooth5.png
+  carplot +
+    geom_smooth(method = "lm", color = "black", aes(group = 1))
+#+end_src
+
+#+RESULTS:
+[[file:ggplot_geom_smooth5.png]]
+
+***** TODO Create a bar plot using ggplot2
+
+1) look at the structure of ~mtcars~ again to refresh what it looks like.
+
+#+begin_src R
+  str(mtcars)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+'data.frame':	32 obs. of  11 variables:
+ $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+ $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
+ $ disp: num  160 160 108 258 360 ...
+ $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
+ $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+ $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
+ $ qsec: num  16.5 17 18.6 19.4 17 ...
+ $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...
+ $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
+ $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
+ $ carb: num  4 4 1 1 2 1 4 2 2 4 ...
+#+end_example
+
+2) Make a bar plot of the number of cars with each number of cylinders
+   using the ~mtcars~ dataset. Do this so it shows only cylinders that
+   are real. Such as 4, 6, and 8. Give it the title "Number of Cars by
+   Number of Cylinders". Name the x and y labels to "Number of Cylinders"
+   and "Number of Cars", and title the fill as "Number of Cylinders"
+
+   ~Hint: You will have to convert cyl to be viewed as a categorical vector.~  
+
+#+begin_src R :results graphics file :file geom_bar1.png
+  ggplot(data = mtcars, aes(x = factor(cyl), fill = factor(cyl))) +
+    geom_bar() +
+    labs(title = "Numbers of Cars by Number of Cylinders",
+           x = "Number of Cylinders",
+           y = "Number of cars",
+           fill = "Number of Cylinders") 
+#+end_src
+
+#+RESULTS:
+[[file:geom_bar1.png]]
+
+***** TODO Create a line plot using ggplot2
+
+- The ~economics~ data set is a built-in R data set. It contains
+  quarterley data from 1960 to 2019 on various economic indicators
+  such as personal income, disposable personal income, and consumer
+  price index. The data set has 574 rows and 6 columns.
+
+1) Check the structure of the ~economics~ dataset, as well as the first
+   6 rows of the data set.
+#+begin_src R
+  str(economics)
+  head(economics)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+spc_tbl_ [574 x 6] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ date    : Date[1:574], format: "1967-07-01" "1967-08-01" ...
+ $ pce     : num [1:574] 507 510 516 512 517 ...
+ $ pop     : num [1:574] 198712 198911 199113 199311 199498 ...
+ $ psavert : num [1:574] 12.6 12.6 11.9 12.9 12.8 11.8 11.7 12.3 11.7 12.3 ...
+ $ uempmed : num [1:574] 4.5 4.7 4.6 4.9 4.7 4.8 5.1 4.5 4.1 4.6 ...
+ $ unemploy: num [1:574] 2944 2945 2958 3143 3066 ...
+
+# A tibble: 6 x 6
+  date         pce    pop psavert uempmed unemploy
+  <date>     <dbl>  <dbl>   <dbl>   <dbl>    <dbl>
+1 1967-07-01  507. 198712    12.6     4.5     2944
+2 1967-08-01  510. 198911    12.6     4.7     2945
+3 1967-09-01  516. 199113    11.9     4.6     2958
+4 1967-10-01  512. 199311    12.9     4.9     3143
+5 1967-11-01  517. 199498    12.8     4.7     3066
+6 1967-12-01  525. 199657    11.8     4.8     3018
+#+end_example
+
+
+2) Create a line grpah of the population ~(pop)~ vs ~date~. Make the color
+   of the line blue and set size to 2.
+   
+#+begin_src R :results graphics file :file geom_line1.png
+  ggplot(data = economics, aes(x = date, y = pop)) +
+    geom_line(color = "blue", size = 2)
+#+end_src
+
+#+RESULTS:
+[[file:geom_line1.png]]
+
+3) Create the same graph as above but set the aesthetics of the line
+   to show size equal to unemploy divided by population.
+
+#+begin_src R :results graphics file :file geom_line2.png
+  ggplot(data = economics, aes(x = date, y = pop)) +
+    geom_line(color = "blue", aes(size = unemploy/pop))  
+
+#+end_src
+
+#+RESULTS:
+[[file:geom_line2.png]]
+
+***** TODO Create a histogram using ggplot2
+
+1) Look at the structure of the ~mtcars~ data set again.
+
+   #+begin_src R
+     str(mtcars)
+   #+end_src
+
+   #+RESULTS:
+   #+begin_example
+   'data.frame':	32 obs. of  11 variables:
+    $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+    $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
+    $ disp: num  160 160 108 258 360 ...
+    $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
+    $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+    $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
+    $ qsec: num  16.5 17 18.6 19.4 17 ...
+    $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...
+    $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
+    $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
+    $ carb: num  4 4 1 1 2 1 4 2 2 4 ...
+   #+end_example
+
+2) Create a hitogram of the ~mpg~ variable in the ~mtcars~ data set. Set
+   the ~binwidth~ in the histogram call to 2, the ~fill~ to lightblue, and
+   color to black. Store this in a variable named ~car~.
+
+   #+begin_src R :results graphics file :file geom_hitogram1.png
+     car <- ggplot(mtcars, aes(x = mpg)) +
+             geom_histogram(binwidth = 2, fill = "lightblue", color = "black")
+     car
+   #+end_src
+
+   #+RESULTS:
+   [[file:geom_hitogram1.png]]
+
+ 3) Using the variable you created above. Title the chart
+    ~Distribution of MPG in mtcars~, label the x axis ~miles per Gallon~,
+    and the y axis ~Frequency~. Overwrite the ~car~ variable with this
+    addition.
+
+    #+begin_src R :results graphics file :file geom_hitogram2.png 
+      car <- car +
+               labs(title = "Distribution of MPG in mtcars",
+                    x = "Miles per Gallon",
+                    y = "Frequency")
+      car
+    #+end_src
+
+    #+RESULTS:
+    [[file:geom_hitogram2.png]]
+    
+***** TODO Choosing between base R and ggplot2
+
+- Deciding wether to use base R graphics or ggplot2 depends on the
+  specific needs of your project and personal preferences. However,
+  here are some general considerations to help you decide:
+
+- Base R graphics are easier to use for simple plots and require less
+  coding. For example, if you need to create a scatter plot of two
+  variables, you can simply use the ~plot~ function in base R without
+  needing to install any additional packages. Base R graphics are also
+  better suited for interactive plots or plots with large number of
+  data points, as they are generally faster and more reponsive than
+  ggplot2.
+
+- On the other hand, ggplot2 is a powerful and flexible package for
+  creating complex and publication-quality plots. It provides a wide
+  range of customization options for controlling the appearance and
+  style of the plot, and makes it easy to create multiple plots with a
+  consistent theme. Additionally, ggplot2 provides a grammar of
+  graphics framework that can be used to build complex plots with
+  multiple layers and facets.
+
+- In general, ggplot2 is a good choice if you need to create complex
+  or customized plots, or if you want to create plots with a
+  consistent look and feel across multiple visualizations. Base R
+  graphics may be a better choice if you need to quickly create simple
+  plots, or if you prefer to work with a simpler syntax. Ultimately,
+  the choice between base R graphics and ggplot2 depends on your
+  specific needs and preferences, and both options are capable of
+  producing high-quality plots.
+  
+***** TODO References
+
+ R Core Team (2021). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria.[[https://www.R-project.org/][URL]]
+ Stallman, R. M. (1984). The Emacs editor. GNU Project. [[https://www.gnu.org/software/emacs/][emacs]]
+ Schulte, E., Davison, C., & Dominik, C. (2016). The Org mode 8 Reference Manual. [[https://orgmode.org/manual/][org-mode]]
+ Mandy Mejia, “10 Reasons to Switch to Ggplot”, Mandymejia, 14 Nov. 2013, [[https://mandymejia.com/2013/11/13/10-reasons-to-switch-to-ggplot-7/][10 Reasons]]
+ David Robinson, “Why I Use GGPLOT2”, Variance Explained, 12 Feb. 2016 , [[http://varianceexplained.org/r/why-I-use-ggplot2/][Why I use]]
+ Yau, Nathan. “Comparing ggplot2 and R Base Graphics.” FlowingData, 29 Aug. 2018, [[https://flowingdata.com/2016/03/22/comparing-ggplot2-and-r-base-graphics/][URL]] 
+
+*** Practice sheet for the class
+#+TITLE: Intorduction to ggplot2
+#+AUTHOR: Victor Noppe, Andrei Galca, and Pedro Mota 
+#+SUBTITLE: ggplot2 project practice sheet
+#+STARTUP:overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :session *R* :results output :exports both 
+***** README
+
+- This practice guide will give you an introduction to ggplot2. It
+  will start you on the path to understanding and becoming proficient
+  in using the ggplot2 package to explore and visualize data.
+  
+***** TODO Identify and pledge yourself
+
+1) In Emacs, put your name at the top of this
+   file next to where it says ~#+AUTHOR~ and write ~(pledged)~ next to
+   it. In case this will be turned in.
+2) Then with the cursor on the head line for this block, while holding
+   the ~shift~ key use the ~right and left arrow keys~ to change ~TODO~ to
+   ~DONE~. As you work through the practice guide do this on every
+   header as you complet the sections.
+
+***** TODO What is ggplot2 and what is it used for?
+
+- ggplot2 is a data visualization package in R that is based on the
+  grammer of graphics. It provides a flexible and intuitive approach
+  to complex visualizations by breaking down a plot into a
+  set of layers. ggplot2 differs from other R plotting packages in
+  that it is declarative. This means that you specify what you want a
+  plot to look like instead of how to create it.
+  
+***** TODO What are the basic components of a ggplot2 plot?
+
+- A ggplot2 plot is composed of a data frame, a set of aesthetics that
+  map data to visual properties such as x and y coordinates or color,
+  and one or more layers that define the visual elements ~(geometry)~ of the plot
+  such as points, lines or bars.
+
+  Every plot call starts with a call to the ggplot2 package using the
+  ~ggplot()~ function call. The basic call looks like this ~ggplot(data
+  = , aes(x = , y =))~. You can also specify color in the aes
+  ~(aesthetics)~ call. View the help page to see other arguments for
+  later uses. The ~geom_*()~ call is where you start choosing what type
+  of geometry you want for you plot.
+
+  ~i.e. geom_point() will create a scatter plot, geom_line() a line plot, geom_bar
+  a bar plot, and so on.~  
+   
+***** TODO Create a basic scatter plot using the iris data set
+
+- The ~iris~ data set is a built in data set in R. It contains
+  measurements of the sepals and petals of three different species of
+  iris flowers. The data set contains 150 observations and 5 variables.
+
+1) Look at the structure of the ~iris~ dataset.
+  
+#+begin_src R
+      
+#+end_src
+
+2)Load the ggplot2 package.
+
+#+begin_src R 
+ 
+#+end_src
+
+3) Make a basic scatter plot of the sepal length vs the sepal width.
+  
+#+begin_src R :results graphics file :file ggplot_geom_point1.png
+  ---(data = ---, aes(x = Sepal.---, y = Sepal.---)) +
+    geom_---()
+#+end_src
+
+- The plot suggests that there may be some differences in sepal length
+  and width between the different species of iris flowers.
+
+4) Add color to the points by setting color to ~Species~.
+
+#+begin_src R :results graphics file :file ggplot_geom_point2.png
+  ---(data = iris, aes(x = Sepal.---, y = Sepal.---, color = ---)) +
+    geom_---()
+#+end_src
+
+5) Change the axis labels to ~Length of Sepal~ and ~Width of Sepal~. Also
+   add a title, call it ~Sepal Length vs Sepal Width~.
+   ~hint: you use labs in some manner~
+
+#+begin_src R :results graphics file :file ggplot_geom_point3.png
+  ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+    geom_point() +
+    ---(--- = ---,
+         - = ---,
+         - = ---)
+#+end_src
+
+- The ~mtcars~ data set includes measurements on 32 cars and 11
+  variables for each car. 
+
+6)Look at the structure of the ~mtcars~ dataset.
+
+#+begin_src R
+  
+#+end_src
+
+7) Make a scatter plot of ~mpg~ vs ~wt~ from the ~mtcars~ dataset and set
+   the color to a ~factor~ of ~cyl~, and save it to a variable named
+   ~carplot~. By setting color to a factor of cyl you are using it as a
+   categorical vector.
+
+#+begin_src R :results graphics file :file ggplot_geom_point4.png
+  carplot <-  ggplot(data = ---, aes(x = ---, y = ---, color = ---)) +
+    geom_point()
+  
+#+end_src
+
+8) Using the variable you created add a regression line to the
+   plot. Use the call ~geom_smooth()~ with the argument ~method~ and set
+   method equal to ~"lm"~.~ You will also need to set the ~se~ argument to
+   false, set color to black, and call ~aes~ and set group to 1.
+   
+#+begin_src R :results graphics file :file ggplot_geom_smooth5.png
+  carplot +
+    ---(--- = ---, --- = ---, ---(--- = -))
+#+end_src
+
+***** TODO Create a bar plot using ggplot2
+
+1) look at the structure of ~mtcars~ again to refresh what it looks like.
+
+#+begin_src R
+  
+#+end_src
+
+2) Make a bar plot of the number of cars with each number of cylinders
+   using the ~mtcars~ dataset. Do this so it shows only cylinders that
+   are real. Such as 4, 6, and 8. Give it the title "Number of Cars by
+   Number of Cylinders". Name the x and y labels to "Number of Cylinders"
+   and "Number of Cars", and title the fill as "Number of Cylinders"
+
+   ~Hint: You will have to convert cyl to be viewed as a categorical vector.~  
+
+#+begin_src R :results graphics file :file geom_bar1.png
+  ggplot(data = ---, ---(x = ---, fill = ---)) +
+    geom_bar() +
+    ---(title = "Numbers of Cars by Number of Cylinders",
+           x = "Number of Cylinders",
+           y = "Number of cars",
+           fill = "Number of Cylinders") 
+#+end_src
+
+***** TODO Create a line plot using ggplot2
+
+- The ~economics~ data set is a built-in R data set. It contains
+  quarterley data from 1960 to 2019 on various economic indicators
+  such as personal income, disposable personal income, and consumer
+  price index. The data set has 574 rows and 6 columns.
+
+1) Check the structure of the ~economics~ dataset, as well as the first
+   6 rows of the data set.
+#+begin_src R
+
+#+end_src
+
+2) Create a line grpah of the population ~(pop)~ vs ~date~. Make the color
+   of the line blue and set ~size~ to 2.
+   
+#+begin_src R :results graphics file :file geom_line1.png
+  ggplot(data = ---, ---(x = ---, y = ---)) +
+    ---(---, ---)
+#+end_src
+
+3) Create the same graph as above but set the aesthetics of the line
+   to show ~size~ equal to unemploy divided by population.
+
+#+begin_src R :results graphics file :file geom_line2.png
+  ggplot(data = economics, aes(x = date, y = pop)) +
+    geom_line(color = "blue", ---(---))  
+
+#+end_src
+
+***** TODO Create a histogram using ggplot2
+
+1) Look at the structure of the ~mtcars~ data set again.
+
+   #+begin_src R
+     
+   #+end_src
+
+2) Create a hitogram of the ~mpg~ variable in the ~mtcars~ data set. Set
+   the ~binwidth~ in the histogram call to 2, the ~fill~ to lightblue, and
+   ~color~ to black. Store this in a variable named ~car~.
+
+   #+begin_src R :results graphics file :file geom_hitogram1.png
+     car <- ggplot(---, aes(x = ---)) +
+             ---(---, ---, ---)
+     
+   #+end_src
+
+ 3) Using the variable you created above. Title the chart
+    ~Distribution of MPG in mtcars~, label the x axis ~miles per Gallon~,
+    and the y axis ~Frequency~. Overwrite the ~car~ variable with this
+    addition.
+
+    #+begin_src R :results graphics file :file geom_hitogram2.png 
+      car <- car +
+               labs(--- = "Distribution of MPG in mtcars",
+                    - = "Miles per Gallon",
+                    - = "Frequency")
+      
+    #+end_src
+    
+***** TODO Choosing between base R and ggplot2
+
+- Deciding wether to use base R graphics or ggplot2 depends on the
+  specific needs of your project and personal preferences. However,
+  here are some general considerations to help you decide:
+
+- Base R graphics are easier to use for simple plots and require less
+  coding. For example, if you need to create a scatter plot of two
+  variables, you can simply use the ~plot~ function in base R without
+  needing to install any additional packages. Base R graphics are also
+  better suited for interactive plots or plots with large number of
+  data points, as they are generally faster and more reponsive than
+  ggplot2.
+
+- On the other hand, ggplot2 is a powerful and flexible package for
+  creating complex and publication-quality plots. It provides a wide
+  range of customization options for controlling the appearance and
+  style of the plot, and makes it easy to create multiple plots with a
+  consistent theme. Additionally, ggplot2 provides a grammar of
+  graphics framework that can be used to build complex plots with
+  multiple layers and facets.
+
+- In general, ggplot2 is a good choice if you need to create complex
+  or customized plots, or if you want to create plots with a
+  consistent look and feel across multiple visualizations. Base R
+  graphics may be a better choice if you need to quickly create simple
+  plots, or if you prefer to work with a simpler syntax. Ultimately,
+  the choice between base R graphics and ggplot2 depends on your
+  specific needs and preferences, and both options are capable of
+  producing high-quality plots.
+  
+***** TODO References
+
+ R Core Team (2021). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria.[[https://www.R-project.org/][URL]]
+ Stallman, R. M. (1984). The Emacs editor. GNU Project. [[https://www.gnu.org/software/emacs/][emacs]]
+ Schulte, E., Davison, C., & Dominik, C. (2016). The Org mode 8 Reference Manual. [[https://orgmode.org/manual/][org-mode]]
+ Mandy Mejia, “10 Reasons to Switch to Ggplot”, Mandymejia, 14 Nov. 2013, [[https://mandymejia.com/2013/11/13/10-reasons-to-switch-to-ggplot-7/][10 Reasons]]
+ David Robinson, “Why I Use GGPLOT2”, Variance Explained, 12 Feb. 2016 , [[http://varianceexplained.org/r/why-I-use-ggplot2/][Why I use]]
+ Yau, Nathan. “Comparing ggplot2 and R Base Graphics.” FlowingData, 29
+ Aug. 2018,
+ [[https://flowingdata.com/2016/03/22/comparing-ggplot2-and-r-base-graphics/][URL]]
+ 
+** References
+
+ R Core Team (2021). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria.[[https://www.R-project.org/][URL]]
+ Stallman, R. M. (1984). The Emacs editor. GNU Project. [[https://www.gnu.org/software/emacs/][emacs]]
+ Schulte, E., Davison, C., & Dominik, C. (2016). The Org mode 8 Reference Manual. [[https://orgmode.org/manual/][org-mode]]
+ Mandy Mejia, “10 Reasons to Switch to Ggplot”, Mandymejia, 14 Nov. 2013, [[https://mandymejia.com/2013/11/13/10-reasons-to-switch-to-ggplot-7/][10 Reasons]]
+ David Robinson, “Why I Use GGPLOT2”, Variance Explained, 12 Feb. 2016 , [[http://varianceexplained.org/r/why-I-use-ggplot2/][Why I use]]
+ Yau, Nathan. “Comparing ggplot2 and R Base Graphics.” FlowingData, 29 Aug. 2018, [[https://flowingdata.com/2016/03/22/comparing-ggplot2-and-r-base-graphics/][URL]] 
+
