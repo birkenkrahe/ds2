@@ -1093,7 +1093,7 @@ Fri:
 - Pipeline to chain small Unix commands
 - Commands covered: ~ls~, ~alias~, ~tee~, ~curl~
 
-* IN PROGRESS Week 14 - Introduction to csvkit
+* Week 14 - Introduction to csvkit
 #+attr_latex: :width 400px
 #+caption: Andy Miccone, Milsa (Flickr.com)
 [[../img/12_kit.jpg]]
@@ -1105,7 +1105,7 @@ Fri:
 - *This will give you just the (Ubuntu Linux) terminal*
 - Alternatively open a Linux-type terminal elsewhere
 
-* DONE [[https://github.com/birkenkrahe/org/blob/master/grading/Presentation_Assessment_Form.pdf][Rubric for evaluating your presentations]]
+** [[https://github.com/birkenkrahe/org/blob/master/grading/Presentation_Assessment_Form.pdf][Rubric for evaluating your presentations]]
 #+attr_latex: :width 400px
 #+caption: Dicky Smythe, motorcycle speedway rider (1948) - Flickr.com
 [[../img/presentation.jpg]]
@@ -1115,7 +1115,7 @@ Fri:
 - Zip all materials and upload them to Canvas no later than May 3rd
 - If I don't get your material by that time, you won't get any points
 
-* DONE What about the last DataCamp lesson? (BONUS)
+** What about the last DataCamp lesson? (BONUS)
 #+attr_latex: :width 400px
 #+caption: Photo: Microscopic apocalypse - the devil is in the detail (Flickr.com)
 [[../img/microscopic.jpg]]
@@ -1127,7 +1127,7 @@ Fri:
 - In this way, you've got a head start in FOUR data science dialects!
 - I may produce another video based on the [[https://csvkit.readthedocs.io/en/latest/tutorial.html][csvkit tutorial]] this summer[fn:6]
 
-* DONE [[https://www.freecodecamp.org/news/learn-bash-scripting-tutorial/][Free 1 hr online ~bash~ scripting tutorial]]
+** [[https://www.freecodecamp.org/news/learn-bash-scripting-tutorial/][Free 1 hr online ~bash~ scripting tutorial]]
 #+attr_latex: :width 400px
 [[../img/bashscripting.png]]
 
@@ -1135,7 +1135,7 @@ Fri:
 - Alternatively, use a ~bash~ template at [[https://replit.com][replit.com]]
 - Or use DataCamp workspace and run files with ~bash~
 
-* TODO Finish ~csvkit~ practice
+** Finish ~csvkit~ practice
 
 1) What is ~csvkit~ exactly?
    #+begin_quote
@@ -1167,11 +1167,11 @@ Fri:
   ls -alF  ## the -F (--classify) attaches an indicator to the file listing
 #+end_example
 
-* TODO What next? summary and outlook
+** What next? summary and outlook
 #+attr_latex: :width 400px
 #+caption: Deaf children of St. Rita's School, Cincinnati, singing Star Spangled Banner (LOC)
 [[../img/signing.jpg]]
-* Achievements:
+** Achievements:
 
 - Learnt how to code in R (not just explore interactively)
 - Learnt transferable skills on functional programming
@@ -1181,7 +1181,7 @@ Fri:
 - Learnt to use the command line for data processing
 - Developed fluency with the GNU Emacs literate programming system
 
-* Changes
+** Changes
 
 - An introduction to regular expressions (see DataCamp course)
 
@@ -1219,7 +1219,7 @@ To graduate to a full-fledged R programmer, get this excellent book:
   Matloff's essay "[[https://github.com/matloff/TidyverseSkeptic][TidyverseSceptic]]" and his side-by-side comparison
   "[[https://github.com/matloff/TidyverseSkeptic/blob/master/RDesign.pdf][R Design Patterns, Base-R vs. Tidyverse]]" for R beginners.
 
-* Languages
+** Languages
 
 - *SQL*: take my CSC 330 course next spring if you're still around,
   and/or work through introductory and intermediate SQL (PostgreSQL)
@@ -1245,7 +1245,7 @@ To graduate to a full-fledged R programmer, get this excellent book:
 - If you tire of Emacs, I recommend ~replit.com~ templates for a
   multitude of languages - (still) free and online (with phone app).
 
-* Career
+** Career
 
 - ​[[https://link.medium.com/pLGMURvz1yb][How To Improve Your Job Search With 4 + 1 Quick Tips]]:
   1) Apply to a lot of jobs
@@ -1281,6 +1281,11 @@ To graduate to a full-fledged R programmer, get this excellent book:
      
 
 * TODO Week 15 - Projects I
+* TODO SURVEY - BONUS POINTS! DO IT NOW! PAYBACK TIME!
+#+attr_latex: :width 400px
+#+caption: Current course evaluation status
+[[../img/eval.png]]
+
 * TODO Week 16 - Projects II
 * References
 
