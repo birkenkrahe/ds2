@@ -380,6 +380,8 @@ More: [[https://support.datacamp.com/hc/en-us/articles/4680790331287-Getting-Sta
   #+end_example
 - Explore other ~curl~ flags on your own time!
 
+- ~curl~ [[https://curl.se/docs/manual.html][tutorial with various protocols]].
+
 * Download data with ~wget~ - the background
 
 - The utility ~wget~ is a "non-interactive" ("batch") network downloader

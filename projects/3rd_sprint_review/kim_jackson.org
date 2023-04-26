@@ -1,0 +1,70 @@
+#+TITLE: Exploring Data Science Salaries With ggvis
+#+AUTHOR: Kim Ho and Jackson Harrod [Pledged]
+#+SUBTITLE:DSC205 Introduction to Advanced Data Science Sprint 3
+#+STARTUP:overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :exports both :results output :session *R* :noweb yes
+
+* Abstract
+#+begin_example
+       Given that data science is one of the fastest growing fields in the
+job market, it's very natural for students like ourselves to look into
+it as a viable career choice. But when we say “data science” we tend
+to ignore the fact that not all data science jobs are equal. As
+diverse as data science is, there are many different ways to measure
+the overall “success” of a data science job–and many different
+variables that influence that success. In this project though, we are
+just going to keep it simple, strictly looking at how several
+different variables affect the overall pay of data science
+jobs. Additionally, we will be using the R package ggvis to visualize
+and explain our research.
+       Let’s start with ggvis. Ggvis is a visualization package in R
+that shares many features with ggplot2. In fact, much of the syntax
+transfers between the two packages. Unlike ggplot2 though, ggvis
+allows the use of shiny’s interface to create interactive and animated
+graphics rendered in a web browser. Ultimately, the goal of ggvis was
+to create a package that combined the utility of R, with the ease of
+access of a browser.
+       Moving onto our data specifically, we are looking at how five
+different factors affect the salary of data science jobs. Firstly,
+something that impacts most fields of work: experience level. For our
+project, we divided experience level into four categories. Entry level
+jobs, mid level jobs, high level jobs, and executive level jobs. And
+as expected, generally the more experience you obtain, the more money
+you earn. Entry level jobs start at about 60,000 dollars per year, and
+there is a steady increase in average pay of about 50,000 dollars per
+year, per level. Job titles are another factor that impacts most
+fields–but it does not play as large a role in data science jobs as
+you might think. Unlike most fields, jobs in data science tend to have
+different titles for similar work. This is shown in our research, as
+if you exclude executive level positions, there isn’t much correlation
+between the average salary over job titles. Something we were very
+surprised doesn’t have much of an impact on salary is the remote
+ratio, or the proportion of the job that is done remotely.
+Astonishingly, there is quite a large amount of variance over
+all amounts of remoteness–and it’s not strictly better to be in
+person or remote. The final two factors we are looking at in our
+project are company size and location. We divided company size up into
+three categories: small, medium, and large. This was one of the more
+interesting factors in our opinion, as although the average pay among
+sizes only slightly increased with company size, larger companies had
+significantly higher average salaries involving high level and
+executive level jobs. We divided location up by country, and location
+behaved very predictably, as jobs in first world countries had higher
+salaries than jobs in smaller countries.
+       We are very excited to present our research in full, and
+further explore ggvis with the class as a whole.
+
+#+end_example
+* Explore Our Data
+
+#+begin_src R
+  library(ggvis)
+  library(tidyr)
+  library(dplyr)
+  dsc_jobs <- read.csv("https://raw.githubusercontent.com/jacksonwharrod/glowing-octo-telegram/main/ds_salaries%20-%20ds_salaries.csv")
+  str(dsc_jobs)
+#+end_src
+
+#+RESULTS:
+

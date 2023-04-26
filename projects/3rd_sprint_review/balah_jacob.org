@@ -1,0 +1,49 @@
+#+TITLE: Reactivity in Shiny
+#+SUBTITLE: Intro to Advanced Data Science
+#+AUTHOR: Jacob Wolfrom, Balah Muhammad
+
+* Abstract
+
+Accessibility of data is of the utmost importance in interdisciplinary
+fields such as data science. This is a factor that affects both sides
+of a discipline. A data scientist will not necessarily understand data
+invloving a specific domain just as an expert in that field does not
+neccessarily understand how to unpack the analysis a data scientist
+performs. In order to work together efficiently, both parties need to
+be able to effectively communicate and share information in a way that
+can be understood by the other. In this project, we demonstrate that
+interactive dashboards like the ones created by the shiny package for
+R and Python are effective at helping data scientists bridge the gap
+and between field experts and data analysis. The shiny package allows
+for the creation of interactive web applications with minimal
+knowledge of HTML or other web page development requirements such as
+CSS. This enables a data scientist to create an interactive dashboard
+in the same environment that they do their analysis in, eliminating
+the burden of learning and maintaining the skills to not only create a
+web page, but also eliminating the need to integrate the environments
+together. Shiny handles all of the heavy lifting in converting the
+commands given into the corresponding HTML code, as well as
+implementing a lazy, reactive evaluation design model that can be used
+to keep the application running smooth. By spending a relatively short
+amount of extra time, shiny allows for a data scientist to help bring
+data analysis into the hands of a field expert. This allows a data
+scientist to more readily communicate their analysis in a visual way
+that can possibly be more easily understood by someone in another
+field. This increase in positive communication should in turn allow a
+field expert to give better feedback and information to help the data
+scientist further their analysis.
+
+* References
+** Source
+McCormick, C. (2019, August 27). Interactive Dashboards for Data Science. Retrieved April 21, 2023, from https://towardsdatascience.com/interactive-dashboards-for-data-science-51aa038279e5
+** Software
+R 4.1.2 [Computer software]. (2021). Retrieved from
+https://www.R-project.org/R
+
+
+R 4.2.2 [Computer software]. (2021). Retrieved from
+https://www.R-project.org/R
+
+
+GNU Emacs 27.2 [Computer software]. (2021). Retrieved from
+https://ftp.gnu.org/gnu/emacs/windows/

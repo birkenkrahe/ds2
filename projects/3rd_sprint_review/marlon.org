@@ -1,0 +1,21 @@
+Marlon durand
+Dr.Burkincrahe
+Machine learning
+19 April 2023
+Machine learning with caret 
+The caret package is a powerful tool for machine learning (ML) that provides a unified interface for training and evaluating models in R. It streamlines the process of data pre-processing, feature selection, and model tuning, allowing data scientists to easily compare different algorithms and select the best model for their specific problem. The package includes a variety of ML models, including linear and nonlinear regression, decision trees, random forests, support vector machines, and neural networks. Additionally, caret offers a range of performance metrics, such as accuracy, precision, recall, and area under the receiver operating characteristic curve (AUC-ROC), to evaluate model performance. With its comprehensive functionality and ease of use, the caret package is an invaluable tool for ML practitioners, allowing them to rapidly develop and refine models for a wide range of applications. This is why I chose to use caret as the package I have to learn and present about. As it is a one stop shop for all your machine learning needs. I intend on showing only the most basic aspects of the package as it has a lot to offer that takes much more time to get into. Carey asking has its own visualization features with feature plot which can be used to make several different plots based on the models you make. It is also the most used package so learning how to use it now is a good idea because if you get into the field you’ll likely see it again. 
+
+
+
+Works Cited
+ Parbhakaran, Selva. "Caret Package - A complete Guide to 
+       Build Machine Learning in R." Machine Learning Plus,
+       19 Jan. 2023
+
+ Kuhn, Max. "The Caret Package." Github Sites, 27 Mar.
+2019, http://topepo.github.io/caret/index.html.
+ 
+ Barter, Rebecca. “A Basic Tutorial of Caret: The Machine Learning
+     Package in R.” Hugo Future Imperfect, 18 Nov. 2017,
+     https://www.rebeccabarter.com/blog/2017-11-17-caret_tutorial/.
+R Core Team (2022). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria, URL: R-project.org.
