@@ -1,0 +1,576 @@
+#+TITLE: Regression Models on Twitter Impressions
+#+AUTHOR: Hunter Perkins, Marlon Durand, Jordan Deuley
+#+startup: overview hideblocks indent
+#+property: header-args:R :session *R* :exports both :results output
+
+* Getting Started
+** Running Regression Models on Twitter Data
+#+attr_latex: :width 400px
+#+caption: Elon Musk
+[[./musk.jpg]]
+
+In this project, we'll be looking at 3 different Twitter users and
+their Tweets, the three being Chris Udalla, Elon Musk, and "Corn". The
+point of this project is to create a regression model for the views or
+interactions of a tweet. In each of our datasets, we will have 4
+independent variables (favorites, retweets, replies, and media type).
+
+** Scraping the Data
+#+attr_latex: :width 400px
+#+caption: Apify Web Scraper
+[[./apify.png]]
+
+Daddy Elon Musk has made it quite hard to access Twitter
+data. Originally, we thought we had to make developer accounts and
+wait for approval on this project, but there are web scrapers such as
+APIFY that easily can scrape hundreds and thousands of Tweets in
+minutes.
+** Our Three Tweeters
+#+attr_latex: :width 400px
+#+caption: Corn's Comedy
+[[./corn_prof_pic.png]]
+We chose Chris Udalla, "Corn", and Elon Musk for this project because
+we wanted a variety of followings for our users. For example, Udalla
+has 137K followers, Corn has 873K followers, and Elon Musk has 136M
+followers. The first two are comedic personalities on Twitter, while
+Elon Musk is... Elon.
+** The ~caret~ Package
+
+To test different types of regression models on our Twitter data, we
+installed a new package called ~caret~. It has many different types of
+regression models along with different types of measures to test the
+accuracy of our model.
+
+#+name: installing_caret
+#+begin_src R
+    #install.packages("caret")
+  library(caret)
+tail(ls("package:caret"),20)
+#+end_src
+
+#+RESULTS: installing_caret
+: 
+:  [1] "spatialSign"      "specificity"      "splsda"           "sumDiss"         
+:  [5] "summary.bagEarth" "svmBag"           "thresholder"      "tolerance"       
+:  [9] "train"            "trainControl"     "treebagFuncs"     "treebagGA"       
+: [13] "treebagSA"        "treebagSBF"       "twoClassSim"      "twoClassSummary" 
+: [17] "upSample"         "var_seq"          "varImp"           "well_numbered"
+
+The functions we'll be focusing on inside of this package are ~train~
+for our regression models and ~featurePlot~ for plotting purposes.
+
+#+name: train_syntax
+#+begin_src R
+  args(train)
+  print("----------------------------------------------")
+  args(trainControl)
+#+end_src
+
+#+RESULTS: train_syntax
+#+begin_example
+function (x, ...) 
+NULL
+
+[1] "----------------------------------------------"
+
+function (method = "boot", number = ifelse(grepl("cv", method), 
+    10, 25), repeats = ifelse(grepl("[d_]cv$", method), 1, NA), 
+    p = 0.75, search = "grid", initialWindow = NULL, horizon = 1, 
+    fixedWindow = TRUE, skip = 0, verboseIter = FALSE, returnData = TRUE, 
+    returnResamp = "final", savePredictions = FALSE, classProbs = FALSE, 
+    summaryFunction = defaultSummary, selectionFunction = "best", 
+    preProcOptions = list(thresh = 0.95, ICAcomp = 3, k = 5, 
+        freqCut = 95/5, uniqueCut = 10, cutoff = 0.9), sampling = NULL, 
+    index = NULL, indexOut = NULL, indexFinal = NULL, timingSamps = 0, 
+    predictionBounds = rep(FALSE, 2), seeds = NA, adaptive = list(min = 5, 
+        alpha = 0.05, method = "gls", complete = TRUE), trim = FALSE, 
+    allowParallel = TRUE) 
+NULL
+#+end_example
+
+* Corn 
+** Loading the Corn Dataframe
+
+#+name: corn_dataframe
+#+begin_src R
+  corn <- read.csv(file = "corn.csv",
+                   header = TRUE)
+
+  colnames(corn)[2] <- "media_type"
+  head(corn)
+  #+end_src
+
+#+RESULTS: corn_dataframe
+: 
+:   ï..favorite_count media_type reply_count retweet_count view_count
+: 1             85013      photo        1310          3441   13628618
+: 2             10927                     74           486     723532
+: 3              6872                     64           397     307288
+: 4              5614                     81           280     459723
+: 5             38311                    214          1648    2876041
+: 6             41106      photo         185          2251    3628052
+
+One thing we noticed when looking at the data is that retweets from
+the user were included with our Tweet scraper. However, this is an
+easy fix since the view count for every retweet holds an NA value.
+
+#+name: NA_value_removal
+#+begin_src R
+  corn <- na.omit(corn)
+  head(corn)
+   #+end_src
+   
+#+RESULTS: NA_value_removal
+: 
+:   ï..favorite_count media_type reply_count retweet_count view_count
+: 1             85013      photo        1310          3441   13628618
+: 2             10927                     74           486     723532
+: 3              6872                     64           397     307288
+: 4              5614                     81           280     459723
+: 5             38311                    214          1648    2876041
+: 6             41106      photo         185          2251    3628052
+
+** The Corn Model
+#+name: creating_the_corn_model
+#+begin_src R
+  corn_model <- train(
+      view_count ~ .,
+      corn,
+      method = "lm",
+      trControl = trainControl(
+          method = "cv",
+          number = 10,
+          verboseIter = FALSE))
+  corn_model
+#+end_src
+
+#+RESULTS: creating_the_corn_model
+#+begin_example
+
+Linear Regression 
+
+832 samples
+  4 predictor
+
+No pre-processing
+Resampling: Cross-Validated (10 fold) 
+Summary of sample sizes: 749, 749, 748, 749, 749, 749, ... 
+Resampling results:
+
+  RMSE     Rsquared   MAE    
+  2028186  0.7999225  1150629
+
+Tuning parameter 'intercept' was held constant at a value of TRUE
+#+end_example
+** Corn Outliers
+
+Going through the Tweets of Corn, we noticed that there were a lot of
+Tweets that could be classified as outliers, so we looked at the five
+point summary of the view count.
+#+name: five_point_summary_of_corn
+#+begin_src R
+  summary(corn$view_count)
+  corn <- corn[order(corn$view_count),]
+#+end_src
+
+#+RESULTS: five_point_summary_of_corn
+:     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+:   125987   810195  2344176  3735171  4948280 58247718
+
+As you can see, the MAXIMUM is very far away from the MINIMUM, with
+the IQR being quite wide as well. This next code block only grabs the
+view counts within 1.5 times the size of the IQR.
+
+#+name: keeping_the_IQR
+#+begin_src R
+  corn_IQR <- (corn$view_count >= 810195 / 1.5 & corn$view_count <= 4948280 * 1.5)
+  corn <- corn[corn_IQR,]
+#+end_src
+
+#+RESULTS: keeping_the_IQR
+
+#+name: corn_IQR_model
+#+begin_src R
+  corn_model_2 <- train(
+      view_count ~ .,
+      corn,
+      method = "lm",
+      trControl = trainControl(
+          method = "cv",
+          number = 10,
+          verboseIter = FALSE))
+  corn_model_2
+#+end_src
+
+#+RESULTS: corn_IQR_model
+#+begin_example
+
+Linear Regression 
+
+577 samples
+  4 predictor
+
+No pre-processing
+Resampling: Cross-Validated (10 fold) 
+Summary of sample sizes: 519, 518, 518, 519, 521, 518, ... 
+Resampling results:
+
+  RMSE      Rsquared   MAE     
+  941218.8  0.7407414  698385.2
+
+Tuning parameter 'intercept' was held constant at a value of TRUE
+#+end_example
+
+After training a model on this new dataset fitted to the IQR, we saw
+that the r-squared value stayed about the same as the previous one,
+which we thought was interesting.
+
+** Experimenting with Corn
+To try and get a better look as to why our r-squared value barely
+changed (if any), we looked at some histograms and pairs-panels to
+better understand the data. In this next code block, we divide every
+numerical vector by 1000 so that the graphs don't show up in
+scientific notation.
+
+#+name: rereading_the_data
+#+begin_src R
+  corn <- read.csv("corn.csv",header=TRUE)
+  corn <- na.omit(corn)
+  colnames(corn)[1] <- "favorite_count"
+  corn$view_count <- corn$view_count / 1000
+  corn$favorite_count <- corn$favorite_count / 1000
+  corn$retweet_count <- corn$retweet_count / 1000
+  summary(corn)
+#+end_src
+
+#+RESULTS: rereading_the_data
+#+begin_example
+
+ favorite_count    media.0.type        reply_count      retweet_count    
+ Min.   :  0.357   Length:832         Min.   :   0.00   Min.   : 0.0030  
+ 1st Qu.: 15.445   Class :character   1st Qu.:  91.75   1st Qu.: 0.4853  
+ Median : 36.808   Mode  :character   Median : 185.00   Median : 1.5625  
+ Mean   : 56.280                      Mean   : 290.95   Mean   : 3.0379  
+ 3rd Qu.: 79.352                      3rd Qu.: 354.25   3rd Qu.: 3.7040  
+ Max.   :752.401                      Max.   :3784.00   Max.   :72.1860  
+   view_count     
+ Min.   :  126.0  
+ 1st Qu.:  810.2  
+ Median : 2344.2  
+ Mean   : 3735.2  
+ 3rd Qu.: 4948.3  
+ Max.   :58247.7
+#+end_example
+
+#+name: corn_pairs_panel_image
+#+begin_src R :file corn_pairs_panel.png :results graphics file
+    library(psych)
+    pairs.panels(corn[c("favorite_count",
+                        "reply_count","retweet_count", "view_count")])
+#+end_src
+
+#+RESULTS: corn_pairs_panel_image
+[[file:corn_pairs_panel.png]]
+
+As we thought, every  independent variable has a positive correlation
+with each other past a reasonable doubt, the strongest correlating
+being with *favorite_count* and *retweet_count*.
+
+#+name: view_count_hist
+#+begin_src R :file view_count_hist.png :results graphics file
+          hist(corn$view_count,
+               xlab = "Views in Thousands",
+               ylab = "Frequency",
+               main = "Corn View Count Histogram",
+               col = "green",
+               border = "red")
+#+end_src
+
+#+RESULTS: view_count_hist
+[[file:view_count_hist.png]]
+
+This histogram could be the reason as to why our r-squared value
+barely changed whenever we just looked at the IQR. The data is very
+dense in the 5-10 million range, covering more than 90% of our data.
+
+#+name: corn_lm_model
+#+begin_src R
+  corn_model_2 <- lm(view_count ~ ., data = corn)
+  summary(corn_model_2)
+#+end_src
+
+#+RESULTS: corn_lm_model
+#+begin_example
+
+Call:
+lm(formula = view_count ~ ., data = corn)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-10308.2   -734.1   -133.6    414.0  19745.5 
+
+Coefficients:
+                           Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                -0.05105  112.38050   0.000    1.000    
+favorite_count             56.91602    3.05833  18.610  < 2e-16 ***
+media.0.typeanimated_gif  212.00881  683.01441   0.310    0.756    
+media.0.typephoto        -741.36906  158.66842  -4.672 3.47e-06 ***
+media.0.typevideo         193.77875  304.89220   0.636    0.525    
+reply_count                 3.42877    0.23108  14.838  < 2e-16 ***
+retweet_count             -78.30436   38.82027  -2.017    0.044 *  
+---
+codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2027 on 825 degrees of freedom
+Multiple R-squared:  0.8031,	Adjusted R-squared:  0.8016 
+F-statistic: 560.7 on 6 and 825 DF,  p-value: < 2.2e-16
+#+end_example
+
+Before we move on to the next two Twitter accounts, we used a
+different function for modelling (~lm~) and saw that the r-squared
+value, once again, was about the same.
+* Musk and Chris Udalla
+** Loading the Musk and Udalla Datasets
+#+name: musk_and_udalla
+#+begin_src R
+  musk <- read.csv(file = "musk.csv", header = TRUE)
+  udalla <- read.csv(file = "udalla.csv", header = TRUE)
+  colnames(musk)[1] <- "favorite_count"
+  colnames(udalla)[1] <- "favorite_count"
+  colnames(musk)[2] <- "media_type"
+  colnames(udalla)[2] <- "media_type"
+  musk <- na.omit(musk)
+  udalla <- na.omit(udalla)
+  head(musk)
+  head(udalla)
+#+end_src
+
+#+RESULTS: musk_and_udalla
+#+begin_example
+
+  favorite_count media_type reply_count retweet_count view_count
+2         293587                  36735         19530   50679454
+3         106975                   9612         10649   14264512
+4         104290                  12699          9531   12446124
+5         363431      photo       10236         34288   22446812
+6         175409                  11205         17945   17999410
+7          67670                   6488          6796   14309922
+
+  favorite_count media_type reply_count retweet_count view_count
+1            597                      7            43      15273
+2            107                      0             0       3224
+3           1059                      5            39      33689
+4            996                     12            35      18062
+5            475      photo           7             4      13186
+6            204                      4             2       6334
+#+end_example
+#+begin_example
+
+  favorite_count media_type reply_count retweet_count view_count
+2         293587                  36735         19530   50679454
+3         106975                   9612         10649   14264512
+4         104290                  12699          9531   12446124
+5         363431      photo       10236         34288   22446812
+6         175409                  11205         17945   17999410
+7          67670                   6488          6796   14309922
+
+  favorite_count media_type reply_count retweet_count view_count
+1            597                      7            43      15273
+2            107                      0             0       3224
+3           1059                      5            39      33689
+4            996                     12            35      18062
+5            475      photo           7             4      13186
+6            204                      4             2       6334
+#+end_examp
+
+** Musk
+#+name: musk_hist
+#+begin_src R :file musk_hist.png :results graphics file
+            hist(musk$view_count / 10000,
+                 xlab = "Views in Tens of Thousands",
+                 ylab = "Frequency",
+                 main = "Elon Musk View Count Histogram",
+                 col = "green",
+                 border = "red")
+#+end_src
+
+#+RESULTS: musk_hist
+[[file:musk_hist.png]]
+
+Very similarly to the Corn dataset, our histogram is right skewed.
+
+#+begin_src R :file musk_pairs_panel.png :results graphics file
+    pairs.panels(musk[c("favorite_count",
+                        "reply_count","retweet_count", "view_count")])
+#+end_src
+
+#+RESULTS:
+[[file:musk_pairs_panel.png]]
+
+#+name: the_musk_model
+#+begin_src R
+  musk_model <- train(
+      view_count ~ .,
+      musk,
+      method = "lm",
+      trControl = trainControl(
+          method = "cv",
+          number = 10,
+          verboseIter = FALSE))
+  musk_model
+#+end_src
+
+#+RESULTS: the_musk_model
+#+begin_example
+
+Linear Regression 
+
+535 samples
+  4 predictor
+
+No pre-processing
+Resampling: Cross-Validated (10 fold) 
+Summary of sample sizes: 482, 482, 480, 481, 481, 481, ... 
+Resampling results:
+
+  RMSE      Rsquared   MAE     
+  16411408  0.6141205  11459971
+
+Tuning parameter 'intercept' was held constant at a value of TRUE
+#+end_example
+
+** Udalla
+
+#+begin_src R :file udalla_hist.png :results graphics file
+  hist(udalla$view_count / 10000,
+       xlab = "Views in Tens of Thousands",
+       ylab = "Frequency",
+       main = "Chris Udalla View Count Histogram",
+       col = "green",
+       border = "red")
+#+end_src
+
+#+RESULTS:
+[[file:udalla_hist.png]]
+
+
+#+begin_src R :file udalla_pairs_panel.png :results graphics file
+    pairs.panels(udalla[c("favorite_count",
+                        "reply_count","retweet_count", "view_count")])
+#+end_src
+
+#+RESULTS:
+[[file:udalla_pairs_panel.png]]
+
+
+#+begin_src R
+  udalla_model <- train(
+      view_count ~ .,
+      udalla,
+      method = "lm",
+      trControl = trainControl(
+          method = "cv",
+          number = 10,
+          verboseIter = FALSE))
+  udalla_model
+#+end_src
+
+#+RESULTS:
+#+begin_example
+
+Linear Regression 
+
+257 samples
+  4 predictor
+
+No pre-processing
+Resampling: Cross-Validated (10 fold) 
+Summary of sample sizes: 231, 232, 233, 230, 230, 231, ... 
+Resampling results:
+
+  RMSE      Rsquared   MAE     
+  44209.82  0.6910564  20149.97
+
+Tuning parameter 'intercept' was held constant at a value of TRUE
+#+end_example
+
+#+name: udalla_five_point_summary
+#+begin_src R
+summary(udalla$view_count)
+#+end_src
+
+#+RESULTS: udalla_five_point_summary
+:    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+:     914   13552   24571   44982   51251  746663
+
+#+name: reframing_for_the_IQR
+#+begin_src R
+  udalla_IQR <- (udalla$view_count >= 13552 / 1.5 & udalla$view_count <= 51251 * 1.5)
+  corn <- corn[corn_IQR,]
+#+end_src
+
+#+RESULTS: reframing_for_the_IQR
+
+#+begin_src R
+  udalla_model_2 <- train(
+      view_count ~ .,
+      udalla,
+      method = "lm",
+      trControl = trainControl(
+          method = "cv",
+          number = 10,
+          verboseIter = FALSE))
+  udalla_model_2
+#+end_src
+
+#+RESULTS:
+#+begin_example
+
+Linear Regression 
+
+257 samples
+  4 predictor
+
+No pre-processing
+Resampling: Cross-Validated (10 fold) 
+Summary of sample sizes: 232, 232, 232, 232, 231, 231, ... 
+Resampling results:
+
+  RMSE   Rsquared   MAE     
+  39279  0.7092147  18856.01
+
+Tuning parameter 'intercept' was held constant at a value of TRUE
+#+end_example
+
+* Conclusion
+** Final Remarks
+From the pairs panels, every independent variable had a positive
+correlation with each other, which is what we expected. As a Tweet
+gets more likes and retweets, more people will see the Tweet and
+repeat the process.
+** Why?
+#+attr_latex: :width 400px
+#+caption: WHY?
+[[./why.jpg]]
+The main purpose for this project was for marketing. If you go through
+viral tweets, you'll see comments in the thread that are advertising
+companies, products, and more. Using these three models, you can try
+to get the best bang for your buck. Obviously, Elon Musk is going to
+have more interactions with his tweets, but to market something in a
+thread of his would be more costly.
+** Restrictions and Limitations
+- Size of datasets
+- More goes into social media than just likes and comments
+
+** Future Projects?
+We would like to work with bigger datasets and actually use the text
+of the Tweet to see if there are any buzzwords that increase the
+interactions of it. Another possible future step would be using AI to
+identify certain objects in the photo of a tweet and see if those
+objects increase interactions.
+** SOURCES
+[[https://cran.r-project.org/web/packages/caret/index.html][The Caret Package]]
+[[https://apify.com/quacker/twitter-scraper][Apify Web Scraper]]
+[[https://twitter.com/Cudalla][Chris Udalla Twitter]]
+[[https://twitter.com/elonmusk][Elon Musk Twitter]]
+[[https://twitter.com/upblissed][Corn Twitter]]
