@@ -52,6 +52,11 @@ This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/mai
 
   #+end_src
 
+- Though, even shorter is =rowSums=:
+  #+begin_src R
+
+  #+end_src
+
 * ~apply~ example: ~array~
 
 - Create a 3 x 2 x 2 ~array~ named ~bar~ with the elements ~1:18~
@@ -125,13 +130,17 @@ This practice file accompanies the [[https://github.com/birkenkrahe/ds2/blob/mai
 
   #+end_src
 
-* NEXT ~vapply~ - simplified cycling with safety check
+* TODO ~vapply~ - simplified cycling with safety check
 
 - Read the help file and [[https://www.r-bloggers.com/2020/10/why-you-should-use-vapply-in-r/][this tutorial]] (Treadway, 2020).
+
+- Simple example:
 
 * TODO ~mapply~ - multivariate version of ~sapply~
 
 - Read the help file and [[https://www.statology.org/r-mapply/][this tutorial]] (Zach, 2021).
+
+- Simple example:
 
 * TODO Exercises
 #+attr_latex: :width 400px

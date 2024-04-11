@@ -64,8 +64,32 @@
 - matrices: 2-dim arrays, e.g. ~matrix(1:9,3,3)~
 - arrays: n-dim, e.g. ~array(1:9,dim=c(3,3,2))~
   #+begin_src R
-    array(1:18,dim=c(3,3,2))
+    array(1:27,dim=c(3,3,3))
   #+end_src
+
+  #+RESULTS:
+  #+begin_example
+  , , 1
+
+       [,1] [,2] [,3]
+  [1,]    1    4    7
+  [2,]    2    5    8
+  [3,]    3    6    9
+
+  , , 2
+
+       [,1] [,2] [,3]
+  [1,]   10   13   16
+  [2,]   11   14   17
+  [3,]   12   15   18
+
+  , , 3
+
+       [,1] [,2] [,3]
+  [1,]   19   22   25
+  [2,]   20   23   26
+  [3,]   21   24   27
+  #+end_example
 
 - The ~MARGIN~ index follows the positional order of the dimension for
   matrices and arrays:
@@ -81,14 +105,25 @@
 - Create a 4 x 3 matrix with the elements ~1:12~:
   #+name: define_foo
   #+begin_src R
-    foo <- matrix(1:12,4,3) # default byrow=FALSE
+    foo <- matrix(1:12,4,3) # default byrow=FALSE 
     foo
   #+end_src
+
 - Find the sum of each row of ~foo~. What about ~sum(foo)~?
   #+begin_src R
     sum(foo)  # this sums up ALL elements
+    sum(1:12)
   #+end_src
-- Loop over the rows of ~foo~:
+
+- Write a =for= loop over the rows of ~foo~:
+  #+begin_src R
+    foo
+    for (i in 1:nrow(foo)) {
+      print(sum(foo[i,]))
+      }
+  #+end_src
+
+- A fancier solution if you want to store the row sums:  
   #+begin_src R
     row.totals <- rep(NA, times=nrow(foo)) # initialize counter
     for (i in 1:nrow(foo)) {
@@ -96,6 +131,7 @@
     }
     row.totals
   #+end_src
+
 - Much shorter with ~apply~:
   #+begin_src R
     apply(
@@ -103,6 +139,7 @@
       MARGIN = 1, # MARGIN = 1 (rows), 2 (cols), 3 (layers), 4 (blocks)
       FUN = sum)
   #+end_src
+
 - To ~sum~ over columns instead, change ~MARGIN~ to ~2~.
   #+begin_src R
     apply(
@@ -120,6 +157,14 @@
       FUN = sort,
       decreasing = TRUE)
   #+end_src
+
+- Though, even shorter is =rowSums=:
+  #+begin_src R
+    rowSums(foo)
+  #+end_src
+
+  #+RESULTS:
+  : [1] 15 18 21 24
 
 * ~apply~ example: ~array~
 
