@@ -43,7 +43,7 @@
   binary files are installed (~l~ is a standard ~alias~ for ~ls -alF~ -
   print long listing of all files with classification):
   #+begin_src sh
-    l /usr/bin/*csv*
+    ls -l /usr/bin/*csv*
   #+end_src
 
 - In DataCamp, your installs are stored in ~$HOME/.local/bin/~:

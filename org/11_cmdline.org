@@ -66,8 +66,8 @@ Command line example[fn:1]: what is data, code, stats and story?
   | CMD line  | Windows term for the shell   |
   | Terminal  | MacOS term for the shell     |
   | tty       | Tele-type/session management |
-  |           |                              |
   #+end_quote
+
 * Things to do on the command line
 #+attr_html: :width 500px
 #+caption: Things to do on the command line (Source: Janssens, 2021)
@@ -122,7 +122,6 @@ with highly distributed, unstructured, or "dirty" data sources.
 
 * How to get a commandline for data science
 #+attr_html: :width 500px
-#+caption: Huskies pulling sledge (State Lib of NSW on Flickr.com)
 [[../img/11_workspace.png]]
 
 We're going to use DataCamp's workspaces - the Jupyter Notebook

@@ -118,7 +118,7 @@
   : [1] "Hello Marcus!"
 
 #+begin_src R
-                                          # ask_chatgpt("what's the command in R to define a function?\n")
+  ## ask_chatgpt("what's the command in R to define a function?\n")
 #+end_src
 
 * Example: Fibonacci sequence generator
